@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/imranshiundu/Ravenox">
-    <img alt="RAVENOX docs" height="350" src="https://files.catbox.moe/ia1mgm.jpg">
+    <img alt="RAVENOX docs" height="350" src="https://files.catbox.moe/diavtd.png">
   </a>
 </p>
     
