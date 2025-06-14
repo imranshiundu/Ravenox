@@ -9,7 +9,7 @@
 </a>
 </p>
 <p align="center">
-<a href="https://github.com/imranshiundu/Ravenox"><img title="Author" src="https://files.catbox.moe/diavtd.png?style=for-the-badge&logo=whatsapp"></a>
+<a href="https://github.com/imranshiundu/Ravenox"><img title="Author" src="style=for-the-badge&logo=whatsapp"></a>
 <p/>
 
 <p align="center">
