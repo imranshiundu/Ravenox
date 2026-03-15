@@ -22,10 +22,10 @@ import { ensureRavenoxModelsJson } from "./models-config.js";
 import { discoverAuthStorage, discoverModels } from "./pi-model-discovery.js";
 
 const LIVE = isTruthyEnvValue(process.env.LIVE) || isTruthyEnvValue(process.env.RAVENOX_LIVE_TEST);
-const SETUP_TOKEN_RAW = process.env.RAVENOX_LIVE_SETUP_TOKEN?.trim() ?? "";
-const SETUP_TOKEN_VALUE = process.env.RAVENOX_LIVE_SETUP_TOKEN_VALUE?.trim() ?? "";
-const SETUP_TOKEN_PROFILE = process.env.RAVENOX_LIVE_SETUP_TOKEN_PROFILE?.trim() ?? "";
-const SETUP_TOKEN_MODEL = process.env.RAVENOX_LIVE_SETUP_TOKEN_MODEL?.trim() ?? "";
+const SETUP_TOKEN_RAW = process.env.RAVENOX_LIVE_SETUP_TOKEN?.trim() ;
+const SETUP_TOKEN_VALUE = process.env.RAVENOX_LIVE_SETUP_TOKEN_VALUE?.trim() ;
+const SETUP_TOKEN_PROFILE = process.env.RAVENOX_LIVE_SETUP_TOKEN_PROFILE?.trim() ;
+const SETUP_TOKEN_MODEL = process.env.RAVENOX_LIVE_SETUP_TOKEN_MODEL?.trim() ;
 
 const ENABLED = LIVE && Boolean(SETUP_TOKEN_RAW || SETUP_TOKEN_VALUE || SETUP_TOKEN_PROFILE);
 const describeLive = ENABLED ? describe : describe.skip;
@@ -63,7 +63,7 @@ function pickSetupTokenProfile(candidates: string[]): string {
       return id;
     }
   }
-  return candidates[0] ?? "";
+  return candidates[0] ;
 }
 
 async function resolveTokenSource(): Promise<TokenSource> {
@@ -75,7 +75,7 @@ async function resolveTokenSource(): Promise<TokenSource> {
     if (error) {
       throw new Error(`Invalid setup-token: ${error}`);
     }
-    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-setup-token-"));
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-setup-token-"));
     const profileId = `anthropic:setup-token-live-${randomUUID()}`;
     const store = ensureAuthProfileStore(tempDir, {
       allowKeychainPrompt: false,
@@ -126,7 +126,7 @@ async function resolveTokenSource(): Promise<TokenSource> {
 }
 
 function pickModel(models: Array<Model<Api>>, raw?: string): Model<Api> | null {
-  const normalized = raw?.trim() ?? "";
+  const normalized = raw?.trim() ;
   if (normalized) {
     const parsed = parseModelRef(normalized, "anthropic");
     if (!parsed) {

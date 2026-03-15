@@ -96,7 +96,7 @@ export function fuzzyFilterLower<T extends { searchTextLower?: string }>(
 
   const results: { item: T; score: number }[] = [];
   for (const item of items) {
-    const text = item.searchTextLower ?? "";
+    const text = item.searchTextLower ;
     let totalScore = 0;
     let allMatch = true;
     for (const token of tokens) {

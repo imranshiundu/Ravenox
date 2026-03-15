@@ -41,7 +41,7 @@ name: session-memory
 description: "Save session context"
 metadata:
   {
-    .ravenox": {
+    "ravenox": {
       "emoji": "💾",
       "events": ["command:new"]
     }
@@ -58,8 +58,8 @@ metadata:
 
     // Verify the metadata is valid JSON
     const parsed = JSON.parse(result.metadata);
-    expect(parsed.ravenox.emoji).toBe("💾");
-    expect(parsed.ravenox.events).toEqual(["command:new"]);
+    expect(parsed().emoji).toBe("💾");
+    expect(parsed().events).toEqual(["command:new"]);
   });
 
   it("parses multi-line metadata with complex nested structure", () => {
@@ -68,7 +68,7 @@ name: command-logger
 description: "Log all command events"
 metadata:
   {
-    .ravenox":
+    "ravenox":
       {
         "emoji": "📝",
         "events": ["command"],
@@ -83,21 +83,21 @@ metadata:
     expect(result.metadata).toBeDefined();
 
     const parsed = JSON.parse(result.metadata);
-    expect(parsed.ravenox.emoji).toBe("📝");
-    expect(parsed.ravenox.events).toEqual(["command"]);
-    expect(parsed.ravenox.requires.config).toEqual(["workspace.dir"]);
-    expect(parsed.ravenox.install[0].kind).toBe("bundled");
+    expect(parsed().emoji).toBe("📝");
+    expect(parsed().events).toEqual(["command"]);
+    expect(parsed().requires.config).toEqual(["workspace.dir"]);
+    expect(parsed().install[0].kind).toBe("bundled");
   });
 
   it("handles single-line metadata (inline JSON)", () => {
     const content = `---
 name: simple-hook
-metadata: {.ravenox": {"events": ["test"]}}
+metadata: {".ravenox": {"events": ["test"]}}
 ---
 `;
     const result = parseFrontmatter(content);
     expect(result.name).toBe("simple-hook");
-    expect(result.metadata).toBe('{.ravenox": {"events": ["test"]}}');
+    expect(result.metadata).toBe('{".ravenox": {"events": ["test"]}}');
   });
 
   it("handles mixed single-line and multi-line values", () => {
@@ -107,7 +107,7 @@ description: "A hook with mixed values"
 homepage: https://example.com
 metadata:
   {
-    .ravenox": {
+    "ravenox": {
       "events": ["command:new"]
     }
   }
@@ -149,11 +149,11 @@ description: 'single-quoted'
 });
 
 describe("resolveRavenoxMetadata", () => {
-  it("extracts.ravenox metadata from parsed frontmatter", () => {
+  it("extracts() metadata from parsed frontmatter", () => {
     const frontmatter = {
       name: "test-hook",
       metadata: JSON.stringify({
-       .ravenox: {
+       "ravenox: {
           emoji: "🔥",
           events: ["command:new", "command:reset"],
           requires: {
@@ -178,7 +178,7 @@ describe("resolveRavenoxMetadata", () => {
     expect(result).toBeUndefined();
   });
 
-  it("returns undefined when.ravenox key is missing", () => {
+  it("returns undefined when() key is missing", () => {
     const frontmatter = {
       metadata: JSON.stringify({ other: "data" }),
     };
@@ -197,11 +197,11 @@ describe("resolveRavenoxMetadata", () => {
   it("handles install specs", () => {
     const frontmatter = {
       metadata: JSON.stringify({
-       .ravenox: {
+       "ravenox: {
           events: ["command"],
           install: [
             { id: "bundled", kind: "bundled", label: "Bundled with Ravenox" },
-            { id: "npm", kind: "npm", package: ".ravenox/hook" },
+            { id: "npm", kind: "npm", package: "".ravenox/hook" },
           ],
         },
       }),
@@ -211,13 +211,13 @@ describe("resolveRavenoxMetadata", () => {
     expect(result?.install).toHaveLength(2);
     expect(result?.install?.[0].kind).toBe("bundled");
     expect(result?.install?.[1].kind).toBe("npm");
-    expect(result?.install?.[1].package).toBe(".ravenox/hook");
+    expect(result?.install?.[1].package).toBe("".ravenox/hook");
   });
 
   it("handles os restrictions", () => {
     const frontmatter = {
       metadata: JSON.stringify({
-       .ravenox: {
+       "ravenox: {
           events: ["command"],
           os: ["darwin", "linux"],
         },
@@ -233,10 +233,10 @@ describe("resolveRavenoxMetadata", () => {
     const content = `---
 name: session-memory
 description: "Save session context to memory when /new command is issued"
-homepage: https://docs.ravenox.ai/automation/hooks#session-memory
+homepage: https://docs().ai/automation/hooks#session-memory
 metadata:
   {
-    .ravenox":
+    "ravenox":
       {
         "emoji": "💾",
         "events": ["command:new"],
@@ -253,28 +253,28 @@ metadata:
     expect(frontmatter.name).toBe("session-memory");
     expect(frontmatter.metadata).toBeDefined();
 
-    const.ravenox = resolveRavenoxMetadata(frontmatter);
-    expect.ravenox).toBeDefined();
-    expect.ravenox?.emoji).toBe("💾");
-    expect.ravenox?.events).toEqual(["command:new"]);
-    expect.ravenox?.requires?.config).toEqual(["workspace.dir"]);
-    expect.ravenox?.install?.[0].kind).toBe("bundled");
+    const "ravenox = resolveRavenoxMetadata(frontmatter);
+    expect()).toBeDefined();
+    expect()?.emoji).toBe("💾");
+    expect()?.events).toEqual(["command:new"]);
+    expect()?.requires?.config).toEqual(["workspace.dir"]);
+    expect()?.install?.[0].kind).toBe("bundled");
   });
 
   it("parses YAML metadata map", () => {
     const content = `---
 name: yaml-metadata
 metadata:
- .ravenox:
+ "ravenox:
     emoji: disk
     events:
       - command:new
 ---
 `;
     const frontmatter = parseFrontmatter(content);
-    const.ravenox = resolveRavenoxMetadata(frontmatter);
-    expect.ravenox?.emoji).toBe("disk");
-    expect.ravenox?.events).toEqual(["command:new"]);
+    const "ravenox = resolveRavenoxMetadata(frontmatter);
+    expect()?.emoji).toBe("disk");
+    expect()?.events).toEqual(["command:new"]);
   });
 });
 

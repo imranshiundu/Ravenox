@@ -134,7 +134,7 @@ function readJpegExifOrientation(buffer: Buffer): number | null {
 }
 
 async function withTempDir<T>(fn: (dir: string) => Promise<T>): Promise<T> {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-img-"));
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-img-"));
   try {
     return await fn(dir);
   } finally {

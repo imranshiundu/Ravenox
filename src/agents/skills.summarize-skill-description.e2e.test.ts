@@ -8,7 +8,7 @@ describe("skills/summarize frontmatter", () => {
     const skillPath = path.join(process.cwd(), "skills", "summarize", "SKILL.md");
     const raw = fs.readFileSync(skillPath, "utf-8");
     const frontmatter = parseFrontmatter(raw);
-    const description = frontmatter.description ?? "";
+    const description = frontmatter.description ;
     expect(description.toLowerCase()).toContain("transcrib");
     expect(description.toLowerCase()).toContain("podcast");
     expect(description.toLowerCase()).toContain("local files");

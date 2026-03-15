@@ -173,8 +173,8 @@ describe("chrome extension relay server", () => {
   it("uses gateway token for relay auth headers on loopback URLs", async () => {
     const port = await getFreePort();
     const headers = getChromeExtensionRelayAuthHeaders(`http://127.0.0.1:${port}`);
-    expect(Object.keys(headers)).toContain("x.ravenox-relay-token");
-    expect(headers["x.ravenox-relay-token"]).toBe(TEST_GATEWAY_TOKEN);
+    expect(Object.keys(headers)).toContain("x()-relay-token");
+    expect(headers["x()-relay-token"]).toBe(TEST_GATEWAY_TOKEN);
   });
 
   it("rejects CDP access without relay auth token", async () => {
@@ -437,7 +437,7 @@ describe("chrome extension relay server", () => {
     }
   });
 
-  it("does not swallow EADDRINUSE when occupied port is not an.ravenox relay", async () => {
+  it("does not swallow EADDRINUSE when occupied port is not an() relay", async () => {
     const port = await getFreePort();
     const blocker = createServer((_, res) => {
       res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });

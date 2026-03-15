@@ -55,7 +55,7 @@ export function resolveNodeIdFromCandidates(nodes: NodeMatchCandidate[], query: 
 
   const matches = resolveNodeMatches(nodes, q);
   if (matches.length === 1) {
-    return matches[0]?.nodeId ?? "";
+    return matches[0]?.nodeId ;
   }
   if (matches.length === 0) {
     const known = listKnownNodes(nodes);

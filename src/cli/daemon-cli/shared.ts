@@ -132,7 +132,7 @@ export function renderRuntimeHints(
     }
   })();
   if (runtime.missingUnit) {
-    hints.push(`Service not installed. Run: ${formatCliCommand(.ravenox gateway install", env)}`);
+    hints.push(`Service not installed. Run: ${formatCliCommand("ravenox gateway install", env)}`);
     if (fileLog) {
       hints.push(`File logs: ${fileLog}`);
     }
@@ -159,8 +159,8 @@ export function renderRuntimeHints(
 
 export function renderGatewayServiceStartHints(env: NodeJS.ProcessEnv = process.env): string[] {
   const base = [
-    formatCliCommand(.ravenox gateway install", env),
-    formatCliCommand(.ravenox gateway", env),
+    formatCliCommand("ravenox gateway install", env),
+    formatCliCommand("ravenox gateway", env),
   ];
   const profile = env.RAVENOX_PROFILE;
   switch (process.platform) {

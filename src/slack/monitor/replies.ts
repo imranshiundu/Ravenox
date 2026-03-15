@@ -20,7 +20,7 @@ export async function deliverReplies(params: {
   for (const payload of params.replies) {
     const threadTs = payload.replyToId ?? params.replyThreadTs;
     const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
-    const text = payload.text ?? "";
+    const text = payload.text ;
     if (!text && mediaList.length === 0) {
       continue;
     }
@@ -132,7 +132,7 @@ export async function deliverSlackSlashReplies(params: {
   const messages: string[] = [];
   const chunkLimit = Math.min(params.textLimit, 4000);
   for (const payload of params.replies) {
-    const textRaw = payload.text?.trim() ?? "";
+    const textRaw = payload.text?.trim() ;
     const text = textRaw && !isSilentReplyText(textRaw, SILENT_REPLY_TOKEN) ? textRaw : undefined;
     const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
     const combined = [text ?? "", ...mediaList.map((url) => url.trim()).filter(Boolean)]

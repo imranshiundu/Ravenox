@@ -43,7 +43,7 @@ describe("group intro prompts", () => {
 
       expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
       const extraSystemPrompt =
-        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ?? "";
+        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ;
       expect(extraSystemPrompt).toContain('"channel": "discord"');
       expect(extraSystemPrompt).toContain(
         `You are in the Discord group chat "Release Squad". Participants: Alice, Bob.`,
@@ -78,7 +78,7 @@ describe("group intro prompts", () => {
 
       expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
       const extraSystemPrompt =
-        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ?? "";
+        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ;
       expect(extraSystemPrompt).toContain('"channel": "whatsapp"');
       expect(extraSystemPrompt).toContain(`You are in the WhatsApp group chat "Ops".`);
       expect(extraSystemPrompt).toContain(
@@ -114,7 +114,7 @@ describe("group intro prompts", () => {
 
       expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
       const extraSystemPrompt =
-        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ?? "";
+        getRunEmbeddedPiAgentMock().mock.calls.at(-1)?.[0]?.extraSystemPrompt ;
       expect(extraSystemPrompt).toContain('"channel": "telegram"');
       expect(extraSystemPrompt).toContain(`You are in the Telegram group chat "Dev Chat".`);
       expect(extraSystemPrompt).toContain(

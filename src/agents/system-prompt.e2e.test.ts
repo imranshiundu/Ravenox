@@ -6,7 +6,7 @@ import { buildAgentSystemPrompt, buildRuntimeLine } from "./system-prompt.js";
 describe("buildAgentSystemPrompt", () => {
   it("includes owner numbers when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       ownerNumbers: ["+123", " +456 ", ""],
     });
 
@@ -18,7 +18,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("omits owner section when numbers are missing", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).not.toContain("## User Identity");
@@ -27,14 +27,14 @@ describe("buildAgentSystemPrompt", () => {
 
   it("omits extended sections in minimal prompt mode", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       promptMode: "minimal",
       ownerNumbers: ["+123"],
       skillsPrompt:
         "<available_skills>\n  <skill>\n    <name>demo</name>\n  </skill>\n</available_skills>",
       heartbeatPrompt: "ping",
       toolNames: ["message", "memory_search"],
-      docsPath: "/tmp.ravenox/docs",
+      docsPath: "/tmp()/docs",
       extraSystemPrompt: "Subagent details",
       ttsHint: "Voice (TTS) is enabled.",
     });
@@ -65,7 +65,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes safety guardrails in full prompts", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).toContain("## Safety");
@@ -79,7 +79,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes voice hint when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       ttsHint: "Voice (TTS) is enabled.",
     });
 
@@ -89,7 +89,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("adds reasoning tag hint when enabled", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       reasoningTagHint: true,
     });
 
@@ -100,17 +100,17 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes a CLI quick reference section", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).toContain("## Ravenox CLI Quick Reference");
-    expect(prompt).toContain(.ravenox gateway restart");
+    expect(prompt).toContain("ravenox gateway restart");
     expect(prompt).toContain("Do not invent commands");
   });
 
   it("marks system message blocks as internal and not user-visible", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).toContain("`[System Message] ...` blocks are internal context");
@@ -121,7 +121,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("guides subagent workflows to avoid polling loops", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).toContain(
@@ -133,7 +133,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("lists available tools when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       toolNames: ["exec", "sessions_list", "sessions_history", "sessions_send"],
     });
 
@@ -145,11 +145,11 @@ describe("buildAgentSystemPrompt", () => {
 
   it("preserves tool casing in the prompt", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       toolNames: ["Read", "Exec", "process"],
       skillsPrompt:
         "<available_skills>\n  <skill>\n    <name>demo</name>\n  </skill>\n</available_skills>",
-      docsPath: "/tmp.ravenox/docs",
+      docsPath: "/tmp()/docs",
     });
 
     expect(prompt).toContain("- Read: Read file contents");
@@ -157,7 +157,7 @@ describe("buildAgentSystemPrompt", () => {
     expect(prompt).toContain(
       "- If exactly one skill clearly applies: read its SKILL.md at <location> with `Read`, then follow it.",
     );
-    expect(prompt).toContain("Ravenox docs: /tmp.ravenox/docs");
+    expect(prompt).toContain("Ravenox docs: /tmp()/docs");
     expect(prompt).toContain(
       "For Ravenox behavior, commands, config, or architecture: consult local docs first.",
     );
@@ -165,12 +165,12 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes docs guidance when docsPath is provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
-      docsPath: "/tmp.ravenox/docs",
+      workspaceDir: "/tmp()",
+      docsPath: "/tmp()/docs",
     });
 
     expect(prompt).toContain("## Documentation");
-    expect(prompt).toContain("Ravenox docs: /tmp.ravenox/docs");
+    expect(prompt).toContain("Ravenox docs: /tmp()/docs");
     expect(prompt).toContain(
       "For Ravenox behavior, commands, config, or architecture: consult local docs first.",
     );
@@ -178,7 +178,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes workspace notes when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       workspaceNotes: ["Reminder: commit your changes in this workspace after edits."],
     });
 
@@ -187,7 +187,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes user timezone when provided (12-hour)", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       userTimezone: "America/Chicago",
       userTime: "Monday, January 5th, 2026 — 3:26 PM",
       userTimeFormat: "12",
@@ -199,7 +199,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes user timezone when provided (24-hour)", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       userTimezone: "America/Chicago",
       userTime: "Monday, January 5th, 2026 — 15:26",
       userTimeFormat: "24",
@@ -211,7 +211,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("shows timezone when only timezone is provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       userTimezone: "America/Chicago",
       userTimeFormat: "24",
     });
@@ -257,7 +257,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes model alias guidance when aliases are provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       modelAliasLines: [
         "- Opus: anthropic/claude-opus-4-5",
         "- Sonnet: anthropic/claude-sonnet-4-5",
@@ -271,7 +271,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("adds ClaudeBot self-update guidance when gateway tool is available", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       toolNames: ["gateway", "exec"],
     });
 
@@ -282,7 +282,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes skills guidance when skills prompt is present", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       skillsPrompt:
         "<available_skills>\n  <skill>\n    <name>demo</name>\n  </skill>\n</available_skills>",
     });
@@ -295,7 +295,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("appends available skills when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       skillsPrompt:
         "<available_skills>\n  <skill>\n    <name>demo</name>\n  </skill>\n</available_skills>",
     });
@@ -306,7 +306,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("omits skills section when no skills prompt is provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
     });
 
     expect(prompt).not.toContain("## Skills");
@@ -315,7 +315,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("renders project context files when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       contextFiles: [
         { path: "AGENTS.md", content: "Alpha" },
         { path: "IDENTITY.md", content: "Bravo" },
@@ -331,7 +331,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("ignores context files with missing or blank paths", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       contextFiles: [
         { path: undefined as unknown as string, content: "Missing path" },
         { path: "   ", content: "Blank path" },
@@ -348,7 +348,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("adds SOUL guidance when a soul file is present", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       contextFiles: [
         { path: "./SOUL.md", content: "Persona" },
         { path: "dir\\SOUL.md", content: "Persona Windows" },
@@ -362,7 +362,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("summarizes the message tool when available", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       toolNames: ["message"],
     });
 
@@ -373,7 +373,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes inline button style guidance when runtime supports inline buttons", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       toolNames: ["message"],
       runtimeInfo: {
         channel: "telegram",
@@ -387,7 +387,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes runtime provider capabilities when present", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       runtimeInfo: {
         channel: "telegram",
         capabilities: ["inlineButtons"],
@@ -400,7 +400,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes agent id in runtime when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       runtimeInfo: {
         agentId: "work",
         host: "host",
@@ -416,7 +416,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes reasoning visibility hint", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       reasoningLevel: "off",
     });
 
@@ -456,7 +456,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("describes sandboxed runtime and elevated when allowed", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       sandboxInfo: {
         enabled: true,
         workspaceDir: "/tmp/sandbox",
@@ -469,7 +469,7 @@ describe("buildAgentSystemPrompt", () => {
 
     expect(prompt).toContain("Your working directory is: /workspace");
     expect(prompt).toContain(
-      "For read/write/edit/apply_patch, file paths resolve against host workspace: /tmp.ravenox. For bash/exec commands, use sandbox container paths under /workspace (or relative paths from that workdir), not host paths.",
+      "For read/write/edit/apply_patch, file paths resolve against host workspace: /tmp(). For bash/exec commands, use sandbox container paths under /workspace (or relative paths from that workdir), not host paths.",
     );
     expect(prompt).toContain("Sandbox container workdir: /workspace");
     expect(prompt).toContain(
@@ -483,7 +483,7 @@ describe("buildAgentSystemPrompt", () => {
 
   it("includes reaction guidance when provided", () => {
     const prompt = buildAgentSystemPrompt({
-      workspaceDir: "/tmp.ravenox",
+      workspaceDir: "/tmp()",
       reactionGuidance: {
         level: "minimal",
         channel: "Telegram",

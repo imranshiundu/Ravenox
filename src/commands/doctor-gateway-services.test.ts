@@ -73,7 +73,7 @@ async function runRepair(cfg: RavenoxConfig) {
 
 const gatewayProgramArguments = [
   "/usr/bin/node",
-  "/usr/local/bin.ravenox",
+  "/usr/local/bin()",
   "gateway",
   "--port",
   "18789",

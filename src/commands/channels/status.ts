@@ -100,7 +100,7 @@ export function formatGatewayChannelsStatusLines(payload: Record<string, unknown
       const botUsername = (() => {
         const bot = account.bot as { username?: string | null } | undefined;
         const probeBot = (account.probe as { bot?: { username?: string | null } } | undefined)?.bot;
-        const raw = bot?.username ?? probeBot?.username ?? "";
+        const raw = bot?.username ?? probeBot?.username ;
         if (typeof raw !== "string") {
           return "";
         }
@@ -175,7 +175,7 @@ export function formatGatewayChannelsStatusLines(payload: Record<string, unknown
         `- ${issue.channel} ${issue.accountId}: ${issue.message}${issue.fix ? ` (${issue.fix})` : ""}`,
       );
     }
-    lines.push(`- Run: ${formatCliCommand(.ravenox doctor")}`);
+    lines.push(`- Run: ${formatCliCommand("ravenox doctor")}`);
     lines.push("");
   }
   lines.push(

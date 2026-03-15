@@ -195,7 +195,7 @@ async function appendResolvedMediaFromAttachments(params: {
 }
 
 function inferPlaceholder(attachment: APIAttachment): string {
-  const mime = attachment.content_type ?? "";
+  const mime = attachment.content_type ;
   if (mime.startsWith("image/")) {
     return "<media:image>";
   }
@@ -209,11 +209,11 @@ function inferPlaceholder(attachment: APIAttachment): string {
 }
 
 function isImageAttachment(attachment: APIAttachment): boolean {
-  const mime = attachment.content_type ?? "";
+  const mime = attachment.content_type ;
   if (mime.startsWith("image/")) {
     return true;
   }
-  const name = attachment.filename?.toLowerCase() ?? "";
+  const name = attachment.filename?.toLowerCase() ;
   if (!name) {
     return false;
   }
@@ -241,7 +241,7 @@ export function resolveDiscordMessageText(
     buildDiscordAttachmentPlaceholder(message.attachments) ||
     message.embeds?.[0]?.description ||
     options?.fallbackText?.trim() ||
-    "";
+   ;
   if (!options?.includeForwarded) {
     return baseText;
   }
@@ -298,7 +298,7 @@ function resolveDiscordMessageSnapshots(message: Message): DiscordMessageSnapsho
 }
 
 function resolveDiscordSnapshotMessageText(snapshot: DiscordSnapshotMessage): string {
-  const content = snapshot.content?.trim() ?? "";
+  const content = snapshot.content?.trim() ;
   const attachmentText = buildDiscordAttachmentPlaceholder(snapshot.attachments ?? undefined);
   const embed = snapshot.embeds?.[0];
   const embedText = embed?.description?.trim() || embed?.title?.trim() || "";

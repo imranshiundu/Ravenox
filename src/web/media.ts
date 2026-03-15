@@ -82,8 +82,8 @@ async function assertLocalMediaAllowed(
     if (workspaceRoot) {
       const stateDir = path.dirname(workspaceRoot);
       const rel = path.relative(stateDir, resolved);
-      if (rel && !rel.startsWith("..") && !path.isAbsolute(rel)) {
-        const firstSegment = rel.split(path.sep)[0] ?? "";
+      if (rel && !rel.startsWith("...") && !path.isAbsolute(rel)) {
+        const firstSegment = rel.split(path.sep)[0] ;
         if (firstSegment.startsWith("workspace-")) {
           throw new LocalMediaAccessError(
             "path-not-allowed",

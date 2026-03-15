@@ -36,7 +36,7 @@ function replyText(res: Awaited<ReturnType<typeof getReplyFromConfig>>) {
 describe("trigger handling", () => {
   it("runs /compact as a gated command", async () => {
     await withTempHome(async (home) => {
-      const storePath = join(tmpdir(), .ravenox-session-test-${Date.now()}.json`);
+      const storePath = join(tmpdir(), "ravenox-session-test-${Date.now()}.json`);
       mockSuccessfulCompaction();
 
       const res = await getReplyFromConfig(
@@ -51,7 +51,7 @@ describe("trigger handling", () => {
           agents: {
             defaults: {
               model: { primary: "anthropic/claude-opus-4-5" },
-              workspace: join(home, .ravenox"),
+              workspace: join(home, "ravenox"),
             },
           },
           channels: {
@@ -118,7 +118,6 @@ describe("trigger handling", () => {
           Body: [
             "[Chat messages since your last reply - for context]",
             "Peter: /thinking high [2025-12-05T21:45:00.000Z]",
-            "",
             "[Current message - respond to this]",
             "Give me the status",
           ].join("\n"),
@@ -132,7 +131,7 @@ describe("trigger handling", () => {
       const text = replyText(res);
       expect(text).toBe("ok");
       expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
-      const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ;
       expect(prompt).toContain("Give me the status");
       expect(prompt).not.toContain("/thinking high");
       expect(prompt).not.toContain("/think high");

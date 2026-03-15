@@ -263,7 +263,7 @@ export const signalOnboardingAdapter: ChannelOnboardingAdapter = {
       );
     }
 
-    let account = accountConfig.account ?? "";
+    let account = accountConfig.account ;
     if (account) {
       const normalizedExisting = normalizeSignalAccountInput(account);
       if (!normalizedExisting) {
@@ -294,7 +294,7 @@ export const signalOnboardingAdapter: ChannelOnboardingAdapter = {
               : INVALID_SIGNAL_ACCOUNT_ERROR,
         }),
       );
-      account = normalizeSignalAccountInput(rawAccount) ?? "";
+      account = normalizeSignalAccountInput(rawAccount) ;
     }
 
     if (account) {
@@ -338,7 +338,7 @@ export const signalOnboardingAdapter: ChannelOnboardingAdapter = {
       [
         'Link device with: signal-cli link -n "Ravenox"',
         "Scan QR in Signal → Linked Devices",
-        `Then run: ${formatCliCommand(.ravenox gateway call channels.status --params '{\"probe\":true}'")}`,
+        `Then run: ${formatCliCommand("ravenox gateway call channels.status --params '{\"probe\":true}'")}`,
         `Docs: ${formatDocsLink("/signal", "signal")}`,
       ].join("\n"),
       "Signal next steps",

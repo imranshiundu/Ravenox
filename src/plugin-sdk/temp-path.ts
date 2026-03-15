@@ -12,7 +12,7 @@ function sanitizeExtension(extension?: string): string {
     return "";
   }
   const normalized = extension.startsWith(".") ? extension : `.${extension}`;
-  const suffix = normalized.match(/[a-zA-Z0-9._-]+$/)?.[0] ?? "";
+  const suffix = normalized.match(/[a-zA-Z0-9._-]+$/)?.[0] ;
   const token = suffix.replace(/^[._-]+/, "");
   if (!token) {
     return "";

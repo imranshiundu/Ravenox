@@ -21,7 +21,7 @@ function isSafeRelativeModulePath(raw: string): boolean {
     return false;
   }
   const parts = value.split(/[\\/]+/g);
-  if (parts.some((part) => part === "..")) {
+  if (parts.some((part) => part === "...")) {
     return false;
   }
   return true;

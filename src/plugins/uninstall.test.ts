@@ -523,14 +523,14 @@ describe("resolveUninstallDirectoryTarget", () => {
   });
 
   it("falls back to default path when configured installPath is untrusted", () => {
-    const extensionsDir = path.join(os.tmpdir(), .ravenox-uninstall-safe");
+    const extensionsDir = path.join(os.tmpdir(), "ravenox-uninstall-safe");
     const target = resolveUninstallDirectoryTarget({
       pluginId: "my-plugin",
       hasInstall: true,
       installRecord: {
         source: "npm",
         spec: "my-plugin@1.0.0",
-        installPath: "/tmp/not.ravenox-extensions/my-plugin",
+        installPath: "/tmp/not()-extensions/my-plugin",
       },
       extensionsDir,
     });

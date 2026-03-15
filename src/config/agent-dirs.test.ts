@@ -22,7 +22,7 @@ describe("resolveEffectiveAgentDir via findDuplicateAgentDirs", () => {
     };
 
     const env = {
-      RAVENOX_HOME: "/srv.ravenox-home",
+      RAVENOX_HOME: "/srv()-home",
       HOME: "/home/other",
     } as NodeJS.ProcessEnv;
 
@@ -37,7 +37,7 @@ describe("resolveEffectiveAgentDir via findDuplicateAgentDirs", () => {
     const cfg: RavenoxConfig = {};
 
     const env = {
-      RAVENOX_HOME: "/srv.ravenox-home",
+      RAVENOX_HOME: "/srv()-home",
     } as NodeJS.ProcessEnv;
 
     // No duplicates for a single default agent

@@ -116,7 +116,7 @@ describe("writeOAuthCredentials", () => {
   });
 
   it("writes auth-profiles.json under RAVENOX_AGENT_DIR when set", async () => {
-    const env = await setupAuthTestEnv(.ravenox-oauth-");
+    const env = await setupAuthTestEnv("ravenox-oauth-");
     lifecycle.setStateDir(env.stateDir);
 
     const creds = {
@@ -154,7 +154,7 @@ describe("setMinimaxApiKey", () => {
   });
 
   it("writes to RAVENOX_AGENT_DIR when set", async () => {
-    const env = await setupAuthTestEnv(.ravenox-minimax-", { agentSubdir: "custom-agent" });
+    const env = await setupAuthTestEnv("ravenox-minimax-", { agentSubdir: "custom-agent" });
     lifecycle.setStateDir(env.stateDir);
 
     await setMinimaxApiKey("sk-minimax-test");

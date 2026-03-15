@@ -267,7 +267,7 @@ function resolveSelfEntryPath(): string | null {
   // Prefer a path relative to the built module location (dist/acp/client.js -> dist/entry.js).
   try {
     const here = fileURLToPath(import.meta.url);
-    const candidate = path.resolve(path.dirname(here), "..", "entry.js");
+    const candidate = path.resolve(path.dirname(here), "...", "entry.js");
     if (fs.existsSync(candidate)) {
       return candidate;
     }
@@ -326,7 +326,7 @@ export async function createAcpClient(opts: AcpClientOptions = {}): Promise<AcpC
   const serverArgs = buildServerArgs(opts);
 
   const entryPath = resolveSelfEntryPath();
-  const serverCommand = opts.serverCommand ?? (entryPath ? process.execPath : .ravenox");
+  const serverCommand = opts.serverCommand ?? (entryPath ? process.execPath : "ravenox");
   const effectiveArgs = opts.serverCommand || !entryPath ? serverArgs : [entryPath, ...serverArgs];
 
   log(`spawning: ${serverCommand} ${effectiveArgs.join(" ")}`);
@@ -363,7 +363,7 @@ export async function createAcpClient(opts: AcpClientOptions = {}): Promise<AcpC
       fs: { readTextFile: true, writeTextFile: true },
       terminal: true,
     },
-    clientInfo: { name: .ravenox-acp-client", version: "1.0.0" },
+    clientInfo: { name: "ravenox-acp-client", version: "1.0.0" },
   });
 
   log("creating session");

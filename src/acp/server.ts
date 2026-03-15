@@ -147,7 +147,7 @@ function parseArgs(args: string[]): AcpServerOptions {
 }
 
 function printHelp(): void {
-  console.log(`Usage:.ravenox acp [options]
+  console.log(`Usage:".ravenox acp [options]
 
 Gateway-backed ACP server for IDE integration.
 

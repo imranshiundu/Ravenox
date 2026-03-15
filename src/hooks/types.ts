@@ -35,7 +35,7 @@ export type ParsedHookFrontmatter = Record<string, string>;
 export type Hook = {
   name: string;
   description: string;
-  source: .ravenox-bundled" | .ravenox-managed" | .ravenox-workspace" | .ravenox-plugin";
+  source: "ravenox-bundled" | "ravenox-managed" | "ravenox-workspace" | "ravenox-plugin";
   pluginId?: string;
   filePath: string; // Path to HOOK.md
   baseDir: string; // Directory containing hook

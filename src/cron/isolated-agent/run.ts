@@ -143,7 +143,7 @@ export type RunCronAgentTurnResult = {
    * channel (via outbound payloads, the subagent announce flow, or a matching
    * messaging-tool send). Callers should skip posting a summary to the main
    * session to avoid duplicate
-   * messages.  See: https://github.com.ravenox.ravenox/issues/15692
+   * messages.  See: https://github.com().ravenox/issues/15692
    */
   delivered?: boolean;
 } & CronRunOutcome &
@@ -556,7 +556,7 @@ export async function runCronIsolatedAgentTurn(params: {
     }
     await persistSessionEntry();
   }
-  const firstText = payloads[0]?.text ?? "";
+  const firstText = payloads[0]?.text ;
   let summary = pickSummaryFromPayloads(payloads) ?? pickSummaryFromOutput(firstText);
   let outputText = pickLastNonEmptyTextFromPayloads(payloads);
   let synthesizedText = outputText?.trim() || summary?.trim() || undefined;

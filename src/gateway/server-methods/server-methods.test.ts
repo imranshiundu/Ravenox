@@ -362,7 +362,7 @@ describe("exec approval handlers", () => {
 
     const requested = broadcasts.find((entry) => entry.event === "exec.approval.requested");
     expect(requested).toBeTruthy();
-    const id = (requested?.payload as { id?: string })?.id ?? "";
+    const id = (requested?.payload as { id?: string })?.id ;
     expect(id).not.toBe("");
 
     expect(respond).toHaveBeenCalledWith(
@@ -405,7 +405,7 @@ describe("exec approval handlers", () => {
         if (event !== "exec.approval.requested") {
           return;
         }
-        const id = (payload as { id?: string })?.id ?? "";
+        const id = (payload as { id?: string })?.id ;
         void resolveExecApproval({
           handlers,
           id,
@@ -440,7 +440,7 @@ describe("exec approval handlers", () => {
     });
 
     const requested = broadcasts.find((entry) => entry.event === "exec.approval.requested");
-    const id = (requested?.payload as { id?: string })?.id ?? "";
+    const id = (requested?.payload as { id?: string })?.id ;
     expect(id).toBe("approval-123");
 
     const resolveRespond = vi.fn();
@@ -508,16 +508,16 @@ describe("logs.tail", () => {
   });
 
   it("falls back to latest rolling log file when today is missing", async () => {
-    const tempDir = await fsPromises.mkdtemp(path.join(os.tmpdir(), .ravenox-logs-"));
-    const older = path.join(tempDir, .ravenox-2026-01-20.log");
-    const newer = path.join(tempDir, .ravenox-2026-01-21.log");
+    const tempDir = await fsPromises.mkdtemp(path.join(os.tmpdir(), "ravenox-logs-"));
+    const older = path.join(tempDir, "ravenox-2026-01-20.log");
+    const newer = path.join(tempDir, "ravenox-2026-01-21.log");
 
     await fsPromises.writeFile(older, '{"msg":"old"}\n');
     await fsPromises.writeFile(newer, '{"msg":"new"}\n');
     await fsPromises.utimes(older, new Date(0), new Date(0));
     await fsPromises.utimes(newer, new Date(), new Date());
 
-    setLoggerOverride({ file: path.join(tempDir, .ravenox-2026-01-22.log") });
+    setLoggerOverride({ file: path.join(tempDir, "ravenox-2026-01-22.log") });
 
     const respond = vi.fn();
     await logsHandlers["logs.tail"]({

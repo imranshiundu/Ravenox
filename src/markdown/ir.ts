@@ -153,7 +153,7 @@ function injectSpoilersIntoInline(tokens: MarkdownToken[]): MarkdownToken[] {
       continue;
     }
 
-    const content = token.content ?? "";
+    const content = token.content ;
     if (!content.includes("||")) {
       result.push(token);
       continue;
@@ -257,7 +257,7 @@ function renderInlineCode(state: RenderState, content: string) {
 }
 
 function renderCodeBlock(state: RenderState, content: string) {
-  let code = content ?? "";
+  let code = content ;
   if (!code.endsWith("\n")) {
     code = `${code}\n`;
   }
@@ -561,7 +561,7 @@ function renderTokens(tokens: MarkdownToken[], state: RenderState): void {
         }
         break;
       case "link_open": {
-        const href = getAttr(token, "href") ?? "";
+        const href = getAttr(token, "href") ;
         const target = resolveRenderTarget(state);
         target.linkStack.push({ href, labelStart: target.text.length });
         break;

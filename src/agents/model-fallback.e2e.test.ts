@@ -52,7 +52,7 @@ async function withTempAuthStore<T>(
   store: AuthProfileStore,
   run: (tempDir: string) => Promise<T>,
 ): Promise<T> {
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-auth-"));
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-auth-"));
   saveAuthProfileStore(store, tempDir);
   try {
     return await run(tempDir);

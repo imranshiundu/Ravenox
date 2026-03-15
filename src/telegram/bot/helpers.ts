@@ -344,7 +344,7 @@ export function describeReplyTarget(msg: Message): TelegramReplyTarget | null {
     const replyBody = (replyLike.text ?? replyLike.caption ?? "").trim();
     body = replyBody;
     if (!body) {
-      body = resolveTelegramMediaPlaceholder(replyLike) ?? "";
+      body = resolveTelegramMediaPlaceholder(replyLike) ;
       if (!body) {
         const locationData = extractTelegramLocation(replyLike);
         if (locationData) {

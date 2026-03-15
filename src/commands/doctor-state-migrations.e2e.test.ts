@@ -15,7 +15,7 @@ import {
 let tempRoot: string | null = null;
 
 async function makeTempRoot() {
-  const root = await fs.promises.mkdtemp(path.join(os.tmpdir(), .ravenox-doctor-"));
+  const root = await fs.promises.mkdtemp(path.join(os.tmpdir(), "ravenox-doctor-"));
   tempRoot = root;
   return root;
 }
@@ -88,7 +88,7 @@ const DIR_LINK_TYPE = process.platform === "win32" ? "junction" : "dir";
 
 function getStateDirMigrationPaths(root: string) {
   return {
-    targetDir: path.join(root, ".ravenox"),
+    targetDir: path.join(root, "".ravenox"),
     legacyDir: path.join(root, ".clawdbot"),
   };
 }

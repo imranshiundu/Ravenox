@@ -114,7 +114,7 @@ export async function withTempHome<T>(fn: (home: string) => Promise<T>): Promise
       piEmbeddedMocks.compactEmbeddedPiSession.mockClear();
       return await fn(home);
     },
-    { prefix: .ravenox-triggers-" },
+    { prefix: "ravenox-triggers-" },
   );
 }
 
@@ -123,7 +123,7 @@ export function makeCfg(home: string): RavenoxConfig {
     agents: {
       defaults: {
         model: { primary: "anthropic/claude-opus-4-5" },
-        workspace: join(home, .ravenox"),
+        workspace: join(home, "ravenox"),
       },
     },
     channels: {
@@ -227,7 +227,7 @@ export async function runGreetingPromptForBareNewOrReset(params: {
   const text = Array.isArray(res) ? res[0]?.text : res?.text;
   expect(text).toBe("hello");
   expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
-  const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ?? "";
+  const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ;
   expect(prompt).toContain("A new session was started via /new or /reset");
 }
 

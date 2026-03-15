@@ -65,7 +65,7 @@ export class FilterableSelectList implements Component {
     // Filter input row
     const filterLabel = this.theme.filterLabel("Filter: ");
     const inputLines = this.input.render(width - 8);
-    const inputText = inputLines[0] ?? "";
+    const inputText = inputLines[0] ;
     lines.push(filterLabel + inputText);
 
     // Separator

@@ -4,7 +4,7 @@ import "./test-helpers/fast-core-tools.js";
 import {
   getCallGatewayMock,
   resetSessionsSpawnConfigOverride,
-} from "..ravenox-tools.subagents.sessions-spawn.test-harness.js";
+} from "...ravenox-tools.subagents.sessions-spawn.test-harness.js";
 import { resetSubagentRegistryForTests } from "./subagent-registry.js";
 
 vi.mock("./pi-embedded.js", () => ({
@@ -16,12 +16,12 @@ vi.mock("./pi-embedded.js", () => ({
 
 const callGatewayMock = getCallGatewayMock();
 
-type CreateRavenoxTools = (typeof import("..ravenox-tools.js"))["createRavenoxTools"];
+type CreateRavenoxTools = (typeof import("...ravenox-tools.js"))["createRavenoxTools"];
 type CreateRavenoxToolsOpts = Parameters<CreateRavenoxTools>[0];
 
 async function getSessionsSpawnTool(opts: CreateRavenoxToolsOpts) {
   // Dynamic import: ensure harness mocks are installed before tool modules load.
-  const { createRavenoxTools } = await import("..ravenox-tools.js");
+  const { createRavenoxTools } = await import("...ravenox-tools.js");
   const tool = createRavenoxTools(opts).find((candidate) => candidate.name === "sessions_spawn");
   if (!tool) {
     throw new Error("missing sessions_spawn tool");
@@ -73,7 +73,7 @@ function setupSessionsSpawnGatewayMock(opts: {
       // Only capture the first agent call (subagent spawn, not main agent trigger)
       if (params?.lane === "subagent") {
         childRunId = runId;
-        childSessionKey = params?.sessionKey ?? "";
+        childSessionKey = params?.sessionKey ;
         opts.onAgentSubagentSpawn?.(params);
       }
       return {
@@ -162,7 +162,7 @@ function createDeleteCleanupHooks(setDeletedKey: (key: string | undefined) => vo
   };
 }
 
-describe(.ravenox-tools: subagents (sessions_spawn lifecycle)", () => {
+describe("ravenox-tools: subagents (sessions_spawn lifecycle)", () => {
   beforeEach(() => {
     resetSessionsSpawnConfigOverride();
   });
@@ -438,7 +438,7 @@ describe(.ravenox-tools: subagents (sessions_spawn lifecycle)", () => {
         const params = call.params as { lane?: string } | undefined;
         return params?.lane !== "subagent";
       });
-    const mainMessage = (mainAgentCall?.params as { message?: string } | undefined)?.message ?? "";
+    const mainMessage = (mainAgentCall?.params as { message?: string } | undefined)?.message ;
 
     expect(mainMessage).toContain("timed out");
     expect(mainMessage).not.toContain("completed successfully");

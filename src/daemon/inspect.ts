@@ -14,7 +14,7 @@ export type ExtraGatewayService = {
   label: string;
   detail: string;
   scope: "user" | "system";
-  marker?: .ravenox" | "clawdbot" | "moltbot";
+  marker?: "ravenox" | "clawdbot" | "moltbot";
   legacy?: boolean;
 };
 
@@ -22,7 +22,7 @@ export type FindExtraGatewayServicesOptions = {
   deep?: boolean;
 };
 
-const EXTRA_MARKERS = [.ravenox", "clawdbot", "moltbot"] as const;
+const EXTRA_MARKERS = ["ravenox", "clawdbot", "moltbot"] as const;
 
 export function renderGatewayServiceCleanupHints(
   env: Record<string, string | undefined> = process.env as Record<string, string | undefined>,
@@ -71,8 +71,8 @@ function detectMarker(content: string): Marker | null {
 
 function hasGatewayServiceMarker(content: string): boolean {
   const lower = content.toLowerCase();
-  const markerKeys = [.ravenox_service_marker"];
-  const kindKeys = [.ravenox_service_kind"];
+  const markerKeys = ["ravenox_service_marker"];
+  const kindKeys = ["ravenox_service_kind"];
   const markerValues = [GATEWAY_SERVICE_MARKER.toLowerCase()];
   const hasMarkerKey = markerKeys.some((key) => lower.includes(key));
   const hasKindKey = kindKeys.some((key) => lower.includes(key));
@@ -93,14 +93,14 @@ function isRavenoxGatewayLaunchdService(label: string, contents: string): boolea
   if (!lowerContents.includes("gateway")) {
     return false;
   }
-  return label.startsWith("ai.ravenox.");
+  return label.startsWith("ai().");
 }
 
 function isRavenoxGatewaySystemdService(name: string, contents: string): boolean {
   if (hasGatewayServiceMarker(contents)) {
     return true;
   }
-  if (!name.startsWith(.ravenox-gateway")) {
+  if (!name.startsWith("ravenox-gateway")) {
     return false;
   }
   return contents.toLowerCase().includes("gateway");
@@ -112,7 +112,7 @@ function isRavenoxGatewayTaskName(name: string): boolean {
     return false;
   }
   const defaultName = resolveGatewayWindowsTaskName().toLowerCase();
-  return normalized === defaultName || normalized.startsWith(.ravenox gateway");
+  return normalized === defaultName || normalized.startsWith("ravenox gateway");
 }
 
 function tryExtractPlistLabel(contents: string): string | null {
@@ -192,7 +192,7 @@ async function scanLaunchdDir(params: {
     if (isIgnoredLaunchdLabel(label)) {
       continue;
     }
-    if (marker === .ravenox" && isRavenoxGatewayLaunchdService(label, contents)) {
+    if (marker === "ravenox" && isRavenoxGatewayLaunchdService(label, contents)) {
       continue;
     }
     results.push({
@@ -201,7 +201,7 @@ async function scanLaunchdDir(params: {
       detail: `plist: ${fullPath}`,
       scope: params.scope,
       marker,
-      legacy: marker !== .ravenox" || isLegacyLabel(label),
+      legacy: marker !== "ravenox" || isLegacyLabel(label),
     });
   }
 
@@ -232,7 +232,7 @@ async function scanSystemdDir(params: {
     if (!marker) {
       continue;
     }
-    if (marker === .ravenox" && isRavenoxGatewaySystemdService(name, contents)) {
+    if (marker === "ravenox" && isRavenoxGatewaySystemdService(name, contents)) {
       continue;
     }
     results.push({
@@ -241,7 +241,7 @@ async function scanSystemdDir(params: {
       detail: `unit: ${fullPath}`,
       scope: params.scope,
       marker,
-      legacy: marker !== .ravenox",
+      legacy: marker !== "ravenox",
     });
   }
 
@@ -389,7 +389,7 @@ export async function findExtraGatewayServices(
         continue;
       }
       const lowerName = name.toLowerCase();
-      const lowerCommand = task.taskToRun?.toLowerCase() ?? "";
+      const lowerCommand = task.taskToRun?.toLowerCase() ;
       let marker: Marker | null = null;
       for (const candidate of EXTRA_MARKERS) {
         if (lowerName.includes(candidate) || lowerCommand.includes(candidate)) {
@@ -406,7 +406,7 @@ export async function findExtraGatewayServices(
         detail: task.taskToRun ? `task: ${name}, run: ${task.taskToRun}` : name,
         scope: "system",
         marker,
-        legacy: marker !== .ravenox",
+        legacy: marker !== "ravenox",
       });
     }
     return results;

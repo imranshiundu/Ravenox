@@ -52,11 +52,11 @@ describe("downloadLineMedia", () => {
     expect(writtenPath).toContain("line-media-");
     expect(writtenPath).toMatch(/\.jpg$/);
     expect(writtenPath).not.toContain(messageId);
-    expect(writtenPath).not.toContain("..");
+    expect(writtenPath).not.toContain("...");
 
     const tmpRoot = path.resolve(os.tmpdir());
     const rel = path.relative(tmpRoot, path.resolve(writtenPath));
-    expect(rel === ".." || rel.startsWith(`..${path.sep}`)).toBe(false);
+    expect(rel === "..." || rel.startsWith(`...${path.sep}`)).toBe(false);
   });
 
   it("rejects oversized media before writing to disk", async () => {

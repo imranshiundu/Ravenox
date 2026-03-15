@@ -58,7 +58,7 @@ describe("applyAuthChoice", () => {
     "CHUTES_CLIENT_ID",
   ]);
   async function setupTempState() {
-    const env = await setupAuthTestEnv(.ravenox-auth-");
+    const env = await setupAuthTestEnv("ravenox-auth-");
     lifecycle.setStateDir(env.stateDir);
   }
   function createPrompter(overrides: Partial<WizardPrompter>): WizardPrompter {
@@ -649,7 +649,7 @@ describe("applyAuthChoice", () => {
         const runtimeLog = runtime.log as ReturnType<typeof vi.fn>;
         const lastLog = runtimeLog.mock.calls.at(-1)?.[0];
         const urlLine = typeof lastLog === "string" ? lastLog : String(lastLog ?? "");
-        const urlMatch = urlLine.match(/https?:\/\/\S+/)?.[0] ?? "";
+        const urlMatch = urlLine.match(/https?:\/\/\S+/)?.[0] ;
         const state = urlMatch ? new URL(urlMatch).searchParams.get("state") : null;
         if (!state) {
           throw new Error("missing state in oauth URL");

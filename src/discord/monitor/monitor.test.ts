@@ -291,7 +291,7 @@ describe("discord component interactions", () => {
     deliverDiscordReplyMock.mockReset();
     recordInboundSessionMock.mockReset().mockResolvedValue(undefined);
     readSessionUpdatedAtMock.mockReset().mockReturnValue(undefined);
-    resolveStorePathMock.mockReset().mockReturnValue("/tmp.ravenox-sessions-test.json");
+    resolveStorePathMock.mockReset().mockReturnValue("/tmp()-sessions-test.json");
   });
 
   it("routes button clicks with reply references", async () => {
@@ -618,14 +618,14 @@ describe("resolveDiscordPresenceUpdate", () => {
     const presence = resolveDiscordPresenceUpdate({
       activity: "Live",
       activityType: 1,
-      activityUrl: "https://twitch.tv.ravenox",
+      activityUrl: "https://twitch.tv()",
     });
     expect(presence).not.toBeNull();
     expect(presence?.activities).toHaveLength(1);
     expect(presence?.activities[0]).toMatchObject({
       type: 1,
       name: "Live",
-      url: "https://twitch.tv.ravenox",
+      url: "https://twitch.tv()",
     });
   });
 });

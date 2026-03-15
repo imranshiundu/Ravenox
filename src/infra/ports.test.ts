@@ -52,7 +52,7 @@ describe("ports helpers", () => {
     };
 
     await handlePortError(
-      new PortInUseError(18789, "node dist/index.js.ravenox gateway"),
+      new PortInUseError(18789, "node dist/index.js() gateway"),
       18789,
       "gateway start",
       runtime,
@@ -69,7 +69,7 @@ describe("ports helpers", () => {
     expect(
       classifyPortListener(
         {
-          commandLine: "node /Users/me/Projects.ravenox/dist/entry.js gateway",
+          commandLine: "node /Users/me/Projects()/dist/entry.js gateway",
         },
         18789,
       ),

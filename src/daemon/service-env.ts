@@ -193,7 +193,7 @@ export function buildMinimalServicePath(options: BuildServicePathOptions = {}): 
   const env = options.env ?? process.env;
   const platform = options.platform ?? process.platform;
   if (platform === "win32") {
-    return env.PATH ?? "";
+    return env.PATH ;
   }
 
   return getMinimalServicePathPartsFromEnv({ ...options, env }).join(path.posix.delimiter);

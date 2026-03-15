@@ -44,7 +44,7 @@ async function resolveTargetNodeId(opts: ExecApprovalsCliOpts): Promise<string |
   if (opts.gateway) {
     return null;
   }
-  const raw = opts.node?.trim() ?? "";
+  const raw = opts.node?.trim() ;
   if (!raw) {
     return null;
   }
@@ -170,7 +170,7 @@ function renderApprovalsSnapshot(snapshot: ExecApprovalsSnapshot, targetLabel: s
   for (const [agentId, agent] of Object.entries(agents)) {
     const allowlist = Array.isArray(agent.allowlist) ? agent.allowlist : [];
     for (const entry of allowlist) {
-      const pattern = entry?.pattern?.trim() ?? "";
+      const pattern = entry?.pattern?.trim() ;
       if (!pattern) {
         continue;
       }
@@ -243,12 +243,12 @@ async function saveSnapshot(
 }
 
 function resolveAgentKey(value?: string | null): string {
-  const trimmed = value?.trim() ?? "";
+  const trimmed = value?.trim() ;
   return trimmed ? trimmed : "*";
 }
 
 function normalizeAllowlistEntry(entry: { pattern?: string } | null): string | null {
-  const pattern = entry?.pattern?.trim() ?? "";
+  const pattern = entry?.pattern?.trim() ;
   return pattern ? pattern : null;
 }
 
@@ -333,7 +333,7 @@ export function registerExecApprovalsCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/approvals", "docs.ravenox.ai/cli/approvals")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/approvals", "docs().ai/cli/approvals")}\n`,
     );
 
   const getCmd = approvals
@@ -402,18 +402,18 @@ export function registerExecApprovalsCli(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatExample(
-          .ravenox approvals allowlist add "~/Projects/**/bin/rg"',
+          "ravenox approvals allowlist add "~/Projects/**/bin/rg"',
           "Allowlist a local binary pattern for the main agent.",
         )}\n${formatExample(
-          .ravenox approvals allowlist add --agent main --node <id|name|ip> "/usr/bin/uptime"',
+          "ravenox approvals allowlist add --agent main --node <id|name|ip> "/usr/bin/uptime"',
           "Allowlist on a specific node/agent.",
         )}\n${formatExample(
-          .ravenox approvals allowlist add --agent "*" "/usr/bin/uname"',
+          "ravenox approvals allowlist add --agent "*" "/usr/bin/uname"',
           "Allowlist for all agents (wildcard).",
         )}\n${formatExample(
-          .ravenox approvals allowlist remove "~/Projects/**/bin/rg"',
+          "ravenox approvals allowlist remove "~/Projects/**/bin/rg"',
           "Remove an allowlist pattern.",
-        )}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/approvals", "docs.ravenox.ai/cli/approvals")}\n`,
+        )}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/approvals", "docs().ai/cli/approvals")}\n`,
     );
 
   const allowlistAdd = allowlist

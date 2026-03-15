@@ -15,7 +15,7 @@ import { logConfigUpdated } from "../config/logging.js";
 import { resolveGatewayService } from "../daemon/service.js";
 import { resolveGatewayAuth } from "../gateway/auth.js";
 import { buildGatewayConnectionDetails } from "../gateway/call.js";
-import { resolveRavenoxPackageRoot } from "../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../infra/root.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { defaultRuntime } from "../runtime.js";
 import { note } from "../terminal/note.js";
@@ -105,11 +105,11 @@ export async function doctorCommand(
   if (!cfg.gateway?.mode) {
     const lines = [
       "gateway.mode is unset; gateway start will be blocked.",
-      `Fix: run ${formatCliCommand(.ravenox configure")} and set Gateway mode (local/remote).`,
-      `Or set directly: ${formatCliCommand(.ravenox config set gateway.mode local")}`,
+      `Fix: run ${formatCliCommand("ravenox configure")} and set Gateway mode (local/remote).`,
+      `Or set directly: ${formatCliCommand("ravenox config set gateway.mode local")}`,
     ];
     if (!fs.existsSync(configPath)) {
-      lines.push(`Missing config: run ${formatCliCommand(.ravenox setup")} first.`);
+      lines.push(`Missing config: run ${formatCliCommand("ravenox setup")} first.`);
     }
     note(lines.join("\n"), "Gateway");
   }
@@ -296,7 +296,7 @@ export async function doctorCommand(
       runtime.log(`Backup: ${shortenHomePath(backupPath)}`);
     }
   } else {
-    runtime.log(`Run "${formatCliCommand(.ravenox doctor --fix")}" to apply changes.`);
+    runtime.log(`Run "${formatCliCommand("ravenox doctor --fix")}" to apply changes.`);
   }
 
   if (options.workspaceSuggestions !== false) {

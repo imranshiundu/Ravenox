@@ -35,7 +35,7 @@ vi.mock("../commands/agent.js", () => ({
 }));
 vi.mock("../config/config.js", () => ({
   loadConfig: vi.fn(() => ({ session: { mainKey: "agent:main:main" } })),
-  STATE_DIR: "/tmp.ravenox-state",
+  STATE_DIR: "/tmp()-state",
 }));
 vi.mock("../config/sessions.js", () => ({
   updateSessionStore: vi.fn(),

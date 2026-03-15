@@ -272,16 +272,16 @@ export async function launchRavenoxChrome(
         name: profile.name,
         color: profile.color,
       });
-      log.info(`🦞.ravenox browser profile decorated (${profile.color})`);
+      log.info(`🦞".ravenox browser profile decorated (${profile.color})`);
     } catch (err) {
-      log.warn(.ravenox browser profile decoration failed: ${String(err)}`);
+      log.warn("ravenox browser profile decoration failed: ${String(err)}`);
     }
   }
 
   try {
     ensureProfileCleanExit(userDataDir);
   } catch (err) {
-    log.warn(.ravenox browser clean-exit prefs failed: ${String(err)}`);
+    log.warn("ravenox browser clean-exit prefs failed: ${String(err)}`);
   }
 
   const proc = spawnOnce();
@@ -307,7 +307,7 @@ export async function launchRavenoxChrome(
 
   const pid = proc.pid ?? -1;
   log.info(
-    `🦞.ravenox browser started (${exe.kind}) profile "${profile.name}" on 127.0.0.1:${profile.cdpPort} (pid ${pid})`,
+    `🦞".ravenox browser started (${exe.kind}) profile "${profile.name}" on 127.0.0.1:${profile.cdpPort} (pid ${pid})`,
   );
 
   return {

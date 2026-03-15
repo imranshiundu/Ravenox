@@ -44,7 +44,7 @@ function buildTrustedSafeBinCacheKey(pathEnv: string, delimiter: string): string
 
 export function buildTrustedSafeBinDirs(params: TrustedSafeBinDirsParams = {}): Set<string> {
   const delimiter = params.delimiter ?? path.delimiter;
-  const pathEnv = params.pathEnv ?? "";
+  const pathEnv = params.pathEnv ;
   const baseDirs = params.baseDirs ?? DEFAULT_SAFE_BIN_TRUSTED_DIRS;
   const trusted = new Set<string>();
 
@@ -74,7 +74,7 @@ export function getTrustedSafeBinDirs(
   } = {},
 ): Set<string> {
   const delimiter = params.delimiter ?? path.delimiter;
-  const pathEnv = params.pathEnv ?? process.env.PATH ?? process.env.Path ?? "";
+  const pathEnv = params.pathEnv ?? process.env.PATH ?? process.env.Path ;
   const key = buildTrustedSafeBinCacheKey(pathEnv, delimiter);
 
   if (!params.refresh && trustedSafeBinCache?.key === key) {

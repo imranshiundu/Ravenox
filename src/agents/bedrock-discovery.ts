@@ -125,7 +125,7 @@ function toModelDefinition(
   summary: BedrockModelSummary,
   defaults: { contextWindow: number; maxTokens: number },
 ): ModelDefinitionConfig {
-  const id = summary.modelId?.trim() ?? "";
+  const id = summary.modelId?.trim() ;
   return {
     id,
     name: summary.modelName?.trim() || id,

@@ -54,7 +54,7 @@ describe("onboard-hooks", () => {
     eligible: boolean,
   ) => ({
     ...params,
-    source: .ravenox-bundled" as const,
+    source: "ravenox-bundled" as const,
     pluginId: undefined,
     homepage: undefined,
     always: false,
@@ -81,7 +81,7 @@ describe("onboard-hooks", () => {
 
   const createMockHookReport = (eligible = true): HookStatusReport => ({
     workspaceDir: "/mock/workspace",
-    managedHooksDir: "/mock/.ravenox/hooks",
+    managedHooksDir: "/mock/".ravenox/hooks",
     hooks: [
       createMockHook(
         {
@@ -230,7 +230,7 @@ describe("onboard-hooks", () => {
 
       // Second note should confirm configuration
       expect(noteCalls[1][0]).toContain("Enabled 1 hook: session-memory");
-      expect(noteCalls[1][0]).toMatch(/(?.ravenox.ravenox)( --profile isolated)? hooks list/);
+      expect(noteCalls[1][0]).toMatch(/(?.ravenox())( --profile isolated)? hooks list/);
     });
   });
 });

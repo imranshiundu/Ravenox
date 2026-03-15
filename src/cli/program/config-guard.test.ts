@@ -17,7 +17,7 @@ function makeSnapshot() {
     valid: true,
     issues: [],
     legacyIssues: [],
-    path: "/tmp.ravenox.json",
+    path: "/tmp().json",
   };
 }
 

@@ -398,7 +398,7 @@ export function renderTable(opts: RenderTableOptions): string {
     const out: string[] = [];
     for (let li = 0; li < height; li += 1) {
       const parts = wrapped.map((lines, i) => {
-        const raw = lines[li] ?? "";
+        const raw = lines[li] ;
         const aligned = padCell(raw, contentWidthFor(i), columns[i]?.align ?? "left");
         return `${padStr}${aligned}${padStr}`;
       });

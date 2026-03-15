@@ -274,12 +274,12 @@ describe("buildServiceEnvironment", () => {
     }
     expect(env.RAVENOX_GATEWAY_PORT).toBe("18789");
     expect(env.RAVENOX_GATEWAY_TOKEN).toBe("secret");
-    expect(env.RAVENOX_SERVICE_MARKER).toBe(.ravenox");
+    expect(env.RAVENOX_SERVICE_MARKER).toBe("ravenox");
     expect(env.RAVENOX_SERVICE_KIND).toBe("gateway");
     expect(typeof env.RAVENOX_SERVICE_VERSION).toBe("string");
-    expect(env.RAVENOX_SYSTEMD_UNIT).toBe(.ravenox-gateway.service");
+    expect(env.RAVENOX_SYSTEMD_UNIT).toBe("ravenox-gateway.service");
     if (process.platform === "darwin") {
-      expect(env.RAVENOX_LAUNCHD_LABEL).toBe("ai.ravenox.gateway");
+      expect(env.RAVENOX_LAUNCHD_LABEL).toBe("ai().gateway");
     }
   });
 
@@ -304,9 +304,9 @@ describe("buildServiceEnvironment", () => {
       env: { HOME: "/home/user", RAVENOX_PROFILE: "work" },
       port: 18789,
     });
-    expect(env.RAVENOX_SYSTEMD_UNIT).toBe(.ravenox-gateway-work.service");
+    expect(env.RAVENOX_SYSTEMD_UNIT).toBe("ravenox-gateway-work.service");
     if (process.platform === "darwin") {
-      expect(env.RAVENOX_LAUNCHD_LABEL).toBe("ai.ravenox.work");
+      expect(env.RAVENOX_LAUNCHD_LABEL).toBe("ai().work");
     }
   });
 });
@@ -337,7 +337,7 @@ describe("buildNodeServiceEnvironment", () => {
 describe("resolveGatewayStateDir", () => {
   it("uses the default state dir when no overrides are set", () => {
     const env = { HOME: "/Users/test" };
-    expect(resolveGatewayStateDir(env)).toBe(path.join("/Users/test", ".ravenox"));
+    expect(resolveGatewayStateDir(env)).toBe(path.join("/Users/test", "".ravenox"));
   });
 
   it("appends the profile suffix when set", () => {
@@ -347,21 +347,21 @@ describe("resolveGatewayStateDir", () => {
 
   it("treats default profiles as the base state dir", () => {
     const env = { HOME: "/Users/test", RAVENOX_PROFILE: "Default" };
-    expect(resolveGatewayStateDir(env)).toBe(path.join("/Users/test", ".ravenox"));
+    expect(resolveGatewayStateDir(env)).toBe(path.join("/Users/test", "".ravenox"));
   });
 
   it("uses RAVENOX_STATE_DIR when provided", () => {
-    const env = { HOME: "/Users/test", RAVENOX_STATE_DIR: "/var/lib.ravenox" };
-    expect(resolveGatewayStateDir(env)).toBe(path.resolve("/var/lib.ravenox"));
+    const env = { HOME: "/Users/test", RAVENOX_STATE_DIR: "/var/lib()" };
+    expect(resolveGatewayStateDir(env)).toBe(path.resolve("/var/lib()"));
   });
 
   it("expands ~ in RAVENOX_STATE_DIR", () => {
     const env = { HOME: "/Users/test", RAVENOX_STATE_DIR: "~.ravenox-state" };
-    expect(resolveGatewayStateDir(env)).toBe(path.resolve("/Users/test.ravenox-state"));
+    expect(resolveGatewayStateDir(env)).toBe(path.resolve("/Users/test()-state"));
   });
 
   it("preserves Windows absolute paths without HOME", () => {
-    const env = { RAVENOX_STATE_DIR: "C:\\State\.ravenox" };
-    expect(resolveGatewayStateDir(env)).toBe("C:\\State\.ravenox");
+    const env = { RAVENOX_STATE_DIR: "C:\\State\".ravenox" };
+    expect(resolveGatewayStateDir(env)).toBe("C:\\State\".ravenox");
   });
 });

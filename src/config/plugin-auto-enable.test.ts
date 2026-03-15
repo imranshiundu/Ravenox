@@ -34,7 +34,7 @@ describe("applyPluginAutoEnable", () => {
       config: {},
       env: {
         IRC_HOST: "irc.libera.chat",
-        IRC_NICK: .ravenox-bot",
+        IRC_NICK: "ravenox-bot",
       },
     });
 

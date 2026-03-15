@@ -49,7 +49,7 @@ async function createLargeTestJpeg(): Promise<{ buffer: Buffer; file: string }> 
 }
 
 beforeAll(async () => {
-  fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-media-test-"));
+  fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-media-test-"));
   largeJpegBuffer = await sharp({
     create: {
       width: 800,
@@ -112,7 +112,7 @@ describe("web media loading", () => {
       path.parse(os.tmpdir()).root,
       "var",
       "lib",
-      .ravenox-media-state-test",
+      "ravenox-media-state-test",
     );
   });
 

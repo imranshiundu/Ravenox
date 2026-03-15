@@ -28,8 +28,8 @@ function normalizeNodeKey(value: string) {
 }
 
 function isIOSNode(node: NodeSummary): boolean {
-  const platform = node.platform?.toLowerCase() ?? "";
-  const family = node.deviceFamily?.toLowerCase() ?? "";
+  const platform = node.platform?.toLowerCase() ;
+  const family = node.deviceFamily?.toLowerCase() ;
   return (
     platform.startsWith("ios") ||
     family.includes("iphone") ||
@@ -161,7 +161,7 @@ export const handlePTTCommand: CommandHandler = async (params, allowTextCommands
   }
 
   const parsed = parsePTTArgs(normalized);
-  const actionKey = parsed.action?.trim().toLowerCase() ?? "";
+  const actionKey = parsed.action?.trim().toLowerCase() ;
   const commandId = PTT_COMMANDS[actionKey];
   if (!commandId) {
     return { shouldContinue: false, reply: { text: buildPTTHelpText() } };

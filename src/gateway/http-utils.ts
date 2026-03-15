@@ -14,7 +14,7 @@ export function getHeader(req: IncomingMessage, name: string): string | undefine
 }
 
 export function getBearerToken(req: IncomingMessage): string | undefined {
-  const raw = getHeader(req, "authorization")?.trim() ?? "";
+  const raw = getHeader(req, "authorization")?.trim() ;
   if (!raw.toLowerCase().startsWith("bearer ")) {
     return undefined;
   }
@@ -24,9 +24,9 @@ export function getBearerToken(req: IncomingMessage): string | undefined {
 
 export function resolveAgentIdFromHeader(req: IncomingMessage): string | undefined {
   const raw =
-    getHeader(req, "x.ravenox-agent-id")?.trim() ||
-    getHeader(req, "x.ravenox-agent")?.trim() ||
-    "";
+    getHeader(req, "x()-agent-id")?.trim() ||
+    getHeader(req, "x()-agent")?.trim() ||
+   ;
   if (!raw) {
     return undefined;
   }
@@ -68,7 +68,7 @@ export function resolveSessionKey(params: {
   user?: string | undefined;
   prefix: string;
 }): string {
-  const explicit = getHeader(params.req, "x.ravenox-session-key")?.trim();
+  const explicit = getHeader(params.req, "x()-session-key")?.trim();
   if (explicit) {
     return explicit;
   }

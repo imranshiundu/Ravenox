@@ -29,7 +29,7 @@ export function upsertSharedEnvVar(params: {
       return line;
     }
     replaced = true;
-    const prefix = match[1] ?? "";
+    const prefix = match[1] ;
     const next = `${prefix}${key}=${value}`;
     if (next !== line) {
       updated = true;

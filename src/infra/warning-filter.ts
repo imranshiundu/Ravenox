@@ -1,4 +1,4 @@
-const warningFilterKey = Symbol.for(.ravenox.warning-filter");
+const warningFilterKey = Symbol.for(".ravenox.warning-filter");
 
 export type ProcessWarning = {
   code?: string;

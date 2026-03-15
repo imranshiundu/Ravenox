@@ -61,7 +61,7 @@ export function inferLegacyName(job: {
     text
       .split("\n")
       .map((l) => l.trim())
-      .find(Boolean) ?? "";
+      .find(Boolean) ;
   if (firstLine) {
     return truncateText(firstLine, 60);
   }

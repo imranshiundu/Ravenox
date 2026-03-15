@@ -228,7 +228,7 @@ describe("provider usage loading", () => {
     await withTempHome(
       async (tempHome) => {
         const agentDir = path.join(
-          process.env.RAVENOX_STATE_DIR ?? path.join(tempHome, ".ravenox"),
+          process.env.RAVENOX_STATE_DIR ?? path.join(tempHome, "".ravenox"),
           "agents",
           "main",
           "agent",
@@ -297,9 +297,9 @@ describe("provider usage loading", () => {
       },
       {
         env: {
-          RAVENOX_STATE_DIR: (home) => path.join(home, ".ravenox"),
+          RAVENOX_STATE_DIR: (home) => path.join(home, "".ravenox"),
         },
-        prefix: .ravenox-provider-usage-",
+        prefix: "ravenox-provider-usage-",
       },
     );
   });

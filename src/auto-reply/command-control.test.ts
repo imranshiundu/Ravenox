@@ -221,7 +221,7 @@ describe("resolveCommandAuthorization", () => {
       Provider: "webchat",
       Surface: "webchat",
       OriginatingChannel: "webchat",
-      SenderId: .ravenox-control-ui",
+      SenderId: "ravenox-control-ui",
     } as MsgContext;
 
     const auth = resolveCommandAuthorization({
@@ -505,12 +505,12 @@ describe("control command parsing", () => {
   it("ignores telegram commands addressed to other bots", () => {
     expect(
       hasControlCommand("/help@otherbot", undefined, {
-        botUsername: .ravenox",
+        botUsername: "ravenox",
       }),
     ).toBe(false);
     expect(
-      hasControlCommand("/help.ravenox", undefined, {
-        botUsername: .ravenox",
+      hasControlCommand("/help()", undefined, {
+        botUsername: "ravenox",
       }),
     ).toBe(true);
   });

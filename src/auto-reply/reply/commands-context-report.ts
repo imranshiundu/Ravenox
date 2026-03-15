@@ -75,20 +75,17 @@ async function resolveContextReport(
 
 export async function buildContextReply(params: HandleCommandsParams): Promise<ReplyPayload> {
   const args = parseContextArgs(params.command.commandBodyNormalized);
-  const sub = args.split(/\s+/).filter(Boolean)[0]?.toLowerCase() ?? "";
+  const sub = args.split(/\s+/).filter(Boolean)[0]?.toLowerCase() ;
 
   if (!sub || sub === "help") {
     return {
       text: [
         "🧠 /context",
-        "",
         "What counts as context (high-level), plus a breakdown mode.",
-        "",
         "Try:",
         "- /context list   (short breakdown)",
         "- /context detail (per-file + per-tool + per-skill + system prompt size)",
         "- /context json   (same, machine-readable)",
-        "",
         "Inline shortcut = a command token inside a normal message (e.g. “hey /status”). It runs immediately (allowlisted senders only) and is stripped before the model sees the remaining text.",
       ].join("\n"),
     };
@@ -210,29 +207,23 @@ export async function buildContextReply(params: HandleCommandsParams): Promise<R
         sandboxLine,
         systemPromptLine,
         ...(bootstrapWarningLines.length ? ["", ...bootstrapWarningLines] : []),
-        "",
         "Injected workspace files:",
         ...fileLines,
-        "",
         skillsLine,
         skillsNamesLine,
         ...(perSkill.lines.length ? ["Top skills (prompt entry size):", ...perSkill.lines] : []),
         ...(perSkill.omitted ? [`… (+${perSkill.omitted} more skills)`] : []),
-        "",
         toolListLine,
         toolSchemaLine,
         toolsNamesLine,
         "Top tools (schema size):",
         ...perToolSchema.lines,
         ...(perToolSchema.omitted ? [`… (+${perToolSchema.omitted} more tools)`] : []),
-        "",
         "Top tools (summary text size):",
         ...perToolSummary.lines,
         ...(perToolSummary.omitted ? [`… (+${perToolSummary.omitted} more tools)`] : []),
         ...(toolPropsLines.length ? ["", "Tools (param count):", ...toolPropsLines] : []),
-        "",
         totalsLine,
-        "",
         "Inline shortcut: a command token inside normal text (e.g. “hey /status”) that runs immediately (allowlisted senders only) and is stripped before the model sees the remaining message.",
       ]
         .filter(Boolean)
@@ -249,18 +240,14 @@ export async function buildContextReply(params: HandleCommandsParams): Promise<R
       sandboxLine,
       systemPromptLine,
       ...(bootstrapWarningLines.length ? ["", ...bootstrapWarningLines] : []),
-      "",
       "Injected workspace files:",
       ...fileLines,
-      "",
       skillsLine,
       skillsNamesLine,
       toolListLine,
       toolSchemaLine,
       toolsNamesLine,
-      "",
       totalsLine,
-      "",
       "Inline shortcut: a command token inside normal text (e.g. “hey /status”) that runs immediately (allowlisted senders only) and is stripped before the model sees the remaining message.",
     ].join("\n"),
   };

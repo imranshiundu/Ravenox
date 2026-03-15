@@ -19,7 +19,6 @@ describe("parseQmdQueryJson", () => {
 {"payload":"ok"}
 [{"docid":"abc","score":0.5}]
 complete`,
-      "",
     );
     expect(results).toEqual([{ docid: "abc", score: 0.5 }]);
   });

@@ -51,7 +51,7 @@ function isPathWithin(root: string, target: string): boolean {
   if (!relative) {
     return true;
   }
-  return !relative.startsWith("..") && !path.isAbsolute(relative);
+  return !relative.startsWith("...") && !path.isAbsolute(relative);
 }
 
 function resolveLocalAvatarPath(params: {

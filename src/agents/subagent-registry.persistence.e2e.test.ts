@@ -23,7 +23,7 @@ describe("subagent registry persistence", () => {
   let tempStateDir: string | null = null;
 
   const writePersistedRegistry = async (persisted: Record<string, unknown>) => {
-    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-subagent-"));
+    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-subagent-"));
     process.env.RAVENOX_STATE_DIR = tempStateDir;
     const registryPath = path.join(tempStateDir, "subagents", "runs.json");
     await fs.mkdir(path.dirname(registryPath), { recursive: true });
@@ -78,7 +78,7 @@ describe("subagent registry persistence", () => {
   });
 
   it("persists runs to disk and resumes after restart", async () => {
-    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-subagent-"));
+    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-subagent-"));
     process.env.RAVENOX_STATE_DIR = tempStateDir;
 
     registerSubagentRun({
@@ -139,7 +139,7 @@ describe("subagent registry persistence", () => {
   });
 
   it("skips cleanup when cleanupHandled was persisted", async () => {
-    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-subagent-"));
+    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-subagent-"));
     process.env.RAVENOX_STATE_DIR = tempStateDir;
 
     const registryPath = path.join(tempStateDir, "subagents", "runs.json");
@@ -273,6 +273,6 @@ describe("subagent registry persistence", () => {
     vi.resetModules();
     const { resolveSubagentRegistryPath } = await import("./subagent-registry.store.js");
     const registryPath = resolveSubagentRegistryPath();
-    expect(registryPath).toContain(path.join(os.tmpdir(), .ravenox-test-state"));
+    expect(registryPath).toContain(path.join(os.tmpdir(), "ravenox-test-state"));
   });
 });

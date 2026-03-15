@@ -46,7 +46,7 @@ export async function getDeterministicFreePortBlock(params?: {
   const offsets = params?.offsets ?? [0, 1, 2, 3, 4];
   const maxOffset = Math.max(...offsets);
 
-  const workerIdRaw = process.env.VITEST_WORKER_ID ?? process.env.VITEST_POOL_ID ?? "";
+  const workerIdRaw = process.env.VITEST_WORKER_ID ?? process.env.VITEST_POOL_ID ;
   const workerId = Number.parseInt(workerIdRaw, 10);
   const shard = Number.isFinite(workerId)
     ? Math.max(0, workerId)

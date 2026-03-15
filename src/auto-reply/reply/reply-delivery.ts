@@ -18,7 +18,7 @@ export function normalizeReplyPayloadDirectives(params: {
 }): { payload: ReplyPayload; isSilent: boolean } {
   const parseMode = params.parseMode ?? "always";
   const silentToken = params.silentToken ?? SILENT_REPLY_TOKEN;
-  const sourceText = params.payload.text ?? "";
+  const sourceText = params.payload.text ;
 
   const shouldParse =
     parseMode === "always" ||

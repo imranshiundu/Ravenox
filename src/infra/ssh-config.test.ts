@@ -28,7 +28,6 @@ vi.mock("node:child_process", () => {
           "port 2222",
           "identityfile none",
           "identityfile /tmp/id_ed25519",
-          "",
         ].join("\n"),
       );
       child.emit("exit", 0);

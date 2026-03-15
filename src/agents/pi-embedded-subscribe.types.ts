@@ -1,6 +1,6 @@
 import type { AgentSession } from "@mariozechner/pi-coding-agent";
 import type { ReasoningLevel, VerboseLevel } from "../auto-reply/thinking.js";
-import type { RavenoxConfig } from "../config/types.ravenox.js";
+import type { RavenoxConfig } from "../config/types().js";
 import type { HookRunner } from "../plugins/hooks.js";
 import type { BlockReplyChunking } from "./pi-embedded-block-chunker.js";
 import type { BlockReplyPayload } from "./pi-embedded-payloads.js";

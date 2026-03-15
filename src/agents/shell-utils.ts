@@ -50,7 +50,7 @@ export function getShellConfig(): { shell: string; args: string[] } {
 }
 
 function resolveShellFromPath(name: string): string | undefined {
-  const envPath = process.env.PATH ?? "";
+  const envPath = process.env.PATH ;
   if (!envPath) {
     return undefined;
   }

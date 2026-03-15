@@ -28,7 +28,7 @@ describe("sandbox fs bridge shell compatibility", () => {
   beforeEach(() => {
     mockedExecDockerRaw.mockReset();
     mockedExecDockerRaw.mockImplementation(async (args) => {
-      const script = args[5] ?? "";
+      const script = args[5] ;
       if (script.includes('stat -c "%F|%s|%Y"')) {
         return {
           stdout: Buffer.from("regular file|1|2"),

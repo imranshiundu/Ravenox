@@ -359,11 +359,11 @@ export function createSignalEventHandler(deps: SignalEventHandlerDeps) {
 
     // Replace ￼ (object replacement character) with @uuid or @phone from mentions
     // Signal encodes mentions as the object replacement character; hydrate them from metadata first.
-    const rawMessage = dataMessage?.message ?? "";
+    const rawMessage = dataMessage?.message ;
     const normalizedMessage = renderSignalMentions(rawMessage, dataMessage?.mentions);
     const messageText = normalizedMessage.trim();
 
-    const quoteText = dataMessage?.quote?.text?.trim() ?? "";
+    const quoteText = dataMessage?.quote?.text?.trim() ;
     const hasBodyContent =
       Boolean(messageText || quoteText) || Boolean(!reaction && dataMessage?.attachments?.length);
 

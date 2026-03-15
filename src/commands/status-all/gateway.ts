@@ -38,7 +38,7 @@ function consumeJsonBlock(
   lines: string[],
   startIndex: number,
 ): { json: string; endIndex: number } | null {
-  const startLine = lines[startIndex] ?? "";
+  const startLine = lines[startIndex] ;
   const braceAt = startLine.indexOf("{");
   if (braceAt < 0) {
     return null;
@@ -49,7 +49,7 @@ function consumeJsonBlock(
   let i = startIndex;
   while (depth > 0 && i + 1 < lines.length) {
     i += 1;
-    const next = lines[i] ?? "";
+    const next = lines[i] ;
     parts.push(next);
     depth += countMatches(next, "{") - countMatches(next, "}");
   }
@@ -82,7 +82,7 @@ export function summarizeLogTail(rawLines: string[], opts?: { maxLines?: number 
 
   const lines = rawLines.map((line) => line.trimEnd()).filter(Boolean);
   for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i] ?? "";
+    const line = lines[i] ;
     const trimmedStart = line.trimStart();
     if (
       (trimmedStart.startsWith('"') ||

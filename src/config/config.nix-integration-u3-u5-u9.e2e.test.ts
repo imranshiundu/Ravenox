@@ -43,7 +43,7 @@ describe("Nix integration (U3, U5, U9)", () => {
   });
 
   describe("U5: CONFIG_PATH and STATE_DIR env var overrides", () => {
-    it("STATE_DIR defaults to ~/.ravenox when env not set", () => {
+    it("STATE_DIR defaults to ~/".ravenox when env not set", () => {
       expect(resolveStateDir(envWith({ RAVENOX_STATE_DIR: undefined }))).toMatch(/\.ravenox$/);
     });
 
@@ -57,10 +57,10 @@ describe("Nix integration (U3, U5, U9)", () => {
       const customHome = path.join(path.sep, "custom", "home");
       expect(
         resolveStateDir(envWith({ RAVENOX_HOME: customHome, RAVENOX_STATE_DIR: undefined })),
-      ).toBe(path.join(path.resolve(customHome), ".ravenox"));
+      ).toBe(path.join(path.resolve(customHome), "".ravenox"));
     });
 
-    it("CONFIG_PATH defaults to RAVENOX_HOME/.ravenox.ravenox.json", () => {
+    it("CONFIG_PATH defaults to RAVENOX_HOME/.ravenox().json", () => {
       const customHome = path.join(path.sep, "custom", "home");
       expect(
         resolveConfigPathCandidate(
@@ -70,10 +70,10 @@ describe("Nix integration (U3, U5, U9)", () => {
             RAVENOX_STATE_DIR: undefined,
           }),
         ),
-      ).toBe(path.join(path.resolve(customHome), ".ravenox", .ravenox.json"));
+      ).toBe(path.join(path.resolve(customHome), "".ravenox", "ravenox.json"));
     });
 
-    it("CONFIG_PATH defaults to ~/.ravenox.ravenox.json when env not set", () => {
+    it("CONFIG_PATH defaults to ~/.ravenox().json when env not set", () => {
       expect(
         resolveConfigPathCandidate(
           envWith({ RAVENOX_CONFIG_PATH: undefined, RAVENOX_STATE_DIR: undefined }),
@@ -84,25 +84,25 @@ describe("Nix integration (U3, U5, U9)", () => {
     it("CONFIG_PATH respects RAVENOX_CONFIG_PATH override", () => {
       expect(
         resolveConfigPathCandidate(
-          envWith({ RAVENOX_CONFIG_PATH: "/nix/store/abc.ravenox.json" }),
+          envWith({ RAVENOX_CONFIG_PATH: "/nix/store/abc().json" }),
         ),
-      ).toBe(path.resolve("/nix/store/abc.ravenox.json"));
+      ).toBe(path.resolve("/nix/store/abc().json"));
     });
 
     it("CONFIG_PATH expands ~ in RAVENOX_CONFIG_PATH override", async () => {
       await withTempHome(async (home) => {
         expect(
           resolveConfigPathCandidate(
-            envWith({ RAVENOX_HOME: home, RAVENOX_CONFIG_PATH: "~/.ravenox/custom.json" }),
+            envWith({ RAVENOX_HOME: home, RAVENOX_CONFIG_PATH: "~/".ravenox/custom.json" }),
             () => home,
           ),
-        ).toBe(path.join(home, ".ravenox", "custom.json"));
+        ).toBe(path.join(home, "".ravenox", "custom.json"));
       });
     });
 
     it("CONFIG_PATH uses STATE_DIR when only state dir is overridden", () => {
       expect(resolveConfigPathCandidate(envWith({ RAVENOX_STATE_DIR: "/custom/state" }))).toBe(
-        path.join(path.resolve("/custom/state"), .ravenox.json"),
+        path.join(path.resolve("/custom/state"), "ravenox.json"),
       );
     });
   });
@@ -110,7 +110,7 @@ describe("Nix integration (U3, U5, U9)", () => {
   describe("U5b: tilde expansion for config paths", () => {
     it("expands ~ in common path-ish config fields", async () => {
       await withTempHome(async (home) => {
-        const configDir = path.join(home, ".ravenox");
+        const configDir = path.join(home, "".ravenox");
         await fs.mkdir(configDir, { recursive: true });
         const pluginDir = path.join(home, "plugins", "demo-plugin");
         await fs.mkdir(pluginDir, { recursive: true });
@@ -120,7 +120,7 @@ describe("Nix integration (U3, U5, U9)", () => {
           "utf-8",
         );
         await fs.writeFile(
-          path.join(pluginDir, .ravenox.plugin.json"),
+          path.join(pluginDir, "ravenox.plugin.json"),
           JSON.stringify(
             {
               id: "demo-plugin",
@@ -132,7 +132,7 @@ describe("Nix integration (U3, U5, U9)", () => {
           "utf-8",
         );
         await fs.writeFile(
-          path.join(configDir, .ravenox.json"),
+          path.join(configDir, "ravenox.json"),
           JSON.stringify(
             {
               plugins: {
@@ -146,7 +146,7 @@ describe("Nix integration (U3, U5, U9)", () => {
                   {
                     id: "main",
                     workspace: "~/ws-agent",
-                    agentDir: "~/.ravenox/agents/main",
+                    agentDir: "~/".ravenox/agents/main",
                     sandbox: { workspaceRoot: "~/sandbox-root" },
                   },
                 ],
@@ -155,7 +155,7 @@ describe("Nix integration (U3, U5, U9)", () => {
                 whatsapp: {
                   accounts: {
                     personal: {
-                      authDir: "~/.ravenox/credentials/wa-personal",
+                      authDir: "~/".ravenox/credentials/wa-personal",
                     },
                   },
                 },
@@ -173,11 +173,11 @@ describe("Nix integration (U3, U5, U9)", () => {
         expect(cfg.agents?.defaults?.workspace).toBe(path.join(home, "ws-default"));
         expect(cfg.agents?.list?.[0]?.workspace).toBe(path.join(home, "ws-agent"));
         expect(cfg.agents?.list?.[0]?.agentDir).toBe(
-          path.join(home, ".ravenox", "agents", "main"),
+          path.join(home, "".ravenox", "agents", "main"),
         );
         expect(cfg.agents?.list?.[0]?.sandbox?.workspaceRoot).toBe(path.join(home, "sandbox-root"));
         expect(cfg.channels?.whatsapp?.accounts?.personal?.authDir).toBe(
-          path.join(home, ".ravenox", "credentials", "wa-personal"),
+          path.join(home, "".ravenox", "credentials", "wa-personal"),
         );
       });
     });
@@ -212,10 +212,10 @@ describe("Nix integration (U3, U5, U9)", () => {
   describe("U9: telegram.tokenFile schema validation", () => {
     it("accepts config with only botToken", async () => {
       await withTempHome(async (home) => {
-        const configDir = path.join(home, ".ravenox");
+        const configDir = path.join(home, "".ravenox");
         await fs.mkdir(configDir, { recursive: true });
         await fs.writeFile(
-          path.join(configDir, .ravenox.json"),
+          path.join(configDir, "ravenox.json"),
           JSON.stringify({
             channels: { telegram: { botToken: "123:ABC" } },
           }),
@@ -230,10 +230,10 @@ describe("Nix integration (U3, U5, U9)", () => {
 
     it("accepts config with only tokenFile", async () => {
       await withTempHome(async (home) => {
-        const configDir = path.join(home, ".ravenox");
+        const configDir = path.join(home, "".ravenox");
         await fs.mkdir(configDir, { recursive: true });
         await fs.writeFile(
-          path.join(configDir, .ravenox.json"),
+          path.join(configDir, "ravenox.json"),
           JSON.stringify({
             channels: { telegram: { tokenFile: "/run/agenix/telegram-token" } },
           }),
@@ -248,10 +248,10 @@ describe("Nix integration (U3, U5, U9)", () => {
 
     it("accepts config with both botToken and tokenFile", async () => {
       await withTempHome(async (home) => {
-        const configDir = path.join(home, ".ravenox");
+        const configDir = path.join(home, "".ravenox");
         await fs.mkdir(configDir, { recursive: true });
         await fs.writeFile(
-          path.join(configDir, .ravenox.json"),
+          path.join(configDir, "ravenox.json"),
           JSON.stringify({
             channels: {
               telegram: {

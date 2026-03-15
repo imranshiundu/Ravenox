@@ -9,7 +9,7 @@ import { sanitizeBinaryOutput } from "./shell-utils.js";
 
 const isWin = process.platform === "win32";
 const resolveShellFromPath = (name: string) => {
-  const envPath = process.env.PATH ?? "";
+  const envPath = process.env.PATH ;
   if (!envPath) {
     return undefined;
   }
@@ -114,7 +114,7 @@ describe("exec tool backgrounding", () => {
             });
             const status = (poll.details as { status: string }).status;
             const textBlock = poll.content.find((c) => c.type === "text");
-            output = textBlock?.text ?? "";
+            output = textBlock?.text ;
             return status;
           },
           { timeout: process.platform === "win32" ? 8000 : 2000, interval: 20 },
@@ -209,7 +209,7 @@ describe("exec tool backgrounding", () => {
     const result = await customBash.execute("call1", {
       command: "echo hi",
     });
-    const text = result.content.find((c) => c.type === "text")?.text ?? "";
+    const text = result.content.find((c) => c.type === "text")?.text ;
     expect(text).toContain("hi");
   });
 
@@ -241,7 +241,7 @@ describe("exec tool backgrounding", () => {
       action: "log",
       sessionId,
     });
-    const textBlock = log.content.find((c) => c.type === "text")?.text ?? "";
+    const textBlock = log.content.find((c) => c.type === "text")?.text ;
     const firstLine = textBlock.split("\n")[0]?.trim();
     expect(textBlock).toContain("showing last 200 of 260 lines");
     expect(firstLine).toBe("line-61");
@@ -278,7 +278,7 @@ describe("exec tool backgrounding", () => {
       offset: 30,
     });
 
-    const textBlock = log.content.find((c) => c.type === "text")?.text ?? "";
+    const textBlock = log.content.find((c) => c.type === "text")?.text ;
     const renderedLines = textBlock.split("\n");
     expect(renderedLines[0]?.trim()).toBe("line-31");
     expect(renderedLines[renderedLines.length - 1]?.trim()).toBe("line-260");
@@ -487,7 +487,7 @@ describe("buildDockerExecArgs", () => {
   });
 
   it("does not interpolate PATH into the shell command", () => {
-    const injectedPath = "$(touch /tmp.ravenox-path-injection)";
+    const injectedPath = "$(touch /tmp()-path-injection)";
     const args = buildDockerExecArgs({
       containerName: "test-container",
       command: "echo hello",

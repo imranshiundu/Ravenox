@@ -103,24 +103,24 @@ export function resolveGmailHookRuntimeConfig(
 ): { ok: true; value: GmailHookRuntimeConfig } | { ok: false; error: string } {
   const hooks = cfg.hooks;
   const gmail = hooks?.gmail;
-  const hookToken = overrides.hookToken ?? hooks?.token ?? "";
+  const hookToken = overrides.hookToken ?? hooks?.token ;
   if (!hookToken) {
     return { ok: false, error: "hooks.token missing (needed for gmail hook)" };
   }
 
-  const account = overrides.account ?? gmail?.account ?? "";
+  const account = overrides.account ?? gmail?.account ;
   if (!account) {
     return { ok: false, error: "gmail account required" };
   }
 
-  const topic = overrides.topic ?? gmail?.topic ?? "";
+  const topic = overrides.topic ?? gmail?.topic ;
   if (!topic) {
     return { ok: false, error: "gmail topic required" };
   }
 
   const subscription = overrides.subscription ?? gmail?.subscription ?? DEFAULT_GMAIL_SUBSCRIPTION;
 
-  const pushToken = overrides.pushToken ?? gmail?.pushToken ?? "";
+  const pushToken = overrides.pushToken ?? gmail?.pushToken ;
   if (!pushToken) {
     return { ok: false, error: "gmail push token required" };
   }
@@ -259,7 +259,7 @@ export function parseTopicPath(topic: string): { projectId: string; topicName: s
   if (!match) {
     return null;
   }
-  return { projectId: match[1] ?? "", topicName: match[2] ?? "" };
+  return { projectId: match[1] ?? "", topicName: match[2] ?? ""};
 }
 
 function joinUrl(base: string, path: string): string {

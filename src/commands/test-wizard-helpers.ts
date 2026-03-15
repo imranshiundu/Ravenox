@@ -37,7 +37,7 @@ export function createWizardPrompter(
 }
 
 export async function setupAuthTestEnv(
-  prefix = .ravenox-auth-",
+  prefix = "ravenox-auth-",
   options?: { agentSubdir?: string },
 ): Promise<{
   stateDir: string;

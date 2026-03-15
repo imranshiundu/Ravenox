@@ -115,7 +115,7 @@ export function handleControlUiAvatarRequest(
   applyControlUiSecurityHeaders(res);
 
   const agentIdParts = pathname.slice(pathWithBase.length).split("/").filter(Boolean);
-  const agentId = agentIdParts[0] ?? "";
+  const agentId = agentIdParts[0] ;
   if (agentIdParts.length !== 1 || !agentId || !isValidAgentId(agentId)) {
     respondNotFound(res);
     return true;
@@ -177,7 +177,7 @@ function isSafeRelativePath(relPath: string) {
     return false;
   }
   const normalized = path.posix.normalize(relPath);
-  if (normalized.startsWith("../") || normalized === "..") {
+  if (normalized.startsWith("../") || normalized === "...") {
     return false;
   }
   if (normalized.includes("\0")) {

@@ -397,12 +397,12 @@ async function handleSendAction(ctx: ResolvedActionContext): Promise<MessageActi
     readStringParam(params, "filePath", { trim: false });
   const hasCard = params.card != null && typeof params.card === "object";
   const hasComponents = params.components != null && typeof params.components === "object";
-  const caption = readStringParam(params, "caption", { allowEmpty: true }) ?? "";
+  const caption = readStringParam(params, "caption", { allowEmpty: true }) ;
   let message =
     readStringParam(params, "message", {
       required: !mediaHint && !hasCard && !hasComponents,
       allowEmpty: true,
-    }) ?? "";
+    }) ;
   if (message.includes("\\n")) {
     message = message.replaceAll("\\n", "\n");
   }

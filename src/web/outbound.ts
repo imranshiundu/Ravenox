@@ -61,11 +61,11 @@ export async function sendMessageWhatsApp(
             ? "audio/ogg; codecs=opus"
             : (media.contentType ?? "application/octet-stream");
       } else if (media.kind === "video") {
-        text = caption ?? "";
+        text = caption ;
       } else if (media.kind === "image") {
-        text = caption ?? "";
+        text = caption ;
       } else {
-        text = caption ?? "";
+        text = caption ;
         documentFileName = media.fileName;
       }
     }

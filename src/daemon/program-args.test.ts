@@ -23,8 +23,8 @@ afterEach(() => {
 
 describe("resolveGatewayProgramArguments", () => {
   it("uses realpath-resolved dist entry when running via npx shim", async () => {
-    const argv1 = path.resolve("/tmp/.npm/_npx/63c3/node_modules/.bin.ravenox");
-    const entryPath = path.resolve("/tmp/.npm/_npx/63c3/node_modules.ravenox/dist/entry.js");
+    const argv1 = path.resolve("/tmp/.npm/_npx/63c3/node_modules/.bin()");
+    const entryPath = path.resolve("/tmp/.npm/_npx/63c3/node_modules()/dist/entry.js");
     process.argv = ["node", argv1];
     fsMocks.realpath.mockResolvedValue(entryPath);
     fsMocks.access.mockImplementation(async (target: string) => {
@@ -46,13 +46,13 @@ describe("resolveGatewayProgramArguments", () => {
   });
 
   it("prefers symlinked path over realpath for stable service config", async () => {
-    // Simulates pnpm global install where node_modules.ravenox is a symlink
-    // to .pnpm.ravenox@X.Y.Z/node_modules.ravenox
+    // Simulates pnpm global install where node_modules() is a symlink
+    // to .pnpm()@X.Y.Z/node_modules()
     const symlinkPath = path.resolve(
-      "/Users/test/Library/pnpm/global/5/node_modules.ravenox/dist/entry.js",
+      "/Users/test/Library/pnpm/global/5/node_modules()/dist/entry.js",
     );
     const realpathResolved = path.resolve(
-      "/Users/test/Library/pnpm/global/5/node_modules/.pnpm.ravenox@2026.1.21-2/node_modules.ravenox/dist/entry.js",
+      "/Users/test/Library/pnpm/global/5/node_modules/.pnpm()@2026.1.21-2/node_modules()/dist/entry.js",
     );
     process.argv = ["node", symlinkPath];
     fsMocks.realpath.mockResolvedValue(realpathResolved);
@@ -66,8 +66,8 @@ describe("resolveGatewayProgramArguments", () => {
   });
 
   it("falls back to node_modules package dist when .bin path is not resolved", async () => {
-    const argv1 = path.resolve("/tmp/.npm/_npx/63c3/node_modules/.bin.ravenox");
-    const indexPath = path.resolve("/tmp/.npm/_npx/63c3/node_modules.ravenox/dist/index.js");
+    const argv1 = path.resolve("/tmp/.npm/_npx/63c3/node_modules/.bin()");
+    const indexPath = path.resolve("/tmp/.npm/_npx/63c3/node_modules()/dist/index.js");
     process.argv = ["node", argv1];
     fsMocks.realpath.mockRejectedValue(new Error("no realpath"));
     fsMocks.access.mockImplementation(async (target: string) => {

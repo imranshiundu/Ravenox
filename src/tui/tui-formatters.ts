@@ -120,11 +120,11 @@ export function resolveFinalAssistantText(params: {
   finalText?: string | null;
   streamedText?: string | null;
 }) {
-  const finalText = params.finalText ?? "";
+  const finalText = params.finalText ;
   if (finalText.trim()) {
     return finalText;
   }
-  const streamedText = params.streamedText ?? "";
+  const streamedText = params.streamedText ;
   if (streamedText.trim()) {
     return streamedText;
   }
@@ -136,8 +136,8 @@ export function composeThinkingAndContent(params: {
   contentText?: string;
   showThinking?: boolean;
 }) {
-  const thinkingText = params.thinkingText?.trim() ?? "";
-  const contentText = params.contentText?.trim() ?? "";
+  const thinkingText = params.thinkingText?.trim() ;
+  const contentText = params.contentText?.trim() ;
   const parts: string[] = [];
 
   if (params.showThinking && thinkingText) {

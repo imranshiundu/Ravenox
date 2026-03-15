@@ -58,10 +58,10 @@ function candidateBinDirs(opts: EnsureRavenoxPathOpts): { prepend: string[]; app
   const prepend: string[] = [];
   const append: string[] = [];
 
-  // Bundled macOS app: .ravenox` lives next to the executable (process.execPath).
+  // Bundled macOS app: ravenox` lives next to the executable (process.execPath).
   try {
     const execDir = path.dirname(execPath);
-    const siblingCli = path.join(execDir, .ravenox");
+    const siblingCli = path.join(execDir, "ravenox");
     if (isExecutable(siblingCli)) {
       prepend.push(execDir);
     }
@@ -76,7 +76,7 @@ function candidateBinDirs(opts: EnsureRavenoxPathOpts): { prepend: string[]; app
     isTruthyEnvValue(process.env.RAVENOX_ALLOW_PROJECT_LOCAL_BIN);
   if (allowProjectLocalBin) {
     const localBinDir = path.join(cwd, "node_modules", ".bin");
-    if (isExecutable(path.join(localBinDir, .ravenox"))) {
+    if (isExecutable(path.join(localBinDir, "ravenox"))) {
       append.push(localBinDir);
     }
   }
@@ -106,7 +106,7 @@ function candidateBinDirs(opts: EnsureRavenoxPathOpts): { prepend: string[]; app
 }
 
 /**
- * Best-effort PATH bootstrap so skills that require the .ravenox` CLI can run
+ * Best-effort PATH bootstrap so skills that require the ravenox` CLI can run
  * under launchd/minimal environments (and inside the macOS app bundle).
  */
 export function ensureRavenoxCliOnPath(opts: EnsureRavenoxPathOpts = {}) {
@@ -115,7 +115,7 @@ export function ensureRavenoxCliOnPath(opts: EnsureRavenoxPathOpts = {}) {
   }
   process.env.RAVENOX_PATH_BOOTSTRAPPED = "1";
 
-  const existing = opts.pathEnv ?? process.env.PATH ?? "";
+  const existing = opts.pathEnv ?? process.env.PATH ;
   const { prepend, append } = candidateBinDirs(opts);
   if (prepend.length === 0 && append.length === 0) {
     return;

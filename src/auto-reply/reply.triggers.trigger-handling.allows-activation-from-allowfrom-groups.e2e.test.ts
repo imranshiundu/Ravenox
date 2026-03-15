@@ -63,7 +63,7 @@ describe("trigger handling", () => {
           agents: {
             defaults: {
               model: { primary: "anthropic/claude-opus-4-5" },
-              workspace: join(home, .ravenox"),
+              workspace: join(home, "ravenox"),
             },
           },
           channels: {
@@ -82,7 +82,7 @@ describe("trigger handling", () => {
       const text = Array.isArray(res) ? res[0]?.text : res?.text;
       expect(text).toBe("ok");
       expect(getRunEmbeddedPiAgentMock()).toHaveBeenCalledOnce();
-      const extra = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.extraSystemPrompt ?? "";
+      const extra = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.extraSystemPrompt ;
       expect(extra).toContain('"chat_type": "group"');
       expect(extra).toContain("Activation: always-on");
     });

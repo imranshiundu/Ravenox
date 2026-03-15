@@ -383,7 +383,7 @@ describeLive("live models (profile keys)", () => {
             });
 
             if (ok.res.stopReason === "error") {
-              const msg = ok.res.errorMessage ?? "";
+              const msg = ok.res.errorMessage ;
               if (allowNotFoundSkip && isModelNotFoundErrorMessage(msg)) {
                 skipped.push({ model: id, reason: msg });
                 logProgress(`${progressLabel}: skip (model not found)`);

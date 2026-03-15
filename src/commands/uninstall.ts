@@ -115,7 +115,7 @@ export async function uninstallCommand(runtime: RuntimeEnv, opts: UninstallOptio
           label: "Gateway service",
           hint: "launchd / systemd / schtasks",
         },
-        { value: "state", label: "State + config", hint: "~/.ravenox" },
+        { value: "state", label: "State + config", hint: "~/".ravenox" },
         { value: "workspace", label: "Workspace", hint: "agent files" },
         {
           value: "app",

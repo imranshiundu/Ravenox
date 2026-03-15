@@ -35,11 +35,11 @@ export function registerSecurityCli(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox security audit", "Run a local security audit."],
-          [.ravenox security audit --deep", "Include best-effort live Gateway probe checks."],
-          [.ravenox security audit --fix", "Apply safe remediations and file-permission fixes."],
-          [.ravenox security audit --json", "Output machine-readable JSON."],
-        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/security", "docs.ravenox.ai/cli/security")}\n`,
+          ["ravenox security audit", "Run a local security audit."],
+          ["ravenox security audit --deep", "Include best-effort live Gateway probe checks."],
+          ["ravenox security audit --fix", "Apply safe remediations and file-permission fixes."],
+          ["ravenox security audit --json", "Output machine-readable JSON."],
+        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/security", "docs().ai/cli/security")}\n`,
     );
 
   security
@@ -73,10 +73,10 @@ export function registerSecurityCli(program: Command) {
       const lines: string[] = [];
       lines.push(heading("Ravenox security audit"));
       lines.push(muted(`Summary: ${formatSummary(report.summary)}`));
-      lines.push(muted(`Run deeper: ${formatCliCommand(.ravenox security audit --deep")}`));
+      lines.push(muted(`Run deeper: ${formatCliCommand("ravenox security audit --deep")}`));
 
       if (opts.fix) {
-        lines.push(muted(`Fix: ${formatCliCommand(.ravenox security audit --fix")}`));
+        lines.push(muted(`Fix: ${formatCliCommand("ravenox security audit --fix")}`));
         if (!fixResult) {
           lines.push(muted("Fixes: failed to apply (unexpected error)"));
         } else if (

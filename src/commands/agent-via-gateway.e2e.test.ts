@@ -47,7 +47,7 @@ async function withTempStore(
   fn: (ctx: { dir: string; store: string }) => Promise<void>,
   overrides?: Partial<RavenoxConfig>,
 ) {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-agent-cli-"));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-agent-cli-"));
   const store = path.join(dir, "sessions.json");
   mockConfig(store, overrides);
   try {

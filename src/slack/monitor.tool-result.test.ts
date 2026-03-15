@@ -350,11 +350,11 @@ describe("monitorSlackProvider tool results", () => {
   }
 
   it("accepts channel messages when mentionPatterns match", async () => {
-    await expectMentionPatternMessageAccepted(.ravenox: hello");
+    await expectMentionPatternMessageAccepted("ravenox: hello");
   });
 
   it("accepts channel messages when mentionPatterns match even if another user is mentioned", async () => {
-    await expectMentionPatternMessageAccepted(.ravenox: hello <@U2>");
+    await expectMentionPatternMessageAccepted("ravenox: hello <@U2>");
   });
 
   it("treats replies to bot threads as implicit mentions", async () => {

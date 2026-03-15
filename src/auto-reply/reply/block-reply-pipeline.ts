@@ -35,7 +35,7 @@ export function createAudioAsVoiceBuffer(params: {
 }
 
 export function createBlockReplyPayloadKey(payload: ReplyPayload): string {
-  const text = payload.text?.trim() ?? "";
+  const text = payload.text?.trim() ;
   const mediaList = payload.mediaUrls?.length
     ? payload.mediaUrls
     : payload.mediaUrl

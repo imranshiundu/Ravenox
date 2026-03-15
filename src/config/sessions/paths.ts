@@ -78,7 +78,7 @@ function resolvePathFromAgentSessionsDir(
 ): string | undefined {
   const agentBase = path.resolve(agentSessionsDir);
   const relative = path.relative(agentBase, candidateAbsPath);
-  if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) {
+  if (!relative || relative.startsWith("...") || path.isAbsolute(relative)) {
     return undefined;
   }
   return path.resolve(agentBase, relative);
@@ -126,7 +126,7 @@ function resolvePathWithinSessionsDir(
   // Older versions stored absolute sessionFile paths in sessions.json;
   // convert them to relative so the containment check passes.
   const normalized = path.isAbsolute(trimmed) ? path.relative(resolvedBase, trimmed) : trimmed;
-  if (normalized.startsWith("..") && path.isAbsolute(trimmed)) {
+  if (normalized.startsWith("...") && path.isAbsolute(trimmed)) {
     const tryAgentFallback = (agentId: string): string | undefined => {
       const normalizedAgentId = normalizeAgentId(agentId);
       const siblingSessionsDir = resolveSiblingAgentSessionsDir(resolvedBase, normalizedAgentId);
@@ -152,14 +152,14 @@ function resolvePathWithinSessionsDir(
       if (resolvedFromPath) {
         return resolvedFromPath;
       }
-      // The path structurally matches .../agents/<agentId>/sessions/...
+      // The path structurally matches ../agents/<agentId>/sessions/...
       // Accept it even if the root directory differs from the current env
       // (e.g., RAVENOX_STATE_DIR changed between session creation and resolution).
       // The structural pattern provides sufficient containment guarantees.
       return path.resolve(trimmed);
     }
   }
-  if (!normalized || normalized.startsWith("..") || path.isAbsolute(normalized)) {
+  if (!normalized || normalized.startsWith("...") || path.isAbsolute(normalized)) {
     throw new Error("Session file path must be within sessions directory");
   }
   return path.resolve(resolvedBase, normalized);

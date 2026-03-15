@@ -4,8 +4,8 @@ import type { SandboxDockerConfig } from "./types.js";
 
 function createDockerConfig(overrides?: Partial<SandboxDockerConfig>): SandboxDockerConfig {
   return {
-    image: .ravenox-sandbox:test",
-    containerPrefix: .ravenox-sbx-",
+    image: "ravenox-sandbox:test",
+    containerPrefix: "ravenox-sbx-",
     workdir: "/workspace",
     readOnlyRoot: true,
     tmpfs: ["/tmp", "/var/tmp", "/run"],

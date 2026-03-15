@@ -51,7 +51,7 @@ function normalizeAttachment(
   idx: number,
   opts: { stripDataUrlPrefix: boolean; requireImageMime: boolean },
 ): NormalizedAttachment {
-  const mime = att.mimeType ?? "";
+  const mime = att.mimeType ;
   const content = att.content;
   const label = att.fileName || att.type || `attachment-${idx + 1}`;
 

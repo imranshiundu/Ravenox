@@ -521,7 +521,7 @@ async function runGatewayModelSuite(params: GatewayModelSuiteParams) {
     lastGood: hostStore.lastGood ? { ...hostStore.lastGood } : undefined,
     usageStats: hostStore.usageStats ? { ...hostStore.usageStats } : undefined,
   };
-  tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-live-state-"));
+  tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-live-state-"));
   process.env.RAVENOX_STATE_DIR = tempStateDir;
   tempAgentDir = path.join(tempStateDir, "agents", DEFAULT_AGENT_ID, "agent");
   saveAuthProfileStore(sanitizedStore, tempAgentDir);
@@ -549,8 +549,8 @@ async function runGatewayModelSuite(params: GatewayModelSuiteParams) {
     candidates: params.candidates,
     providerOverrides: params.providerOverrides,
   });
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-live-"));
-  const tempConfigPath = path.join(tempDir, .ravenox.json");
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-live-"));
+  const tempConfigPath = path.join(tempDir, "ravenox.json");
   await fs.writeFile(tempConfigPath, `${JSON.stringify(nextCfg, null, 2)}\n`);
   process.env.RAVENOX_CONFIG_PATH = tempConfigPath;
 

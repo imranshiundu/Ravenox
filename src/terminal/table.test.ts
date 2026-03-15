@@ -29,7 +29,7 @@ describe("renderTable", () => {
       rows: [{ Item: "OS", Value: "macos 26.2 (arm64)" }],
     });
 
-    const firstLine = out.trimEnd().split("\n")[0] ?? "";
+    const firstLine = out.trimEnd().split("\n")[0] ;
     expect(visibleWidth(firstLine)).toBe(width);
   });
 

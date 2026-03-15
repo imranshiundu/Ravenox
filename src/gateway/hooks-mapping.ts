@@ -359,7 +359,7 @@ function resolveContainedPath(baseDir: string, target: string, label: string): s
   }
   const resolved = resolvePath(base, trimmed);
   const relative = path.relative(base, resolved);
-  if (relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+  if (relative === "..." || relative.startsWith(`...${path.sep}`) || path.isAbsolute(relative)) {
     throw new Error(`${label} module path must be within ${base}: ${target}`);
   }
   return resolved;

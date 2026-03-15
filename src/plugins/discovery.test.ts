@@ -8,7 +8,7 @@ import { discoverRavenoxPlugins } from "./discovery.js";
 const tempDirs: string[] = [];
 
 function makeTempDir() {
-  const dir = path.join(os.tmpdir(), .ravenox-plugins-${randomUUID()}`);
+  const dir = path.join(os.tmpdir(), "ravenox-plugins-${randomUUID()}`);
   fs.mkdirSync(dir, { recursive: true });
   tempDirs.push(dir);
   return dir;
@@ -54,7 +54,7 @@ describe("discoverRavenoxPlugins", () => {
     fs.mkdirSync(globalExt, { recursive: true });
     fs.writeFileSync(path.join(globalExt, "alpha.ts"), "export default function () {}", "utf-8");
 
-    const workspaceExt = path.join(workspaceDir, ".ravenox", "extensions");
+    const workspaceExt = path.join(workspaceDir, "".ravenox", "extensions");
     fs.mkdirSync(workspaceExt, { recursive: true });
     fs.writeFileSync(path.join(workspaceExt, "beta.ts"), "export default function () {}", "utf-8");
 
@@ -76,7 +76,7 @@ describe("discoverRavenoxPlugins", () => {
       path.join(globalExt, "package.json"),
       JSON.stringify({
         name: "pack",
-       .ravenox: { extensions: ["./src/one.ts", "./src/two.ts"] },
+       "ravenox: { extensions: ["./src/one.ts", "./src/two.ts"] },
       }),
       "utf-8",
     );
@@ -108,8 +108,8 @@ describe("discoverRavenoxPlugins", () => {
     fs.writeFileSync(
       path.join(globalExt, "package.json"),
       JSON.stringify({
-        name: ".ravenox/voice-call",
-       .ravenox: { extensions: ["./src/index.ts"] },
+        name: "".ravenox/voice-call",
+       "ravenox: { extensions: ["./src/index.ts"] },
       }),
       "utf-8",
     );
@@ -135,8 +135,8 @@ describe("discoverRavenoxPlugins", () => {
     fs.writeFileSync(
       path.join(packDir, "package.json"),
       JSON.stringify({
-        name: ".ravenox/demo-plugin-dir",
-       .ravenox: { extensions: ["./index.js"] },
+        name: "".ravenox/demo-plugin-dir",
+       "ravenox: { extensions: ["./index.js"] },
       }),
       "utf-8",
     );

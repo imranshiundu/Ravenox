@@ -416,8 +416,8 @@ export async function applyNonInteractiveAuthChoice(params: {
   }
 
   if (authChoice === "cloudflare-ai-gateway-api-key") {
-    const accountId = opts.cloudflareAiGatewayAccountId?.trim() ?? "";
-    const gatewayId = opts.cloudflareAiGatewayGatewayId?.trim() ?? "";
+    const accountId = opts.cloudflareAiGatewayAccountId?.trim() ;
+    const gatewayId = opts.cloudflareAiGatewayGatewayId?.trim() ;
     if (!accountId || !gatewayId) {
       runtime.error(
         [

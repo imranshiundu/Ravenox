@@ -14,7 +14,7 @@ export function resolveChannelDefaultAccountId<ResolvedAccount>(params: {
 }
 
 export function formatPairingApproveHint(channelId: string): string {
-  const listCmd = formatCliCommand(.ravenox pairing list ${channelId}`);
-  const approveCmd = formatCliCommand(.ravenox pairing approve ${channelId} <code>`);
+  const listCmd = formatCliCommand("ravenox pairing list ${channelId}`);
+  const approveCmd = formatCliCommand("ravenox pairing approve ${channelId} <code>`);
   return `Approve via: ${listCmd} / ${approveCmd}`;
 }

@@ -321,7 +321,7 @@ describe("runReplyAgent typing (heartbeat)", () => {
   }
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(tmpdir(), .ravenox-typing-heartbeat-"));
+    fixtureRoot = await fs.mkdtemp(path.join(tmpdir(), "ravenox-typing-heartbeat-"));
   });
 
   afterAll(async () => {
@@ -834,7 +834,7 @@ describe("runReplyAgent memory flush", () => {
   }
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(tmpdir(), .ravenox-memory-flush-"));
+    fixtureRoot = await fs.mkdtemp(path.join(tmpdir(), "ravenox-memory-flush-"));
   });
 
   afterAll(async () => {

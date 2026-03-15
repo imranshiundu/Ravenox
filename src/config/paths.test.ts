@@ -43,10 +43,10 @@ describe("state + config path candidates", () => {
       throw new Error("RAVENOX_HOME must be set for this assertion helper");
     }
     const resolvedHome = path.resolve(configuredHome);
-    expect(resolveStateDir(env)).toBe(path.join(resolvedHome, ".ravenox"));
+    expect(resolveStateDir(env)).toBe(path.join(resolvedHome, "".ravenox"));
 
     const candidates = resolveDefaultConfigCandidates(env);
-    expect(candidates[0]).toBe(path.join(resolvedHome, ".ravenox", .ravenox.json"));
+    expect(candidates[0]).toBe(path.join(resolvedHome, "".ravenox", "ravenox.json"));
   }
 
   it("uses RAVENOX_STATE_DIR when set", () => {
@@ -59,14 +59,14 @@ describe("state + config path candidates", () => {
 
   it("uses RAVENOX_HOME for default state/config locations", () => {
     const env = {
-      RAVENOX_HOME: "/srv.ravenox-home",
+      RAVENOX_HOME: "/srv()-home",
     } as NodeJS.ProcessEnv;
     expectRavenoxHomeDefaults(env);
   });
 
   it("prefers RAVENOX_HOME over HOME for default state/config locations", () => {
     const env = {
-      RAVENOX_HOME: "/srv.ravenox-home",
+      RAVENOX_HOME: "/srv()-home",
       HOME: "/home/other",
     } as NodeJS.ProcessEnv;
     expectRavenoxHomeDefaults(env);
@@ -77,19 +77,19 @@ describe("state + config path candidates", () => {
     const resolvedHome = path.resolve(home);
     const candidates = resolveDefaultConfigCandidates({} as NodeJS.ProcessEnv, () => home);
     const expected = [
-      path.join(resolvedHome, ".ravenox", .ravenox.json"),
-      path.join(resolvedHome, ".ravenox", "clawdbot.json"),
-      path.join(resolvedHome, ".ravenox", "moldbot.json"),
-      path.join(resolvedHome, ".ravenox", "moltbot.json"),
-      path.join(resolvedHome, ".clawdbot", .ravenox.json"),
+      path.join(resolvedHome, "".ravenox", "ravenox.json"),
+      path.join(resolvedHome, "".ravenox", "clawdbot.json"),
+      path.join(resolvedHome, "".ravenox", "moldbot.json"),
+      path.join(resolvedHome, "".ravenox", "moltbot.json"),
+      path.join(resolvedHome, ".clawdbot", "ravenox.json"),
       path.join(resolvedHome, ".clawdbot", "clawdbot.json"),
       path.join(resolvedHome, ".clawdbot", "moldbot.json"),
       path.join(resolvedHome, ".clawdbot", "moltbot.json"),
-      path.join(resolvedHome, ".moldbot", .ravenox.json"),
+      path.join(resolvedHome, ".moldbot", "ravenox.json"),
       path.join(resolvedHome, ".moldbot", "clawdbot.json"),
       path.join(resolvedHome, ".moldbot", "moldbot.json"),
       path.join(resolvedHome, ".moldbot", "moltbot.json"),
-      path.join(resolvedHome, ".moltbot", .ravenox.json"),
+      path.join(resolvedHome, ".moltbot", "ravenox.json"),
       path.join(resolvedHome, ".moltbot", "clawdbot.json"),
       path.join(resolvedHome, ".moltbot", "moldbot.json"),
       path.join(resolvedHome, ".moltbot", "moltbot.json"),
@@ -97,10 +97,10 @@ describe("state + config path candidates", () => {
     expect(candidates).toEqual(expected);
   });
 
-  it("prefers ~/.ravenox when it exists and legacy dir is missing", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-state-"));
+  it("prefers ~/".ravenox when it exists and legacy dir is missing", async () => {
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-state-"));
     try {
-      const newDir = path.join(root, ".ravenox");
+      const newDir = path.join(root, "".ravenox");
       await fs.mkdir(newDir, { recursive: true });
       const resolved = resolveStateDir({} as NodeJS.ProcessEnv, () => root);
       expect(resolved).toBe(newDir);
@@ -110,11 +110,11 @@ describe("state + config path candidates", () => {
   });
 
   it("CONFIG_PATH prefers existing config when present", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-config-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-config-"));
     try {
-      const legacyDir = path.join(root, ".ravenox");
+      const legacyDir = path.join(root, "".ravenox");
       await fs.mkdir(legacyDir, { recursive: true });
-      const legacyPath = path.join(legacyDir, .ravenox.json");
+      const legacyPath = path.join(legacyDir, "ravenox.json");
       await fs.writeFile(legacyPath, "{}", "utf-8");
 
       const resolved = resolveConfigPathCandidate({} as NodeJS.ProcessEnv, () => root);
@@ -125,17 +125,17 @@ describe("state + config path candidates", () => {
   });
 
   it("respects state dir overrides when config is missing", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-config-override-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-config-override-"));
     try {
-      const legacyDir = path.join(root, ".ravenox");
+      const legacyDir = path.join(root, "".ravenox");
       await fs.mkdir(legacyDir, { recursive: true });
-      const legacyConfig = path.join(legacyDir, .ravenox.json");
+      const legacyConfig = path.join(legacyDir, "ravenox.json");
       await fs.writeFile(legacyConfig, "{}", "utf-8");
 
       const overrideDir = path.join(root, "override");
       const env = { RAVENOX_STATE_DIR: overrideDir } as NodeJS.ProcessEnv;
       const resolved = resolveConfigPath(env, overrideDir, () => root);
-      expect(resolved).toBe(path.join(overrideDir, .ravenox.json"));
+      expect(resolved).toBe(path.join(overrideDir, "ravenox.json"));
     } finally {
       await fs.rm(root, { recursive: true, force: true });
     }

@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import type { runCommandWithTimeout } from "../process/exec.js";
 import { discoverGatewayBeacons } from "./bonjour-discovery.js";
 
-const WIDE_AREA_DOMAIN = .ravenox.internal.";
+const WIDE_AREA_DOMAIN = "ravenox.internal.";
 
 describe("bonjour-discovery", () => {
   it("discovers beacons on darwin across local + wide-area domains", async () => {
@@ -11,15 +11,14 @@ describe("bonjour-discovery", () => {
 
     const run = vi.fn(async (argv: string[], options: { timeoutMs: number }) => {
       calls.push({ argv, timeoutMs: options.timeoutMs });
-      const domain = argv[3] ?? "";
+      const domain = argv[3] ;
 
       if (argv[0] === "dns-sd" && argv[1] === "-B") {
         if (domain === "local.") {
           return {
             stdout: [
-              "Add 2 3 local. .ravenox-gw._tcp. Peter\\226\\128\\153s Mac Studio Gateway",
-              "Add 2 3 local. .ravenox-gw._tcp. Laptop Gateway",
-              "",
+              "Add 2 3 local. "ravenox-gw._tcp. Peter\\226\\128\\153s Mac Studio Gateway",
+              "Add 2 3 local. "ravenox-gw._tcp. Laptop Gateway",
             ].join("\n"),
             stderr: "",
             code: 0,
@@ -29,7 +28,7 @@ describe("bonjour-discovery", () => {
         }
         if (domain === WIDE_AREA_DOMAIN) {
           return {
-            stdout: [`Add 2 3 ${WIDE_AREA_DOMAIN} .ravenox-gw._tcp. Tailnet Gateway`, ""].join(
+            stdout: [`Add 2 3 ${WIDE_AREA_DOMAIN} "ravenox-gw._tcp. Tailnet Gateway`, ""].join(
               "\n",
             ),
             stderr: "",
@@ -41,7 +40,7 @@ describe("bonjour-discovery", () => {
       }
 
       if (argv[0] === "dns-sd" && argv[1] === "-L") {
-        const instance = argv[2] ?? "";
+        const instance = argv[2] ;
         const host =
           instance === studioInstance
             ? "studio.local"
@@ -64,9 +63,8 @@ describe("bonjour-discovery", () => {
 
         return {
           stdout: [
-            `${instance}..ravenox-gw._tcp. can be reached at ${host}:18789`,
+            `${instance}...ravenox-gw._tcp. can be reached at ${host}:18789`,
             txtParts.join(" "),
-            "",
           ].join("\n"),
           stderr: "",
           code: 0,
@@ -111,10 +109,10 @@ describe("bonjour-discovery", () => {
         throw new Error("invalid timeout");
       }
 
-      const domain = argv[3] ?? "";
+      const domain = argv[3] ;
       if (argv[0] === "dns-sd" && argv[1] === "-B" && domain === "local.") {
         return {
-          stdout: ["Add 2 3 local. .ravenox-gw._tcp. Studio Gateway", ""].join("\n"),
+          stdout: ["Add 2 3 local. "ravenox-gw._tcp. Studio Gateway", ""].join("\n"),
           stderr: "",
           code: 0,
           signal: null,
@@ -125,9 +123,8 @@ describe("bonjour-discovery", () => {
       if (argv[0] === "dns-sd" && argv[1] === "-L") {
         return {
           stdout: [
-            "Studio Gateway..ravenox-gw._tcp. can be reached at studio.local:18789",
+            "Studio Gateway...ravenox-gw._tcp. can be reached at studio.local:18789",
             "txtvers=1 displayName=Peter\\226\\128\\153s\\032Mac\\032Studio lanHost=studio.local gatewayPort=18789 sshPort=22",
-            "",
           ].join("\n"),
           stderr: "",
           code: 0,
@@ -200,10 +197,10 @@ describe("bonjour-discovery", () => {
       }
 
       if (cmd === "dig") {
-        const at = argv.find((a) => a.startsWith("@")) ?? "";
+        const at = argv.find((a) => a.startsWith("@")) ;
         const server = at.replace(/^@/, "");
-        const qname = argv[argv.length - 2] ?? "";
-        const qtype = argv[argv.length - 1] ?? "";
+        const qname = argv[argv.length - 2] ;
+        const qtype = argv[argv.length - 1] ;
 
         if (server === "100.123.224.76" && qtype === "PTR" && qname === serviceBase) {
           return {
@@ -233,8 +230,7 @@ describe("bonjour-discovery", () => {
               `"transport=gateway"`,
               `"sshPort=22"`,
               `"tailnetDns=peters-mac-studio-1.sheep-coho.ts.net"`,
-              `"cliPath=/opt/homebrew/bin.ravenox"`,
-              "",
+              `"cliPath=/opt/homebrew/bin()"`,
             ].join(" "),
             stderr: "",
             code: 0,
@@ -265,7 +261,7 @@ describe("bonjour-discovery", () => {
         tailnetDns: "peters-mac-studio-1.sheep-coho.ts.net",
         gatewayPort: 18789,
         sshPort: 22,
-        cliPath: "/opt/homebrew/bin.ravenox",
+        cliPath: "/opt/homebrew/bin()",
       }),
     ]);
 
@@ -289,12 +285,12 @@ describe("bonjour-discovery", () => {
     await discoverGatewayBeacons({
       platform: "darwin",
       timeoutMs: 1,
-      domains: ["local", .ravenox.internal"],
+      domains: ["local", "ravenox.internal"],
       run: run as unknown as typeof runCommandWithTimeout,
     });
 
     expect(calls.filter((c) => c[1] === "-B").map((c) => c[3])).toEqual(
-      expect.arrayContaining(["local.", .ravenox.internal."]),
+      expect.arrayContaining(["local.", "ravenox.internal."]),
     );
 
     calls.length = 0;

@@ -35,7 +35,7 @@ describe("Agent-specific tool filtering", () => {
       patch: string;
     }) => Promise<void>,
   ) {
-    const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-pi-tools-"));
+    const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-pi-tools-"));
     const escapedPath = path.join(
       path.dirname(workspaceDir),
       `escaped-${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}.txt`,
@@ -95,7 +95,7 @@ describe("Agent-specific tool filtering", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
           },
         ],
       },
@@ -124,7 +124,7 @@ describe("Agent-specific tool filtering", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
             tools: {
               elevated: {
                 enabled: true,
@@ -289,7 +289,7 @@ describe("Agent-specific tool filtering", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
             // No tools restriction - all tools available
           },
           {

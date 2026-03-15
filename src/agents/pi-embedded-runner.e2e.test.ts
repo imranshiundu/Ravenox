@@ -103,7 +103,7 @@ let runCounter = 0;
 beforeAll(async () => {
   vi.useRealTimers();
   ({ runEmbeddedPiAgent } = await import("./pi-embedded-runner.js"));
-  tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-embedded-agent-"));
+  tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-embedded-agent-"));
   agentDir = path.join(tempRoot, "agent");
   workspaceDir = path.join(tempRoot, "workspace");
   await fs.mkdir(agentDir, { recursive: true });
@@ -407,7 +407,7 @@ describe("runEmbeddedPiAgent", () => {
 
     const entries = await readSessionEntries(sessionFile);
     const promptErrorEntry = entries.find(
-      (entry) => entry.type === "custom" && entry.customType === .ravenox:prompt-error",
+      (entry) => entry.type === "custom" && entry.customType === "ravenox:prompt-error",
     ) as { data?: { error?: string } } | undefined;
 
     expect(promptErrorEntry).toBeTruthy();

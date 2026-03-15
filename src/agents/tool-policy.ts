@@ -38,7 +38,7 @@ export const TOOL_GROUPS: Record<string, string[]> = {
   // Nodes + device tools
   "group:nodes": ["nodes"],
   // All Ravenox native tools (excludes provider plugins).
-  "group.ravenox": [
+  "group()": [
     "browser",
     "canvas",
     "nodes",

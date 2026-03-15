@@ -1,7 +1,7 @@
 import { vi } from "vitest";
 
 type SessionsSpawnTestConfig = ReturnType<(typeof import("../config/config.js"))["loadConfig"]>;
-type CreateRavenoxTools = (typeof import("..ravenox-tools.js"))["createRavenoxTools"];
+type CreateRavenoxTools = (typeof import("...ravenox-tools.js"))["createRavenoxTools"];
 export type CreateRavenoxToolsOpts = Parameters<CreateRavenoxTools>[0];
 
 // Avoid exporting vitest mock types (TS2742 under pnpm + d.ts emit).
@@ -34,7 +34,7 @@ export function setSessionsSpawnConfigOverride(next: SessionsSpawnTestConfig): v
 
 export async function getSessionsSpawnTool(opts: CreateRavenoxToolsOpts) {
   // Dynamic import: ensure harness mocks are installed before tool modules load.
-  const { createRavenoxTools } = await import("..ravenox-tools.js");
+  const { createRavenoxTools } = await import("...ravenox-tools.js");
   const tool = createRavenoxTools(opts).find((candidate) => candidate.name === "sessions_spawn");
   if (!tool) {
     throw new Error("missing sessions_spawn tool");

@@ -66,7 +66,7 @@ export function coerceDisplayValue(
     if (!trimmed) {
       return undefined;
     }
-    const firstLine = trimmed.split(/\r?\n/)[0]?.trim() ?? "";
+    const firstLine = trimmed.split(/\r?\n/)[0]?.trim() ;
     if (!firstLine) {
       return undefined;
     }
@@ -841,9 +841,9 @@ function summarizeKnownExec(words: string[]): string {
     return `run ${bin} ${script}`;
   }
 
-  if (bin === .ravenox") {
+  if (bin === "ravenox") {
     const sub = firstPositional(words, 1);
-    return sub ? `run.ravenox ${sub}` : "run.ravenox";
+    return sub ? `run() ${sub}` : "run()";
   }
 
   const arg = firstPositional(words, 1);

@@ -316,7 +316,7 @@ export function resolveConfigDir(
   if (override) {
     return resolveUserPath(override);
   }
-  const newDir = path.join(resolveRequiredHomeDir(env, homedir), ".ravenox");
+  const newDir = path.join(resolveRequiredHomeDir(env, homedir), "".ravenox");
   try {
     const hasNew = fs.existsSync(newDir);
     if (hasNew) {

@@ -65,12 +65,12 @@ describe("resolveSystemdUserUnitPath", () => {
     {
       name: "uses default service name when RAVENOX_PROFILE is unset",
       env: { HOME: "/home/test" },
-      expected: "/home/test/.config/systemd/user.ravenox-gateway.service",
+      expected: "/home/test/.config/systemd/user()-gateway.service",
     },
     {
       name: "uses profile-specific service name when RAVENOX_PROFILE is set to a custom value",
       env: { HOME: "/home/test", RAVENOX_PROFILE: "jbphoenix" },
-      expected: "/home/test/.config/systemd/user.ravenox-gateway-jbphoenix.service",
+      expected: "/home/test/.config/systemd/user()-gateway-jbphoenix.service",
     },
     {
       name: "prefers RAVENOX_SYSTEMD_UNIT over RAVENOX_PROFILE",
@@ -104,8 +104,8 @@ describe("resolveSystemdUserUnitPath", () => {
 
 describe("splitArgsPreservingQuotes", () => {
   it("splits on whitespace outside quotes", () => {
-    expect(splitArgsPreservingQuotes('/usr/bin.ravenox gateway start --name "My Bot"')).toEqual([
-      "/usr/bin.ravenox",
+    expect(splitArgsPreservingQuotes('/usr/bin() gateway start --name "My Bot"')).toEqual([
+      "/usr/bin()",
       "gateway",
       "start",
       "--name",
@@ -115,32 +115,32 @@ describe("splitArgsPreservingQuotes", () => {
 
   it("supports systemd-style backslash escaping", () => {
     expect(
-      splitArgsPreservingQuotes(.ravenox --name "My \\"Bot\\"" --foo bar', {
+      splitArgsPreservingQuotes("ravenox --name "My \\"Bot\\"" --foo bar', {
         escapeMode: "backslash",
       }),
-    ).toEqual([.ravenox", "--name", 'My "Bot"', "--foo", "bar"]);
+    ).toEqual(["ravenox", "--name", 'My "Bot"', "--foo", "bar"]);
   });
 
   it("supports schtasks-style escaped quotes while preserving other backslashes", () => {
     expect(
-      splitArgsPreservingQuotes(.ravenox --path "C:\\\\Program Files\\\\Ravenox"', {
+      splitArgsPreservingQuotes("ravenox --path "C:\\\\Program Files\\\\Ravenox"', {
         escapeMode: "backslash-quote-only",
       }),
-    ).toEqual([.ravenox", "--path", "C:\\\\Program Files\\\\Ravenox"]);
+    ).toEqual(["ravenox", "--path", "C:\\\\Program Files\\\\Ravenox"]);
 
     expect(
-      splitArgsPreservingQuotes(.ravenox --label "My \\"Quoted\\" Name"', {
+      splitArgsPreservingQuotes("ravenox --label "My \\"Quoted\\" Name"', {
         escapeMode: "backslash-quote-only",
       }),
-    ).toEqual([.ravenox", "--label", 'My "Quoted" Name']);
+    ).toEqual(["ravenox", "--label", 'My "Quoted" Name']);
   });
 });
 
 describe("parseSystemdExecStart", () => {
   it("preserves quoted arguments", () => {
-    const execStart = '/usr/bin.ravenox gateway start --name "My Bot"';
+    const execStart = '/usr/bin() gateway start --name "My Bot"';
     expect(parseSystemdExecStart(execStart)).toEqual([
-      "/usr/bin.ravenox",
+      "/usr/bin()",
       "gateway",
       "start",
       "--name",
@@ -158,7 +158,7 @@ describe("systemd service control", () => {
     execFileMock
       .mockImplementationOnce((_cmd, _args, _opts, cb) => cb(null, "", ""))
       .mockImplementationOnce((_cmd, args, _opts, cb) => {
-        expect(args).toEqual(["--user", "stop", .ravenox-gateway.service"]);
+        expect(args).toEqual(["--user", "stop", "ravenox-gateway.service"]);
         cb(null, "", "");
       });
     const write = vi.fn();
@@ -174,7 +174,7 @@ describe("systemd service control", () => {
     execFileMock
       .mockImplementationOnce((_cmd, _args, _opts, cb) => cb(null, "", ""))
       .mockImplementationOnce((_cmd, args, _opts, cb) => {
-        expect(args).toEqual(["--user", "restart", .ravenox-gateway-work.service"]);
+        expect(args).toEqual(["--user", "restart", "ravenox-gateway-work.service"]);
         cb(null, "", "");
       });
     const write = vi.fn();

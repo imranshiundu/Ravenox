@@ -33,7 +33,7 @@ async function expectResetBlockedForNonOwner(params: {
       agents: {
         defaults: {
           model: { primary: "anthropic/claude-opus-4-5" },
-          workspace: join(home, .ravenox"),
+          workspace: join(home, "ravenox"),
         },
       },
       channels: {
@@ -42,7 +42,7 @@ async function expectResetBlockedForNonOwner(params: {
         },
       },
       session: {
-        store: join(tmpdir(), .ravenox-session-test-${Date.now()}.json`),
+        store: join(tmpdir(), "ravenox-session-test-${Date.now()}.json`),
       },
     },
   );

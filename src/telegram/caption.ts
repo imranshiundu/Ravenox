@@ -4,7 +4,7 @@ export function splitTelegramCaption(text?: string): {
   caption?: string;
   followUpText?: string;
 } {
-  const trimmed = text?.trim() ?? "";
+  const trimmed = text?.trim() ;
   if (!trimmed) {
     return { caption: undefined, followUpText: undefined };
   }

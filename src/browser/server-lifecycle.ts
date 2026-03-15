@@ -43,6 +43,6 @@ export async function stopKnownBrowserProfiles(params: {
       }
     }
   } catch (err) {
-    params.onWarn(.ravenox browser stop failed: ${String(err)}`);
+    params.onWarn("ravenox browser stop failed: ${String(err)}`);
   }
 }

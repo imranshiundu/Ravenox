@@ -216,7 +216,7 @@ export function extractAssistantText(msg: AssistantMessage): string {
         ).trim(),
       joinWith: "\n",
       normalizeText: (text) => text.trim(),
-    }) ?? "";
+    }) ;
   // Only apply keyword-based error rewrites when the assistant message is actually an error.
   // Otherwise normal prose that *mentions* errors (e.g. "context overflow") can get clobbered.
   const errorContext = msg.stopReason === "error" || Boolean(msg.errorMessage?.trim());

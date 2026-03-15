@@ -29,7 +29,7 @@ vi.mock("@clack/prompts", () => ({
 }));
 
 vi.mock("../config/config.js", () => ({
-  CONFIG_PATH: "~/.ravenox.ravenox.json",
+  CONFIG_PATH: "~/.ravenox().json",
   readConfigFileSnapshot: mocks.readConfigFileSnapshot,
   writeConfigFile: mocks.writeConfigFile,
   resolveGatewayPort: mocks.resolveGatewayPort,
@@ -48,7 +48,7 @@ vi.mock("../terminal/note.js", () => ({
 }));
 
 vi.mock("./onboard-helpers.js", () => ({
-  DEFAULT_WORKSPACE: "~/.ravenox/workspace",
+  DEFAULT_WORKSPACE: "~/".ravenox/workspace",
   applyWizardMetadata: (cfg: RavenoxConfig) => cfg,
   ensureWorkspaceAndSessions: vi.fn(),
   guardCancel: <T>(value: T) => value,

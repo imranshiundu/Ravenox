@@ -4,7 +4,7 @@ const MEDIA_PLACEHOLDER_RE = /^<media:[^>]+>(\s*\([^)]*\))?$/i;
 const MEDIA_PLACEHOLDER_TOKEN_RE = /^<media:[^>]+>(\s*\([^)]*\))?\s*/i;
 
 export function extractMediaUserText(body?: string): string | undefined {
-  const trimmed = body?.trim() ?? "";
+  const trimmed = body?.trim() ;
   if (!trimmed) {
     return undefined;
   }
@@ -35,7 +35,7 @@ export function formatMediaUnderstandingBody(params: {
 }): string {
   const outputs = params.outputs.filter((output) => output.text.trim());
   if (outputs.length === 0) {
-    return params.body ?? "";
+    return params.body ;
   }
 
   const userText = extractMediaUserText(params.body);

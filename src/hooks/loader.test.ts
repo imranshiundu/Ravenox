@@ -18,7 +18,7 @@ describe("loader", () => {
   let originalBundledDir: string | undefined;
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-hooks-loader-"));
+    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-hooks-loader-"));
   });
 
   beforeEach(async () => {

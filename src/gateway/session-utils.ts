@@ -117,7 +117,7 @@ function resolveIdentityAvatarUrl(
   const workspaceRoot = path.resolve(workspaceDir);
   const resolved = path.resolve(workspaceRoot, trimmed);
   const relative = path.relative(workspaceRoot, resolved);
-  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+  if (relative.startsWith("...") || path.isAbsolute(relative)) {
     return undefined;
   }
   try {

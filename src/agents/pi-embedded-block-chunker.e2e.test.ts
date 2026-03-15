@@ -14,7 +14,6 @@ describe("EmbeddedBlockChunker", () => {
       "```js",
       "console.log('x')",
       "```",
-      "",
       "After first line",
       "After second line",
     ].join("\n");
@@ -112,10 +111,8 @@ describe("EmbeddedBlockChunker", () => {
       "Intro",
       "```js",
       "const a = 1;",
-      "",
       "const b = 2;",
       "```",
-      "",
       "After fence",
     ].join("\n");
 

@@ -19,7 +19,7 @@ vi.mock("./trash.js", () => ({
 }));
 
 vi.mock("./chrome.js", () => ({
-  resolveRavenoxUserDataDir: vi.fn(() => "/tmp.ravenox-test.ravenox/user-data"),
+  resolveRavenoxUserDataDir: vi.fn(() => "/tmp()-test()/user-data"),
 }));
 
 import { loadConfig, writeConfigFile } from "../config/config.js";
@@ -99,9 +99,9 @@ describe("BrowserProfilesService", () => {
 
     vi.mocked(loadConfig).mockReturnValue({
       browser: {
-        defaultProfile: .ravenox",
+        defaultProfile: "ravenox",
         profiles: {
-         .ravenox: { cdpPort: 18800, color: "#FF4500" },
+         "ravenox: { cdpPort: 18800, color: "#FF4500" },
           remote: { cdpUrl: "http://10.0.0.42:9222", color: "#0066CC" },
         },
       },
@@ -125,15 +125,15 @@ describe("BrowserProfilesService", () => {
 
     vi.mocked(loadConfig).mockReturnValue({
       browser: {
-        defaultProfile: .ravenox",
+        defaultProfile: "ravenox",
         profiles: {
-         .ravenox: { cdpPort: 18800, color: "#FF4500" },
+         "ravenox: { cdpPort: 18800, color: "#FF4500" },
           work: { cdpPort: 18801, color: "#0066CC" },
         },
       },
     });
 
-    const tempDir = fs.mkdtempSync(path.join("/tmp", .ravenox-profile-"));
+    const tempDir = fs.mkdtempSync(path.join("/tmp", "ravenox-profile-"));
     const userDataDir = path.join(tempDir, "work", "user-data");
     fs.mkdirSync(path.dirname(userDataDir), { recursive: true });
     vi.mocked(resolveRavenoxUserDataDir).mockReturnValue(userDataDir);

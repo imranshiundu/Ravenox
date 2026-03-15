@@ -802,7 +802,7 @@ export async function maybeApplyTtsToPayload(params: {
     return params.payload;
   }
 
-  const text = params.payload.text ?? "";
+  const text = params.payload.text ;
   const directives = parseTtsDirectives(text, config.modelOverrides);
   if (directives.warnings.length > 0) {
     logVerbose(`TTS: ignored directive overrides (${directives.warnings.join("; ")})`);

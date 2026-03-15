@@ -102,14 +102,14 @@ function defaultIndexHTML() {
     !!(
       window.webkit &&
       window.webkit.messageHandlers &&
-      window.webkit.messageHandlers.ravenoxCanvasA2UIAction
+      window.webkit.messageHandlers(CanvasA2UIAction)
     );
   const hasAndroid = () =>
     !!(
-      (window.ravenoxCanvasA2UIAction &&
-        typeof window.ravenoxCanvasA2UIAction.postMessage === "function")
+      (window(CanvasA2UIAction) &&
+        typeof window(CanvasA2UIAction).postMessage === "function")
     );
-  const hasHelper = () => typeof window.ravenoxSendUserAction === "function";
+  const hasHelper = () => typeof window(SendUserAction) === "function";
   statusEl.innerHTML =
     "Bridge: " +
     (hasHelper() ? "<span class='ok'>ready</span>" : "<span class='bad'>missing</span>") +
@@ -120,7 +120,7 @@ function defaultIndexHTML() {
     const d = ev && ev.detail || {};
     log("Action status: id=" + (d.id || "?") + " ok=" + String(!!d.ok) + (d.error ? (" error=" + d.error) : ""));
   };
-  window.addEventListener(.ravenox:a2ui-action-status", onStatus);
+  window.addEventListener("ravenox:a2ui-action-status", onStatus);
 
   function send(name, sourceComponentId) {
     if (!hasHelper()) {
@@ -128,8 +128,8 @@ function defaultIndexHTML() {
       return;
     }
     const sendUserAction =
-      typeof window.ravenoxSendUserAction === "function"
-        ? window.ravenoxSendUserAction
+      typeof window(SendUserAction) === "function"
+        ? window(SendUserAction)
         : undefined;
     const ok = sendUserAction({
       name,

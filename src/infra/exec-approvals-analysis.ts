@@ -54,7 +54,7 @@ function resolveExecutablePath(rawExecutable: string, cwd?: string, env?: NodeJS
     const candidate = path.resolve(base, expanded);
     return isExecutableFile(candidate) ? candidate : undefined;
   }
-  const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? "";
+  const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ;
   const entries = envPath.split(path.delimiter).filter(Boolean);
   const hasExtension = process.platform === "win32" && path.extname(expanded).length > 0;
   const extensions =

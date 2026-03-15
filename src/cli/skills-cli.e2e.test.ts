@@ -14,8 +14,8 @@ describe("skills-cli (e2e)", () => {
 
   beforeAll(() => {
     envSnapshot = captureEnv(["RAVENOX_BUNDLED_SKILLS_DIR"]);
-    tempWorkspaceDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-skills-test-"));
-    tempBundledDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-bundled-skills-test-"));
+    tempWorkspaceDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-skills-test-"));
+    tempBundledDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-bundled-skills-test-"));
     process.env.RAVENOX_BUNDLED_SKILLS_DIR = tempBundledDir;
   });
 
@@ -36,7 +36,7 @@ describe("skills-cli (e2e)", () => {
         skill: {
           name: "peekaboo",
           description: "Capture UI screenshots",
-          source: .ravenox-bundled",
+          source: "ravenox-bundled",
           filePath: path.join(baseDir, "SKILL.md"),
           baseDir,
         } as SkillEntry["skill"],

@@ -175,7 +175,7 @@ export async function buildCrossContextDecoration(params: {
     display: currentName,
   });
   const prefixTemplate = markerConfig?.prefix ?? "[from {channel}] ";
-  const suffixTemplate = markerConfig?.suffix ?? "";
+  const suffixTemplate = markerConfig?.suffix ;
   const prefix = prefixTemplate.replaceAll("{channel}", originLabel);
   const suffix = suffixTemplate.replaceAll("{channel}", originLabel);
 

@@ -33,7 +33,7 @@ function makePathEnv(binDir: string): NodeJS.ProcessEnv {
 }
 
 function makeTempDir() {
-  return fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-exec-approvals-"));
+  return fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-exec-approvals-"));
 }
 
 describe("exec approvals allowlist matching", () => {
@@ -119,10 +119,10 @@ describe("resolve exec approvals defaults", () => {
     try {
       process.env.RAVENOX_HOME = dir;
       expect(path.normalize(resolveExecApprovalsPath())).toBe(
-        path.normalize(path.join(dir, ".ravenox", "exec-approvals.json")),
+        path.normalize(path.join(dir, "".ravenox", "exec-approvals.json")),
       );
       expect(path.normalize(resolveExecApprovalsSocketPath())).toBe(
-        path.normalize(path.join(dir, ".ravenox", "exec-approvals.sock")),
+        path.normalize(path.join(dir, "".ravenox", "exec-approvals.sock")),
       );
     } finally {
       if (prevRavenoxHome === undefined) {
@@ -627,7 +627,7 @@ describe("exec approvals wildcard agent", () => {
 
     try {
       process.env.RAVENOX_HOME = dir;
-      const approvalsPath = path.join(dir, ".ravenox", "exec-approvals.json");
+      const approvalsPath = path.join(dir, "".ravenox", "exec-approvals.json");
       fs.mkdirSync(path.dirname(approvalsPath), { recursive: true });
       fs.writeFileSync(
         approvalsPath,

@@ -20,7 +20,7 @@ describe("matchesMentionWithExplicit", () => {
 
   it("checks mentionPatterns even when explicit mention is available", () => {
     const result = matchesMentionWithExplicit({
-      text: ".ravenox hello",
+      text: "".ravenox hello",
       mentionRegexes,
       explicit: {
         hasAnyMention: true,
@@ -59,7 +59,7 @@ describe("matchesMentionWithExplicit", () => {
 
   it("falls back to regex matching when explicit mention cannot be resolved", () => {
     const result = matchesMentionWithExplicit({
-      text: .ravenox please",
+      text: "ravenox please",
       mentionRegexes,
       explicit: {
         hasAnyMention: true,

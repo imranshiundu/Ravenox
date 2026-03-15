@@ -127,7 +127,6 @@ async function promptWhatsAppAllowFrom(
       "- allowlist: unknown senders are blocked",
       '- open: public inbound DMs (requires allowFrom to include "*")',
       "- disabled: ignore WhatsApp DMs",
-      "",
       `Current: dmPolicy=${existingPolicy}, allowFrom=${existingLabel}`,
       `Docs: ${formatDocsLink("/whatsapp", "whatsapp")}`,
     ].join("\n"),
@@ -335,7 +334,7 @@ export const whatsappOnboardingAdapter: ChannelOnboardingAdapter = {
       }
     } else if (!linked) {
       await prompter.note(
-        `Run \`${formatCliCommand(.ravenox channels login")}\` later to link WhatsApp.`,
+        `Run \`${formatCliCommand("ravenox channels login")}\` later to link WhatsApp.`,
         "WhatsApp",
       );
     }

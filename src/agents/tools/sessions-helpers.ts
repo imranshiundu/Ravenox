@@ -158,7 +158,7 @@ export function extractAssistantText(message: unknown): string | undefined {
       sanitizeText: sanitizeTextContent,
       joinWith: "",
       normalizeText: (text) => text.trim(),
-    }) ?? "";
+    }) ;
   const stopReason = (message as { stopReason?: unknown }).stopReason;
   const errorMessage = (message as { errorMessage?: unknown }).errorMessage;
   const errorContext =

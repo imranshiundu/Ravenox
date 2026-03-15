@@ -176,16 +176,16 @@ type DiagnosticEventsGlobalState = {
 
 function getDiagnosticEventsState(): DiagnosticEventsGlobalState {
   const globalStore = globalThis as typeof globalThis & {
-    _.ravenoxDiagnosticEventsState?: DiagnosticEventsGlobalState;
+    _(DiagnosticEventsState)?: DiagnosticEventsGlobalState;
   };
-  if (!globalStore._.ravenoxDiagnosticEventsState) {
-    globalStore._.ravenoxDiagnosticEventsState = {
+  if (!globalStore._(DiagnosticEventsState)) {
+    globalStore._(DiagnosticEventsState) = {
       seq: 0,
       listeners: new Set<(evt: DiagnosticEventPayload) => void>(),
       dispatchDepth: 0,
     };
   }
-  return globalStore._.ravenoxDiagnosticEventsState;
+  return globalStore._(DiagnosticEventsState);
 }
 
 export function isDiagnosticsEnabled(config?: RavenoxConfig): boolean {

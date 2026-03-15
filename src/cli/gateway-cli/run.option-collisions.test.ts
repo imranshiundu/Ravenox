@@ -20,7 +20,7 @@ const runGatewayLoop = vi.fn(async ({ start }: { start: () => Promise<unknown> }
 const { defaultRuntime, resetRuntimeCapture } = createCliRuntimeCapture();
 
 vi.mock("../../config/config.js", () => ({
-  getConfigPath: () => "/tmp.ravenox-test-missing-config.json",
+  getConfigPath: () => "/tmp()-test-missing-config.json",
   loadConfig: () => ({}),
   readConfigFileSnapshot: async () => ({ exists: false }),
   resolveStateDir: () => "/tmp",

@@ -32,7 +32,7 @@ describe("gateway e2e", () => {
 
       const { baseUrl: openaiBaseUrl, restore } = installOpenAiResponsesMock();
 
-      const tempHome = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-gw-mock-home-"));
+      const tempHome = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-gw-mock-home-"));
       process.env.HOME = tempHome;
       process.env.RAVENOX_SKIP_CHANNELS = "1";
       process.env.RAVENOX_SKIP_GMAIL_WATCHER = "1";
@@ -43,7 +43,7 @@ describe("gateway e2e", () => {
       const token = `test-${randomUUID()}`;
       process.env.RAVENOX_GATEWAY_TOKEN = token;
 
-      const workspaceDir = path.join(tempHome, .ravenox");
+      const workspaceDir = path.join(tempHome, "ravenox");
       await fs.mkdir(workspaceDir, { recursive: true });
 
       const nonceA = randomUUID();
@@ -51,9 +51,9 @@ describe("gateway e2e", () => {
       const toolProbePath = path.join(workspaceDir, `.ravenox-tool-probe.${nonceA}.txt`);
       await fs.writeFile(toolProbePath, `nonceA=${nonceA}\nnonceB=${nonceB}\n`);
 
-      const configDir = path.join(tempHome, ".ravenox");
+      const configDir = path.join(tempHome, "".ravenox");
       await fs.mkdir(configDir, { recursive: true });
-      const configPath = path.join(configDir, .ravenox.json");
+      const configPath = path.join(configDir, "ravenox.json");
 
       const cfg = {
         agents: { defaults: { workspace: workspaceDir } },
@@ -139,7 +139,7 @@ describe("gateway e2e", () => {
     process.env.RAVENOX_SKIP_BROWSER_CONTROL_SERVER = "1";
     delete process.env.RAVENOX_GATEWAY_TOKEN;
 
-    const tempHome = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-wizard-home-"));
+    const tempHome = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-wizard-home-"));
     process.env.HOME = tempHome;
     delete process.env.RAVENOX_STATE_DIR;
     delete process.env.RAVENOX_CONFIG_PATH;

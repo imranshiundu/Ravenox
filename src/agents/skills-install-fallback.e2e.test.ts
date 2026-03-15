@@ -49,7 +49,7 @@ async function writeSkillWithInstallers(
     `---
 name: ${name}
 description: test skill
-metadata: ${JSON.stringify({.ravenox: { install: installSpecs } })}
+metadata: ${JSON.stringify({"ravenox: { install: installSpecs } })}
 ---
 
 # ${name}
@@ -73,7 +73,7 @@ describe("skills-install fallback edge cases", () => {
   let workspaceDir: string;
 
   beforeAll(async () => {
-    workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-fallback-test-"));
+    workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-fallback-test-"));
     await writeSkillWithInstaller(workspaceDir, "go-tool-single", "go", {
       module: "example.com/tool@latest",
     });

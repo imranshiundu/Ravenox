@@ -51,7 +51,7 @@ describe("isBotMentionedFromTargets", () => {
 
   it("falls back to regex when no mentions are present", () => {
     const msg = makeMsg({
-      body: .ravenox can you help?",
+      body: "ravenox can you help?",
       selfE164: "+15551234567",
       selfJid: "15551234567@s.whatsapp.net",
     });
@@ -71,7 +71,7 @@ describe("isBotMentionedFromTargets", () => {
     expect(isBotMentionedFromTargets(msg, cfg, targets)).toBe(false);
 
     const msgTextMention = makeMsg({
-      body: .ravenox ping",
+      body: "ravenox ping",
       selfE164: "+999",
       selfJid: "999@s.whatsapp.net",
     });
@@ -82,7 +82,7 @@ describe("isBotMentionedFromTargets", () => {
 
 describe("resolveMentionTargets with @lid mapping", () => {
   it("resolves mentionedJids via lid reverse mapping in authDir", async () => {
-    const authDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-lid-mapping-"));
+    const authDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-lid-mapping-"));
     try {
       await fs.writeFile(
         path.join(authDir, "lid-mapping-777_reverse.json"),
@@ -102,7 +102,7 @@ describe("resolveMentionTargets with @lid mapping", () => {
   });
 
   it("derives selfE164 from selfJid when selfJid is @lid and mapping exists", async () => {
-    const authDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-lid-mapping-"));
+    const authDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-lid-mapping-"));
     try {
       await fs.writeFile(
         path.join(authDir, "lid-mapping-777_reverse.json"),
@@ -125,7 +125,7 @@ describe("getSessionSnapshot", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
     try {
-      const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-snapshot-"));
+      const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-snapshot-"));
       const storePath = path.join(root, "sessions.json");
       const sessionKey = "agent:main:whatsapp:dm:s1";
 

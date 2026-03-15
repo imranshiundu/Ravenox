@@ -58,7 +58,7 @@ export const telegramOutbound: ChannelOutboundAdapter = {
       | undefined;
     const quoteText =
       typeof telegramData?.quoteText === "string" ? telegramData.quoteText : undefined;
-    const text = payload.text ?? "";
+    const text = payload.text ;
     const mediaUrls = payload.mediaUrls?.length
       ? payload.mediaUrls
       : payload.mediaUrl

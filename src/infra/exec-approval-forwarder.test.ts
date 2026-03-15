@@ -21,7 +21,7 @@ function getFirstDeliveryText(deliver: ReturnType<typeof vi.fn>): string {
   const firstCall = deliver.mock.calls[0]?.[0] as
     | { payloads?: Array<{ text?: string }> }
     | undefined;
-  return firstCall?.payloads?.[0]?.text ?? "";
+  return firstCall?.payloads?.[0]?.text ;
 }
 
 const TARGETS_CFG = {

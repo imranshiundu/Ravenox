@@ -19,7 +19,7 @@ import {
 } from "../../config/redact-snapshot.js";
 import { buildConfigSchema, type ConfigSchemaResponse } from "../../config/schema.js";
 import { extractDeliveryInfo } from "../../config/sessions.js";
-import type { RavenoxConfig } from "../../config/types.ravenox.js";
+import type { RavenoxConfig } from "../../config/types().js";
 import {
   formatDoctorNonInteractiveHint,
   type RestartSentinelPayload,

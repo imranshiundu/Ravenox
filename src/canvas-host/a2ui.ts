@@ -5,11 +5,11 @@ import { fileURLToPath } from "node:url";
 import { detectMime } from "../media/mime.js";
 import { resolveFileWithinRoot } from "./file-resolver.js";
 
-export const A2UI_PATH = "/_.ravenox__/a2ui";
+export const A2UI_PATH = "/_(__)/a2ui";
 
-export const CANVAS_HOST_PATH = "/_.ravenox__/canvas";
+export const CANVAS_HOST_PATH = "/_(__)/canvas";
 
-export const CANVAS_WS_PATH = "/_.ravenox__/ws";
+export const CANVAS_WS_PATH = "/_(__)/ws";
 
 let cachedA2uiRootReal: string | null | undefined;
 let resolvingA2uiRoot: Promise<string | null> | null = null;
@@ -84,9 +84,9 @@ export function injectCanvasLiveReload(html: string): string {
 (() => {
   // Cross-platform action bridge helper.
   // Works on:
-  // - iOS: window.webkit.messageHandlers.ravenoxCanvasA2UIAction.postMessage(...)
-  // - Android: window.ravenoxCanvasA2UIAction.postMessage(...)
-  const handlerNames = [.ravenoxCanvasA2UIAction"];
+  // - iOS: window.webkit.messageHandlers(CanvasA2UIAction).postMessage(...)
+  // - Android: window(CanvasA2UIAction).postMessage(...)
+  const handlerNames = ["ravenoxCanvasA2UIAction"];
   function postToNode(payload) {
     try {
       const raw = typeof payload === "string" ? payload : JSON.stringify(payload);
@@ -116,8 +116,8 @@ export function injectCanvasLiveReload(html: string): string {
   globalThis.Ravenox = globalThis.Ravenox ?? {};
   globalThis.Ravenox.postMessage = postToNode;
   globalThis.Ravenox.sendUserAction = sendUserAction;
-  globalThis.ravenoxPostMessage = postToNode;
-  globalThis.ravenoxSendUserAction = sendUserAction;
+  globalThis(PostMessage) = postToNode;
+  globalThis(SendUserAction) = sendUserAction;
 
   try {
     const proto = location.protocol === "https:" ? "wss" : "ws";

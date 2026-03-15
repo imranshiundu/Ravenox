@@ -32,7 +32,7 @@ export function stripEnvelope(text: string): string {
   if (!match) {
     return text;
   }
-  const header = match[1] ?? "";
+  const header = match[1] ;
   if (!looksLikeEnvelopeHeader(header)) {
     return text;
   }

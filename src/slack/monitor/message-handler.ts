@@ -44,7 +44,7 @@ export function createSlackMessageHandler(params: {
       return `slack:${ctx.accountId}:${threadKey}:${senderId}`;
     },
     shouldDebounce: (entry) => {
-      const text = entry.message.text ?? "";
+      const text = entry.message.text ;
       if (!text.trim()) {
         return false;
       }

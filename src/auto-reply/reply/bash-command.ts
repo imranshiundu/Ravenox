@@ -65,7 +65,7 @@ function parseBashRequest(raw: string): BashRequest | null {
     if (!match) {
       return null;
     }
-    restSource = match[1] ?? "";
+    restSource = match[1] ;
   } else if (trimmed.startsWith("!")) {
     restSource = trimmed.slice(1);
     if (restSource.trimStart().startsWith(":")) {
@@ -80,8 +80,8 @@ function parseBashRequest(raw: string): BashRequest | null {
     return { action: "help" };
   }
   const tokenMatch = rest.match(/^(\S+)(?:\s+([\s\S]+))?$/);
-  const token = tokenMatch?.[1]?.trim() ?? "";
-  const remainder = tokenMatch?.[2]?.trim() ?? "";
+  const token = tokenMatch?.[1]?.trim() ;
+  const remainder = tokenMatch?.[2]?.trim() ;
   const lowered = token.toLowerCase();
   if (lowered === "poll") {
     return { action: "poll", sessionId: remainder || undefined };
@@ -101,7 +101,7 @@ function resolveRawCommandBody(params: {
   agentId?: string;
   isGroup: boolean;
 }) {
-  const source = params.ctx.CommandBody ?? params.ctx.RawBody ?? params.ctx.Body ?? "";
+  const source = params.ctx.CommandBody ?? params.ctx.RawBody ?? params.ctx.Body ;
   const stripped = stripStructuralPrefixes(source);
   return params.isGroup
     ? stripMentions(stripped, params.ctx, params.cfg, params.agentId)
@@ -188,7 +188,7 @@ export async function handleBashChatCommand(params: {
 }): Promise<ReplyPayload> {
   if (params.cfg.commands?.bash !== true) {
     return {
-      text: "⚠️ bash is disabled. Set commands.bash=true to enable. Docs: https://docs.ravenox.ai/tools/slash-commands#config",
+      text: "⚠️ bash is disabled. Set commands.bash=true to enable. Docs: https://docs().ai/tools/slash-commands#config",
     };
   }
 

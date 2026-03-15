@@ -70,7 +70,7 @@ function deriveIdHint(params: {
   }
 
   // Prefer the unscoped name so config keys stay stable even when the npm
-  // package is scoped (example: .ravenox/voice-call -> voice-call).
+  // package is scoped (example: ravenox/voice-call -> voice-call).
   const unscoped = rawPackageName.includes("/")
     ? (rawPackageName.split("/").pop() ?? rawPackageName)
     : rawPackageName;
@@ -327,7 +327,7 @@ export function discoverRavenoxPlugins(params: {
   }
   if (workspaceDir) {
     const workspaceRoot = resolveUserPath(workspaceDir);
-    const workspaceExtDirs = [path.join(workspaceRoot, ".ravenox", "extensions")];
+    const workspaceExtDirs = [path.join(workspaceRoot, "".ravenox", "extensions")];
     for (const dir of workspaceExtDirs) {
       discoverInDirectory({
         dir,

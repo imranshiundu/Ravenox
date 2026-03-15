@@ -52,7 +52,7 @@ export function resolveMirroredTranscriptText(params: {
     return "media";
   }
 
-  const text = params.text ?? "";
+  const text = params.text ;
   const trimmed = text.trim();
   return trimmed ? trimmed : null;
 }
@@ -126,7 +126,7 @@ export async function appendAssistantMessageToSessionTranscript(params: {
     role: "assistant",
     content: [{ type: "text", text: mirrorText }],
     api: "openai-responses",
-    provider: .ravenox",
+    provider: "ravenox",
     model: "delivery-mirror",
     usage: {
       input: 0,

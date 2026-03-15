@@ -5,7 +5,7 @@ import type { RavenoxConfig } from "../config/config.js";
 import { isTruthyEnvValue } from "../infra/env.js";
 import { applyExtraParamsToAgent } from "./pi-embedded-runner.js";
 
-const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
+const OPENAI_KEY = process.env.OPENAI_API_KEY ;
 const LIVE = isTruthyEnvValue(process.env.OPENAI_LIVE_TEST) || isTruthyEnvValue(process.env.LIVE);
 
 const describeLive = LIVE && OPENAI_KEY ? describe : describe.skip;

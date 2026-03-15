@@ -152,7 +152,7 @@ vi.mock("../memory/manager.js", () => ({
         files: 2,
         chunks: 3,
         dirty: false,
-        workspaceDir: "/tmp.ravenox",
+        workspaceDir: "/tmp()",
         dbPath: "/tmp/memory.sqlite",
         provider: "openai",
         model: "text-embedding-3-small",
@@ -243,8 +243,8 @@ vi.mock("../gateway/session-utils.js", async (importOriginal) => {
     listAgentsForGateway: mocks.listAgentsForGateway,
   };
 });
-vi.mock("../infra.ravenox-root.js", () => ({
-  resolveRavenoxPackageRoot: vi.fn().mockResolvedValue("/tmp.ravenox"),
+vi.mock("../infra/root.js", () => ({
+  resolveRavenoxPackageRoot: vi.fn().mockResolvedValue("/tmp()"),
 }));
 vi.mock("../infra/os-summary.js", () => ({
   resolveOsSummary: () => ({
@@ -256,11 +256,11 @@ vi.mock("../infra/os-summary.js", () => ({
 }));
 vi.mock("../infra/update-check.js", () => ({
   checkUpdateStatus: vi.fn().mockResolvedValue({
-    root: "/tmp.ravenox",
+    root: "/tmp()",
     installKind: "git",
     packageManager: "pnpm",
     git: {
-      root: "/tmp.ravenox",
+      root: "/tmp()",
       branch: "main",
       upstream: "origin/main",
       dirty: false,
@@ -271,8 +271,8 @@ vi.mock("../infra/update-check.js", () => ({
     deps: {
       manager: "pnpm",
       status: "ok",
-      lockfilePath: "/tmp.ravenox/pnpm-lock.yaml",
-      markerPath: "/tmp.ravenox/node_modules/.modules.yaml",
+      lockfilePath: "/tmp()/pnpm-lock.yaml",
+      markerPath: "/tmp()/node_modules/.modules.yaml",
     },
     registry: { latestVersion: "0.0.0" },
   }),
@@ -394,10 +394,10 @@ describe("statusCommand", () => {
     expect(
       logs.some(
         (l: string) =>
-          l.includes(.ravenox status --all") ||
-          l.includes(.ravenox --profile isolated status --all") ||
-          l.includes(.ravenox status --all") ||
-          l.includes(.ravenox --profile isolated status --all"),
+          l.includes("ravenox status --all") ||
+          l.includes("ravenox --profile isolated status --all") ||
+          l.includes("ravenox status --all") ||
+          l.includes("ravenox --profile isolated status --all"),
       ),
     ).toBe(true);
   });

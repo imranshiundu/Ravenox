@@ -228,7 +228,7 @@ export async function maybeRepairGatewayDaemon(params: {
   if (process.platform === "darwin") {
     const label = resolveGatewayLaunchAgentLabel(process.env.RAVENOX_PROFILE);
     note(
-      `LaunchAgent loaded; stopping requires "${formatCliCommand(.ravenox gateway stop")}" or launchctl bootout gui/$UID/${label}.`,
+      `LaunchAgent loaded; stopping requires "${formatCliCommand("ravenox gateway stop")}" or launchctl bootout gui/$UID/${label}.`,
       "Gateway",
     );
   }

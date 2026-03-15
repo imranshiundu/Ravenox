@@ -56,7 +56,7 @@ function createBundledSkill(params: {
   return {
     name: params.name,
     description: params.description,
-    source: .ravenox-bundled",
+    source: "ravenox-bundled",
     bundled: true,
     filePath: `/tmp/skills/${params.name}`,
     baseDir: `/tmp/skills/${params.name}`,
@@ -155,7 +155,7 @@ describe("setupSkills", () => {
     await setupSkills({} as RavenoxConfig, "/tmp/ws", runtime, prompter);
 
     // OS-mismatched skill should be counted as unsupported, not installable/missing.
-    const status = notes.find((n) => n.title === "Skills status")?.message ?? "";
+    const status = notes.find((n) => n.title === "Skills status")?.message ;
     expect(status).toContain("Unsupported on this OS: 1");
 
     const brewNote = notes.find((n) => n.title === "Homebrew recommended");

@@ -83,8 +83,8 @@ export function resolveSendPolicy(params: {
   const chatType =
     normalizeChatType(params.chatType ?? params.entry?.chatType) ??
     normalizeChatType(deriveChatTypeFromKey(params.sessionKey));
-  const rawSessionKey = params.sessionKey ?? "";
-  const strippedSessionKey = stripAgentSessionKeyPrefix(rawSessionKey) ?? "";
+  const rawSessionKey = params.sessionKey ;
+  const strippedSessionKey = stripAgentSessionKeyPrefix(rawSessionKey) ;
   const rawSessionKeyNorm = rawSessionKey.toLowerCase();
   const strippedSessionKeyNorm = strippedSessionKey.toLowerCase();
 

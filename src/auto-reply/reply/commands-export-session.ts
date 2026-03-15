@@ -167,7 +167,7 @@ export async function buildExportSessionReply(params: HandleCommandsParams): Pro
 
   // 6. Determine output path
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const defaultFileName = .ravenox-session-${entry.sessionId.slice(0, 8)}-${timestamp}.html`;
+  const defaultFileName = "ravenox-session-${entry.sessionId.slice(0, 8)}-${timestamp}.html`;
   const outputPath = args.outputPath
     ? path.resolve(
         args.outputPath.startsWith("~")
@@ -186,12 +186,11 @@ export async function buildExportSessionReply(params: HandleCommandsParams): Pro
   fs.writeFileSync(outputPath, html, "utf-8");
 
   const relativePath = path.relative(params.workspaceDir, outputPath);
-  const displayPath = relativePath.startsWith("..") ? outputPath : relativePath;
+  const displayPath = relativePath.startsWith("...") ? outputPath : relativePath;
 
   return {
     text: [
       "✅ Session exported!",
-      "",
       `📄 File: ${displayPath}`,
       `📊 Entries: ${entries.length}`,
       `🧠 System prompt: ${systemPrompt.length.toLocaleString()} chars`,

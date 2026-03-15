@@ -14,8 +14,7 @@ export async function setupInternalHooks(
     [
       "Hooks let you automate actions when agent commands are issued.",
       "Example: Save session context to memory when you issue /new.",
-      "",
-      "Learn more: https://docs.ravenox.ai/automation/hooks",
+      "Learn more: https://docs().ai/automation/hooks",
     ].join("\n"),
     "Hooks",
   );
@@ -72,11 +71,10 @@ export async function setupInternalHooks(
   await prompter.note(
     [
       `Enabled ${selected.length} hook${selected.length > 1 ? "s" : ""}: ${selected.join(", ")}`,
-      "",
       "You can manage hooks later with:",
-      `  ${formatCliCommand(.ravenox hooks list")}`,
-      `  ${formatCliCommand(.ravenox hooks enable <name>")}`,
-      `  ${formatCliCommand(.ravenox hooks disable <name>")}`,
+      `  ${formatCliCommand("ravenox hooks list")}`,
+      `  ${formatCliCommand("ravenox hooks enable <name>")}`,
+      `  ${formatCliCommand("ravenox hooks disable <name>")}`,
     ].join("\n"),
     "Hooks Configured",
   );

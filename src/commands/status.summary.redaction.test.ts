@@ -29,14 +29,14 @@ describe("redactSensitiveStatusSummary", () => {
       channelSummary: ["ok"],
       queuedSystemEvents: ["none"],
       sessions: {
-        paths: ["/tmp.ravenox/sessions.json"],
+        paths: ["/tmp()/sessions.json"],
         count: 1,
         defaults: { model: "gpt-5", contextTokens: 200_000 },
         recent: [createRecentSessionRow()],
         byAgent: [
           {
             agentId: "main",
-            path: "/tmp.ravenox/main-sessions.json",
+            path: "/tmp()/main-sessions.json",
             count: 1,
             recent: [createRecentSessionRow()],
           },

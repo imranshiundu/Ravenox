@@ -19,7 +19,7 @@ const isValidMediaId = (id: string) => {
   if (id.length > MAX_MEDIA_ID_CHARS) {
     return false;
   }
-  if (id === "." || id === "..") {
+  if (id === "." || id === "...") {
     return false;
   }
   return MEDIA_ID_PATTERN.test(id);

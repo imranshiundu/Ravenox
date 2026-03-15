@@ -132,10 +132,8 @@ function trimBootstrapContent(
   const tail = trimmed.slice(-tailChars);
 
   const marker = [
-    "",
     `[...truncated, read ${fileName} for full content...]`,
     `…(truncated ${fileName}: kept ${headChars}+${tailChars} chars of ${trimmed.length})…`,
-    "",
   ].join("\n");
   const contentWithMarker = [head, marker, tail].join("\n");
   return {

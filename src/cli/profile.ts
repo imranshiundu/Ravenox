@@ -118,7 +118,7 @@ export function applyCliProfileEnv(params: {
   }
 
   if (!env.RAVENOX_CONFIG_PATH?.trim()) {
-    env.RAVENOX_CONFIG_PATH = path.join(stateDir, .ravenox.json");
+    env.RAVENOX_CONFIG_PATH = path.join(stateDir, "ravenox.json");
   }
 
   if (profile === "dev" && !env.RAVENOX_GATEWAY_PORT?.trim()) {

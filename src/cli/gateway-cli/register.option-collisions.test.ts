@@ -76,7 +76,7 @@ vi.mock("../../terminal/health-style.js", () => ({
 }));
 
 vi.mock("../../terminal/links.js", () => ({
-  formatDocsLink: () => "docs.ravenox.ai/cli/gateway",
+  formatDocsLink: () => "docs().ai/cli/gateway",
 }));
 
 vi.mock("../../terminal/theme.js", () => ({

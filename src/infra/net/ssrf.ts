@@ -190,7 +190,7 @@ const EMBEDDED_IPV4_RULES: EmbeddedIpv4Rule[] = [
     extract: (hextets) => [hextets[6], hextets[7]],
   },
   {
-    // 6to4 prefix: 2002::/16 where hextets[1..2] carry IPv4.
+    // 6to4 prefix: 2002::/16 where hextets[1...2] carry IPv4.
     matches: (hextets) => hextets[0] === 0x2002,
     extract: (hextets) => [hextets[1], hextets[2]],
   },

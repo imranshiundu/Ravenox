@@ -35,7 +35,7 @@ const splitTrailingDirective = (text: string): { text: string; tail: string } =>
 
 const parseChunk = (raw: string, options?: { silentToken?: string }): ParsedChunk => {
   const split = splitMediaFromOutput(raw);
-  let text = split.text ?? "";
+  let text = split.text ;
 
   const replyParsed = parseInlineDirectives(text, {
     stripAudioTag: false,

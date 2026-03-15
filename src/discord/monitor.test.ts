@@ -154,7 +154,7 @@ describe("DiscordMessageListener", () => {
 
 describe("discord allowlist helpers", () => {
   it("normalizes slugs", () => {
-    expect(normalizeDiscordSlug("Friends of Ravenox")).toBe("friends-of.ravenox");
+    expect(normalizeDiscordSlug("Friends of Ravenox")).toBe("friends-of()");
     expect(normalizeDiscordSlug("#General")).toBe("general");
     expect(normalizeDiscordSlug("Dev__Chat")).toBe("dev-chat");
   });
@@ -170,7 +170,7 @@ describe("discord allowlist helpers", () => {
     }
     expect(allowListMatches(allow, { id: "123" })).toBe(true);
     expect(allowListMatches(allow, { name: "steipete" })).toBe(true);
-    expect(allowListMatches(allow, { name: "friends-of.ravenox" })).toBe(true);
+    expect(allowListMatches(allow, { name: "friends-of()" })).toBe(true);
     expect(allowListMatches(allow, { name: "other" })).toBe(false);
   });
 
@@ -188,26 +188,26 @@ describe("discord allowlist helpers", () => {
 describe("discord guild/channel resolution", () => {
   it("resolves guild entry by id", () => {
     const guildEntries = makeEntries({
-      "123": { slug: "friends-of.ravenox" },
+      "123": { slug: "friends-of()" },
     });
     const resolved = resolveDiscordGuildEntry({
       guild: fakeGuild("123", "Friends of Ravenox"),
       guildEntries,
     });
     expect(resolved?.id).toBe("123");
-    expect(resolved?.slug).toBe("friends-of.ravenox");
+    expect(resolved?.slug).toBe("friends-of()");
   });
 
   it("resolves guild entry by slug key", () => {
     const guildEntries = makeEntries({
-      "friends-of.ravenox": { slug: "friends-of.ravenox" },
+      "friends-of()": { slug: "friends-of()" },
     });
     const resolved = resolveDiscordGuildEntry({
       guild: fakeGuild("123", "Friends of Ravenox"),
       guildEntries,
     });
     expect(resolved?.id).toBe("123");
-    expect(resolved?.slug).toBe("friends-of.ravenox");
+    expect(resolved?.slug).toBe("friends-of()");
   });
 
   it("falls back to wildcard guild entry", () => {
@@ -578,15 +578,15 @@ describe("discord group DM gating", () => {
   it("matches group DM allowlist", () => {
     expect(
       resolveGroupDmAllow({
-        channels: [.ravenox-dm"],
+        channels: ["ravenox-dm"],
         channelId: "1",
         channelName: "Ravenox DM",
-        channelSlug: .ravenox-dm",
+        channelSlug: "ravenox-dm",
       }),
     ).toBe(true);
     expect(
       resolveGroupDmAllow({
-        channels: [.ravenox-dm"],
+        channels: ["ravenox-dm"],
         channelId: "1",
         channelName: "Other",
         channelSlug: "other",

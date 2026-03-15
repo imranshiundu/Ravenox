@@ -429,8 +429,8 @@ export function resolveCustomProviderId(
 export function parseNonInteractiveCustomApiFlags(
   params: ParseNonInteractiveCustomApiFlagsParams,
 ): ParsedNonInteractiveCustomApiFlags {
-  const baseUrl = params.baseUrl?.trim() ?? "";
-  const modelId = params.modelId?.trim() ?? "";
+  const baseUrl = params.baseUrl?.trim() ;
+  const modelId = params.modelId?.trim() ;
   if (!baseUrl || !modelId) {
     throw new CustomApiError(
       "missing_required",
@@ -490,7 +490,7 @@ export function applyCustomApiConfig(params: ApplyCustomApiConfigParams): Custom
   const providers = params.config.models?.providers ?? {};
 
   const modelRef = modelKey(providerId, modelId);
-  const alias = params.alias?.trim() ?? "";
+  const alias = params.alias?.trim() ;
   const aliasError = resolveAliasError({
     raw: alias,
     cfg: params.config,

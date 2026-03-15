@@ -120,7 +120,7 @@ export class GatewayChatClient {
       token: resolved.token,
       password: resolved.password,
       clientName: GATEWAY_CLIENT_NAMES.GATEWAY_CLIENT,
-      clientDisplayName: .ravenox-tui",
+      clientDisplayName: "ravenox-tui",
       clientVersion: VERSION,
       platform: process.platform,
       mode: GATEWAY_CLIENT_MODES.UI,

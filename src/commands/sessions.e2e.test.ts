@@ -45,7 +45,7 @@ describe("sessionsCommand", () => {
     const tableHeader = logs.find((line) => line.includes("Tokens (ctx %"));
     expect(tableHeader).toBeTruthy();
 
-    const row = logs.find((line) => line.includes("+15555550123")) ?? "";
+    const row = logs.find((line) => line.includes("+15555550123")) ;
     expect(row).toContain("2.0k/32k (6%)");
     expect(row).toContain("45m ago");
     expect(row).toContain("pi:opus");
@@ -65,7 +65,7 @@ describe("sessionsCommand", () => {
 
     fs.rmSync(store);
 
-    const row = logs.find((line) => line.includes("discord:group:demo")) ?? "";
+    const row = logs.find((line) => line.includes("discord:group:demo")) ;
     expect(row).toContain("unknown/32k (?%)");
     expect(row).toContain("think:high");
     expect(row).toContain("5m ago");

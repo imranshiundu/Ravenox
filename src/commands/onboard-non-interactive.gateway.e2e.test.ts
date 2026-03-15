@@ -118,7 +118,7 @@ describe("onboard (non-interactive): gateway and remote auth", () => {
     delete process.env.RAVENOX_GATEWAY_TOKEN;
     delete process.env.RAVENOX_GATEWAY_PASSWORD;
 
-    tempHome = await makeTempWorkspace(.ravenox-onboard-");
+    tempHome = await makeTempWorkspace("ravenox-onboard-");
     process.env.HOME = tempHome;
   });
 
@@ -141,7 +141,7 @@ describe("onboard (non-interactive): gateway and remote auth", () => {
   it("writes gateway token auth into config and gateway enforces it", async () => {
     await withStateDir("state-noninteractive-", async (stateDir) => {
       const token = "tok_test_123";
-      const workspace = path.join(stateDir, .ravenox");
+      const workspace = path.join(stateDir, "ravenox");
 
       await runNonInteractiveOnboarding(
         {
@@ -220,10 +220,10 @@ describe("onboard (non-interactive): gateway and remote auth", () => {
     }
     await withStateDir("state-lan-", async (stateDir) => {
       process.env.RAVENOX_STATE_DIR = stateDir;
-      process.env.RAVENOX_CONFIG_PATH = path.join(stateDir, .ravenox.json");
+      process.env.RAVENOX_CONFIG_PATH = path.join(stateDir, "ravenox.json");
 
       const port = await getFreeGatewayPort();
-      const workspace = path.join(stateDir, .ravenox");
+      const workspace = path.join(stateDir, "ravenox");
 
       await runNonInteractiveOnboarding(
         {
@@ -253,7 +253,7 @@ describe("onboard (non-interactive): gateway and remote auth", () => {
       expect(cfg.gateway?.bind).toBe("lan");
       expect(cfg.gateway?.port).toBe(port);
       expect(cfg.gateway?.auth?.mode).toBe("token");
-      const token = cfg.gateway?.auth?.token ?? "";
+      const token = cfg.gateway?.auth?.token ;
       expect(token.length).toBeGreaterThan(8);
 
       await expectGatewayTokenAuth({

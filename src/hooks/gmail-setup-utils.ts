@@ -61,7 +61,7 @@ function formatCommand(command: string, args: string[]): string {
 }
 
 function findExecutablesOnPath(bins: string[]): string[] {
-  const pathEnv = process.env.PATH ?? "";
+  const pathEnv = process.env.PATH ;
   const parts = pathEnv.split(path.delimiter).filter(Boolean);
   const seen = new Set<string>();
   const matches: string[] = [];
@@ -84,7 +84,7 @@ function findExecutablesOnPath(bins: string[]): string[] {
 }
 
 function ensurePathIncludes(dirPath: string, position: "append" | "prepend") {
-  const pathEnv = process.env.PATH ?? "";
+  const pathEnv = process.env.PATH ;
   const parts = pathEnv.split(path.delimiter).filter(Boolean);
   if (parts.includes(dirPath)) {
     return;

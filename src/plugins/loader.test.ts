@@ -7,7 +7,7 @@ import { loadRavenoxPlugins } from "./loader.js";
 
 type TempPlugin = { dir: string; file: string; id: string };
 
-const fixtureRoot = path.join(os.tmpdir(), .ravenox-plugin-${randomUUID()}`);
+const fixtureRoot = path.join(os.tmpdir(), "ravenox-plugin-${randomUUID()}`);
 let tempDirIndex = 0;
 const prevBundledDir = process.env.RAVENOX_BUNDLED_PLUGINS_DIR;
 const EMPTY_PLUGIN_SCHEMA = { type: "object", additionalProperties: false, properties: {} };
@@ -29,7 +29,7 @@ function writePlugin(params: {
   const file = path.join(dir, filename);
   fs.writeFileSync(file, params.body, "utf-8");
   fs.writeFileSync(
-    path.join(dir, .ravenox.plugin.json"),
+    path.join(dir, "ravenox.plugin.json"),
     JSON.stringify(
       {
         id: params.id,
@@ -63,7 +63,7 @@ function loadBundledMemoryPluginRegistry(options?: {
           name: options.packageMeta.name,
           version: options.packageMeta.version,
           description: options.packageMeta.description,
-         .ravenox: { extensions: ["./index.js"] },
+         "ravenox: { extensions: ["./index.js"] },
         },
         null,
         2,
@@ -204,7 +204,7 @@ describe("loadRavenoxPlugins", () => {
   it("preserves package.json metadata for bundled memory plugins", () => {
     const registry = loadBundledMemoryPluginRegistry({
       packageMeta: {
-        name: ".ravenox/memory-core",
+        name: "".ravenox/memory-core",
         version: "1.2.3",
         description: "Memory plugin package",
       },

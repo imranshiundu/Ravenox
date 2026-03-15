@@ -32,7 +32,7 @@ export function createSandboxMediaStageConfig(home: string): RavenoxConfig {
     agents: {
       defaults: {
         model: "anthropic/claude-opus-4-5",
-        workspace: join(home, .ravenox"),
+        workspace: join(home, "ravenox"),
         sandbox: {
           mode: "non-main",
           workspaceRoot: join(home, "sandboxes"),

@@ -22,7 +22,7 @@ export function extractTextFromPrompt(prompt: ContentBlock[]): string {
     }
     if (block.type === "resource_link") {
       const title = block.title ? ` (${block.title})` : "";
-      const uri = block.uri ?? "";
+      const uri = block.uri ;
       const line = uri ? `[Resource link${title}] ${uri}` : `[Resource link${title}]`;
       parts.push(line);
     }

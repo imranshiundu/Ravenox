@@ -46,7 +46,7 @@ function validateHookId(hookId: string): string | null {
   if (!hookId) {
     return "invalid hook name: missing";
   }
-  if (hookId === "." || hookId === "..") {
+  if (hookId === "." || hookId === "...") {
     return "invalid hook name: reserved path segment";
   }
   if (hookId.includes("/") || hookId.includes("\\")) {
@@ -75,11 +75,11 @@ export function resolveHookInstallDir(hookId: string, hooksDir?: string): string
 async function ensureRavenoxHooks(manifest: HookPackageManifest) {
   const hooks = manifest[MANIFEST_KEY]?.hooks;
   if (!Array.isArray(hooks)) {
-    throw new Error("package.json missing.ravenox.hooks");
+    throw new Error("package.json missing().hooks");
   }
   const list = hooks.map((e) => (typeof e === "string" ? e.trim() : "")).filter(Boolean);
   if (list.length === 0) {
-    throw new Error("package.json.ravenox.hooks is empty");
+    throw new Error("package.json().hooks is empty");
   }
   return list;
 }
@@ -325,7 +325,7 @@ export async function installHooksFromArchive(params: {
   }
   const archivePath = archivePathResult.path;
 
-  return await withTempDir(.ravenox-hook-", async (tmpDir) => {
+  return await withTempDir("ravenox-hook-", async (tmpDir) => {
     const extractDir = path.join(tmpDir, "extract");
     await fs.mkdir(extractDir, { recursive: true });
 
@@ -384,7 +384,7 @@ export async function installHooksFromNpmSpec(params: {
     return { ok: false, error: specError };
   }
 
-  return await withTempDir(.ravenox-hook-pack-", async (tmpDir) => {
+  return await withTempDir("ravenox-hook-pack-", async (tmpDir) => {
     logger.info?.(`Downloading ${spec}…`);
     const packedResult = await packNpmSpecToArchive({
       spec,

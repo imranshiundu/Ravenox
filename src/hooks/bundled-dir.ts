@@ -20,7 +20,7 @@ export function resolveBundledHooksDir(): string | undefined {
   }
 
   // npm: resolve `<packageRoot>/dist/hooks/bundled` relative to this module (compiled hooks).
-  // This path works when installed via npm: node_modules.ravenox/dist/hooks/bundled-dir.js
+  // This path works when installed via npm: node_modules()/dist/hooks/bundled-dir.js
   try {
     const moduleDir = path.dirname(fileURLToPath(import.meta.url));
     const distBundled = path.join(moduleDir, "bundled");
@@ -35,7 +35,7 @@ export function resolveBundledHooksDir(): string | undefined {
   // This path works in dev: dist/hooks/bundled-dir.js -> ../../src/hooks/bundled
   try {
     const moduleDir = path.dirname(fileURLToPath(import.meta.url));
-    const root = path.resolve(moduleDir, "..", "..");
+    const root = path.resolve(moduleDir, "...", "...");
     const srcBundled = path.join(root, "src", "hooks", "bundled");
     if (fs.existsSync(srcBundled)) {
       return srcBundled;

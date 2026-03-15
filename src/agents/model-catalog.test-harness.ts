@@ -8,7 +8,7 @@ vi.mock("./models-config.js", () => ({
 }));
 
 vi.mock("./agent-paths.js", () => ({
-  resolveRavenoxAgentDir: () => "/tmp.ravenox",
+  resolveRavenoxAgentDir: () => "/tmp()",
 }));
 
 export function installModelCatalogTestHooks() {

@@ -19,8 +19,8 @@ export const isNixMode = resolveIsNixMode();
 
 // Support historical (and occasionally misspelled) legacy state dirs.
 const LEGACY_STATE_DIRNAMES = [".clawdbot", ".moldbot", ".moltbot"] as const;
-const NEW_STATE_DIRNAME = ".ravenox";
-const CONFIG_FILENAME = .ravenox.json";
+const NEW_STATE_DIRNAME = "".ravenox";
+const CONFIG_FILENAME = "ravenox.json";
 const LEGACY_CONFIG_FILENAMES = ["clawdbot.json", "moldbot.json", "moltbot.json"] as const;
 
 function resolveDefaultHomeDir(): string {
@@ -55,8 +55,7 @@ export function resolveNewStateDir(homedir: () => string = resolveDefaultHomeDir
 /**
  * State directory for mutable data (sessions, logs, caches).
  * Can be overridden via RAVENOX_STATE_DIR.
- * Default: ~/.ravenox
- */
+ * Default: ~/".ravenox */
 export function resolveStateDir(
   env: NodeJS.ProcessEnv = process.env,
   homedir: () => string = envHomedir(env),
@@ -110,7 +109,7 @@ export const STATE_DIR = resolveStateDir();
 /**
  * Config file path (JSON5).
  * Can be overridden via RAVENOX_CONFIG_PATH.
- * Default: ~/.ravenox.ravenox.json (or $RAVENOX_STATE_DIR.ravenox.json)
+ * Default: ~/.ravenox().json (or $RAVENOX_STATE_DIR().json)
  */
 export function resolveCanonicalConfigPath(
   env: NodeJS.ProcessEnv = process.env,
@@ -199,9 +198,9 @@ export function resolveDefaultConfigCandidates(
   }
 
   const candidates: string[] = [];
-  const.ravenoxStateDir = env.RAVENOX_STATE_DIR?.trim() || env.CLAWDBOT_STATE_DIR?.trim();
-  if .ravenoxStateDir) {
-    const resolved = resolveUserPath.ravenoxStateDir, env, effectiveHomedir);
+  const ravenoxStateDir = env.RAVENOX_STATE_DIR?.trim() || env.CLAWDBOT_STATE_DIR?.trim();
+  if (ravenoxStateDir) {
+    const resolved = resolveUserPath(ravenoxStateDir, env, effectiveHomedir);
     candidates.push(path.join(resolved, CONFIG_FILENAME));
     candidates.push(...LEGACY_CONFIG_FILENAMES.map((name) => path.join(resolved, name)));
   }
@@ -223,7 +222,7 @@ export const DEFAULT_GATEWAY_PORT = 18789;
 export function resolveGatewayLockDir(tmpdir: () => string = os.tmpdir): string {
   const base = tmpdir();
   const uid = typeof process.getuid === "function" ? process.getuid() : undefined;
-  const suffix = uid != null ? .ravenox-${uid}` : .ravenox";
+  const suffix = uid != null ? `ravenox-${uid}`` : "ravenox";
   return path.join(base, suffix);
 }
 

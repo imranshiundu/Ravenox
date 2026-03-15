@@ -55,7 +55,7 @@ type NodeDaemonStatusOptions = {
 };
 
 function renderNodeServiceStartHints(): string[] {
-  const base = [formatCliCommand(.ravenox node install"), formatCliCommand(.ravenox node start")];
+  const base = [formatCliCommand("ravenox node install"), formatCliCommand("ravenox node start")];
   switch (process.platform) {
     case "darwin":
       return [
@@ -143,7 +143,7 @@ export async function runNodeDaemonInstall(opts: NodeDaemonInstallOptions) {
     });
     if (!json) {
       defaultRuntime.log(`Node service already ${service.loadedText}.`);
-      defaultRuntime.log(`Reinstall with: ${formatCliCommand(.ravenox node install --force")}`);
+      defaultRuntime.log(`Reinstall with: ${formatCliCommand("ravenox node install --force")}`);
     }
     return;
   }

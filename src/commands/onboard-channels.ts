@@ -192,13 +192,12 @@ async function noteChannelPrimer(
   await prompter.note(
     [
       "DM security: default is pairing; unknown DMs get a pairing code.",
-      `Approve with: ${formatCliCommand(.ravenox pairing approve <channel> <code>")}`,
+      `Approve with: ${formatCliCommand("ravenox pairing approve <channel> <code>")}`,
       'Public DMs require dmPolicy="open" + allowFrom=["*"].',
       "Multi-user DMs: run: " +
-        formatCliCommand(.ravenox config set session.dmScope "per-channel-peer"') +
+        formatCliCommand("ravenox config set session.dmScope "per-channel-peer"') +
         ' (or "per-account-channel-peer" for multi-account channels) to isolate sessions.',
       `Docs: ${formatDocsLink("/start/pairing", "start/pairing")}`,
-      "",
       ...channelLines,
     ].join("\n"),
     "How channels work",
@@ -247,11 +246,11 @@ async function maybeConfigureDmPolicies(params: {
     await prompter.note(
       [
         "Default: pairing (unknown DMs get a pairing code).",
-        `Approve: ${formatCliCommand(.ravenox pairing approve ${policy.channel} <code>`)}`,
+        `Approve: ${formatCliCommand("ravenox pairing approve ${policy.channel} <code>`)}`,
         `Allowlist DMs: ${policy.policyKey}="allowlist" + ${policy.allowFromKey} entries.`,
         `Public DMs: ${policy.policyKey}="open" + ${policy.allowFromKey} includes "*".`,
         "Multi-user DMs: run: " +
-          formatCliCommand(.ravenox config set session.dmScope "per-channel-peer"') +
+          formatCliCommand("ravenox config set session.dmScope "per-channel-peer"') +
           ' (or "per-account-channel-peer" for multi-account channels) to isolate sessions.',
         `Docs: ${formatDocsLink("/start/pairing", "start/pairing")}`,
       ].join("\n"),
@@ -620,7 +619,7 @@ export async function setupChannels(
         {
           value: "__skip__",
           label: "Skip for now",
-          hint: `You can add channels later via \`${formatCliCommand(.ravenox channels add")}\``,
+          hint: `You can add channels later via \`${formatCliCommand("ravenox channels add")}\``,
         },
       ],
       initialValue: quickstartDefault,

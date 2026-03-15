@@ -43,7 +43,7 @@ describe("delivery-queue", () => {
   let tmpDir: string;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-dq-test-"));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-dq-test-"));
   });
 
   afterEach(() => {

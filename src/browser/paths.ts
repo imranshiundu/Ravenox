@@ -1,5 +1,5 @@
 import path from "node:path";
-import { resolvePreferredRavenoxTmpDir } from "../infra/tmp.ravenox-dir.js";
+import { resolvePreferredRavenoxTmpDir } from "../infra/tmp-ravenox-dir.js";
 
 export const DEFAULT_BROWSER_TMP_DIR = resolvePreferredRavenoxTmpDir();
 export const DEFAULT_TRACE_DIR = DEFAULT_BROWSER_TMP_DIR;
@@ -22,7 +22,7 @@ export function resolvePathWithinRoot(params: {
   }
   const resolved = path.resolve(root, raw);
   const rel = path.relative(root, resolved);
-  if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) {
+  if (!rel || rel.startsWith("...") || path.isAbsolute(rel)) {
     return { ok: false, error: `Invalid path: must stay within ${params.scopeLabel}` };
   }
   return { ok: true, path: resolved };

@@ -17,7 +17,7 @@ import path from "node:path";
 import { promisify } from "node:util";
 import type { RequestClient } from "@buape/carbon";
 import type { RetryRunner } from "../infra/retry-policy.js";
-import { resolvePreferredRavenoxTmpDir } from "../infra/tmp.ravenox-dir.js";
+import { resolvePreferredRavenoxTmpDir } from "../infra/tmp-ravenox-dir.js";
 
 const execFileAsync = promisify(execFile);
 

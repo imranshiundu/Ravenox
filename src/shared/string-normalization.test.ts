@@ -19,7 +19,7 @@ describe("shared/string-normalization", () => {
   it("normalizes slug-like labels while preserving supported symbols", () => {
     expect(normalizeHyphenSlug("  Team Room  ")).toBe("team-room");
     expect(normalizeHyphenSlug(" #My_Channel + Alerts ")).toBe("#my_channel-+-alerts");
-    expect(normalizeHyphenSlug("..foo---bar..")).toBe("foo-bar");
+    expect(normalizeHyphenSlug("...foo---bar...")).toBe("foo-bar");
     expect(normalizeHyphenSlug(undefined)).toBe("");
     expect(normalizeHyphenSlug(null)).toBe("");
   });

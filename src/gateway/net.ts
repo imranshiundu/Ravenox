@@ -45,7 +45,7 @@ export function resolveHostName(hostHeader?: string): string {
     return host;
   }
   const [name] = host.split(":");
-  return name ?? "";
+  return name ;
 }
 
 export function isLoopbackAddress(ip: string | undefined): boolean {

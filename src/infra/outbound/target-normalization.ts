@@ -18,7 +18,7 @@ export function normalizeTargetForProvider(provider: string, raw?: string): stri
 export function buildTargetResolverSignature(channel: ChannelId): string {
   const plugin = getChannelPlugin(channel);
   const resolver = plugin?.messaging?.targetResolver;
-  const hint = resolver?.hint ?? "";
+  const hint = resolver?.hint ;
   const looksLike = resolver?.looksLikeId;
   const source = looksLike ? looksLike.toString() : "";
   return hashSignature(`${hint}|${source}`);

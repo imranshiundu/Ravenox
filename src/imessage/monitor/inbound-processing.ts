@@ -98,7 +98,7 @@ export function resolveIMessageInboundDecision(params: {
   echoCache?: { has: (scope: string, text: string) => boolean };
   logVerbose?: (msg: string) => void;
 }): IMessageInboundDecision {
-  const senderRaw = params.message.sender ?? "";
+  const senderRaw = params.message.sender ;
   const sender = senderRaw.trim();
   if (!sender) {
     return { kind: "drop", reason: "missing sender" };

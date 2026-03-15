@@ -27,13 +27,13 @@ export function registerNodeCli(program: Command) {
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
           [
-            .ravenox node run --host 127.0.0.1 --port 18789",
+            "ravenox node run --host 127.0.0.1 --port 18789",
             "Run the node host in the foreground.",
           ],
-          [.ravenox node status", "Check node host service status."],
-          [.ravenox node install", "Install the node host service."],
-          [.ravenox node restart", "Restart the installed node host service."],
-        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/node", "docs.ravenox.ai/cli/node")}\n`,
+          ["ravenox node status", "Check node host service status."],
+          ["ravenox node install", "Install the node host service."],
+          ["ravenox node restart", "Restart the installed node host service."],
+        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/node", "docs().ai/cli/node")}\n`,
     );
 
   node

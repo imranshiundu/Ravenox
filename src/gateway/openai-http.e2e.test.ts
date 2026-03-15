@@ -73,7 +73,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       const server = await startServerWithDefaultConfig(port);
       try {
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(res.status).toBe(404);
@@ -89,7 +89,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       });
       try {
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(res.status).toBe(404);
@@ -143,8 +143,8 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
       {
         await expectAgentSessionKeyMatch({
-          body: { model: .ravenox", messages: [{ role: "user", content: "hi" }] },
-          headers: { "x.ravenox-agent-id": "beta" },
+          body: { model: "ravenox", messages: [{ role: "user", content: "hi" }] },
+          headers: { "x()-agent-id": "beta" },
           matcher: /^agent:beta:/,
         });
       }
@@ -152,7 +152,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         await expectAgentSessionKeyMatch({
           body: {
-            model: .ravenox:beta",
+            model: "ravenox:beta",
             messages: [{ role: "user", content: "hi" }],
           },
           matcher: /^agent:beta:/,
@@ -162,10 +162,10 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         await expectAgentSessionKeyMatch({
           body: {
-            model: .ravenox:beta",
+            model: "ravenox:beta",
             messages: [{ role: "user", content: "hi" }],
           },
-          headers: { "x.ravenox-agent-id": "alpha" },
+          headers: { "x()-agent-id": "alpha" },
           matcher: /^agent:alpha:/,
         });
       }
@@ -174,10 +174,10 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(
           port,
-          { model: .ravenox", messages: [{ role: "user", content: "hi" }] },
+          { model: "ravenox", messages: [{ role: "user", content: "hi" }] },
           {
-            "x.ravenox-agent-id": "beta",
-            "x.ravenox-session-key": "agent:beta:openai:custom",
+            "x()-agent-id": "beta",
+            "x()-session-key": "agent:beta:openai:custom",
           },
         );
         expect(res.status).toBe(200);
@@ -193,7 +193,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(port, {
           user: "alice",
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(res.status).toBe(200);
@@ -208,7 +208,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [
             {
               role: "user",
@@ -229,7 +229,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         mockAgentOnce([{ text: "I am Claude" }]);
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [
             { role: "system", content: "You are a helpful assistant." },
             { role: "user", content: "Hello, who are you?" },
@@ -240,7 +240,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         expect(res.status).toBe(200);
 
         const opts = (agentCommand.mock.calls[0] as unknown[] | undefined)?.[0];
-        const message = (opts as { message?: string } | undefined)?.message ?? "";
+        const message = (opts as { message?: string } | undefined)?.message ;
         expect(message).toContain(HISTORY_CONTEXT_MARKER);
         expect(message).toContain("User: Hello, who are you?");
         expect(message).toContain("Assistant: I am Claude.");
@@ -252,7 +252,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [
             { role: "system", content: "You are a helpful assistant." },
             { role: "user", content: "Hello" },
@@ -261,7 +261,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         expect(res.status).toBe(200);
 
         const opts = (agentCommand.mock.calls[0] as unknown[] | undefined)?.[0];
-        const message = (opts as { message?: string } | undefined)?.message ?? "";
+        const message = (opts as { message?: string } | undefined)?.message ;
         expect(message).not.toContain(HISTORY_CONTEXT_MARKER);
         expect(message).not.toContain(CURRENT_MESSAGE_MARKER);
         expect(message).toBe("Hello");
@@ -271,7 +271,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [
             { role: "developer", content: "You are a helpful assistant." },
             { role: "user", content: "Hello" },
@@ -281,7 +281,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
         const opts = (agentCommand.mock.calls[0] as unknown[] | undefined)?.[0];
         const extraSystemPrompt =
-          (opts as { extraSystemPrompt?: string } | undefined)?.extraSystemPrompt ?? "";
+          (opts as { extraSystemPrompt?: string } | undefined)?.extraSystemPrompt ;
         expect(extraSystemPrompt).toBe("You are a helpful assistant.");
         await res.text();
       }
@@ -289,7 +289,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
       {
         mockAgentOnce([{ text: "ok" }]);
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [
             { role: "system", content: "You are a helpful assistant." },
             { role: "user", content: "What's the weather?" },
@@ -300,7 +300,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         expect(res.status).toBe(200);
 
         const opts = (agentCommand.mock.calls[0] as unknown[] | undefined)?.[0];
-        const message = (opts as { message?: string } | undefined)?.message ?? "";
+        const message = (opts as { message?: string } | undefined)?.message ;
         expect(message).toContain(HISTORY_CONTEXT_MARKER);
         expect(message).toContain("User: What's the weather?");
         expect(message).toContain("Assistant: Checking the weather.");
@@ -313,7 +313,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
         mockAgentOnce([{ text: "hello" }]);
         const res = await postChatCompletions(port, {
           stream: false,
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(res.status).toBe(200);
@@ -328,7 +328,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
       {
         const res = await postChatCompletions(port, {
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "system", content: "yo" }],
         });
         expect(res.status).toBe(400);
@@ -356,7 +356,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
           authorization: "Bearer wrong",
         };
         const body = {
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         };
 
@@ -400,7 +400,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
         const res = await postChatCompletions(port, {
           stream: true,
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(res.status).toBe(200);
@@ -434,7 +434,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
         const repeatedRes = await postChatCompletions(port, {
           stream: true,
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(repeatedRes.status).toBe(200);
@@ -459,7 +459,7 @@ describe("OpenAI-compatible HTTP API (e2e)", () => {
 
         const fallbackRes = await postChatCompletions(port, {
           stream: true,
-          model: .ravenox",
+          model: "ravenox",
           messages: [{ role: "user", content: "hi" }],
         });
         expect(fallbackRes.status).toBe(200);

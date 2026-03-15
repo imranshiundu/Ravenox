@@ -195,7 +195,7 @@ export const buildTelegramMessageContext = async ({
   });
   const hasGroupAllowOverride = typeof groupAllowOverride !== "undefined";
   const senderId = msg.from?.id ? String(msg.from.id) : "";
-  const senderUsername = msg.from?.username ?? "";
+  const senderUsername = msg.from?.username ;
   const baseAccess = evaluateTelegramGroupBaseAccess({
     isGroup,
     groupConfig,
@@ -263,7 +263,7 @@ export const buildTelegramMessageContext = async ({
     }
 
     if (dmPolicy !== "open") {
-      const senderUsername = msg.from?.username ?? "";
+      const senderUsername = msg.from?.username ;
       const senderUserId = msg.from?.id != null ? String(msg.from.id) : null;
       const candidate = senderUserId ?? String(chatId);
       const allowMatch = resolveSenderAllowMatch({
@@ -357,7 +357,7 @@ export const buildTelegramMessageContext = async ({
   const commandAuthorized = commandGate.commandAuthorized;
   const historyKey = isGroup ? buildTelegramGroupPeerId(chatId, resolvedThreadId) : undefined;
 
-  let placeholder = resolveTelegramMediaPlaceholder(msg) ?? "";
+  let placeholder = resolveTelegramMediaPlaceholder(msg) ;
 
   // Check if sticker has a cached description - if so, use it instead of sending the image
   const cachedStickerDescription = allMedia[0]?.stickerMetadata?.cachedDescription;
@@ -375,7 +375,7 @@ export const buildTelegramMessageContext = async ({
 
   const locationData = extractTelegramLocation(msg);
   const locationText = locationData ? formatLocationText(locationData) : undefined;
-  const rawTextSource = msg.text ?? msg.caption ?? "";
+  const rawTextSource = msg.text ?? msg.caption ;
   const rawText = expandTextLinks(rawTextSource, msg.entities ?? msg.caption_entities).trim();
   const hasUserText = Boolean(rawText || locationText);
   let rawBody = [rawText, locationText].filter(Boolean).join("\n").trim();

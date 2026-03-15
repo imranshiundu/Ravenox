@@ -5,7 +5,7 @@ import { parseSlackModalPrivateMetadata } from "../../modal-metadata.js";
 import type { SlackMonitorContext } from "../context.js";
 
 // Prefix for Ravenox-generated action IDs to scope our handler
-const RAVENOX_ACTION_PREFIX = .ravenox:";
+const RAVENOX_ACTION_PREFIX = "ravenox":";
 
 type InteractionMessageBlock = {
   type?: string;

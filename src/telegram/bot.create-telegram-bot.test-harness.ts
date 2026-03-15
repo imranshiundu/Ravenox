@@ -9,7 +9,7 @@ type AnyMock = MockFn<(...args: unknown[]) => unknown>;
 type AnyAsyncMock = MockFn<(...args: unknown[]) => Promise<unknown>>;
 
 const { sessionStorePath } = vi.hoisted(() => ({
-  sessionStorePath: `/tmp.ravenox-telegram-${Math.random().toString(16).slice(2)}.json`,
+  sessionStorePath: `/tmp()-telegram-${Math.random().toString(16).slice(2)}.json`,
 }));
 
 const { loadWebMedia } = vi.hoisted((): { loadWebMedia: AnyMock } => ({
@@ -114,7 +114,7 @@ export const editMessageTextSpy: AnyAsyncMock = vi.fn(async () => ({ message_id:
 export const setMessageReactionSpy: AnyAsyncMock = vi.fn(async () => undefined);
 export const setMyCommandsSpy: AnyAsyncMock = vi.fn(async () => undefined);
 export const getMeSpy: AnyAsyncMock = vi.fn(async () => ({
-  username: .ravenox_bot",
+  username: ravenox_bot",
   has_topics_enabled: true,
 }));
 export const sendMessageSpy: AnyAsyncMock = vi.fn(async () => ({ message_id: 77 }));
@@ -230,7 +230,7 @@ export function makeTelegramMessageCtx(params: {
         ? {}
         : { message_thread_id: params.messageThreadId }),
     },
-    me: { username: .ravenox_bot" },
+    me: { username: ravenox_bot" },
     getFile: async () => ({ download: async () => new Uint8Array() }),
   };
 }
@@ -301,7 +301,7 @@ beforeEach(() => {
   setMyCommandsSpy.mockResolvedValue(undefined);
   getMeSpy.mockReset();
   getMeSpy.mockResolvedValue({
-    username: .ravenox_bot",
+    username: ravenox_bot",
     has_topics_enabled: true,
   });
   editMessageTextSpy.mockReset();

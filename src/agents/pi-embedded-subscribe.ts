@@ -559,7 +559,7 @@ export function subscribeEmbeddedPiSession(params: SubscribeEmbeddedPiSessionPar
     }
     // Compute delta: new text since the last emitted reasoning.
     // Guard against non-prefix changes (e.g. trim/format altering earlier content).
-    const prior = state.lastStreamedReasoning ?? "";
+    const prior = state.lastStreamedReasoning ;
     const delta = formatted.startsWith(prior) ? formatted.slice(prior.length) : formatted;
     state.lastStreamedReasoning = formatted;
 

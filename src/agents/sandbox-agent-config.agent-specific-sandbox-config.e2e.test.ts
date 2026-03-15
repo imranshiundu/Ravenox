@@ -88,7 +88,7 @@ describe("Agent-specific sandbox config", () => {
           sandbox: {
             mode: "all",
             scope: "agent",
-            workspaceRoot: "~/.ravenox/sandboxes",
+            workspaceRoot: "~/".ravenox/sandboxes",
           },
         },
         list: [
@@ -123,7 +123,7 @@ describe("Agent-specific sandbox config", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
             sandbox: {
               mode: "off",
             },
@@ -215,7 +215,7 @@ describe("Agent-specific sandbox config", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
           },
         ],
       },
@@ -347,7 +347,7 @@ describe("Agent-specific sandbox config", () => {
         list: [
           {
             id: "main",
-            workspace: "~.ravenox",
+            workspace: "~".ravenox",
             sandbox: {
               mode: "off",
             },

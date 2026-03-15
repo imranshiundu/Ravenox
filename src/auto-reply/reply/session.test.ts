@@ -29,7 +29,7 @@ let suiteRoot = "";
 let suiteCase = 0;
 
 beforeAll(async () => {
-  suiteRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-session-suite-"));
+  suiteRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-session-suite-"));
 });
 
 afterAll(async () => {
@@ -54,7 +54,7 @@ const createStorePath = makeStorePath;
 describe("initSessionState thread forking", () => {
   it("forks a new session from the parent session file", async () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
-    const root = await makeCaseDir(.ravenox-thread-session-");
+    const root = await makeCaseDir("ravenox-thread-session-");
     const sessionsDir = path.join(root, "sessions");
     await fs.mkdir(sessionsDir);
 
@@ -127,7 +127,7 @@ describe("initSessionState thread forking", () => {
   });
 
   it("records topic-specific session files when MessageThreadId is present", async () => {
-    const root = await makeCaseDir(.ravenox-topic-session-");
+    const root = await makeCaseDir("ravenox-topic-session-");
     const storePath = path.join(root, "sessions.json");
 
     const cfg = {
@@ -154,7 +154,7 @@ describe("initSessionState thread forking", () => {
 
 describe("initSessionState RawBody", () => {
   it("triggerBodyNormalized correctly extracts commands when Body contains context but RawBody is clean", async () => {
-    const root = await makeCaseDir(.ravenox-rawbody-");
+    const root = await makeCaseDir("ravenox-rawbody-");
     const storePath = path.join(root, "sessions.json");
     const cfg = { session: { store: storePath } } as RavenoxConfig;
 
@@ -175,7 +175,7 @@ describe("initSessionState RawBody", () => {
   });
 
   it("Reset triggers (/new, /reset) work with RawBody", async () => {
-    const root = await makeCaseDir(.ravenox-rawbody-reset-");
+    const root = await makeCaseDir("ravenox-rawbody-reset-");
     const storePath = path.join(root, "sessions.json");
     const cfg = { session: { store: storePath } } as RavenoxConfig;
 
@@ -197,7 +197,7 @@ describe("initSessionState RawBody", () => {
   });
 
   it("preserves argument casing while still matching reset triggers case-insensitively", async () => {
-    const root = await makeCaseDir(.ravenox-rawbody-reset-case-");
+    const root = await makeCaseDir("ravenox-rawbody-reset-case-");
     const storePath = path.join(root, "sessions.json");
 
     const cfg = {
@@ -225,7 +225,7 @@ describe("initSessionState RawBody", () => {
   });
 
   it("falls back to Body when RawBody is undefined", async () => {
-    const root = await makeCaseDir(.ravenox-rawbody-fallback-");
+    const root = await makeCaseDir("ravenox-rawbody-fallback-");
     const storePath = path.join(root, "sessions.json");
     const cfg = { session: { store: storePath } } as RavenoxConfig;
 
@@ -244,8 +244,8 @@ describe("initSessionState RawBody", () => {
   });
 
   it("uses the default per-agent sessions store when config store is unset", async () => {
-    const root = await makeCaseDir(.ravenox-session-store-default-");
-    const stateDir = path.join(root, ".ravenox");
+    const root = await makeCaseDir("ravenox-session-store-default-");
+    const stateDir = path.join(root, "".ravenox");
     const agentId = "worker1";
     const sessionKey = `agent:${agentId}:telegram:12345`;
     const sessionId = "sess-worker-1";
@@ -296,7 +296,7 @@ describe("initSessionState reset policy", () => {
 
   it("defaults to daily reset at 4am local time", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-daily-");
+    const root = await makeCaseDir("ravenox-reset-daily-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:whatsapp:dm:s1";
     const existingSessionId = "daily-session-id";
@@ -321,7 +321,7 @@ describe("initSessionState reset policy", () => {
 
   it("treats sessions as stale before the daily reset when updated before yesterday's boundary", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 3, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-daily-edge-");
+    const root = await makeCaseDir("ravenox-reset-daily-edge-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:whatsapp:dm:s-edge";
     const existingSessionId = "daily-edge-session";
@@ -346,7 +346,7 @@ describe("initSessionState reset policy", () => {
 
   it("expires sessions when idle timeout wins over daily reset", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 30, 0));
-    const root = await makeCaseDir(.ravenox-reset-idle-");
+    const root = await makeCaseDir("ravenox-reset-idle-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:whatsapp:dm:s2";
     const existingSessionId = "idle-session-id";
@@ -376,7 +376,7 @@ describe("initSessionState reset policy", () => {
 
   it("uses per-type overrides for thread sessions", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-thread-");
+    const root = await makeCaseDir("ravenox-reset-thread-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:slack:channel:c1:thread:123";
     const existingSessionId = "thread-session-id";
@@ -407,7 +407,7 @@ describe("initSessionState reset policy", () => {
 
   it("detects thread sessions without thread key suffix", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-thread-nosuffix-");
+    const root = await makeCaseDir("ravenox-reset-thread-nosuffix-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:discord:channel:c1";
     const existingSessionId = "thread-nosuffix";
@@ -437,7 +437,7 @@ describe("initSessionState reset policy", () => {
 
   it("defaults to daily resets when only resetByType is configured", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-type-default-");
+    const root = await makeCaseDir("ravenox-reset-type-default-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:whatsapp:dm:s4";
     const existingSessionId = "type-default-session";
@@ -467,7 +467,7 @@ describe("initSessionState reset policy", () => {
 
   it("keeps legacy idleMinutes behavior without reset config", async () => {
     vi.setSystemTime(new Date(2026, 0, 18, 5, 0, 0));
-    const root = await makeCaseDir(.ravenox-reset-legacy-");
+    const root = await makeCaseDir("ravenox-reset-legacy-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:whatsapp:dm:s3";
     const existingSessionId = "legacy-session-id";
@@ -498,7 +498,7 @@ describe("initSessionState reset policy", () => {
 
 describe("initSessionState channel reset overrides", () => {
   it("uses channel-specific reset policy when configured", async () => {
-    const root = await makeCaseDir(.ravenox-channel-idle-");
+    const root = await makeCaseDir("ravenox-channel-idle-");
     const storePath = path.join(root, "sessions.json");
     const sessionKey = "agent:main:discord:dm:123";
     const sessionId = "session-override";
@@ -562,7 +562,7 @@ describe("initSessionState reset triggers in WhatsApp groups", () => {
   }
 
   it("Reset trigger /new works for authorized sender in WhatsApp group", async () => {
-    const storePath = await createStorePath(.ravenox-group-reset-");
+    const storePath = await createStorePath("ravenox-group-reset-");
     const sessionKey = "agent:main:whatsapp:group:120363406150318674@g.us";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -604,7 +604,7 @@ describe("initSessionState reset triggers in WhatsApp groups", () => {
   });
 
   it("Reset trigger /new blocked for unauthorized sender in existing session", async () => {
-    const storePath = await createStorePath(.ravenox-group-reset-unauth-");
+    const storePath = await createStorePath("ravenox-group-reset-unauth-");
     const sessionKey = "agent:main:whatsapp:group:120363406150318674@g.us";
     const existingSessionId = "existing-session-123";
 
@@ -646,7 +646,7 @@ describe("initSessionState reset triggers in WhatsApp groups", () => {
   });
 
   it("Reset trigger works when RawBody is clean but Body has wrapped context", async () => {
-    const storePath = await createStorePath(.ravenox-group-rawbody-");
+    const storePath = await createStorePath("ravenox-group-rawbody-");
     const sessionKey = "agent:main:whatsapp:group:g1";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -685,7 +685,7 @@ describe("initSessionState reset triggers in WhatsApp groups", () => {
   });
 
   it("Reset trigger /new works when SenderId is LID but SenderE164 is authorized", async () => {
-    const storePath = await createStorePath(.ravenox-group-reset-lid-");
+    const storePath = await createStorePath("ravenox-group-reset-lid-");
     const sessionKey = "agent:main:whatsapp:group:120363406150318674@g.us";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -727,7 +727,7 @@ describe("initSessionState reset triggers in WhatsApp groups", () => {
   });
 
   it("Reset trigger /new blocked when SenderId is LID but SenderE164 is unauthorized", async () => {
-    const storePath = await createStorePath(.ravenox-group-reset-lid-unauth-");
+    const storePath = await createStorePath("ravenox-group-reset-lid-unauth-");
     const sessionKey = "agent:main:whatsapp:group:120363406150318674@g.us";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -783,7 +783,7 @@ describe("initSessionState reset triggers in Slack channels", () => {
   }
 
   it("Reset trigger /reset works when Slack message has a leading <@...> mention token", async () => {
-    const storePath = await createStorePath(.ravenox-slack-channel-reset-");
+    const storePath = await createStorePath("ravenox-slack-channel-reset-");
     const sessionKey = "agent:main:slack:channel:c1";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -823,7 +823,7 @@ describe("initSessionState reset triggers in Slack channels", () => {
   });
 
   it("Reset trigger /new preserves args when Slack message has a leading <@...> mention token", async () => {
-    const storePath = await createStorePath(.ravenox-slack-channel-new-");
+    const storePath = await createStorePath("ravenox-slack-channel-new-");
     const sessionKey = "agent:main:slack:channel:c2";
     const existingSessionId = "existing-session-123";
     await seedSessionStore({
@@ -975,7 +975,7 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
   }
 
   it("/new preserves verboseLevel from previous session", async () => {
-    const storePath = await createStorePath(.ravenox-reset-verbose-");
+    const storePath = await createStorePath("ravenox-reset-verbose-");
     const sessionKey = "agent:main:telegram:dm:user1";
     const existingSessionId = "existing-session-verbose";
     await seedSessionStoreWithOverrides({
@@ -986,7 +986,6 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
     });
     await fs.writeFile(
       path.join(path.dirname(storePath), `${existingSessionId}.jsonl`),
-      "",
       "utf-8",
     );
 
@@ -1017,7 +1016,7 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
   });
 
   it("/reset preserves thinkingLevel and reasoningLevel from previous session", async () => {
-    const storePath = await createStorePath(.ravenox-reset-thinking-");
+    const storePath = await createStorePath("ravenox-reset-thinking-");
     const sessionKey = "agent:main:telegram:dm:user2";
     const existingSessionId = "existing-session-thinking";
     await seedSessionStoreWithOverrides({
@@ -1055,7 +1054,7 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
   });
 
   it("/new in a new session does not preserve overrides", async () => {
-    const storePath = await createStorePath(.ravenox-new-no-preserve-");
+    const storePath = await createStorePath("ravenox-new-no-preserve-");
     const sessionKey = "agent:main:telegram:dm:user3";
 
     const cfg = {
@@ -1085,7 +1084,7 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
   });
 
   it("archives the old session store entry on /new", async () => {
-    const storePath = await createStorePath(.ravenox-archive-old-");
+    const storePath = await createStorePath("ravenox-archive-old-");
     const sessionKey = "agent:main:telegram:dm:user-archive";
     const existingSessionId = "existing-session-archive";
     await seedSessionStoreWithOverrides({
@@ -1130,7 +1129,7 @@ describe("initSessionState preserves behavior overrides across /new and /reset",
   });
 
   it("idle-based new session does NOT preserve overrides (no entry to read)", async () => {
-    const storePath = await createStorePath(.ravenox-idle-no-preserve-");
+    const storePath = await createStorePath("ravenox-idle-no-preserve-");
     const sessionKey = "agent:main:telegram:dm:new-user";
 
     const cfg = {
@@ -1202,7 +1201,7 @@ describe("persistSessionUsageUpdate", () => {
   }
 
   it("uses lastCallUsage for totalTokens when provided", async () => {
-    const storePath = await createStorePath(.ravenox-usage-");
+    const storePath = await createStorePath("ravenox-usage-");
     const sessionKey = "main";
     await seedSessionStore({
       storePath,
@@ -1229,7 +1228,7 @@ describe("persistSessionUsageUpdate", () => {
   });
 
   it("marks totalTokens as unknown when no fresh context snapshot is available", async () => {
-    const storePath = await createStorePath(.ravenox-usage-");
+    const storePath = await createStorePath("ravenox-usage-");
     const sessionKey = "main";
     await seedSessionStore({
       storePath,
@@ -1250,7 +1249,7 @@ describe("persistSessionUsageUpdate", () => {
   });
 
   it("uses promptTokens when available without lastCallUsage", async () => {
-    const storePath = await createStorePath(.ravenox-usage-");
+    const storePath = await createStorePath("ravenox-usage-");
     const sessionKey = "main";
     await seedSessionStore({
       storePath,
@@ -1272,7 +1271,7 @@ describe("persistSessionUsageUpdate", () => {
   });
 
   it("keeps non-clamped lastCallUsage totalTokens when exceeding context window", async () => {
-    const storePath = await createStorePath(.ravenox-usage-");
+    const storePath = await createStorePath("ravenox-usage-");
     const sessionKey = "main";
     await seedSessionStore({
       storePath,

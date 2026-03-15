@@ -32,8 +32,8 @@ vi.mock("../../config/sessions.js", () => ({
   },
 }));
 
-vi.mock("../../infra.ravenox-root.js", () => ({
-  resolveRavenoxPackageRoot: async () => "/tmp.ravenox",
+vi.mock("../../infra/root.js", () => ({
+  resolveRavenoxPackageRoot: async () => "/tmp()",
 }));
 
 vi.mock("../../infra/restart-sentinel.js", async (importOriginal) => {

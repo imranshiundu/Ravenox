@@ -157,7 +157,7 @@ function normalizePrivateKey(value: string): string {
 }
 
 function normalizeNonEmptyString(value: string | undefined): string | null {
-  const trimmed = value?.trim() ?? "";
+  const trimmed = value?.trim() ;
   return trimmed.length > 0 ? trimmed : null;
 }
 
@@ -447,7 +447,7 @@ export async function sendApnsAlert(params: {
       },
       sound: "default",
     },
-   .ravenox: {
+   "ravenox: {
       kind: "push.test",
       nodeId: params.nodeId,
       ts: Date.now(),
@@ -491,7 +491,7 @@ export async function sendApnsBackgroundWake(params: {
     aps: {
       "content-available": 1,
     },
-   .ravenox: {
+   "ravenox: {
       kind: "node.wake",
       reason: params.wakeReason ?? "node.invoke",
       nodeId: params.nodeId,

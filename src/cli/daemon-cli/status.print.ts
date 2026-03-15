@@ -99,7 +99,7 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
     }
     defaultRuntime.error(
       warnText(
-        `Recommendation: run "${formatCliCommand(.ravenox doctor")}" (or "${formatCliCommand(.ravenox doctor --repair")}").`,
+        `Recommendation: run "${formatCliCommand("ravenox doctor")}" (or "${formatCliCommand("ravenox doctor --repair")}").`,
       ),
     );
   }
@@ -133,7 +133,7 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
       );
       defaultRuntime.error(
         errorText(
-          `Fix: rerun \`${formatCliCommand(.ravenox gateway install --force")}\` from the same --profile / RAVENOX_STATE_DIR you expect.`,
+          `Fix: rerun \`${formatCliCommand("ravenox gateway install --force")}\` from the same --profile / RAVENOX_STATE_DIR you expect.`,
         ),
       );
     }
@@ -230,7 +230,7 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
       ),
     );
     defaultRuntime.error(
-      errorText(`Then reinstall: ${formatCliCommand(.ravenox gateway install")}`),
+      errorText(`Then reinstall: ${formatCliCommand("ravenox gateway install")}`),
     );
     spacer();
   }
@@ -305,6 +305,6 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
     spacer();
   }
 
-  defaultRuntime.log(`${label("Troubles:")} run ${formatCliCommand(.ravenox status")}`);
-  defaultRuntime.log(`${label("Troubleshooting:")} https://docs.ravenox.ai/troubleshooting`);
+  defaultRuntime.log(`${label("Troubles:")} run ${formatCliCommand("ravenox status")}`);
+  defaultRuntime.log(`${label("Troubleshooting:")} https://docs().ai/troubleshooting`);
 }

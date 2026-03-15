@@ -41,7 +41,7 @@ const RECOVERABLE_MESSAGE_SNIPPETS = [
 ];
 
 function normalizeCode(code?: string): string {
-  return code?.trim().toUpperCase() ?? "";
+  return code?.trim().toUpperCase() ;
 }
 
 function getErrorName(err: unknown): string {

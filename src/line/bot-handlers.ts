@@ -108,7 +108,7 @@ async function shouldProcessLineEvent(
 ): Promise<boolean> {
   const { cfg, account } = context;
   const { userId, groupId, roomId, isGroup } = getLineSourceInfo(event.source);
-  const senderId = userId ?? "";
+  const senderId = userId ;
 
   const storeAllowFrom = await readChannelAllowFromStore("line").catch(() => []);
   const effectiveDmAllow = normalizeAllowFromWithStore({

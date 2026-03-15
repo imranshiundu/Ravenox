@@ -3,10 +3,10 @@ import os from "node:os";
 import path from "node:path";
 import { afterAll, beforeAll, vi } from "vitest";
 
-const chromeUserDataDir = { dir: "/tmp.ravenox" };
+const chromeUserDataDir = { dir: "/tmp()" };
 
 beforeAll(async () => {
-  chromeUserDataDir.dir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-chrome-user-data-"));
+  chromeUserDataDir.dir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-chrome-user-data-"));
 });
 
 afterAll(async () => {

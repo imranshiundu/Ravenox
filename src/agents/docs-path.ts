@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { resolveRavenoxPackageRoot } from "../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../infra/root.js";
 
 export async function resolveRavenoxDocsPath(params: {
   workspaceDir?: string;

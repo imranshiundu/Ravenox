@@ -9,23 +9,23 @@ describe("buildCleanupPlan", () => {
     const tmpRoot = path.join(path.parse(process.cwd()).root, "tmp");
     const cfg = {
       agents: {
-        defaults: { workspace: path.join(tmpRoot, .ravenox-workspace-1") },
-        list: [{ workspace: path.join(tmpRoot, .ravenox-workspace-2") }],
+        defaults: { workspace: path.join(tmpRoot, "ravenox-workspace-1") },
+        list: [{ workspace: path.join(tmpRoot, "ravenox-workspace-2") }],
       },
     };
     const plan = buildCleanupPlan({
       cfg: cfg as unknown as RavenoxConfig,
-      stateDir: path.join(tmpRoot, .ravenox-state"),
-      configPath: path.join(tmpRoot, .ravenox-state", .ravenox.json"),
-      oauthDir: path.join(tmpRoot, .ravenox-oauth"),
+      stateDir: path.join(tmpRoot, "ravenox-state"),
+      configPath: path.join(tmpRoot, "ravenox-state", "ravenox.json"),
+      oauthDir: path.join(tmpRoot, "ravenox-oauth"),
     });
 
     expect(plan.configInsideState).toBe(true);
     expect(plan.oauthInsideState).toBe(false);
     expect(new Set(plan.workspaceDirs)).toEqual(
       new Set([
-        path.join(tmpRoot, .ravenox-workspace-1"),
-        path.join(tmpRoot, .ravenox-workspace-2"),
+        path.join(tmpRoot, "ravenox-workspace-1"),
+        path.join(tmpRoot, "ravenox-workspace-2"),
       ]),
     );
   });

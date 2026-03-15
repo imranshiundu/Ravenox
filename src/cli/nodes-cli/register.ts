@@ -20,11 +20,11 @@ export function registerNodesCli(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox nodes status", "List known nodes with live status."],
-          [.ravenox nodes pairing pending", "Show pending node pairing requests."],
-          [.ravenox nodes run --node <id> --raw "uname -a"', "Run a shell command on a node."],
-          [.ravenox nodes camera snap --node <id>", "Capture a photo from a node camera."],
-        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/nodes", "docs.ravenox.ai/cli/nodes")}\n`,
+          ["ravenox nodes status", "List known nodes with live status."],
+          ["ravenox nodes pairing pending", "Show pending node pairing requests."],
+          ["ravenox nodes run --node <id> --raw "uname -a"', "Run a shell command on a node."],
+          ["ravenox nodes camera snap --node <id>", "Capture a photo from a node camera."],
+        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/nodes", "docs().ai/cli/nodes")}\n`,
     );
 
   registerNodesStatusCommands(nodes);

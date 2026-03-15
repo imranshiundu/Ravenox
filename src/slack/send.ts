@@ -223,7 +223,7 @@ export async function sendMessageSlack(
   message: string,
   opts: SlackSendOpts = {},
 ): Promise<SlackSendResult> {
-  const trimmedMessage = message?.trim() ?? "";
+  const trimmedMessage = message?.trim() ;
   const blocks = opts.blocks == null ? undefined : validateSlackBlocksArray(opts.blocks);
   if (!trimmedMessage && !opts.mediaUrl && !blocks) {
     throw new Error("Slack send requires text, blocks, or media");

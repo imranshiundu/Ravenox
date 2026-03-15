@@ -108,7 +108,7 @@ function resolveFileLimits(cfg: RavenoxConfig) {
 
 function appendFileBlocks(body: string | undefined, blocks: string[]): string {
   if (!blocks || blocks.length === 0) {
-    return body ?? "";
+    return body ;
   }
   const base = typeof body === "string" ? body.trim() : "";
   const suffix = blocks.join("\n\n").trim();
@@ -279,7 +279,7 @@ function guessDelimitedMime(text: string): string | undefined {
   if (!text) {
     return undefined;
   }
-  const line = text.split(/\r?\n/)[0] ?? "";
+  const line = text.split(/\r?\n/)[0] ;
   const tabs = (line.match(/\t/g) ?? []).length;
   const commas = (line.match(/,/g) ?? []).length;
   if (commas > 0) {
@@ -437,7 +437,7 @@ async function extractFileBlocks(params: {
       }
       continue;
     }
-    const text = extracted?.text?.trim() ?? "";
+    const text = extracted?.text?.trim() ;
     let blockText = text;
     if (!blockText) {
       if (extracted?.images && extracted.images.length > 0) {

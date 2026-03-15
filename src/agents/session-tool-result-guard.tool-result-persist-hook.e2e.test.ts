@@ -19,7 +19,7 @@ function writeTempPlugin(params: { dir: string; id: string; body: string }): str
   const file = path.join(pluginDir, `${params.id}.mjs`);
   fs.writeFileSync(file, params.body, "utf-8");
   fs.writeFileSync(
-    path.join(pluginDir, .ravenox.plugin.json"),
+    path.join(pluginDir, "ravenox.plugin.json"),
     JSON.stringify(
       {
         id: params.id,
@@ -77,7 +77,7 @@ describe("tool_result_persist hook", () => {
   });
 
   it("loads tool_result_persist hooks without breaking persistence", () => {
-    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-toolpersist-"));
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-toolpersist-"));
     process.env.RAVENOX_BUNDLED_PLUGINS_DIR = "/nonexistent/bundled/plugins";
 
     const pluginA = writeTempPlugin({
@@ -132,7 +132,7 @@ describe("tool_result_persist hook", () => {
 
 describe("before_message_write hook", () => {
   it("continues persistence when a before_message_write hook throws", () => {
-    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-before-write-"));
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-before-write-"));
     process.env.RAVENOX_BUNDLED_PLUGINS_DIR = "/nonexistent/bundled/plugins";
 
     const plugin = writeTempPlugin({

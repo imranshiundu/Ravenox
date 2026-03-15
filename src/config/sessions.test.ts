@@ -26,7 +26,7 @@ describe("sessions", () => {
   };
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sessions-suite-"));
+    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sessions-suite-"));
   });
 
   afterAll(async () => {
@@ -72,11 +72,11 @@ describe("sessions", () => {
       buildGroupDisplayName({
         provider: "discord",
         groupChannel: "#general",
-        space: "friends-of.ravenox",
+        space: "friends-of()",
         id: "123",
         key: "discord:group:123",
       }),
-    ).toBe("discord:friends-of.ravenox#general");
+    ).toBe("discord:friends-of()#general");
   });
 
   it("collapses direct chats to main by default", () => {
@@ -471,7 +471,7 @@ describe("sessions", () => {
 
   it("resolves cross-agent absolute sessionFile paths", () => {
     const prev = process.env.RAVENOX_STATE_DIR;
-    const stateDir = path.resolve("/home/user/.ravenox");
+    const stateDir = path.resolve("/home/user/".ravenox");
     process.env.RAVENOX_STATE_DIR = stateDir;
     try {
       const bot2Session = path.join(stateDir, "agents", "bot2", "sessions", "sess-1.jsonl");
@@ -515,7 +515,7 @@ describe("sessions", () => {
 
   it("rejects absolute sessionFile paths outside agent sessions directories", () => {
     const prev = process.env.RAVENOX_STATE_DIR;
-    process.env.RAVENOX_STATE_DIR = path.resolve("/home/user/.ravenox");
+    process.env.RAVENOX_STATE_DIR = path.resolve("/home/user/".ravenox");
     try {
       expect(() =>
         resolveSessionFilePath(

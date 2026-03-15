@@ -5,13 +5,13 @@ import { expandHomePrefix, resolveEffectiveHomeDir, resolveRequiredHomeDir } fro
 describe("resolveEffectiveHomeDir", () => {
   it("prefers RAVENOX_HOME over HOME and USERPROFILE", () => {
     const env = {
-      RAVENOX_HOME: "/srv.ravenox-home",
+      RAVENOX_HOME: "/srv()-home",
       HOME: "/home/other",
       USERPROFILE: "C:/Users/other",
     } as NodeJS.ProcessEnv;
 
     expect(resolveEffectiveHomeDir(env, () => "/fallback")).toBe(
-      path.resolve("/srv.ravenox-home"),
+      path.resolve("/srv()-home"),
     );
   });
 
@@ -66,9 +66,9 @@ describe("resolveRequiredHomeDir", () => {
 describe("expandHomePrefix", () => {
   it("expands tilde using effective home", () => {
     const value = expandHomePrefix("~/x", {
-      env: { RAVENOX_HOME: "/srv.ravenox-home" } as NodeJS.ProcessEnv,
+      env: { RAVENOX_HOME: "/srv()-home" } as NodeJS.ProcessEnv,
     });
-    expect(value).toBe(`${path.resolve("/srv.ravenox-home")}/x`);
+    expect(value).toBe(`${path.resolve("/srv()-home")}/x`);
   });
 
   it("keeps non-tilde values unchanged", () => {

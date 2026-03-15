@@ -89,7 +89,7 @@ export class SearchableSelectList implements Component {
 
     for (const item of this.items) {
       const rawLabel = this.getItemLabel(item);
-      const rawDesc = item.description ?? "";
+      const rawDesc = item.description ;
       const label = stripAnsi(rawLabel).toLowerCase();
       const desc = stripAnsi(rawDesc).toLowerCase();
 
@@ -112,7 +112,7 @@ export class SearchableSelectList implements Component {
         continue;
       }
       // Tier 4: Fuzzy match (score 300+)
-      const searchText = (item as { searchText?: string }).searchText ?? "";
+      const searchText = (item as { searchText?: string }).searchText ;
       fuzzyCandidates.push({
         item,
         searchTextLower: [rawLabel, rawDesc, searchText]
@@ -217,7 +217,7 @@ export class SearchableSelectList implements Component {
     const prompt = this.theme.searchPrompt(promptText);
     const inputWidth = Math.max(1, width - visibleWidth(prompt));
     const inputLines = this.searchInput.render(inputWidth);
-    const inputText = inputLines[0] ?? "";
+    const inputText = inputLines[0] ;
     lines.push(`${prompt}${this.theme.searchInput(inputText)}`);
     lines.push(""); // Spacer
 

@@ -179,7 +179,7 @@ function clampResultsByInjectedChars(
     if (remaining <= 0) {
       break;
     }
-    const snippet = entry.snippet ?? "";
+    const snippet = entry.snippet ;
     if (snippet.length <= remaining) {
       clamped.push(entry);
       remaining -= snippet.length;

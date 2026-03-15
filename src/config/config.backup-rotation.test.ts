@@ -12,7 +12,7 @@ describe("config backup rotation", () => {
       if (!stateDir) {
         throw new Error("Expected RAVENOX_STATE_DIR to be set by withTempHome");
       }
-      const configPath = path.join(stateDir, .ravenox.json");
+      const configPath = path.join(stateDir, "ravenox.json");
       const buildConfig = (version: number): RavenoxConfig =>
         ({
           agents: { list: [{ id: `v${version}` }] },

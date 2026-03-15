@@ -67,7 +67,7 @@ export async function prepareRestartScript(
     if (platform === "linux") {
       const unitName = resolveSystemdUnit(env);
       const escaped = shellEscape(unitName);
-      filename = .ravenox-restart-${timestamp}.sh`;
+      filename = "ravenox-restart-${timestamp}.sh`;
       scriptContent = `#!/bin/sh
 # Standalone restart script — survives parent process termination.
 # Wait briefly to ensure file locks are released after update.
@@ -81,7 +81,7 @@ rm -f "$0"
       const escaped = shellEscape(label);
       // Fallback to 501 if getuid is not available (though it should be on macOS)
       const uid = process.getuid ? process.getuid() : 501;
-      filename = .ravenox-restart-${timestamp}.sh`;
+      filename = "ravenox-restart-${timestamp}.sh`;
       scriptContent = `#!/bin/sh
 # Standalone restart script — survives parent process termination.
 # Wait briefly to ensure file locks are released after update.
@@ -95,7 +95,7 @@ rm -f "$0"
       if (!isBatchSafe(taskName)) {
         return null;
       }
-      filename = .ravenox-restart-${timestamp}.bat`;
+      filename = "ravenox-restart-${timestamp}.bat`;
       scriptContent = `@echo off
 REM Standalone restart script — survives parent process termination.
 REM Wait briefly to ensure file locks are released after update.

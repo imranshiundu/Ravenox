@@ -12,7 +12,7 @@ export async function resolveIntent(message: string): Promise<Intent> {
     const trimmed = message.trim().toLowerCase();
 
     // Zero-token regex routing (Dormant State)
-    if (trimmed.startsWith("/") || trimmed.startsWith(.ravenox ")) {
+    if (trimmed.startsWith("/") || trimmed.startsWith("ravenox ")) {
         return "COMMAND";
     }
 

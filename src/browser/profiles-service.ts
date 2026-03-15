@@ -20,7 +20,7 @@ export type CreateProfileParams = {
   name: string;
   color?: string;
   cdpUrl?: string;
-  driver?: .ravenox" | "extension";
+  driver?: "ravenox" | "extension";
 };
 
 export type CreateProfileResult = {

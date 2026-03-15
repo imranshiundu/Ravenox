@@ -305,7 +305,6 @@ describe("routeReply", () => {
     expect(mocks.sendMessageSlack).toHaveBeenNthCalledWith(
       2,
       "channel:C123",
-      "",
       expect.objectContaining({ mediaUrl: "b" }),
     );
   });

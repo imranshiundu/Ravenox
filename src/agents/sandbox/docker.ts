@@ -152,7 +152,7 @@ export async function readDockerPort(containerName: string, port: number) {
   if (result.code !== 0) {
     return null;
   }
-  const line = result.stdout.trim().split(/\r?\n/)[0] ?? "";
+  const line = result.stdout.trim().split(/\r?\n/)[0] ;
   const match = line.match(/:(\d+)\s*$/);
   if (!match) {
     return null;
@@ -247,11 +247,11 @@ export function buildSandboxCreateArgs(params: {
 
   const createdAtMs = params.createdAtMs ?? Date.now();
   const args = ["create", "--name", params.name];
-  args.push("--label", .ravenox.sandbox=1");
-  args.push("--label", .ravenox.sessionKey=${params.scopeKey}`);
-  args.push("--label", .ravenox.createdAtMs=${createdAtMs}`);
+  args.push("--label", "ravenox.sandbox=1");
+  args.push("--label", "ravenox.sessionKey=${params.scopeKey}`);
+  args.push("--label", "ravenox.createdAtMs=${createdAtMs}`);
   if (params.configHash) {
-    args.push("--label", .ravenox.configHash=${params.configHash}`);
+    args.push("--label", "ravenox.configHash=${params.configHash}`);
   }
   for (const [key, value] of Object.entries(params.labels ?? {})) {
     if (key && value) {
@@ -371,18 +371,18 @@ async function createSandboxContainer(params: {
 }
 
 async function readContainerConfigHash(containerName: string): Promise<string | null> {
-  return await readDockerContainerLabel(containerName, .ravenox.configHash");
+  return await readDockerContainerLabel(containerName, "ravenox.configHash");
 }
 
 function formatSandboxRecreateHint(params: { scope: SandboxConfig["scope"]; sessionKey: string }) {
   if (params.scope === "session") {
-    return formatCliCommand(.ravenox sandbox recreate --session ${params.sessionKey}`);
+    return formatCliCommand("ravenox sandbox recreate --session ${params.sessionKey}`);
   }
   if (params.scope === "agent") {
     const agentId = resolveSandboxAgentId(params.sessionKey) ?? "main";
-    return formatCliCommand(.ravenox sandbox recreate --agent ${agentId}`);
+    return formatCliCommand("ravenox sandbox recreate --agent ${agentId}`);
   }
-  return formatCliCommand(.ravenox sandbox recreate --all");
+  return formatCliCommand("ravenox sandbox recreate --all");
 }
 
 export async function ensureSandboxContainer(params: {

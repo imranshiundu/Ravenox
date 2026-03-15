@@ -104,7 +104,7 @@ describe("mapSensitivePaths", () => {
       unrepresentable: "any",
     });
     schema.title = "RavenoxConfig";
-    const hints = mapSensitivePaths(RavenoxSchema, "", {});
+    const hints = mapSensitivePathsRavenoxSchema, "", {});
 
     expect(hints["agents.defaults.memorySearch.remote.apiKey"]?.sensitive).toBe(true);
     expect(hints["agents.list[].memorySearch.remote.apiKey"]?.sensitive).toBe(true);

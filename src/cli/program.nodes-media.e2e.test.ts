@@ -133,7 +133,7 @@ describe("cli program (nodes media)", () => {
     );
 
     await expectLoggedSingleMediaFile({
-      expectedPathPattern: .ravenox-camera-clip-front-.*\.mp4$/,
+      expectedPathPattern: "ravenox-camera-clip-front-.*\.mp4$/,
     });
   });
 
@@ -268,7 +268,7 @@ describe("cli program (nodes media)", () => {
     );
 
     await expectLoggedSingleMediaFile({
-      expectedPathPattern: .ravenox-canvas-snapshot-.*\.png$/,
+      expectedPathPattern: "ravenox-canvas-snapshot-.*\.png$/,
     });
   });
 
@@ -323,7 +323,7 @@ describe("cli program (nodes media)", () => {
       );
 
       await expectLoggedSingleMediaFile({
-        expectedPathPattern: .ravenox-camera-snap-front-.*\.jpg$/,
+        expectedPathPattern: "ravenox-camera-snap-front-.*\.jpg$/,
         expectedContent: "url-content",
       });
     });
@@ -344,7 +344,7 @@ describe("cli program (nodes media)", () => {
       );
 
       await expectLoggedSingleMediaFile({
-        expectedPathPattern: .ravenox-camera-clip-front-.*\.mp4$/,
+        expectedPathPattern: "ravenox-camera-clip-front-.*\.mp4$/,
         expectedContent: "url-content",
       });
     });

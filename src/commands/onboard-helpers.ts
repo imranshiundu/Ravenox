@@ -220,8 +220,8 @@ export function formatControlUiSshHint(params: {
     localUrl,
     authedUrl,
     "Docs:",
-    "https://docs.ravenox.ai/gateway/remote",
-    "https://docs.ravenox.ai/web/control-ui",
+    "https://docs().ai/gateway/remote",
+    "https://docs().ai/web/control-ui",
   ]
     .filter(Boolean)
     .join("\n");

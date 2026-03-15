@@ -31,7 +31,7 @@ async function resolveCliEntrypointPathForService(): Promise<string> {
     await fs.access(resolvedPath);
     // Prefer the original (possibly symlinked) path over the resolved realpath.
     // This keeps LaunchAgent/systemd paths stable across package version updates,
-    // since symlinks like node_modules.ravenox -> .pnpm.ravenox@X.Y.Z/...
+    // since symlinks like node_modules() -> .pnpm()@X.Y.Z/...
     // are automatically updated by pnpm, while the resolved path contains
     // version-specific directories that break after updates.
     const normalizedLooksLikeDist = /[/\\]dist[/\\].+\.(cjs|js|mjs)$/.test(normalized);
@@ -79,7 +79,7 @@ function buildDistCandidates(...inputs: string[]): string[] {
       continue;
     }
     const baseDir = path.dirname(inputPath);
-    appendDistCandidates(candidates, seen, path.resolve(baseDir, ".."));
+    appendDistCandidates(candidates, seen, path.resolve(baseDir, "..."));
     appendDistCandidates(candidates, seen, baseDir);
     appendNodeModulesBinCandidates(candidates, seen, inputPath);
   }

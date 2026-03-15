@@ -9,7 +9,7 @@ import { resolveUserPath } from "../utils.js";
 
 /**
  * Check whether memory search has a usable embedding provider.
- * Runs as part of .ravenox doctor` — config-only, no network calls.
+ * Runs as part of "ravenox doctor` — config-only, no network calls.
  */
 export async function noteMemorySearchHealth(cfg: RavenoxConfig): Promise<void> {
   const agentId = resolveDefaultAgentId(cfg);
@@ -31,12 +31,10 @@ export async function noteMemorySearchHealth(cfg: RavenoxConfig): Promise<void> 
       note(
         [
           'Memory search provider is set to "local" but no local model file was found.',
-          "",
           "Fix (pick one):",
           `- Install node-llama-cpp and set a local model path in config`,
-          `- Switch to a remote provider: ${formatCliCommand(.ravenox config set agents.defaults.memorySearch.provider openai")}`,
-          "",
-          `Verify: ${formatCliCommand(.ravenox memory status --deep")}`,
+          `- Switch to a remote provider: ${formatCliCommand("ravenox config set agents.defaults.memorySearch.provider openai")}`,
+          `Verify: ${formatCliCommand("ravenox memory status --deep")}`,
         ].join("\n"),
         "Memory search",
       );
@@ -51,13 +49,11 @@ export async function noteMemorySearchHealth(cfg: RavenoxConfig): Promise<void> 
       [
         `Memory search provider is set to "${resolved.provider}" but no API key was found.`,
         `Semantic recall will not work without a valid API key.`,
-        "",
         "Fix (pick one):",
         `- Set ${envVar} in your environment`,
-        `- Add credentials: ${formatCliCommand(.ravenox auth add --provider ${resolved.provider}`)}`,
-        `- To disable: ${formatCliCommand(.ravenox config set agents.defaults.memorySearch.enabled false")}`,
-        "",
-        `Verify: ${formatCliCommand(.ravenox memory status --deep")}`,
+        `- Add credentials: ${formatCliCommand("ravenox auth add --provider ${resolved.provider}`)}`,
+        `- To disable: ${formatCliCommand("ravenox config set agents.defaults.memorySearch.enabled false")}`,
+        `Verify: ${formatCliCommand("ravenox memory status --deep")}`,
       ].join("\n"),
       "Memory search",
     );
@@ -78,14 +74,12 @@ export async function noteMemorySearchHealth(cfg: RavenoxConfig): Promise<void> 
     [
       "Memory search is enabled but no embedding provider is configured.",
       "Semantic recall will not work without an embedding provider.",
-      "",
       "Fix (pick one):",
       "- Set OPENAI_API_KEY or GEMINI_API_KEY in your environment",
-      `- Add credentials: ${formatCliCommand(.ravenox auth add --provider openai")}`,
+      `- Add credentials: ${formatCliCommand("ravenox auth add --provider openai")}`,
       `- For local embeddings: configure agents.defaults.memorySearch.provider and local model path`,
-      `- To disable: ${formatCliCommand(.ravenox config set agents.defaults.memorySearch.enabled false")}`,
-      "",
-      `Verify: ${formatCliCommand(.ravenox memory status --deep")}`,
+      `- To disable: ${formatCliCommand("ravenox config set agents.defaults.memorySearch.enabled false")}`,
+      `Verify: ${formatCliCommand("ravenox memory status --deep")}`,
     ].join("\n"),
     "Memory search",
   );

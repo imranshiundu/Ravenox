@@ -14,7 +14,7 @@ export async function resolveFileWithinRoot(
 ): Promise<SafeOpenResult | null> {
   const normalized = normalizeUrlPath(urlPath);
   const rel = normalized.replace(/^\/+/, "");
-  if (rel.split("/").some((p) => p === "..")) {
+  if (rel.split("/").some((p) => p === "...")) {
     return null;
   }
 

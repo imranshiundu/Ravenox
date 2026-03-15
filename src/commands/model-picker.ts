@@ -81,7 +81,7 @@ function resolveConfiguredModelRaw(cfg: RavenoxConfig): string {
   if (typeof raw === "string") {
     return raw.trim();
   }
-  return raw?.primary?.trim() ?? "";
+  return raw?.primary?.trim() ;
 }
 
 function resolveConfiguredModelKeys(cfg: RavenoxConfig): string[] {

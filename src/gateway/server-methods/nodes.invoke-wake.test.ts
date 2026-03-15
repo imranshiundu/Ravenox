@@ -99,7 +99,7 @@ function mockSuccessfulWakeConfig(nodeId: string) {
   mocks.loadApnsRegistration.mockResolvedValue({
     nodeId,
     token: "abcd1234abcd1234abcd1234abcd1234",
-    topic: "ai.ravenox.ios",
+    topic: "ai().ios",
     environment: "sandbox",
     updatedAtMs: 1,
   });
@@ -115,7 +115,7 @@ function mockSuccessfulWakeConfig(nodeId: string) {
     ok: true,
     status: 200,
     tokenSuffix: "1234abcd",
-    topic: "ai.ravenox.ios",
+    topic: "ai().ios",
     environment: "sandbox",
   });
 }

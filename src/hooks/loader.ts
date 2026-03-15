@@ -131,7 +131,7 @@ export async function loadInternalHooks(
       const baseDir = path.resolve(workspaceDir);
       const modulePath = path.resolve(baseDir, rawModule);
       const rel = path.relative(baseDir, modulePath);
-      if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) {
+      if (!rel || rel.startsWith("...") || path.isAbsolute(rel)) {
         log.error(`Handler module path must stay within workspaceDir: ${rawModule}`);
         continue;
       }

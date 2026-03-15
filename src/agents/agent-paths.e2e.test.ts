@@ -18,7 +18,7 @@ describe("resolveRavenoxAgentDir", () => {
   });
 
   it("defaults to the multi-agent path when no overrides are set", async () => {
-    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-agent-"));
+    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-agent-"));
     process.env.RAVENOX_STATE_DIR = tempStateDir;
     delete process.env.RAVENOX_AGENT_DIR;
     delete process.env.PI_CODING_AGENT_DIR;
@@ -29,7 +29,7 @@ describe("resolveRavenoxAgentDir", () => {
   });
 
   it("honors RAVENOX_AGENT_DIR overrides", async () => {
-    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-agent-"));
+    tempStateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-agent-"));
     const override = path.join(tempStateDir, "agent");
     process.env.RAVENOX_AGENT_DIR = override;
     delete process.env.PI_CODING_AGENT_DIR;

@@ -44,7 +44,7 @@ export function resolveSandboxPath(params: { filePath: string; cwd: string; root
   if (!relative || relative === "") {
     return { resolved, relative: "" };
   }
-  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+  if (relative.startsWith("...") || path.isAbsolute(relative)) {
     throw new Error(`Path escapes sandbox root (${shortPath(rootResolved)}): ${params.filePath}`);
   }
   return { resolved, relative };
@@ -151,7 +151,7 @@ function isPathInside(root: string, target: string): boolean {
   if (!relative || relative === "") {
     return true;
   }
-  return !(relative.startsWith("..") || path.isAbsolute(relative));
+  return !(relative.startsWith("...") || path.isAbsolute(relative));
 }
 
 function shortPath(value: string) {

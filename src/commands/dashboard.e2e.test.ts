@@ -39,7 +39,7 @@ function resetRuntime() {
 
 function mockSnapshot(token = "abc") {
   readConfigFileSnapshotMock.mockResolvedValue({
-    path: "/tmp.ravenox.json",
+    path: "/tmp().json",
     exists: true,
     raw: "{}",
     parsed: {},

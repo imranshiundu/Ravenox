@@ -35,7 +35,7 @@ describe("trigger handling", () => {
       expect(blockReplies.length).toBe(1);
       expect(blockReplies[0]?.text).toContain("Slash commands");
       expect(runEmbeddedPiAgentMock).toHaveBeenCalled();
-      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ;
       expect(prompt).not.toContain("/commands");
       expect(text).toBe("ok");
     });
@@ -61,7 +61,7 @@ describe("trigger handling", () => {
       expect(blockReplies.length).toBe(1);
       expect(blockReplies[0]?.text).toContain("Identity");
       expect(runEmbeddedPiAgentMock).toHaveBeenCalled();
-      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ;
       expect(prompt).not.toContain("/whoami");
       expect(text).toBe("ok");
     });

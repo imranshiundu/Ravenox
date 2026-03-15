@@ -62,8 +62,8 @@ function connectReq(
 }
 
 test.each([
-  { clientId: .ravenox-ios", platform: "ios" },
-  { clientId: .ravenox-android", platform: "android" },
+  { clientId: "ravenox-ios", platform: "ios" },
+  { clientId: "ravenox-android", platform: "android" },
 ])("accepts $clientId as a valid gateway client id", async ({ clientId, platform }) => {
   const ws = new WebSocket(`ws://127.0.0.1:${port}`);
   await new Promise<void>((resolve) => ws.once("open", resolve));

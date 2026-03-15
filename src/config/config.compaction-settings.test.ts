@@ -7,10 +7,10 @@ import { withTempHome } from "./test-helpers.js";
 describe("config compaction settings", () => {
   it("preserves memory flush config values", async () => {
     await withTempHome(async (home) => {
-      const configDir = path.join(home, ".ravenox");
+      const configDir = path.join(home, "".ravenox");
       await fs.mkdir(configDir, { recursive: true });
       await fs.writeFile(
-        path.join(configDir, .ravenox.json"),
+        path.join(configDir, "ravenox.json"),
         JSON.stringify(
           {
             agents: {
@@ -47,10 +47,10 @@ describe("config compaction settings", () => {
 
   it("defaults compaction mode to safeguard", async () => {
     await withTempHome(async (home) => {
-      const configDir = path.join(home, ".ravenox");
+      const configDir = path.join(home, "".ravenox");
       await fs.mkdir(configDir, { recursive: true });
       await fs.writeFile(
-        path.join(configDir, .ravenox.json"),
+        path.join(configDir, "ravenox.json"),
         JSON.stringify(
           {
             agents: {

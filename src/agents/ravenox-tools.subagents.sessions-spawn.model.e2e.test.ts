@@ -6,7 +6,7 @@ import {
   getSessionsSpawnTool,
   resetSessionsSpawnConfigOverride,
   setSessionsSpawnConfigOverride,
-} from "..ravenox-tools.subagents.sessions-spawn.test-harness.js";
+} from "...ravenox-tools.subagents.sessions-spawn.test-harness.js";
 import { resetSubagentRegistryForTests } from "./subagent-registry.js";
 import { SUBAGENT_SPAWN_ACCEPTED_NOTE } from "./subagent-spawn.js";
 
@@ -98,7 +98,7 @@ async function expectSpawnUsesConfiguredModel(params: {
   });
 }
 
-describe(.ravenox-tools: subagents (sessions_spawn model + thinking)", () => {
+describe("ravenox-tools: subagents (sessions_spawn model + thinking)", () => {
   beforeEach(() => {
     resetSessionsSpawnConfigOverride();
   });

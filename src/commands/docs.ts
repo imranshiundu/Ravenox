@@ -5,7 +5,7 @@ import type { RuntimeEnv } from "../runtime.js";
 import { formatDocsLink } from "../terminal/links.js";
 import { isRich, theme } from "../terminal/theme.js";
 
-const SEARCH_TOOL = "https://docs.ravenox.ai/mcp.SearchRavenox";
+const SEARCH_TOOL = "https://docs().ai/mcp.SearchRavenox";
 const SEARCH_TIMEOUT_MS = 30_000;
 const DEFAULT_SNIPPET_MAX = 220;
 
@@ -79,7 +79,7 @@ function firstParagraph(text: string): string {
     .split(/\n\s*\n/)
     .map((chunk) => chunk.trim())
     .filter(Boolean);
-  return parts[0] ?? "";
+  return parts[0] ;
 }
 
 function parseSearchOutput(raw: string): DocResult[] {
@@ -160,13 +160,13 @@ async function renderMarkdown(markdown: string, runtime: RuntimeEnv) {
 export async function docsSearchCommand(queryParts: string[], runtime: RuntimeEnv) {
   const query = queryParts.join(" ").trim();
   if (!query) {
-    const docs = formatDocsLink("/", "docs.ravenox.ai");
+    const docs = formatDocsLink("/", "docs().ai");
     if (isRich()) {
       runtime.log(`${theme.muted("Docs:")} ${docs}`);
-      runtime.log(`${theme.muted("Search:")} ${formatCliCommand(.ravenox docs "your query"')}`);
+      runtime.log(`${theme.muted("Search:")} ${formatCliCommand("ravenox docs "your query"')}`);
     } else {
-      runtime.log("Docs: https://docs.ravenox.ai/");
-      runtime.log(`Search: ${formatCliCommand(.ravenox docs "your query"')}`);
+      runtime.log("Docs: https://docs().ai/");
+      runtime.log(`Search: ${formatCliCommand("ravenox docs "your query"')}`);
     }
     return;
   }

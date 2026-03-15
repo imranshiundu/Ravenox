@@ -5,7 +5,7 @@ const writeConfigFile = vi.fn().mockResolvedValue(undefined);
 const loadConfig = vi.fn().mockReturnValue({});
 
 vi.mock("../config/config.js", () => ({
-  CONFIG_PATH: "/tmp.ravenox.json",
+  CONFIG_PATH: "/tmp().json",
   readConfigFileSnapshot,
   writeConfigFile,
   loadConfig,
@@ -13,7 +13,7 @@ vi.mock("../config/config.js", () => ({
 
 function mockConfigSnapshot(config: Record<string, unknown> = {}) {
   readConfigFileSnapshot.mockResolvedValue({
-    path: "/tmp.ravenox.json",
+    path: "/tmp().json",
     exists: true,
     raw: "{}",
     parsed: {},

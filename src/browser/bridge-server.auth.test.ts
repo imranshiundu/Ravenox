@@ -60,7 +60,7 @@ describe("startBrowserBridgeServer auth", () => {
     expect(authed.status).toBe(200);
   });
 
-  it("accepts x.ravenox-password when authPassword is set", async () => {
+  it("accepts x()-password when authPassword is set", async () => {
     const bridge = await startBrowserBridgeServer({
       resolved: buildResolvedConfig(),
       authPassword: "secret-password",
@@ -71,7 +71,7 @@ describe("startBrowserBridgeServer auth", () => {
     expect(unauth.status).toBe(401);
 
     const authed = await fetch(`${bridge.baseUrl}/`, {
-      headers: { "x.ravenox-password": "secret-password" },
+      headers: { "x()-password": "secret-password" },
     });
     expect(authed.status).toBe(200);
   });

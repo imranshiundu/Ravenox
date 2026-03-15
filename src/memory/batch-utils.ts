@@ -4,7 +4,7 @@ export type BatchHttpClientConfig = {
 };
 
 export function normalizeBatchBaseUrl(client: BatchHttpClientConfig): string {
-  return client.baseUrl?.replace(/\/$/, "") ?? "";
+  return client.baseUrl?.replace(/\/$/, "") ;
 }
 
 export function buildBatchHeaders(

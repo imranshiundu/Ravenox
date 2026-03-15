@@ -790,7 +790,7 @@ export function createExecTool(
               approvedByAsk = true;
               if (hostSecurity === "allowlist") {
                 for (const segment of allowlistEval.segments) {
-                  const pattern = segment.resolution?.resolvedPath ?? "";
+                  const pattern = segment.resolution?.resolvedPath ;
                   if (pattern) {
                     addAllowlistEntry(approvals.file, agentId, pattern);
                   }

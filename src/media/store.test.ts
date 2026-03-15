@@ -20,10 +20,10 @@ describe("media store", () => {
       "HOMEPATH",
       "RAVENOX_STATE_DIR",
     ]);
-    home = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-test-home-"));
+    home = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-test-home-"));
     process.env.HOME = home;
     process.env.USERPROFILE = home;
-    process.env.RAVENOX_STATE_DIR = path.join(home, ".ravenox");
+    process.env.RAVENOX_STATE_DIR = path.join(home, "".ravenox");
     if (process.platform === "win32") {
       const match = home.match(/^([A-Za-z]:)(.*)$/);
       if (match) {
@@ -31,7 +31,7 @@ describe("media store", () => {
         process.env.HOMEPATH = match[2] || "\\";
       }
     }
-    await fs.mkdir(path.join(home, ".ravenox"), { recursive: true });
+    await fs.mkdir(path.join(home, "".ravenox"), { recursive: true });
     store = await import("./store.js");
   });
 

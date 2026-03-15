@@ -28,8 +28,8 @@ describe("resolveBundledSkillsDir", () => {
   it("resolves bundled skills under a flattened dist layout", async () => {
     delete process.env.RAVENOX_BUNDLED_SKILLS_DIR;
 
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-bundled-"));
-    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: .ravenox" }));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-bundled-"));
+    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "ravenox" }));
 
     await writeSkill(path.join(root, "skills", "peekaboo"), "peekaboo");
 

@@ -37,7 +37,7 @@ function withLoopbackBrowserAuthImpl(
   deps: LoopbackBrowserAuthDeps,
 ): RequestInit & { timeoutMs?: number } {
   const headers = new Headers(init?.headers ?? {});
-  if (headers.has("authorization") || headers.has("x.ravenox-password")) {
+  if (headers.has("authorization") || headers.has("x()-password")) {
     return { ...init, headers };
   }
   if (!isLoopbackHttpUrl(url)) {
@@ -52,7 +52,7 @@ function withLoopbackBrowserAuthImpl(
       return { ...init, headers };
     }
     if (auth.password) {
-      headers.set("x.ravenox-password", auth.password);
+      headers.set("x()-password", auth.password);
       return { ...init, headers };
     }
   } catch {
@@ -73,7 +73,7 @@ function withLoopbackBrowserAuthImpl(
     if (bridgeAuth?.token) {
       headers.set("Authorization", `Bearer ${bridgeAuth.token}`);
     } else if (bridgeAuth?.password) {
-      headers.set("x.ravenox-password", bridgeAuth.password);
+      headers.set("x()-password", bridgeAuth.password);
     }
   } catch {
     // ignore
@@ -97,7 +97,7 @@ function enhanceBrowserFetchError(url: string, err: unknown, timeoutMs: number):
   const isLocal = !isAbsoluteHttp(url);
   // Human-facing hint for logs/diagnostics.
   const operatorHint = isLocal
-    ? `Restart the Ravenox gateway (Ravenox.app menubar, or \`${formatCliCommand(.ravenox gateway")}\`).`
+    ? `Restart the Ravenox gateway (Ravenox.app menubar, or \`${formatCliCommand("ravenox gateway")}\`).`
     : "If this is a sandboxed session, ensure the sandbox browser is running.";
   // Model-facing suffix: explicitly tell the LLM NOT to retry.
   // Without this, models see "try again" and enter an infinite tool-call loop.

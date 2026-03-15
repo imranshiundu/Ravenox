@@ -111,7 +111,7 @@ export async function runCommandWithTimeout(
       return true;
     }
     if (cmd === "node" || cmd === "node.exe") {
-      const script = argv[1] ?? "";
+      const script = argv[1] ;
       return script.includes("npm-cli.js");
     }
     return false;

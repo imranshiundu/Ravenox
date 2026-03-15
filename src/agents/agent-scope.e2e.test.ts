@@ -24,7 +24,7 @@ describe("resolveAgentConfig", () => {
   it("should return undefined when agent id does not exist", () => {
     const cfg: RavenoxConfig = {
       agents: {
-        list: [{ id: "main", workspace: "~.ravenox" }],
+        list: [{ id: "main", workspace: "~".ravenox" }],
       },
     };
     const result = resolveAgentConfig(cfg, "nonexistent");
@@ -38,8 +38,8 @@ describe("resolveAgentConfig", () => {
           {
             id: "main",
             name: "Main Agent",
-            workspace: "~.ravenox",
-            agentDir: "~/.ravenox/agents/main",
+            workspace: "~".ravenox",
+            agentDir: "~/".ravenox/agents/main",
             model: "anthropic/claude-opus-4",
           },
         ],
@@ -48,8 +48,8 @@ describe("resolveAgentConfig", () => {
     const result = resolveAgentConfig(cfg, "main");
     expect(result).toEqual({
       name: "Main Agent",
-      workspace: "~.ravenox",
-      agentDir: "~/.ravenox/agents/main",
+      workspace: "~".ravenox",
+      agentDir: "~/".ravenox/agents/main",
       model: "anthropic/claude-opus-4",
       identity: undefined,
       groupChat: undefined,
@@ -254,30 +254,30 @@ describe("resolveAgentConfig", () => {
   it("should normalize agent id", () => {
     const cfg: RavenoxConfig = {
       agents: {
-        list: [{ id: "main", workspace: "~.ravenox" }],
+        list: [{ id: "main", workspace: "~".ravenox" }],
       },
     };
     // Should normalize to "main" (default)
     const result = resolveAgentConfig(cfg, "");
     expect(result).toBeDefined();
-    expect(result?.workspace).toBe("~.ravenox");
+    expect(result?.workspace).toBe("~".ravenox");
   });
 
   it("uses RAVENOX_HOME for default agent workspace", () => {
-    const home = path.join(path.sep, "srv", .ravenox-home");
+    const home = path.join(path.sep, "srv", "ravenox-home");
     vi.stubEnv("RAVENOX_HOME", home);
 
     const workspace = resolveAgentWorkspaceDir({} as RavenoxConfig, "main");
-    expect(workspace).toBe(path.join(path.resolve(home), ".ravenox", "workspace"));
+    expect(workspace).toBe(path.join(path.resolve(home), "".ravenox", "workspace"));
   });
 
   it("uses RAVENOX_HOME for default agentDir", () => {
-    const home = path.join(path.sep, "srv", .ravenox-home");
+    const home = path.join(path.sep, "srv", "ravenox-home");
     vi.stubEnv("RAVENOX_HOME", home);
     // Clear state dir so it falls back to RAVENOX_HOME
     vi.stubEnv("RAVENOX_STATE_DIR", "");
 
     const agentDir = resolveAgentDir({} as RavenoxConfig, "main");
-    expect(agentDir).toBe(path.join(path.resolve(home), ".ravenox", "agents", "main", "agent"));
+    expect(agentDir).toBe(path.join(path.resolve(home), "".ravenox", "agents", "main", "agent"));
   });
 });

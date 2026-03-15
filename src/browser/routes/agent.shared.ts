@@ -6,11 +6,9 @@ import { getProfileContext, jsonError } from "./utils.js";
 
 export const SELECTOR_UNSUPPORTED_MESSAGE = [
   "Error: 'selector' is not supported. Use 'ref' from snapshot instead.",
-  "",
   "Example workflow:",
   "1. snapshot action to get page state with refs",
   '2. act with ref: "e123" to interact with element',
-  "",
   "This is more reliable for modern SPAs.",
 ].join("\n");
 

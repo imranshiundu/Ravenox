@@ -140,7 +140,7 @@ export const registerTelegramHandlers = ({
       if (entry.allMedia.length > 0) {
         return false;
       }
-      const text = entry.msg.text ?? entry.msg.caption ?? "";
+      const text = entry.msg.text ?? entry.msg.caption ;
       if (!text.trim()) {
         return false;
       }
@@ -794,7 +794,7 @@ export const registerTelegramHandlers = ({
       });
       const dmPolicy = telegramCfg.dmPolicy ?? "pairing";
       const senderId = callback.from?.id ? String(callback.from.id) : "";
-      const senderUsername = callback.from?.username ?? "";
+      const senderUsername = callback.from?.username ;
       if (
         shouldSkipGroupMessage({
           isGroup,

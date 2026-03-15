@@ -16,7 +16,7 @@ export function formatBonjourInstanceName(displayName: string) {
   if (!trimmed) {
     return "Ravenox";
   }
-  if (.ravenox/i.test(trimmed)) {
+  if (ravenox/i.test(trimmed)) {
     return trimmed;
   }
   return `${trimmed} (Ravenox)`;
@@ -40,7 +40,7 @@ export function resolveBonjourCliPath(opts: ResolveBonjourCliPathOptions = {}): 
 
   const execPath = opts.execPath ?? process.execPath;
   const execDir = path.dirname(execPath);
-  const siblingCli = path.join(execDir, .ravenox");
+  const siblingCli = path.join(execDir, "ravenox");
   if (isFile(siblingCli)) {
     return siblingCli;
   }
@@ -56,7 +56,7 @@ export function resolveBonjourCliPath(opts: ResolveBonjourCliPathOptions = {}): 
   if (isFile(distCli)) {
     return distCli;
   }
-  const binCli = path.join(cwd, "bin", .ravenox");
+  const binCli = path.join(cwd, "bin", "ravenox");
   if (isFile(binCli)) {
     return binCli;
   }

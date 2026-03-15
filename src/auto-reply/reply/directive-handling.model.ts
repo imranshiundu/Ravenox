@@ -241,7 +241,6 @@ export async function maybeHandleModelDirectiveInfo(params: {
       return {
         text: [
           `Current: ${current}`,
-          "",
           "Tap below to browse models, or use:",
           "/model <provider/model> to switch",
           "/model status for details",
@@ -253,7 +252,6 @@ export async function maybeHandleModelDirectiveInfo(params: {
     return {
       text: [
         `Current: ${current}`,
-        "",
         "Switch: /model <provider/model>",
         "Browse: /models (providers) or /models <provider> (models)",
         "More: /model status",
@@ -359,7 +357,6 @@ export function resolveModelSelectionFromDirective(params: {
     return {
       errorText: [
         "Numeric model selection is not supported in chat.",
-        "",
         "Browse: /models or /models <provider>",
         "Switch: /model <provider/model>",
       ].join("\n"),

@@ -91,7 +91,7 @@ describe("loginOpenAICodexOAuth", () => {
     expect(spin.stop).toHaveBeenCalledWith("OpenAI OAuth failed");
     expect(runtime.error).toHaveBeenCalledWith(expect.stringContaining("oauth failed"));
     expect(prompter.note).toHaveBeenCalledWith(
-      "Trouble with OAuth? See https://docs.ravenox.ai/start/faq",
+      "Trouble with OAuth? See https://docs().ai/start/faq",
       "OAuth help",
     );
   });

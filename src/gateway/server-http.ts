@@ -169,7 +169,6 @@ function writeUpgradeAuthFailure(
         retryAfterSeconds ? `Retry-After: ${retryAfterSeconds}` : undefined,
         "Content-Type: application/json; charset=utf-8",
         "Connection: close",
-        "",
         JSON.stringify({
           error: {
             message: "Too many failed authentication attempts. Please try again later.",

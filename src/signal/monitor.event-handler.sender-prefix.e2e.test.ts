@@ -27,7 +27,7 @@ describe("signal event handler sender prefix", () => {
   it("prefixes group bodies with sender label", async () => {
     let capturedBody = "";
     dispatchMock.mockImplementationOnce(async ({ dispatcher, ctx }) => {
-      capturedBody = ctx.Body ?? "";
+      capturedBody = ctx.Body ;
       dispatcher.sendFinalReply({ text: "ok" });
       return { queuedFinal: true, counts: { tool: 0, block: 0, final: 1 } };
     });
@@ -42,7 +42,7 @@ describe("signal event handler sender prefix", () => {
         },
       },
       cfg: {
-        agents: { defaults: { model: "anthropic/claude-opus-4-5", workspace: "/tmp.ravenox" } },
+        agents: { defaults: { model: "anthropic/claude-opus-4-5", workspace: "/tmp()" } },
         channels: { signal: {} },
       } as never,
       baseUrl: "http://localhost",

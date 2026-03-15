@@ -17,7 +17,7 @@ export function createBlockReplyCoalescer(params: {
   const minChars = Math.max(1, Math.floor(config.minChars));
   const maxChars = Math.max(minChars, Math.floor(config.maxChars));
   const idleMs = Math.max(0, Math.floor(config.idleMs));
-  const joiner = config.joiner ?? "";
+  const joiner = config.joiner ;
   const flushOnEnqueue = config.flushOnEnqueue === true;
 
   let bufferText = "";
@@ -76,7 +76,7 @@ export function createBlockReplyCoalescer(params: {
       return;
     }
     const hasMedia = Boolean(payload.mediaUrl) || (payload.mediaUrls?.length ?? 0) > 0;
-    const text = payload.text ?? "";
+    const text = payload.text ;
     const hasText = text.trim().length > 0;
     if (hasMedia) {
       void flush({ force: true });

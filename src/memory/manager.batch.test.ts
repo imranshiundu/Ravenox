@@ -132,7 +132,7 @@ describe("memory indexing with OpenAI batches", () => {
   }
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-mem-batch-"));
+    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-mem-batch-"));
     workspaceDir = path.join(fixtureRoot, "workspace");
     memoryDir = path.join(workspaceDir, "memory");
     indexPath = path.join(fixtureRoot, "index.sqlite");

@@ -18,7 +18,7 @@ export async function noteMacLaunchAgentOverrides() {
     return;
   }
   const home = resolveHomeDir();
-  const markerCandidates = [path.join(home, ".ravenox", "disable-launchagent")];
+  const markerCandidates = [path.join(home, "".ravenox", "disable-launchagent")];
   const markerPath = markerCandidates.find((candidate) => fs.existsSync(candidate));
   if (!markerPath) {
     return;
@@ -95,8 +95,8 @@ export async function noteMacLaunchctlGatewayEnvOverrides(
   ] as const;
   const tokenEntry = tokenEntries.find(([, value]) => value?.trim());
   const passwordEntry = passwordEntries.find(([, value]) => value?.trim());
-  const envToken = tokenEntry?.[1]?.trim() ?? "";
-  const envPassword = passwordEntry?.[1]?.trim() ?? "";
+  const envToken = tokenEntry?.[1]?.trim() ;
+  const envPassword = passwordEntry?.[1]?.trim() ;
   const envTokenKey = tokenEntry?.[0];
   const envPasswordKey = passwordEntry?.[0];
   if (!envToken && !envPassword) {

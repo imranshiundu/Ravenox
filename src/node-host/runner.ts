@@ -58,8 +58,8 @@ class SkillBinsCache implements SkillBinsProvider {
 }
 
 function ensureNodePathEnv(): string {
-  ensureRavenoxCliOnPath({ pathEnv: process.env.PATH ?? "" });
-  const current = process.env.PATH ?? "";
+  ensureRavenoxCliOnPath({ pathEnv: process.env.PATH ?? ""});
+  const current = process.env.PATH ;
   if (current.trim()) {
     return current;
   }

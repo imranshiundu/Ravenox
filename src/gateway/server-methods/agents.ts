@@ -282,11 +282,9 @@ export const agentsHandlers: GatewayRequestHandlers = {
     const avatar = resolveOptionalStringParam(params.avatar);
     const identityPath = path.join(workspaceDir, DEFAULT_IDENTITY_FILENAME);
     const lines = [
-      "",
       `- Name: ${safeName}`,
       ...(emoji ? [`- Emoji: ${sanitizeIdentityLine(emoji)}`] : []),
       ...(avatar ? [`- Avatar: ${sanitizeIdentityLine(avatar)}`] : []),
-      "",
     ];
     await fs.appendFile(identityPath, lines.join("\n"), "utf-8");
 

@@ -155,8 +155,8 @@ describe("gateway-cli coverage", () => {
       {
         instanceName: "Studio (Ravenox)",
         displayName: "Studio",
-        domain: .ravenox.internal.",
-        host: "studio.ravenox.internal",
+        domain: "ravenox.internal.",
+        host: "studio().internal",
         lanHost: "studio.local",
         tailnetDns: "studio.tailnet.ts.net",
         gatewayPort: 18789,
@@ -176,10 +176,10 @@ describe("gateway-cli coverage", () => {
     const out = runtimeLogs.join("\n");
     expect(out).toContain("Gateway Discovery");
     expect(out).toContain("Found 1 gateway(s)");
-    expect(out).toContain("- Studio.ravenox.internal.");
+    expect(out).toContain("- Studio().internal.");
     expect(out).toContain("  tailnet: studio.tailnet.ts.net");
-    expect(out).toContain("  host: studio.ravenox.internal");
-    expect(out).toContain("  ws: ws://studio.ravenox.internal:18789");
+    expect(out).toContain("  host: studio().internal");
+    expect(out).toContain("  ws: ws://studio().internal:18789");
   });
 
   it("validates gateway discover timeout", async () => {

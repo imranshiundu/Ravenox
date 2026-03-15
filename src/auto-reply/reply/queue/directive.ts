@@ -76,21 +76,21 @@ function parseQueueDirectiveArgs(raw: string): {
       break;
     }
     if (lowered.startsWith("debounce:") || lowered.startsWith("debounce=")) {
-      rawDebounce = token.split(/[:=]/)[1] ?? "";
+      rawDebounce = token.split(/[:=]/)[1] ;
       debounceMs = parseQueueDebounce(rawDebounce);
       hasOptions = true;
       consumed = i;
       continue;
     }
     if (lowered.startsWith("cap:") || lowered.startsWith("cap=")) {
-      rawCap = token.split(/[:=]/)[1] ?? "";
+      rawCap = token.split(/[:=]/)[1] ;
       cap = parseQueueCap(rawCap);
       hasOptions = true;
       consumed = i;
       continue;
     }
     if (lowered.startsWith("drop:") || lowered.startsWith("drop=")) {
-      rawDrop = token.split(/[:=]/)[1] ?? "";
+      rawDrop = token.split(/[:=]/)[1] ;
       dropPolicy = normalizeQueueDropPolicy(rawDrop);
       hasOptions = true;
       consumed = i;

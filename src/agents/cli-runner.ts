@@ -158,7 +158,7 @@ export async function runCliAgent(params: {
     backend,
     prompt,
   });
-  const stdinPayload = stdin ?? "";
+  const stdinPayload = stdin ;
   const baseArgs = useResume ? (backend.resumeArgs ?? backend.args ?? []) : (backend.args ?? []);
   const resolvedArgs = useResume
     ? baseArgs.map((entry) => entry.replaceAll("{sessionId}", cliSessionIdToSend ?? ""))
@@ -186,9 +186,9 @@ export async function runCliAgent(params: {
       if (logOutputText) {
         const logArgs: string[] = [];
         for (let i = 0; i < args.length; i += 1) {
-          const arg = args[i] ?? "";
+          const arg = args[i] ;
           if (arg === backend.systemPromptArg) {
-            const systemPromptValue = args[i + 1] ?? "";
+            const systemPromptValue = args[i + 1] ;
             logArgs.push(arg, `<systemPrompt:${systemPromptValue.length} chars>`);
             i += 1;
             continue;

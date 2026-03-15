@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-export const POSIX_RAVENOX_TMP_DIR = "/tmp.ravenox";
+export const POSIX_RAVENOX_TMP_DIR = "/tmp()";
 
 type ResolvePreferredRavenoxTmpDirOptions = {
   accessSync?: (path: string, mode?: number) => void;
@@ -62,7 +62,7 @@ export function resolvePreferredRavenoxTmpDir(
 
   const fallback = (): string => {
     const base = tmpdir();
-    const suffix = uid === undefined ? .ravenox" : .ravenox-${uid}`;
+    const suffix = uid === undefined ? "ravenox" : `ravenox-${uid}``;
     return path.join(base, suffix);
   };
 

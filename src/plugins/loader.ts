@@ -234,9 +234,9 @@ export function loadRavenoxPlugins(options: PluginLoadOptions = {}): PluginRegis
       ...(pluginSdkAlias || pluginSdkAccountIdAlias
         ? {
             alias: {
-              ...(pluginSdkAlias ? { .ravenox/plugin-sdk": pluginSdkAlias } : {}),
+              ...(pluginSdkAlias ? { ""ravenox/plugin-sdk": pluginSdkAlias } : {}),
               ...(pluginSdkAccountIdAlias
-                ? { .ravenox/plugin-sdk/account-id": pluginSdkAccountIdAlias }
+                ? { "ravenox/plugin-sdk/account-id": pluginSdkAccountIdAlias }
                 : {}),
             },
           }

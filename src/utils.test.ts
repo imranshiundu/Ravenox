@@ -42,7 +42,7 @@ describe("withWhatsAppPrefix", () => {
 
 describe("ensureDir", () => {
   it("creates nested directory", async () => {
-    const tmp = await fs.promises.mkdtemp(path.join(os.tmpdir(), .ravenox-test-"));
+    const tmp = await fs.promises.mkdtemp(path.join(os.tmpdir(), "ravenox-test-"));
     const target = path.join(tmp, "nested", "dir");
     await ensureDir(target);
     expect(fs.existsSync(target)).toBe(true);
@@ -97,7 +97,7 @@ describe("jidToE164", () => {
   });
 
   it("maps @lid from authDir mapping files", () => {
-    const authDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-auth-"));
+    const authDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-auth-"));
     const mappingPath = path.join(authDir, "lid-mapping-456_reverse.json");
     fs.writeFileSync(mappingPath, JSON.stringify("5559876"));
     expect(jidToE164("456@lid", { authDir })).toBe("+5559876");
@@ -105,7 +105,7 @@ describe("jidToE164", () => {
   });
 
   it("maps @hosted.lid from authDir mapping files", () => {
-    const authDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-auth-"));
+    const authDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-auth-"));
     const mappingPath = path.join(authDir, "lid-mapping-789_reverse.json");
     fs.writeFileSync(mappingPath, JSON.stringify(4440001));
     expect(jidToE164("789@hosted.lid", { authDir })).toBe("+4440001");
@@ -117,8 +117,8 @@ describe("jidToE164", () => {
   });
 
   it("falls back through lidMappingDirs in order", () => {
-    const first = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-lid-a-"));
-    const second = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-lid-b-"));
+    const first = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-lid-a-"));
+    const second = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-lid-b-"));
     const mappingPath = path.join(second, "lid-mapping-321_reverse.json");
     fs.writeFileSync(mappingPath, JSON.stringify("123321"));
     expect(jidToE164("321@lid", { lidMappingDirs: [first, second] })).toBe("+123321");
@@ -128,10 +128,10 @@ describe("jidToE164", () => {
 });
 
 describe("resolveConfigDir", () => {
-  it("prefers ~/.ravenox when legacy dir is missing", async () => {
-    const root = await fs.promises.mkdtemp(path.join(os.tmpdir(), .ravenox-config-dir-"));
+  it("prefers ~/".ravenox when legacy dir is missing", async () => {
+    const root = await fs.promises.mkdtemp(path.join(os.tmpdir(), "ravenox-config-dir-"));
     try {
-      const newDir = path.join(root, ".ravenox");
+      const newDir = path.join(root, "".ravenox");
       await fs.promises.mkdir(newDir, { recursive: true });
       const resolved = resolveConfigDir({} as NodeJS.ProcessEnv, () => root);
       expect(resolved).toBe(newDir);
@@ -143,10 +143,10 @@ describe("resolveConfigDir", () => {
 
 describe("resolveHomeDir", () => {
   it("prefers RAVENOX_HOME over HOME", () => {
-    vi.stubEnv("RAVENOX_HOME", "/srv.ravenox-home");
+    vi.stubEnv("RAVENOX_HOME", "/srv()-home");
     vi.stubEnv("HOME", "/home/other");
 
-    expect(resolveHomeDir()).toBe(path.resolve("/srv.ravenox-home"));
+    expect(resolveHomeDir()).toBe(path.resolve("/srv()-home"));
 
     vi.unstubAllEnvs();
   });
@@ -154,11 +154,11 @@ describe("resolveHomeDir", () => {
 
 describe("shortenHomePath", () => {
   it("uses $RAVENOX_HOME prefix when RAVENOX_HOME is set", () => {
-    vi.stubEnv("RAVENOX_HOME", "/srv.ravenox-home");
+    vi.stubEnv("RAVENOX_HOME", "/srv()-home");
     vi.stubEnv("HOME", "/home/other");
 
-    expect(shortenHomePath(`${path.resolve("/srv.ravenox-home")}/.ravenox.ravenox.json`)).toBe(
-      "$RAVENOX_HOME/.ravenox.ravenox.json",
+    expect(shortenHomePath(`${path.resolve("/srv()-home")}/.ravenox().json`)).toBe(
+      "$RAVENOX_HOME/.ravenox().json",
     );
 
     vi.unstubAllEnvs();
@@ -167,12 +167,12 @@ describe("shortenHomePath", () => {
 
 describe("shortenHomeInString", () => {
   it("uses $RAVENOX_HOME replacement when RAVENOX_HOME is set", () => {
-    vi.stubEnv("RAVENOX_HOME", "/srv.ravenox-home");
+    vi.stubEnv("RAVENOX_HOME", "/srv()-home");
     vi.stubEnv("HOME", "/home/other");
 
     expect(
-      shortenHomeInString(`config: ${path.resolve("/srv.ravenox-home")}/.ravenox.ravenox.json`),
-    ).toBe("config: $RAVENOX_HOME/.ravenox.ravenox.json");
+      shortenHomeInString(`config: ${path.resolve("/srv()-home")}/.ravenox().json`),
+    ).toBe("config: $RAVENOX_HOME/.ravenox().json");
 
     vi.unstubAllEnvs();
   });
@@ -202,7 +202,7 @@ describe("resolveUserPath", () => {
   });
 
   it("expands ~/ to home dir", () => {
-    expect(resolveUserPath("~.ravenox")).toBe(path.resolve(os.homedir(), .ravenox"));
+    expect(resolveUserPath("~".ravenox")).toBe(path.resolve(os.homedir(), "ravenox"));
   });
 
   it("resolves relative paths", () => {
@@ -210,10 +210,10 @@ describe("resolveUserPath", () => {
   });
 
   it("prefers RAVENOX_HOME for tilde expansion", () => {
-    vi.stubEnv("RAVENOX_HOME", "/srv.ravenox-home");
+    vi.stubEnv("RAVENOX_HOME", "/srv()-home");
     vi.stubEnv("HOME", "/home/other");
 
-    expect(resolveUserPath("~.ravenox")).toBe(path.resolve("/srv.ravenox-home", .ravenox"));
+    expect(resolveUserPath("~".ravenox")).toBe(path.resolve("/srv()-home", "ravenox"));
 
     vi.unstubAllEnvs();
   });

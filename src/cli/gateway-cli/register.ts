@@ -95,11 +95,11 @@ export function registerGatewayCli(program: Command) {
         "after",
         () =>
           `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-            [.ravenox gateway run", "Run the gateway in the foreground."],
-            [.ravenox gateway status", "Show service status and probe reachability."],
-            [.ravenox gateway discover", "Find local and wide-area gateway beacons."],
-            [.ravenox gateway call health", "Call a gateway RPC method directly."],
-          ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/gateway", "docs.ravenox.ai/cli/gateway")}\n`,
+            ["ravenox gateway run", "Run the gateway in the foreground."],
+            ["ravenox gateway status", "Show service status and probe reachability."],
+            ["ravenox gateway discover", "Find local and wide-area gateway beacons."],
+            ["ravenox gateway call health", "Call a gateway RPC method directly."],
+          ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/gateway", "docs().ai/cli/gateway")}\n`,
       ),
   );
 

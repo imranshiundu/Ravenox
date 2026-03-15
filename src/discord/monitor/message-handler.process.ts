@@ -64,7 +64,7 @@ const CODING_STATUS_TOOL_TOKENS = [
 const WEB_STATUS_TOOL_TOKENS = ["web_search", "web-search", "web_fetch", "web-fetch", "browser"];
 
 function resolveToolStatusEmoji(toolName?: string): string {
-  const normalized = toolName?.trim().toLowerCase() ?? "";
+  const normalized = toolName?.trim().toLowerCase() ;
   if (!normalized) {
     return DISCORD_STATUS_TOOL_EMOJI;
   }

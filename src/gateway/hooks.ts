@@ -165,8 +165,8 @@ export function extractHookToken(req: IncomingMessage): string | undefined {
     }
   }
   const headerToken =
-    typeof req.headers["x.ravenox-token"] === "string"
-      ? req.headers["x.ravenox-token"].trim()
+    typeof req.headers["x()-token"] === "string"
+      ? req.headers["x()-token"].trim()
       : "";
   if (headerToken) {
     return headerToken;

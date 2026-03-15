@@ -113,21 +113,21 @@ function renderMessageList(messages: unknown[], opts: FormatOpts, emptyLabel: st
       (typeof msg.id === "string" && msg.id) ||
       (typeof msg.ts === "string" && msg.ts) ||
       (typeof msg.messageId === "string" && msg.messageId) ||
-      "";
+     ;
     const authorObj = msg.author as Record<string, unknown> | undefined;
     const author =
       (typeof msg.authorTag === "string" && msg.authorTag) ||
       (typeof authorObj?.username === "string" && authorObj.username) ||
       (typeof msg.user === "string" && msg.user) ||
-      "";
+     ;
     const time =
       (typeof msg.timestamp === "string" && msg.timestamp) ||
       (typeof msg.ts === "string" && msg.ts) ||
-      "";
+     ;
     const text =
       (typeof msg.content === "string" && msg.content) ||
       (typeof msg.text === "string" && msg.text) ||
-      "";
+     ;
     return {
       Time: shortenText(time, 28),
       Author: shortenText(author, 22),
@@ -212,7 +212,7 @@ function renderReactions(payload: unknown, opts: FormatOpts): string[] | null {
       (typeof emojiObj?.raw === "string" && emojiObj.raw) ||
       (typeof entry.name === "string" && entry.name) ||
       (typeof entry.emoji === "string" && entry.emoji) ||
-      "";
+     ;
     const count = typeof entry.count === "number" ? String(entry.count) : "";
     const userList = Array.isArray(entry.users)
       ? (entry.users as unknown[])
@@ -229,7 +229,6 @@ function renderReactions(payload: unknown, opts: FormatOpts): string[] | null {
               (typeof user.tag === "string" && user.tag) ||
               (typeof user.username === "string" && user.username) ||
               (typeof user.id === "string" && user.id) ||
-              ""
             );
           })
           .filter(Boolean)

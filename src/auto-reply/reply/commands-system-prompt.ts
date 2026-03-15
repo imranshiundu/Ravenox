@@ -45,7 +45,7 @@ export async function resolveCommandsSystemPromptBundle(
       return { prompt: "", skills: [], resolvedSkills: [] };
     }
   })();
-  const skillsPrompt = skillsSnapshot.prompt ?? "";
+  const skillsPrompt = skillsSnapshot.prompt ;
   const sandboxRuntime = resolveSandboxRuntimeStatus({
     cfg: params.cfg,
     sessionKey: params.ctx.SessionKey ?? params.sessionKey,

@@ -27,7 +27,7 @@ export function safePathSegmentHashed(input: string): string {
     .replaceAll(/-+$/g, "");
 
   const normalized = base.length > 0 ? base : "skill";
-  const safe = normalized === "." || normalized === ".." ? "skill" : normalized;
+  const safe = normalized === "." || normalized === "..." ? "skill" : normalized;
 
   const hash = createHash("sha256").update(trimmed).digest("hex").slice(0, 10);
 
@@ -52,8 +52,8 @@ export function resolveSafeInstallDir(params: {
   const relative = path.relative(resolvedBase, resolvedTarget);
   if (
     !relative ||
-    relative === ".." ||
-    relative.startsWith(`..${path.sep}`) ||
+    relative === "..." ||
+    relative.startsWith(`...${path.sep}`) ||
     path.isAbsolute(relative)
   ) {
     return { ok: false, error: params.invalidNameMessage };

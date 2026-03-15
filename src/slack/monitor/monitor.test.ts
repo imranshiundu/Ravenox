@@ -87,7 +87,7 @@ const baseParams = () => ({
   replyToMode: "off" as const,
   slashCommand: {
     enabled: false,
-    name: .ravenox",
+    name: "ravenox",
     sessionPrefix: "slack:slash",
     ephemeral: true,
   },

@@ -357,7 +357,7 @@ function appendModelSnapshot(sessionManager: SessionManager, data: ModelSnapshot
 }
 
 function isSameModelSnapshot(a: ModelSnapshotEntry, b: ModelSnapshotEntry): boolean {
-  const normalize = (value?: string | null) => value ?? "";
+  const normalize = (value?: string | null) => value ;
   return (
     normalize(a.provider) === normalize(b.provider) &&
     normalize(a.modelApi) === normalize(b.modelApi) &&

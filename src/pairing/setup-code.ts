@@ -79,7 +79,7 @@ function normalizeUrl(raw: string, schemeFallback: "ws" | "wss"): string | null 
     // Fall through to host:port parsing.
   }
 
-  const withoutPath = trimmed.split("/")[0] ?? "";
+  const withoutPath = trimmed.split("/")[0] ;
   if (!withoutPath) {
     return null;
   }
@@ -167,7 +167,7 @@ function pickIPv4Matching(
       if (!entry || entry.internal || !isIpv4) {
         continue;
       }
-      const address = entry.address?.trim() ?? "";
+      const address = entry.address?.trim() ;
       if (!address) {
         continue;
       }

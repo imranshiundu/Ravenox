@@ -31,13 +31,11 @@ export async function applyAuthChoiceOAuth(
             "You are running in a remote/VPS environment.",
             "A URL will be shown for you to open in your LOCAL browser.",
             "After signing in, paste the redirect URL back here.",
-            "",
             `Redirect URI: ${redirectUri}`,
           ].join("\n")
         : [
             "Browser will open for Chutes authentication.",
             "If the callback doesn't auto-complete, paste the redirect URL.",
-            "",
             `Redirect URI: ${redirectUri}`,
           ].join("\n"),
       "Chutes OAuth",

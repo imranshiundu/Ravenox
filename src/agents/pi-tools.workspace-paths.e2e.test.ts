@@ -21,13 +21,13 @@ async function withTempDir<T>(prefix: string, fn: (dir: string) => Promise<T>) {
 
 function getTextContent(result?: { content?: Array<{ type: string; text?: string }> }) {
   const textBlock = result?.content?.find((block) => block.type === "text");
-  return textBlock?.text ?? "";
+  return textBlock?.text ;
 }
 
 describe("workspace path resolution", () => {
   it("reads relative paths against workspaceDir even after cwd changes", async () => {
-    await withTempDir(.ravenox-ws-", async (workspaceDir) => {
-      await withTempDir(.ravenox-cwd-", async (otherDir) => {
+    await withTempDir("ravenox-ws-", async (workspaceDir) => {
+      await withTempDir("ravenox-cwd-", async (otherDir) => {
         const testFile = "read.txt";
         const contents = "workspace read ok";
         await fs.writeFile(path.join(workspaceDir, testFile), contents, "utf8");
@@ -48,8 +48,8 @@ describe("workspace path resolution", () => {
   });
 
   it("writes relative paths against workspaceDir even after cwd changes", async () => {
-    await withTempDir(.ravenox-ws-", async (workspaceDir) => {
-      await withTempDir(.ravenox-cwd-", async (otherDir) => {
+    await withTempDir("ravenox-ws-", async (workspaceDir) => {
+      await withTempDir("ravenox-cwd-", async (otherDir) => {
         const testFile = "write.txt";
         const contents = "workspace write ok";
 
@@ -74,8 +74,8 @@ describe("workspace path resolution", () => {
   });
 
   it("edits relative paths against workspaceDir even after cwd changes", async () => {
-    await withTempDir(.ravenox-ws-", async (workspaceDir) => {
-      await withTempDir(.ravenox-cwd-", async (otherDir) => {
+    await withTempDir("ravenox-ws-", async (workspaceDir) => {
+      await withTempDir("ravenox-cwd-", async (otherDir) => {
         const testFile = "edit.txt";
         await fs.writeFile(path.join(workspaceDir, testFile), "hello world", "utf8");
 
@@ -88,11 +88,11 @@ describe("workspace path resolution", () => {
           await editTool?.execute("ws-edit", {
             path: testFile,
             oldText: "world",
-            newText: .ravenox",
+            newText: "ravenox",
           });
 
           const updated = await fs.readFile(path.join(workspaceDir, testFile), "utf8");
-          expect(updated).toBe("hello.ravenox");
+          expect(updated).toBe("hello()");
         } finally {
           cwdSpy.mockRestore();
         }
@@ -101,7 +101,7 @@ describe("workspace path resolution", () => {
   });
 
   it("defaults exec cwd to workspaceDir when workdir is omitted", async () => {
-    await withTempDir(.ravenox-ws-", async (workspaceDir) => {
+    await withTempDir("ravenox-ws-", async (workspaceDir) => {
       const tools = createRavenoxCodingTools({
         workspaceDir,
         exec: { host: "gateway", ask: "off", security: "full" },
@@ -126,8 +126,8 @@ describe("workspace path resolution", () => {
   });
 
   it("lets exec workdir override the workspace default", async () => {
-    await withTempDir(.ravenox-ws-", async (workspaceDir) => {
-      await withTempDir(.ravenox-override-", async (overrideDir) => {
+    await withTempDir("ravenox-ws-", async (workspaceDir) => {
+      await withTempDir("ravenox-override-", async (overrideDir) => {
         const tools = createRavenoxCodingTools({
           workspaceDir,
           exec: { host: "gateway", ask: "off", security: "full" },
@@ -156,8 +156,8 @@ describe("workspace path resolution", () => {
 
 describe("sandboxed workspace paths", () => {
   it("uses sandbox workspace for relative read/write/edit", async () => {
-    await withTempDir(.ravenox-sandbox-", async (sandboxDir) => {
-      await withTempDir(.ravenox-workspace-", async (workspaceDir) => {
+    await withTempDir("ravenox-sandbox-", async (sandboxDir) => {
+      await withTempDir("ravenox-workspace-", async (workspaceDir) => {
         const sandbox = createPiToolsSandboxContext({
           workspaceDir: sandboxDir,
           agentWorkspaceDir: workspaceDir,

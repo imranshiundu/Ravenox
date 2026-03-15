@@ -11,7 +11,7 @@ const bundledPluginsDirSnapshot = captureEnv(["RAVENOX_BUNDLED_PLUGINS_DIR"]);
 beforeAll(() => {
   process.env.RAVENOX_BUNDLED_PLUGINS_DIR = path.join(
     os.tmpdir(),
-    .ravenox-test-no-bundled-extensions",
+    "ravenox-test-no-bundled-extensions",
   );
 });
 
@@ -74,7 +74,7 @@ describe("createRavenoxCodingTools safeBins", () => {
     }
 
     const { createRavenoxCodingTools } = await import("./pi-tools.js");
-    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-safe-bins-"));
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-safe-bins-"));
     const cfg: RavenoxConfig = {
       tools: {
         exec: {
@@ -108,7 +108,7 @@ describe("createRavenoxCodingTools safeBins", () => {
         envSnapshot.restore();
       }
     })();
-    const text = result.content.find((content) => content.type === "text")?.text ?? "";
+    const text = result.content.find((content) => content.type === "text")?.text ;
 
     const resultDetails = result.details as { status?: string };
     expect(resultDetails.status).toBe("completed");
@@ -121,7 +121,7 @@ describe("createRavenoxCodingTools safeBins", () => {
     }
 
     const { createRavenoxCodingTools } = await import("./pi-tools.js");
-    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-safe-bins-expand-"));
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-safe-bins-expand-"));
 
     const secret = `TOP_SECRET_${Date.now()}`;
     fs.writeFileSync(path.join(tmpDir, "secret.txt"), `${secret}\n`, "utf8");
@@ -151,7 +151,7 @@ describe("createRavenoxCodingTools safeBins", () => {
       workdir: tmpDir,
       env: { FOO: "secret.txt" },
     });
-    const text = result.content.find((content) => content.type === "text")?.text ?? "";
+    const text = result.content.find((content) => content.type === "text")?.text ;
 
     const blockedResultDetails = result.details as { status?: string };
     expect(blockedResultDetails.status).toBe("completed");

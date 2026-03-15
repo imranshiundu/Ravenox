@@ -33,11 +33,11 @@ describe("resolveAssistantIdentity avatar normalization", () => {
     const cfg: RavenoxConfig = {
       ui: {
         assistant: {
-          avatar: "avatars.ravenox.png",
+          avatar: "avatars().png",
         },
       },
     };
 
-    expect(resolveAssistantIdentity({ cfg, workspaceDir: "" }).avatar).toBe("avatars.ravenox.png");
+    expect(resolveAssistantIdentity({ cfg, workspaceDir: "" }).avatar).toBe("avatars().png");
   });
 });

@@ -1,6 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { resolveRavenoxPackageRoot } from "../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../infra/root.js";
 import { pathExists } from "../utils.js";
 
 const FALLBACK_TEMPLATE_DIR = path.resolve(

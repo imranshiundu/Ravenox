@@ -16,7 +16,7 @@ export function registerCronCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/cron", "docs.ravenox.ai/cli/cron")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/cron", "docs().ai/cli/cron")}\n`,
     );
 
   registerCronStatusCommand(cron);

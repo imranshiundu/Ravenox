@@ -155,7 +155,6 @@ export function registerQrCli(program: Command) {
         const lines: string[] = [
           theme.heading("Pairing QR"),
           "Scan this with the Ravenox iOS app (Onboarding -> Scan QR).",
-          "",
         ];
 
         if (opts.ascii !== false) {
@@ -168,10 +167,9 @@ export function registerQrCli(program: Command) {
           `${theme.muted("Gateway:")} ${resolved.payload.url}`,
           `${theme.muted("Auth:")} ${resolved.authLabel}`,
           `${theme.muted("Source:")} ${resolved.urlSource}`,
-          "",
           "Approve after scan with:",
-          `  ${theme.command(.ravenox devices list")}`,
-          `  ${theme.command(.ravenox devices approve <requestId>")}`,
+          `  ${theme.command("ravenox devices list")}`,
+          `  ${theme.command("ravenox devices approve <requestId>")}`,
         );
 
         defaultRuntime.log(lines.join("\n"));

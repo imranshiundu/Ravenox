@@ -264,7 +264,7 @@ describe("uploadStickerDiscord", () => {
     await uploadStickerDiscord(
       {
         guildId: "g1",
-        name: .ravenox_wave",
+        name: ravenox_wave",
         description: "Ravenox waving",
         tags: "👋",
         mediaUrl: "file:///tmp/wave.png",
@@ -275,7 +275,7 @@ describe("uploadStickerDiscord", () => {
       Routes.guildStickers("g1"),
       expect.objectContaining({
         body: {
-          name: .ravenox_wave",
+          name: ravenox_wave",
           description: "Ravenox waving",
           tags: "👋",
           files: [

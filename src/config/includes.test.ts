@@ -12,10 +12,10 @@ import {
 
 const ROOT_DIR = path.parse(process.cwd()).root;
 const CONFIG_DIR = path.join(ROOT_DIR, "config");
-const ETC_RAVENOX_DIR = path.join(ROOT_DIR, "etc", .ravenox");
+const ETC_RAVENOX_DIR = path.join(ROOT_DIR, "etc", "ravenox");
 const SHARED_DIR = path.join(ROOT_DIR, "shared");
 
-const DEFAULT_BASE_PATH = path.join(CONFIG_DIR, .ravenox.json");
+const DEFAULT_BASE_PATH = path.join(CONFIG_DIR, "ravenox.json");
 
 function configPath(...parts: string[]) {
   return path.join(CONFIG_DIR, ...parts);
@@ -283,10 +283,10 @@ describe("resolveConfigIncludes", () => {
   it("rejects parent directory traversal escaping config directory (CWE-22)", () => {
     const files = { [sharedPath("common.json")]: { shared: true } };
     const obj = { $include: "../../shared/common.json" };
-    expect(() => resolve(obj, files, configPath("sub", .ravenox.json"))).toThrow(
+    expect(() => resolve(obj, files, configPath("sub", "ravenox.json"))).toThrow(
       ConfigIncludeError,
     );
-    expect(() => resolve(obj, files, configPath("sub", .ravenox.json"))).toThrow(
+    expect(() => resolve(obj, files, configPath("sub", "ravenox.json"))).toThrow(
       /escapes config directory/,
     );
   });
@@ -568,7 +568,7 @@ describe("security: path traversal protection (CWE-22)", () => {
     });
 
     it("allows include files when the config root path is a symlink", async () => {
-      const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-includes-symlink-"));
+      const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-includes-symlink-"));
       try {
         const realRoot = path.join(tempRoot, "real");
         const linkRoot = path.join(tempRoot, "link");
@@ -582,7 +582,7 @@ describe("security: path traversal protection (CWE-22)", () => {
 
         const result = resolveConfigIncludes(
           { $include: "./includes/extra.json5" },
-          path.join(linkRoot, .ravenox.json"),
+          path.join(linkRoot, "ravenox.json"),
         );
         expect(result).toEqual({ logging: { redactSensitive: "tools" } });
       } finally {

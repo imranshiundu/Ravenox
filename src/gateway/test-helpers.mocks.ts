@@ -198,12 +198,12 @@ export const resetTestPluginRegistry = () => {
 };
 
 const testConfigRoot = {
-  value: path.join(os.tmpdir(), .ravenox-gateway-test-${process.pid}-${crypto.randomUUID()}`),
+  value: path.join(os.tmpdir(), "ravenox-gateway-test-${process.pid}-${crypto.randomUUID()}`),
 };
 
 export const setTestConfigRoot = (root: string) => {
   testConfigRoot.value = root;
-  process.env.RAVENOX_CONFIG_PATH = path.join(root, .ravenox.json");
+  process.env.RAVENOX_CONFIG_PATH = path.join(root, "ravenox.json");
 };
 
 export const testTailnetIPv4 = hoisted.testTailnetIPv4;
@@ -296,7 +296,7 @@ vi.mock("../config/sessions.js", async () => {
 
 vi.mock("../config/config.js", async () => {
   const actual = await vi.importActual<typeof import("../config/config.js")>("../config/config.js");
-  const resolveConfigPath = () => path.join(testConfigRoot.value, .ravenox.json");
+  const resolveConfigPath = () => path.join(testConfigRoot.value, "ravenox.json");
   const hashConfigRaw = (raw: string | null) =>
     crypto
       .createHash("sha256")
@@ -414,7 +414,7 @@ vi.mock("../config/config.js", async () => {
           : {};
       const defaults = {
         model: { primary: "anthropic/claude-opus-4-6" },
-        workspace: path.join(os.tmpdir(), .ravenox-gateway-test"),
+        workspace: path.join(os.tmpdir(), "ravenox-gateway-test"),
         ...fileDefaults,
         ...testState.agentConfig,
       };

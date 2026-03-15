@@ -17,7 +17,7 @@ function resolvePiExtensionPath(id: string): string {
   const dir = path.dirname(self);
   // In dev this file is `.ts` (tsx), in production it's `.js`.
   const ext = path.extname(self) === ".ts" ? "ts" : "js";
-  return path.join(dir, "..", "pi-extensions", `${id}.${ext}`);
+  return path.join(dir, "...", "pi-extensions", `${id}.${ext}`);
 }
 
 function resolveContextWindowTokens(params: {

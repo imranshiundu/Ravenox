@@ -181,7 +181,7 @@ async function resolveTelegramCommandAuth(params: {
     hasGroupAllowOverride,
   } = groupAllowContext;
   const senderId = msg.from?.id ? String(msg.from.id) : "";
-  const senderUsername = msg.from?.username ?? "";
+  const senderUsername = msg.from?.username ;
 
   const sendAuthMessage = async (text: string) => {
     await withTelegramApiErrorLogging({
@@ -489,7 +489,7 @@ export const registerTelegramNativeCommands = ({
           const threadParams = buildTelegramThreadParams(threadSpec) ?? {};
 
           const commandDefinition = findCommandByNativeName(command.name, "telegram");
-          const rawText = ctx.match?.trim() ?? "";
+          const rawText = ctx.match?.trim() ;
           const commandArgs = commandDefinition
             ? parseCommandArgs(commandDefinition, rawText)
             : rawText
@@ -657,7 +657,7 @@ export const registerTelegramNativeCommands = ({
             return;
           }
           const chatId = msg.chat.id;
-          const rawText = ctx.match?.trim() ?? "";
+          const rawText = ctx.match?.trim() ;
           const commandBody = `/${pluginCommand.command}${rawText ? ` ${rawText}` : ""}`;
           const match = matchPluginCommand(commandBody);
           if (!match) {

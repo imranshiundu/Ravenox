@@ -142,7 +142,7 @@ describe("sessions.usage", () => {
 
   it("resolves store entries by sessionId when queried via discovered agent-prefixed key", async () => {
     const storeKey = "agent:opus:slack:dm:u123";
-    const stateDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-usage-test-"));
+    const stateDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-usage-test-"));
     const envSnapshot = captureEnv(["RAVENOX_STATE_DIR"]);
     process.env.RAVENOX_STATE_DIR = stateDir;
 

@@ -56,7 +56,7 @@ vi.mock("./bot.js", () => ({
     handlers.message = async (ctx: MockCtx) => {
       const chatId = ctx.message.chat.id;
       const isGroup = ctx.message.chat.type !== "private";
-      const text = ctx.message.text ?? ctx.message.caption ?? "";
+      const text = ctx.message.text ?? ctx.message.caption ;
       if (isGroup && !text.includes("@mybot")) {
         return;
       }

@@ -711,8 +711,8 @@ async function maybeMigrateLegacyConfig(): Promise<string[]> {
     return changes;
   }
 
-  const targetDir = path.join(home, ".ravenox");
-  const targetPath = path.join(targetDir, .ravenox.json");
+  const targetDir = path.join(home, "".ravenox");
+  const targetPath = path.join(targetDir, "ravenox.json");
   try {
     await fs.access(targetPath);
     return changes;
@@ -806,7 +806,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       }
     } else {
       fixHints.push(
-        `Run "${formatCliCommand(.ravenox doctor --fix")}" to apply legacy migrations.`,
+        `Run "${formatCliCommand("ravenox doctor --fix")}" to apply legacy migrations.`,
       );
     }
   }
@@ -819,7 +819,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
     if (shouldRepair) {
       cfg = normalized.config;
     } else {
-      fixHints.push(`Run "${formatCliCommand(.ravenox doctor --fix")}" to apply these changes.`);
+      fixHints.push(`Run "${formatCliCommand("ravenox doctor --fix")}" to apply these changes.`);
     }
   }
 
@@ -831,7 +831,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
     if (shouldRepair) {
       cfg = autoEnable.config;
     } else {
-      fixHints.push(`Run "${formatCliCommand(.ravenox doctor --fix")}" to apply these changes.`);
+      fixHints.push(`Run "${formatCliCommand("ravenox doctor --fix")}" to apply these changes.`);
     }
   }
 
@@ -865,7 +865,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       note(
         [
           `- Telegram allowFrom contains ${hits.length} non-numeric entries (e.g. ${hits[0]?.entry ?? "@"}); Telegram authorization requires numeric sender IDs.`,
-          `- Run "${formatCliCommand(.ravenox doctor --fix")}" to auto-resolve @username entries to numeric IDs (requires a Telegram bot token).`,
+          `- Run "${formatCliCommand("ravenox doctor --fix")}" to auto-resolve @username entries to numeric IDs (requires a Telegram bot token).`,
         ].join("\n"),
         "Doctor warnings",
       );
@@ -876,7 +876,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       note(
         [
           `- Discord allowlists contain ${discordHits.length} numeric entries (e.g. ${discordHits[0]?.path}=${discordHits[0]?.entry}).`,
-          `- Discord IDs must be strings; run "${formatCliCommand(.ravenox doctor --fix")}" to convert numeric IDs to quoted strings.`,
+          `- Discord IDs must be strings; run "${formatCliCommand("ravenox doctor --fix")}" to convert numeric IDs to quoted strings.`,
         ].join("\n"),
         "Doctor warnings",
       );
@@ -887,7 +887,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       note(
         [
           ...allowFromScan.changes,
-          `- Run "${formatCliCommand(.ravenox doctor --fix")}" to add missing allowFrom wildcards.`,
+          `- Run "${formatCliCommand("ravenox doctor --fix")}" to add missing allowFrom wildcards.`,
         ].join("\n"),
         "Doctor warnings",
       );
@@ -904,7 +904,7 @@ export async function loadAndMaybeMigrateDoctorConfig(params: {
       note(lines, "Doctor changes");
     } else {
       note(lines, "Unknown config keys");
-      fixHints.push('Run .ravenox doctor --fix" to remove these keys.');
+      fixHints.push('Run "ravenox doctor --fix" to remove these keys.');
     }
   }
 

@@ -93,8 +93,8 @@ function shouldForward(params: {
 
 function buildTargetKey(target: ExecApprovalForwardTarget): string {
   const channel = normalizeMessageChannel(target.channel) ?? target.channel;
-  const accountId = target.accountId ?? "";
-  const threadId = target.threadId ?? "";
+  const accountId = target.accountId ;
+  const threadId = target.threadId ;
   return [channel, target.to, accountId, threadId].join(":");
 }
 

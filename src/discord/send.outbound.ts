@@ -9,7 +9,7 @@ import { loadConfig } from "../config/config.js";
 import { resolveMarkdownTableMode } from "../config/markdown-tables.js";
 import { recordChannelActivity } from "../infra/channel-activity.js";
 import type { RetryConfig } from "../infra/retry.js";
-import { resolvePreferredRavenoxTmpDir } from "../infra/tmp.ravenox-dir.js";
+import { resolvePreferredRavenoxTmpDir } from "../infra/tmp-ravenox-dir.js";
 import { convertMarkdownTables } from "../markdown/tables.js";
 import { maxBytesForKind } from "../media/constants.js";
 import { extensionForMime } from "../media/mime.js";
@@ -71,7 +71,7 @@ function deriveForumThreadName(text: string): string {
     text
       .split("\n")
       .find((l) => l.trim())
-      ?.trim() ?? "";
+      ?.trim() ;
   return firstLine.slice(0, DISCORD_THREAD_NAME_LIMIT) || new Date().toISOString().slice(0, 16);
 }
 

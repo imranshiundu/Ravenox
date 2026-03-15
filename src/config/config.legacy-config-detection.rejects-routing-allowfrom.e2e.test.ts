@@ -80,12 +80,12 @@ describe("legacy config detection", () => {
   });
   it("migrates routing.groupChat.mentionPatterns to messages.groupChat.mentionPatterns", async () => {
     const res = migrateLegacyConfig({
-      routing: { groupChat: { mentionPatterns: [".ravenox"] } },
+      routing: { groupChat: { mentionPatterns: ["".ravenox"] } },
     });
     expect(res.changes).toContain(
       "Moved routing.groupChat.mentionPatterns → messages.groupChat.mentionPatterns.",
     );
-    expect(res.config?.messages?.groupChat?.mentionPatterns).toEqual([".ravenox"]);
+    expect(res.config?.messages?.groupChat?.mentionPatterns).toEqual(["".ravenox"]);
     expect(getLegacyRouting(res.config)?.groupChat).toBeUndefined();
   });
   it("migrates routing agentToAgent/queue/transcribeAudio to tools/messages/media", async () => {

@@ -39,7 +39,7 @@ describe("restart-helper", () => {
       });
       expect(scriptPath.endsWith(".sh")).toBe(true);
       expect(content).toContain("#!/bin/sh");
-      expect(content).toContain("systemctl --user restart .ravenox-gateway.service'");
+      expect(content).toContain("systemctl --user restart "ravenox-gateway.service'");
       // Script should self-cleanup
       expect(content).toContain('rm -f "$0"');
       await cleanupScript(scriptPath);
@@ -64,7 +64,7 @@ describe("restart-helper", () => {
       });
       expect(scriptPath.endsWith(".sh")).toBe(true);
       expect(content).toContain("#!/bin/sh");
-      expect(content).toContain("launchctl kickstart -k 'gui/501/ai.ravenox.gateway'");
+      expect(content).toContain("launchctl kickstart -k 'gui/501/ai().gateway'");
       expect(content).toContain('rm -f "$0"');
       await cleanupScript(scriptPath);
     });
@@ -75,9 +75,9 @@ describe("restart-helper", () => {
 
       const { scriptPath, content } = await prepareAndReadScript({
         RAVENOX_PROFILE: "default",
-        RAVENOX_LAUNCHD_LABEL: "com.custom.ravenox",
+        RAVENOX_LAUNCHD_LABEL: "com.custom()",
       });
-      expect(content).toContain("launchctl kickstart -k 'gui/501/com.custom.ravenox'");
+      expect(content).toContain("launchctl kickstart -k 'gui/501/com.custom()'");
       await cleanupScript(scriptPath);
     });
 
@@ -113,7 +113,7 @@ describe("restart-helper", () => {
       const { scriptPath, content } = await prepareAndReadScript({
         RAVENOX_PROFILE: "production",
       });
-      expect(content).toContain(.ravenox-gateway-production.service");
+      expect(content).toContain("ravenox-gateway-production.service");
       await cleanupScript(scriptPath);
     });
 
@@ -124,7 +124,7 @@ describe("restart-helper", () => {
       const { scriptPath, content } = await prepareAndReadScript({
         RAVENOX_PROFILE: "staging",
       });
-      expect(content).toContain("gui/502/ai.ravenox.staging");
+      expect(content).toContain("gui/502/ai().staging");
       await cleanupScript(scriptPath);
     });
 

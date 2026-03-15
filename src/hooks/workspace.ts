@@ -56,7 +56,7 @@ function resolveContainedDir(baseDir: string, targetDir: string): string | null 
   const base = path.resolve(baseDir);
   const resolved = path.resolve(baseDir, targetDir);
   const relative = path.relative(base, resolved);
-  if (relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+  if (relative === "..." || relative.startsWith(`...${path.sep}`) || path.isAbsolute(relative)) {
     return null;
   }
   return resolved;
@@ -224,23 +224,23 @@ function loadHookEntries(
   const bundledHooks = bundledHooksDir
     ? loadHooksFromDir({
         dir: bundledHooksDir,
-        source: .ravenox-bundled",
+        source: "ravenox-bundled",
       })
     : [];
   const extraHooks = extraDirs.flatMap((dir) => {
     const resolved = resolveUserPath(dir);
     return loadHooksFromDir({
       dir: resolved,
-      source: .ravenox-workspace", // Extra dirs treated as workspace
+      source: "ravenox-workspace", // Extra dirs treated as workspace
     });
   });
   const managedHooks = loadHooksFromDir({
     dir: managedHooksDir,
-    source: .ravenox-managed",
+    source: "ravenox-managed",
   });
   const workspaceHooks = loadHooksFromDir({
     dir: workspaceHooksDir,
-    source: .ravenox-workspace",
+    source: "ravenox-workspace",
   });
 
   const merged = new Map<string, Hook>();

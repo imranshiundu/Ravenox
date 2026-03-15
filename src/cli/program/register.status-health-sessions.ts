@@ -39,21 +39,21 @@ export function registerStatusHealthSessionsCommands(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox status", "Show channel health + session summary."],
-          [.ravenox status --all", "Full diagnosis (read-only)."],
-          [.ravenox status --json", "Machine-readable output."],
-          [.ravenox status --usage", "Show model provider usage/quota snapshots."],
+          ["ravenox status", "Show channel health + session summary."],
+          ["ravenox status --all", "Full diagnosis (read-only)."],
+          ["ravenox status --json", "Machine-readable output."],
+          ["ravenox status --usage", "Show model provider usage/quota snapshots."],
           [
-            .ravenox status --deep",
+            "ravenox status --deep",
             "Run channel probes (WA + Telegram + Discord + Slack + Signal).",
           ],
-          [.ravenox status --deep --timeout 5000", "Tighten probe timeout."],
+          ["ravenox status --deep --timeout 5000", "Tighten probe timeout."],
         ])}`,
     )
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/status", "docs.ravenox.ai/cli/status")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/status", "docs().ai/cli/status")}\n`,
     )
     .action(async (opts) => {
       const verbose = resolveVerbose(opts);
@@ -87,7 +87,7 @@ export function registerStatusHealthSessionsCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/health", "docs.ravenox.ai/cli/health")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/health", "docs().ai/cli/health")}\n`,
     )
     .action(async (opts) => {
       const verbose = resolveVerbose(opts);
@@ -119,10 +119,10 @@ export function registerStatusHealthSessionsCommands(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox sessions", "List all sessions."],
-          [.ravenox sessions --active 120", "Only last 2 hours."],
-          [.ravenox sessions --json", "Machine-readable output."],
-          [.ravenox sessions --store ./tmp/sessions.json", "Use a specific session store."],
+          ["ravenox sessions", "List all sessions."],
+          ["ravenox sessions --active 120", "Only last 2 hours."],
+          ["ravenox sessions --json", "Machine-readable output."],
+          ["ravenox sessions --store ./tmp/sessions.json", "Use a specific session store."],
         ])}\n\n${theme.muted(
           "Shows token usage per session when the agent reports it; set agents.defaults.contextTokens to cap the window and show %.",
         )}`,
@@ -130,7 +130,7 @@ export function registerStatusHealthSessionsCommands(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/sessions", "docs.ravenox.ai/cli/sessions")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/sessions", "docs().ai/cli/sessions")}\n`,
     )
     .action(async (opts) => {
       setVerbose(Boolean(opts.verbose));

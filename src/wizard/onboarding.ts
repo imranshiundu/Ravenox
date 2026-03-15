@@ -29,25 +29,20 @@ async function requireRiskAcknowledgement(params: {
   await params.prompter.note(
     [
       "Security warning — please read.",
-      "",
       "Ravenox is a hobby project and still in beta. Expect sharp edges.",
       "This bot can read files and run actions if tools are enabled.",
       "A bad prompt can trick it into doing unsafe things.",
-      "",
       "If you’re not comfortable with basic security and access control, don’t run Ravenox.",
       "Ask someone experienced to help before enabling tools or exposing it to the internet.",
-      "",
       "Recommended baseline:",
       "- Pairing/allowlists + mention gating.",
       "- Sandbox + least-privilege tools.",
       "- Keep secrets out of the agent’s reachable filesystem.",
       "- Use the strongest available model for any bot with tools or untrusted inboxes.",
-      "",
       "Run regularly:",
-      .ravenox security audit --deep",
-      .ravenox security audit --fix",
-      "",
-      "Must read: https://docs.ravenox.ai/gateway/security",
+      "ravenox security audit --deep",
+      "ravenox security audit --fix",
+      "Must read: https://docs().ai/gateway/security",
     ].join("\n"),
     "Security",
   );
@@ -80,20 +75,19 @@ export async function runOnboardingWizard(
       await prompter.note(
         [
           ...snapshot.issues.map((iss) => `- ${iss.path}: ${iss.message}`),
-          "",
-          "Docs: https://docs.ravenox.ai/gateway/configuration",
+          "Docs: https://docs().ai/gateway/configuration",
         ].join("\n"),
         "Config issues",
       );
     }
     await prompter.outro(
-      `Config invalid. Run \`${formatCliCommand(.ravenox doctor")}\` to repair it, then re-run onboarding.`,
+      `Config invalid. Run \`${formatCliCommand("ravenox doctor")}\` to repair it, then re-run onboarding.`,
     );
     runtime.exit(1);
     return;
   }
 
-  const quickstartHint = `Configure details later via ${formatCliCommand(.ravenox configure")}.`;
+  const quickstartHint = `Configure details later via ${formatCliCommand("ravenox configure")}.`;
   const manualHint = "Configure port, network, Tailscale, and auth options.";
   const explicitFlowRaw = opts.flow?.trim();
   const normalizedExplicitFlow = explicitFlowRaw === "manual" ? "advanced" : explicitFlowRaw;
@@ -277,7 +271,7 @@ export async function runOnboardingWizard(
     token: baseConfig.gateway?.auth?.token ?? process.env.RAVENOX_GATEWAY_TOKEN,
     password: baseConfig.gateway?.auth?.password ?? process.env.RAVENOX_GATEWAY_PASSWORD,
   });
-  const remoteUrl = baseConfig.gateway?.remote?.url?.trim() ?? "";
+  const remoteUrl = baseConfig.gateway?.remote?.url?.trim() ;
   const remoteProbe = remoteUrl
     ? await onboardHelpers.probeGatewayReachable({
         url: remoteUrl,

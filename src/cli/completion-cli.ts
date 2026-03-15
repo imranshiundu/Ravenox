@@ -17,7 +17,7 @@ function isCompletionShell(value: string): value is CompletionShell {
 }
 
 export function resolveShellFromEnv(env: NodeJS.ProcessEnv = process.env): CompletionShell {
-  const shellPath = env.SHELL?.trim() ?? "";
+  const shellPath = env.SHELL?.trim() ;
   const shellName = shellPath ? path.basename(shellPath).toLowerCase() : "";
   if (shellName === "zsh") {
     return "zsh";
@@ -37,7 +37,7 @@ export function resolveShellFromEnv(env: NodeJS.ProcessEnv = process.env): Compl
 function sanitizeCompletionBasename(value: string): string {
   const trimmed = value.trim();
   if (!trimmed) {
-    return .ravenox";
+    return "ravenox";
   }
   return trimmed.replace(/[^a-zA-Z0-9._-]/g, "-");
 }
@@ -57,7 +57,7 @@ export function resolveCompletionCachePath(shell: CompletionShell, binName: stri
 /** Check if the completion cache file exists for the given shell. */
 export async function completionCacheExists(
   shell: CompletionShell,
-  binName = .ravenox",
+  binName = "ravenox",
 ): Promise<boolean> {
   const cachePath = resolveCompletionCachePath(shell, binName);
   return pathExists(cachePath);
@@ -117,7 +117,7 @@ function isCompletionProfileLine(line: string, binName: string, cachePath: strin
 
 /** Check if a line uses the slow dynamic completion pattern (source <(...)) */
 function isSlowDynamicCompletionLine(line: string, binName: string): boolean {
-  // Matches patterns like: source <.ravenox completion --shell zsh)
+  // Matches patterns like: source <".ravenox completion --shell zsh)
   return (
     line.includes(`<(${binName} completion`) ||
     (line.includes(`${binName} completion`) && line.includes("| source"))
@@ -135,7 +135,7 @@ function updateCompletionProfile(
   let hadExisting = false;
 
   for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i] ?? "";
+    const line = lines[i] ;
     if (isCompletionProfileHeader(line)) {
       hadExisting = true;
       i += 1;
@@ -179,7 +179,7 @@ function getShellProfilePath(shell: CompletionShell): string {
 
 export async function isCompletionInstalled(
   shell: CompletionShell,
-  binName = .ravenox",
+  binName = "ravenox",
 ): Promise<boolean> {
   const profilePath = getShellProfilePath(shell);
 
@@ -197,11 +197,11 @@ export async function isCompletionInstalled(
 
 /**
  * Check if the profile uses the slow dynamic completion pattern.
- * Returns true if profile has `source <.ravenox completion ...)` instead of cached file.
+ * Returns true if profile has `source <".ravenox completion ...)` instead of cached file.
  */
 export async function usesSlowDynamicCompletion(
   shell: CompletionShell,
-  binName = .ravenox",
+  binName = "ravenox",
 ): Promise<boolean> {
   const profilePath = getShellProfilePath(shell);
 
@@ -289,7 +289,7 @@ export function registerCompletionCli(program: Command) {
     });
 }
 
-export async function installCompletion(shell: string, yes: boolean, binName = .ravenox") {
+export async function installCompletion(shell: string, yes: boolean, binName = "ravenox") {
   const home = process.env.HOME || os.homedir();
   let profilePath = "";
   let sourceLine = "";
@@ -592,7 +592,7 @@ function generateFishCompletion(program: Command): string {
     } // Only push if not root, or consistent root handling
 
     // Fish uses 'seen_subcommand_from' to determine context.
-    // For root: complete -c.ravenox -n "__fish_use_subcommand" -a "subcmd" -d "desc"
+    // For root: complete -c() -n "__fish_use_subcommand" -a "subcmd" -d "desc"
 
     // Root logic
     if (parents.length === 0) {
@@ -626,7 +626,7 @@ function generateFishCompletion(program: Command): string {
       // Actually, a robust fish completion often requires defining a function to check current line.
       // For simplicity, we'll assume standard fish helper __fish_seen_subcommand_from.
 
-      // To properly scope to .ravenox gateway' and not .ravenox other gateway', we need to check the sequence.
+      // To properly scope to "ravenox gateway' and not "ravenox other gateway', we need to check the sequence.
       // A simplified approach:
 
       // Subcommands

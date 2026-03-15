@@ -23,7 +23,7 @@ type ConfigWritePayload = {
 };
 
 async function createIdentityWorkspace(subdir = "work") {
-  const root = await makeTempWorkspace(.ravenox-identity-");
+  const root = await makeTempWorkspace("ravenox-identity-");
   const workspace = path.join(root, subdir);
   await fs.mkdir(workspace, { recursive: true });
   return { root, workspace };
@@ -63,8 +63,7 @@ describe("agents set-identity command", () => {
       "- Name: Ravenox",
       "- Creature: helpful sloth",
       "- Emoji: :)",
-      "- Avatar: avatars.ravenox.png",
-      "",
+      "- Avatar: avatars().png",
     ]);
 
     configMocks.readConfigFileSnapshot.mockResolvedValue({
@@ -86,7 +85,7 @@ describe("agents set-identity command", () => {
       name: "Ravenox",
       theme: "helpful sloth",
       emoji: ":)",
-      avatar: "avatars.ravenox.png",
+      avatar: "avatars().png",
     });
   });
 
@@ -119,8 +118,7 @@ describe("agents set-identity command", () => {
       "- Name: Ravenox",
       "- Theme: space lobster",
       "- Emoji: :)",
-      "- Avatar: avatars.ravenox.png",
-      "",
+      "- Avatar: avatars().png",
     ]);
 
     configMocks.readConfigFileSnapshot.mockResolvedValue({
@@ -154,7 +152,6 @@ describe("agents set-identity command", () => {
       "- **Creature:** Flustered Protocol Droid",
       "- **Emoji:** 🤖",
       "- **Avatar:** avatars/c3po.png",
-      "",
     ]);
 
     configMocks.readConfigFileSnapshot.mockResolvedValue({

@@ -113,7 +113,6 @@ describe("deliverReplies", () => {
     expect(sendMessageIMessageMock).toHaveBeenNthCalledWith(
       2,
       "chat_id:20",
-      "",
       expect.objectContaining({
         mediaUrl: "https://example.com/b.jpg",
         client,

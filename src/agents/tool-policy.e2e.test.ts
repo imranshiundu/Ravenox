@@ -47,8 +47,8 @@ describe("tool-policy", () => {
     expect(resolveToolProfilePolicy("nope")).toBeUndefined();
   });
 
-  it("includes core tool groups in group.ravenox", () => {
-    const group = TOOL_GROUPS["group.ravenox"];
+  it("includes core tool groups in group()", () => {
+    const group = TOOL_GROUPS["group()"];
     expect(group).toContain("browser");
     expect(group).toContain("message");
     expect(group).toContain("subagents");

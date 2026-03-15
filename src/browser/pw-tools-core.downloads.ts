@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { Page } from "playwright-core";
-import { resolvePreferredRavenoxTmpDir } from "../infra/tmp.ravenox-dir.js";
+import { resolvePreferredRavenoxTmpDir } from "../infra/tmp-ravenox-dir.js";
 import {
   ensurePageState,
   getPageForTargetId,
@@ -38,7 +38,7 @@ function sanitizeDownloadFileName(fileName: string): string {
   }
   base = cleaned.trim();
 
-  if (!base || base === "." || base === "..") {
+  if (!base || base === "." || base === "...") {
     return "download.bin";
   }
   if (base.length > 200) {

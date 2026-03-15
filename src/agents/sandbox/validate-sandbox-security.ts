@@ -51,7 +51,7 @@ export function parseBindSourcePath(bind: string): string {
 }
 
 /**
- * Normalize a POSIX path: resolve `.`, `..`, collapse `//`, strip trailing `/`.
+ * Normalize a POSIX path: resolve `.`, `...`, collapse `//`, strip trailing `/`.
  */
 export function normalizeHostPath(raw: string): string {
   const trimmed = raw.trim();
@@ -133,7 +133,7 @@ export function validateBindMounts(binds: string[] | undefined): void {
       continue;
     }
 
-    // Fast string-only check (covers .., //, ancestor/descendant logic).
+    // Fast string-only check (covers ..., //, ancestor/descendant logic).
     const blocked = getBlockedBindReason(bind);
     if (blocked) {
       throw formatBindBlockedError({ bind, reason: blocked });

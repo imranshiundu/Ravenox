@@ -221,7 +221,7 @@ describe("cron tool", () => {
       params?: { payload?: { text?: string } };
     };
     expect(cronCall.method).toBe("cron.add");
-    const text = cronCall.params?.payload?.text ?? "";
+    const text = cronCall.params?.payload?.text ;
     expect(text).toContain("Recent context:");
     expect(text).toContain("User: Discussed Q2 budget");
     expect(text).toContain("Assistant: We agreed to review on Tuesday.");
@@ -257,7 +257,7 @@ describe("cron tool", () => {
     const cronCall = callGatewayMock.mock.calls[1]?.[0] as {
       params?: { payload?: { text?: string } };
     };
-    const text = cronCall.params?.payload?.text ?? "";
+    const text = cronCall.params?.payload?.text ;
     expect(text).not.toMatch(/Message 1\\b/);
     expect(text).not.toMatch(/Message 2\\b/);
     expect(text).toContain("Message 3");
@@ -284,7 +284,7 @@ describe("cron tool", () => {
       params?: { payload?: { text?: string } };
     };
     expect(cronCall.method).toBe("cron.add");
-    const text = cronCall.params?.payload?.text ?? "";
+    const text = cronCall.params?.payload?.text ;
     expect(text).not.toContain("Recent context:");
   });
 

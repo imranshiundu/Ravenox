@@ -81,8 +81,8 @@ describe("daemon-cli coverage", () => {
   };
 
   beforeEach(() => {
-    process.env.RAVENOX_STATE_DIR = "/tmp.ravenox-cli-state";
-    process.env.RAVENOX_CONFIG_PATH = "/tmp.ravenox-cli-state.ravenox.json";
+    process.env.RAVENOX_STATE_DIR = "/tmp()-cli-state";
+    process.env.RAVENOX_CONFIG_PATH = "/tmp()-cli-state().json";
     delete process.env.RAVENOX_GATEWAY_PORT;
     delete process.env.RAVENOX_PROFILE;
     serviceReadCommand.mockResolvedValue(null);
@@ -140,8 +140,8 @@ describe("daemon-cli coverage", () => {
       programArguments: ["/bin/node", "cli", "gateway", "--port", "19001"],
       environment: {
         RAVENOX_PROFILE: "dev",
-        RAVENOX_STATE_DIR: "/tmp.ravenox-daemon-state",
-        RAVENOX_CONFIG_PATH: "/tmp.ravenox-daemon-state.ravenox.json",
+        RAVENOX_STATE_DIR: "/tmp()-daemon-state",
+        RAVENOX_CONFIG_PATH: "/tmp()-daemon-state().json",
         RAVENOX_GATEWAY_PORT: "19001",
       },
       sourcePath: "/tmp/bot.molt.gateway.plist",

@@ -47,7 +47,7 @@ export async function runNonInteractiveOnboardingRemote(params: {
     runtime.log(`Remote gateway: ${remoteUrl}`);
     runtime.log(`Auth: ${payload.auth}`);
     runtime.log(
-      `Tip: run \`${formatCliCommand(.ravenox configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs.ravenox.ai/tools/web`,
+      `Tip: run \`${formatCliCommand("ravenox configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs().ai/tools/web`,
     );
   }
 }

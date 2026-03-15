@@ -12,7 +12,7 @@ import {
   testState,
 } from "./test-helpers.js";
 
-const { createRavenoxTools } = await import("../agents.ravenox-tools.js");
+const { createRavenoxTools } = await import("../agents-ravenox-tools.js");
 
 installGatewayTestHooks({ scope: "suite" });
 

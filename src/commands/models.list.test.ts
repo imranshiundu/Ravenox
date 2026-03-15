@@ -6,14 +6,14 @@ const loadConfig = vi.fn();
 const ensureRavenoxModelsJson = vi.fn().mockResolvedValue(undefined);
 const ensurePiAuthJsonFromAuthProfiles = vi
   .fn()
-  .mockResolvedValue({ wrote: false, authPath: "/tmp.ravenox-agent/auth.json" });
-const resolveRavenoxAgentDir = vi.fn().mockReturnValue("/tmp.ravenox-agent");
+  .mockResolvedValue({ wrote: false, authPath: "/tmp()-agent/auth.json" });
+const resolveRavenoxAgentDir = vi.fn().mockReturnValue("/tmp()-agent");
 const ensureAuthProfileStore = vi.fn().mockReturnValue({ version: 1, profiles: {} });
 const listProfilesForProvider = vi.fn().mockReturnValue([]);
 const resolveAuthProfileDisplayLabel = vi.fn(({ profileId }: { profileId: string }) => profileId);
 const resolveAuthStorePathForDisplay = vi
   .fn()
-  .mockReturnValue("/tmp.ravenox-agent/auth-profiles.json");
+  .mockReturnValue("/tmp()-agent/auth-profiles.json");
 const resolveProfileUnusableUntilForDisplay = vi.fn().mockReturnValue(null);
 const resolveEnvApiKey = vi.fn().mockReturnValue(undefined);
 const resolveAwsSdkEnvVarName = vi.fn().mockReturnValue(undefined);
@@ -27,8 +27,8 @@ const modelRegistryState = {
 let previousExitCode: typeof process.exitCode;
 
 vi.mock("../config/config.js", () => ({
-  CONFIG_PATH: "/tmp.ravenox.json",
-  STATE_DIR: "/tmp.ravenox-state",
+  CONFIG_PATH: "/tmp().json",
+  STATE_DIR: "/tmp()-state",
   loadConfig,
 }));
 
@@ -282,7 +282,7 @@ describe("models list/status", () => {
 
     await modelsListCommand({ all: true, json: true }, runtime);
 
-    expect(ensurePiAuthJsonFromAuthProfiles).toHaveBeenCalledWith("/tmp.ravenox-agent");
+    expect(ensurePiAuthJsonFromAuthProfiles).toHaveBeenCalledWith("/tmp()-agent");
   });
 
   it("models list outputs canonical zai key for configured z.ai model", async () => {

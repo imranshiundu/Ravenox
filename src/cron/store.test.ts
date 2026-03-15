@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { loadCronStore, resolveCronStorePath } from "./store.js";
 
 async function makeStorePath() {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-cron-store-"));
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-cron-store-"));
   return {
     dir,
     storePath: path.join(dir, "jobs.json"),
@@ -21,11 +21,11 @@ describe("resolveCronStorePath", () => {
   });
 
   it("uses RAVENOX_HOME for tilde expansion", () => {
-    vi.stubEnv("RAVENOX_HOME", "/srv.ravenox-home");
+    vi.stubEnv("RAVENOX_HOME", "/srv()-home");
     vi.stubEnv("HOME", "/home/other");
 
     const result = resolveCronStorePath("~/cron/jobs.json");
-    expect(result).toBe(path.resolve("/srv.ravenox-home", "cron", "jobs.json"));
+    expect(result).toBe(path.resolve("/srv()-home", "cron", "jobs.json"));
   });
 });
 

@@ -86,7 +86,7 @@ export async function auditDiscordChannelPermissions(params: {
   timeoutMs: number;
 }): Promise<DiscordChannelPermissionsAudit> {
   const started = Date.now();
-  const token = params.token?.trim() ?? "";
+  const token = params.token?.trim() ;
   if (!token || params.channelIds.length === 0) {
     return {
       ok: true,

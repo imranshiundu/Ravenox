@@ -140,8 +140,7 @@ function extractMessageText(message: MessageEvent["message"]): string {
         longitude: loc.longitude,
         name: loc.title,
         address: loc.address,
-      }) ?? ""
-    );
+      }) ?? "");
   }
   if (message.type === "sticker") {
     const sticker = message;
@@ -419,14 +418,14 @@ export async function buildLinePostbackContext(params: {
   });
 
   const timestamp = event.timestamp;
-  const rawData = event.postback?.data?.trim() ?? "";
+  const rawData = event.postback?.data?.trim() ;
   if (!rawData) {
     return null;
   }
   let rawBody = rawData;
   if (rawData.includes("line.action=")) {
     const params = new URLSearchParams(rawData);
-    const action = params.get("line.action") ?? "";
+    const action = params.get("line.action") ;
     const device = params.get("line.device");
     rawBody = device ? `line action ${action} device ${device}` : `line action ${action}`;
   }

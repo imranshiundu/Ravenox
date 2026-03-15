@@ -30,9 +30,9 @@ const NOW = Date.now();
 
 function createContainer(overrides: Partial<SandboxContainerInfo> = {}): SandboxContainerInfo {
   return {
-    containerName: .ravenox-sandbox-test",
+    containerName: "ravenox-sandbox-test",
     sessionKey: "test-session",
-    image: .ravenox/sandbox:latest",
+    image: "ravenox/sandbox:latest",
     imageMatch: true,
     running: true,
     createdAtMs: NOW - 3600000,
@@ -43,9 +43,9 @@ function createContainer(overrides: Partial<SandboxContainerInfo> = {}): Sandbox
 
 function createBrowser(overrides: Partial<SandboxBrowserInfo> = {}): SandboxBrowserInfo {
   return {
-    containerName: .ravenox-browser-test",
+    containerName: "ravenox-browser-test",
     sessionKey: "test-session",
-    image: .ravenox/browser:latest",
+    image: "ravenox/browser:latest",
     imageMatch: true,
     running: true,
     createdAtMs: NOW - 3600000,

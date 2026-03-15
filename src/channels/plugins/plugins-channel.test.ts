@@ -125,7 +125,6 @@ describe("telegramOutbound.sendPayload", () => {
     expect(sendTelegram).toHaveBeenNthCalledWith(
       2,
       "telegram:123",
-      "",
       expect.objectContaining({
         mediaUrl: "https://example.com/b.png",
       }),

@@ -337,7 +337,6 @@ export const OPENAI_TTS_MODELS = ["gpt-4o-mini-tts", "tts-1", "tts-1-hd"] as con
 function getOpenAITtsBaseUrl(): string {
   return (process.env.OPENAI_TTS_BASE_URL?.trim() || "https://api.openai.com/v1").replace(
     /\/+$/,
-    "",
   );
 }
 

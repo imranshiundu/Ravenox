@@ -125,7 +125,6 @@ describe("promptCustomApiConfig", () => {
         "https://ok.example.com/v1",
         "ok-key",
         "custom",
-        "",
       ],
       select: ["unknown", "baseUrl"],
     });

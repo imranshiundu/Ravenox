@@ -66,7 +66,7 @@ describe("promptDefaultModel", () => {
 
     const select = vi.fn(async (params) => {
       const first = params.options[0];
-      return first?.value ?? "";
+      return first?.value ;
     });
     const prompter = makePrompter({ select });
     const config = { agents: { defaults: {} } } as RavenoxConfig;
@@ -111,7 +111,7 @@ describe("promptDefaultModel", () => {
       includeManual: false,
       includeVllm: true,
       ignoreAllowlist: true,
-      agentDir: "/tmp.ravenox-agent",
+      agentDir: "/tmp()-agent",
     });
 
     expect(upsertAuthProfileWithLock).toHaveBeenCalledWith(

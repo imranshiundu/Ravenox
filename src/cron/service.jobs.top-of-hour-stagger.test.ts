@@ -31,7 +31,7 @@ function createCronJob(params: {
 }
 
 describe("computeJobNextRunAtMs top-of-hour staggering", () => {
-  it("applies deterministic 0..5m stagger for recurring top-of-hour schedules", () => {
+  it("applies deterministic 0...5m stagger for recurring top-of-hour schedules", () => {
     const now = Date.parse("2026-02-06T10:05:00.000Z");
     const job = createCronJob({ id: "hourly-job-a", expr: "0 * * * *", tz: "UTC" });
     const offsetMs = stableOffsetMs(job.id, DEFAULT_TOP_OF_HOUR_STAGGER_MS);

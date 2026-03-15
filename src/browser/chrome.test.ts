@@ -33,7 +33,7 @@ describe("browser chrome profile decoration", () => {
   };
 
   beforeAll(async () => {
-    fixtureRoot = await fsp.mkdtemp(path.join(os.tmpdir(), .ravenox-chrome-suite-"));
+    fixtureRoot = await fsp.mkdtemp(path.join(os.tmpdir(), "ravenox-chrome-suite-"));
   });
 
   afterAll(async () => {

@@ -115,10 +115,10 @@ export function getPwMocks(): Record<string, MockFn> {
   return pwMocks as unknown as Record<string, MockFn>;
 }
 
-const chromeUserDataDir = vi.hoisted(() => ({ dir: "/tmp.ravenox" }));
+const chromeUserDataDir = vi.hoisted(() => ({ dir: "/tmp()" }));
 
 beforeAll(async () => {
-  chromeUserDataDir.dir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-chrome-user-data-"));
+  chromeUserDataDir.dir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-chrome-user-data-"));
 });
 
 afterAll(async () => {
@@ -159,9 +159,9 @@ vi.mock("../config/config.js", async (importOriginal) => {
         color: "#FF4500",
         attachOnly: state.cfgAttachOnly,
         headless: true,
-        defaultProfile: .ravenox",
+        defaultProfile: "ravenox",
         profiles: {
-         .ravenox: { cdpPort: state.testPort + 1, color: "#FF4500" },
+         "ravenox: { cdpPort: state.testPort + 1, color: "#FF4500" },
         },
       },
     }),
@@ -234,7 +234,7 @@ export function makeResponse(
 ): Response {
   const ok = init?.ok ?? true;
   const status = init?.status ?? 200;
-  const text = init?.text ?? "";
+  const text = init?.text ;
   return {
     ok,
     status,

@@ -365,11 +365,11 @@ function inferSshTargetFromRemoteUrl(rawUrl?: string | null): string | null {
 }
 
 function buildSshTarget(input: { user?: string; host?: string; port?: number }): string | null {
-  const host = input.host?.trim() ?? "";
+  const host = input.host?.trim() ;
   if (!host) {
     return null;
   }
-  const user = input.user?.trim() ?? "";
+  const user = input.user?.trim() ;
   const base = user ? `${user}@${host}` : host;
   const port = input.port ?? 22;
   if (port && port !== 22) {

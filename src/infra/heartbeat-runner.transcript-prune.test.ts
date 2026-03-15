@@ -45,7 +45,7 @@ describe("heartbeat transcript pruning", () => {
     }) => Promise<T>,
   ) {
     return withTempHeartbeatSandbox(fn, {
-      prefix: .ravenox-hb-prune-",
+      prefix: "ravenox-hb-prune-",
       unsetEnvVars: ["TELEGRAM_BOT_TOKEN"],
     });
   }

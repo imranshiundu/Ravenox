@@ -10,7 +10,7 @@ function normalizeGroupLabel(raw?: string) {
 }
 
 function shortenGroupId(value?: string) {
-  const trimmed = value?.trim() ?? "";
+  const trimmed = value?.trim() ;
   if (!trimmed) {
     return "";
   }
@@ -71,7 +71,7 @@ export function resolveGroupSessionKey(ctx: MsgContext): GroupKeyResolution | nu
   const providerHint = ctx.Provider?.trim().toLowerCase();
 
   const parts = from.split(":").filter(Boolean);
-  const head = parts[0]?.trim().toLowerCase() ?? "";
+  const head = parts[0]?.trim().toLowerCase() ;
   const headIsSurface = head ? getGroupSurfaces().has(head) : false;
 
   const provider = headIsSurface

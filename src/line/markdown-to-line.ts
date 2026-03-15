@@ -97,7 +97,7 @@ export function convertTableToFlexBubble(table: MarkdownTable): FlexBubble {
   const parseCell = (
     value: string | undefined,
   ): { text: string; bold: boolean; hasMarkup: boolean } => {
-    const raw = value?.trim() ?? "";
+    const raw = value?.trim() ;
     if (!raw) {
       return { text: "-", bold: false, hasMarkup: false };
     }

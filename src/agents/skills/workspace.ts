@@ -37,8 +37,8 @@ const skillCommandDebugOnce = new Set<string>();
  * to reduce system prompt token usage. Models understand `~` expansion,
  * and the read tool resolves `~` to the home directory.
  *
- * Example: `/Users/alice/.bun/.../skills/github/SKILL.md`
- *       → `~/.bun/.../skills/github/SKILL.md`
+ * Example: `/Users/alice/.bun/../skills/github/SKILL.md`
+ *       → `~/.bun/../skills/github/SKILL.md`
  *
  * Saves ~5–6 tokens per skill path × N skills ≈ 400–600 tokens total.
  */
@@ -337,19 +337,19 @@ function loadSkillEntries(
   const bundledSkills = bundledSkillsDir
     ? loadSkills({
         dir: bundledSkillsDir,
-        source: .ravenox-bundled",
+        source: "ravenox-bundled",
       })
     : [];
   const extraSkills = mergedExtraDirs.flatMap((dir) => {
     const resolved = resolveUserPath(dir);
     return loadSkills({
       dir: resolved,
-      source: .ravenox-extra",
+      source: "ravenox-extra",
     });
   });
   const managedSkills = loadSkills({
     dir: managedSkillsDir,
-    source: .ravenox-managed",
+    source: "ravenox-managed",
   });
   const personalAgentsSkillsDir = path.resolve(os.homedir(), ".agents", "skills");
   const personalAgentsSkills = loadSkills({
@@ -363,7 +363,7 @@ function loadSkillEntries(
   });
   const workspaceSkills = loadSkills({
     dir: workspaceSkillsDir,
-    source: .ravenox-workspace",
+    source: "ravenox-workspace",
   });
 
   const merged = new Map<string, Skill>();
@@ -474,7 +474,7 @@ export function buildWorkspaceSkillSnapshot(
   });
 
   const truncationNote = truncated
-    ? `⚠️ Skills truncated: included ${skillsForPrompt.length} of ${resolvedSkills.length}. Run \.ravenox skills check\` to audit.`
+    ? `⚠️ Skills truncated: included ${skillsForPrompt.length} of ${resolvedSkills.length}. Run \".ravenox skills check\` to audit.`
     : "";
 
   const prompt = [
@@ -526,7 +526,7 @@ export function buildWorkspaceSkillsPrompt(
     config: opts?.config,
   });
   const truncationNote = truncated
-    ? `⚠️ Skills truncated: included ${skillsForPrompt.length} of ${resolvedSkills.length}. Run \.ravenox skills check\` to audit.`
+    ? `⚠️ Skills truncated: included ${skillsForPrompt.length} of ${resolvedSkills.length}. Run \".ravenox skills check\` to audit.`
     : "";
   return [remoteNote, truncationNote, formatSkillsForPrompt(compactSkillPaths(skillsForPrompt))]
     .filter(Boolean)
@@ -592,7 +592,7 @@ function resolveSyncedSkillDestinationPath(params: {
   usedDirNames: Set<string>;
 }): string | null {
   const sourceDirName = path.basename(params.entry.skill.baseDir).trim();
-  if (!sourceDirName || sourceDirName === "." || sourceDirName === "..") {
+  if (!sourceDirName || sourceDirName === "." || sourceDirName === "...") {
     return null;
   }
   const uniqueDirName = resolveUniqueSyncedSkillDirName(sourceDirName, params.usedDirNames);
@@ -723,9 +723,7 @@ export function buildWorkspaceSkillCommandSpecs(
     const dispatch = (() => {
       const kindRaw = (
         entry.frontmatter?.["command-dispatch"] ??
-        entry.frontmatter?.["command_dispatch"] ??
-        ""
-      )
+        entry.frontmatter?.["command_dispatch"] ?? "")
         .trim()
         .toLowerCase();
       if (!kindRaw) {
@@ -737,9 +735,7 @@ export function buildWorkspaceSkillCommandSpecs(
 
       const toolName = (
         entry.frontmatter?.["command-tool"] ??
-        entry.frontmatter?.["command_tool"] ??
-        ""
-      ).trim();
+        entry.frontmatter?.["command_tool"] ?? "").trim();
       if (!toolName) {
         debugSkillCommandOnce(
           `dispatch:missingTool:${rawName}`,
@@ -751,9 +747,7 @@ export function buildWorkspaceSkillCommandSpecs(
 
       const argModeRaw = (
         entry.frontmatter?.["command-arg-mode"] ??
-        entry.frontmatter?.["command_arg_mode"] ??
-        ""
-      )
+        entry.frontmatter?.["command_arg_mode"] ?? "")
         .trim()
         .toLowerCase();
       const argMode = !argModeRaw || argModeRaw === "raw" ? "raw" : null;

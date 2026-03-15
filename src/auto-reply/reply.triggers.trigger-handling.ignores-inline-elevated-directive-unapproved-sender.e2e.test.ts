@@ -54,7 +54,7 @@ describe("trigger handling", () => {
         agents: {
           defaults: {
             model: "anthropic/claude-opus-4-5",
-            workspace: join(home, .ravenox"),
+            workspace: join(home, "ravenox"),
           },
         },
         tools: { elevated: { allowFrom: { discord: ["steipete"] } } },
@@ -89,7 +89,7 @@ describe("trigger handling", () => {
         agents: {
           defaults: {
             model: "anthropic/claude-opus-4-5",
-            workspace: join(home, .ravenox"),
+            workspace: join(home, "ravenox"),
           },
         },
         tools: {

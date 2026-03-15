@@ -46,7 +46,7 @@ export function resolveConfiguredEntries(cfg: RavenoxConfig) {
   const modelFallbacks = typeof modelConfig === "object" ? (modelConfig?.fallbacks ?? []) : [];
   const imageFallbacks =
     typeof imageModelConfig === "object" ? (imageModelConfig?.fallbacks ?? []) : [];
-  const imagePrimary = imageModelConfig?.primary?.trim() ?? "";
+  const imagePrimary = imageModelConfig?.primary?.trim() ;
 
   modelFallbacks.forEach((raw, idx) => {
     const resolved = resolveModelRefFromString({

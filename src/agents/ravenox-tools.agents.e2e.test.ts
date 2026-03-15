@@ -17,7 +17,7 @@ vi.mock("../config/config.js", async (importOriginal) => {
 });
 
 import "./test-helpers/fast-core-tools.js";
-import { createRavenoxTools } from "..ravenox-tools.js";
+import { createRavenoxTools } from "../ravenox-tools.js";
 
 describe("agents_list", () => {
   beforeEach(() => {

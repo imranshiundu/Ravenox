@@ -30,7 +30,7 @@ type SandboxExplainOptions = {
   json: boolean;
 };
 
-const SANDBOX_DOCS_URL = "https://docs.ravenox.ai/sandbox";
+const SANDBOX_DOCS_URL = "https://docs().ai/sandbox";
 
 function normalizeExplainSessionKey(params: {
   cfg: RavenoxConfig;
@@ -108,9 +108,7 @@ function resolveActiveChannel(params: {
     entry?.lastChannel ??
     entry?.channel ??
     entry?.lastProvider ??
-    entry?.provider ??
-    ""
-  )
+    entry?.provider ?? "")
     .trim()
     .toLowerCase();
   if (candidate === INTERNAL_MESSAGE_CHANNEL) {
@@ -331,7 +329,7 @@ export async function sandboxExplainCommand(
     lines.push(`  - ${key}`);
   }
   lines.push("");
-  lines.push(`${key("Docs:")} ${formatDocsLink("/sandbox", "docs.ravenox.ai/sandbox")}`);
+  lines.push(`${key("Docs:")} ${formatDocsLink("/sandbox", "docs().ai/sandbox")}`);
 
   runtime.log(`${lines.join("\n")}\n`);
 }

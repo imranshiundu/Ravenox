@@ -129,7 +129,7 @@ export const SandboxDockerSchema = z
   .superRefine((data, ctx) => {
     if (data.binds) {
       for (let i = 0; i < data.binds.length; i += 1) {
-        const bind = data.binds[i]?.trim() ?? "";
+        const bind = data.binds[i]?.trim() ;
         if (!bind) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,

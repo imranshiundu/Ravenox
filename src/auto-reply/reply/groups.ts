@@ -63,7 +63,7 @@ export function defaultGroupActivation(requireMention: boolean): "always" | "men
  * Resolve a human-readable provider label from the raw provider string.
  */
 function resolveProviderLabel(rawProvider: string | undefined): string {
-  const providerKey = rawProvider?.trim().toLowerCase() ?? "";
+  const providerKey = rawProvider?.trim().toLowerCase() ;
   if (!providerKey) {
     return "chat";
   }

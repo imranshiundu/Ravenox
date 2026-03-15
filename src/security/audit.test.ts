@@ -118,7 +118,7 @@ describe("security audit", () => {
   };
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-security-audit-"));
+    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-security-audit-"));
   });
 
   afterAll(async () => {
@@ -294,7 +294,7 @@ describe("security audit", () => {
     const tmp = await makeTmpDir("win");
     const stateDir = path.join(tmp, "state");
     await fs.mkdir(stateDir, { recursive: true });
-    const configPath = path.join(stateDir, .ravenox.json");
+    const configPath = path.join(stateDir, "ravenox.json");
     await fs.writeFile(configPath, "{}\n", "utf-8");
 
     const user = "DESKTOP-TEST\\Tester";
@@ -331,7 +331,7 @@ describe("security audit", () => {
     const tmp = await makeTmpDir("win-open");
     const stateDir = path.join(tmp, "state");
     await fs.mkdir(stateDir, { recursive: true });
-    const configPath = path.join(stateDir, .ravenox.json");
+    const configPath = path.join(stateDir, "ravenox.json");
     await fs.writeFile(configPath, "{}\n", "utf-8");
 
     const user = "DESKTOP-TEST\\Tester";
@@ -376,11 +376,11 @@ describe("security audit", () => {
     const stateDir = path.join(tmp, "state");
     await fs.mkdir(stateDir, { recursive: true, mode: 0o700 });
 
-    const targetConfigPath = path.join(tmp, "managed.ravenox.json");
+    const targetConfigPath = path.join(tmp, "managed().json");
     await fs.writeFile(targetConfigPath, "{}\n", "utf-8");
     await fs.chmod(targetConfigPath, 0o444);
 
-    const configPath = path.join(stateDir, .ravenox.json");
+    const configPath = path.join(stateDir, "ravenox.json");
     await fs.symlink(targetConfigPath, configPath);
 
     const res = await runSecurityAudit({
@@ -1290,8 +1290,8 @@ describe("security audit", () => {
     const cfg: RavenoxConfig = {};
 
     const res = await audit(cfg, {
-      stateDir: "/Users/test/Dropbox/.ravenox",
-      configPath: "/Users/test/Dropbox/.ravenox.ravenox.json",
+      stateDir: "/Users/test/Dropbox/".ravenox",
+      configPath: "/Users/test/Dropbox/.ravenox().json",
     });
 
     expect(res.findings).toEqual(
@@ -1316,7 +1316,7 @@ describe("security audit", () => {
       await fs.chmod(includePath, 0o644);
     }
 
-    const configPath = path.join(stateDir, .ravenox.json");
+    const configPath = path.join(stateDir, "ravenox.json");
     await fs.writeFile(configPath, `{ "$include": "./extra.json5" }\n`, "utf-8");
     await fs.chmod(configPath, 0o600);
 
@@ -1389,7 +1389,7 @@ describe("security audit", () => {
         includeFilesystem: true,
         includeChannelSecurity: false,
         stateDir,
-        configPath: path.join(stateDir, .ravenox.json"),
+        configPath: path.join(stateDir, "ravenox.json"),
       });
 
       expect(res.findings).toEqual(
@@ -1437,7 +1437,7 @@ describe("security audit", () => {
       includeFilesystem: true,
       includeChannelSecurity: false,
       stateDir,
-      configPath: path.join(stateDir, .ravenox.json"),
+      configPath: path.join(stateDir, "ravenox.json"),
     });
 
     expect(res.findings).toEqual(
@@ -1467,7 +1467,7 @@ describe("security audit", () => {
       includeFilesystem: true,
       includeChannelSecurity: false,
       stateDir,
-      configPath: path.join(stateDir, .ravenox.json"),
+      configPath: path.join(stateDir, "ravenox.json"),
     });
 
     expect(
@@ -1496,7 +1496,7 @@ describe("security audit", () => {
         includeFilesystem: true,
         includeChannelSecurity: false,
         stateDir,
-        configPath: path.join(stateDir, .ravenox.json"),
+        configPath: path.join(stateDir, "ravenox.json"),
       });
 
       expect(res.findings).toEqual(
@@ -1524,7 +1524,7 @@ describe("security audit", () => {
       path.join(pluginDir, "package.json"),
       JSON.stringify({
         name: "evil-plugin",
-       .ravenox: { extensions: [".hidden/index.js"] },
+       "ravenox: { extensions: [".hidden/index.js"] },
       }),
     );
     await fs.writeFile(
@@ -1569,7 +1569,7 @@ describe("security audit", () => {
       path.join(pluginDir, "package.json"),
       JSON.stringify({
         name: "evil-plugin",
-       .ravenox: { extensions: [".hidden/index.js"] },
+       "ravenox: { extensions: [".hidden/index.js"] },
       }),
     );
     await fs.writeFile(
@@ -1627,7 +1627,7 @@ description: test skill
       path.join(pluginDir, "package.json"),
       JSON.stringify({
         name: "escape-plugin",
-       .ravenox: { extensions: ["../outside.js"] },
+       "ravenox: { extensions: ["../outside.js"] },
       }),
     );
     await fs.writeFile(path.join(pluginDir, "index.js"), "export {};");
@@ -1649,7 +1649,7 @@ description: test skill
         path.join(pluginDir, "package.json"),
         JSON.stringify({
           name: "scanfail-plugin",
-         .ravenox: { extensions: ["index.js"] },
+         "ravenox: { extensions: ["index.js"] },
         }),
       );
       await fs.writeFile(path.join(pluginDir, "index.js"), "export {};");

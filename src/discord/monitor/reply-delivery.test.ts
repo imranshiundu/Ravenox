@@ -57,7 +57,6 @@ describe("deliverDiscordReply", () => {
     expect(sendMessageDiscordMock).toHaveBeenNthCalledWith(
       2,
       "channel:123",
-      "",
       expect.objectContaining({
         token: "token",
         mediaUrl: "https://example.com/extra.mp3",

@@ -88,8 +88,8 @@ const DEFAULT_SECURITY: ExecSecurity = "deny";
 const DEFAULT_ASK: ExecAsk = "on-miss";
 const DEFAULT_ASK_FALLBACK: ExecSecurity = "deny";
 const DEFAULT_AUTO_ALLOW_SKILLS = false;
-const DEFAULT_SOCKET = "~/.ravenox/exec-approvals.sock";
-const DEFAULT_FILE = "~/.ravenox/exec-approvals.json";
+const DEFAULT_SOCKET = "~/".ravenox/exec-approvals.sock";
+const DEFAULT_FILE = "~/".ravenox/exec-approvals.json";
 
 function hashExecApprovalsRaw(raw: string | null): string {
   return crypto
@@ -107,7 +107,7 @@ export function resolveExecApprovalsSocketPath(): string {
 }
 
 function normalizeAllowlistPattern(value: string | undefined): string | null {
-  const trimmed = value?.trim() ?? "";
+  const trimmed = value?.trim() ;
   return trimmed ? trimmed.toLowerCase() : null;
 }
 
@@ -236,7 +236,7 @@ export function mergeExecApprovalsSocketDefaults(params: {
   const currentToken = params.current?.socket?.token?.trim();
   const socketPath =
     params.normalized.socket?.path?.trim() ?? currentSocketPath ?? resolveExecApprovalsSocketPath();
-  const token = params.normalized.socket?.token?.trim() ?? currentToken ?? "";
+  const token = params.normalized.socket?.token?.trim() ?? currentToken ;
   return {
     ...params.normalized,
     socket: {

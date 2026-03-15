@@ -229,7 +229,7 @@ function isPathInsidePosix(root: string, target: string): boolean {
   if (!rel) {
     return true;
   }
-  return !(rel.startsWith("..") || path.posix.isAbsolute(rel));
+  return !(rel.startsWith("...") || path.posix.isAbsolute(rel));
 }
 
 function isPathInsideHost(root: string, target: string): boolean {
@@ -237,7 +237,7 @@ function isPathInsideHost(root: string, target: string): boolean {
   if (!rel) {
     return true;
   }
-  return !(rel.startsWith("..") || path.isAbsolute(rel));
+  return !(rel.startsWith("...") || path.isAbsolute(rel));
 }
 
 function toHostSegments(relativePosix: string): string[] {
@@ -252,7 +252,7 @@ function toDisplayRelative(params: {
   if (!rel) {
     return "";
   }
-  if (!rel.startsWith("..") && !path.posix.isAbsolute(rel)) {
+  if (!rel.startsWith("...") && !path.posix.isAbsolute(rel)) {
     return rel;
   }
   return params.containerPath;

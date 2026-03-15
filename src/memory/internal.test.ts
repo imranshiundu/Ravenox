@@ -18,7 +18,6 @@ describe("normalizeExtraMemoryPaths", () => {
       "./notes",
       absPath,
       absPath,
-      "",
     ]);
     expect(result).toEqual([path.resolve(workspaceDir, "notes"), absPath]);
   });

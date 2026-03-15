@@ -9,10 +9,10 @@ async function runDoctorConfigWithInput(params: {
   repair?: boolean;
 }) {
   return withTempHome(async (home) => {
-    const configDir = path.join(home, ".ravenox");
+    const configDir = path.join(home, "".ravenox");
     await fs.mkdir(configDir, { recursive: true });
     await fs.writeFile(
-      path.join(configDir, .ravenox.json"),
+      path.join(configDir, "ravenox.json"),
       JSON.stringify(params.config, null, 2),
       "utf-8",
     );
@@ -71,7 +71,7 @@ describe("doctor config flow", () => {
   it("resolves Telegram @username allowFrom entries to numeric IDs on repair", async () => {
     const fetchSpy = vi.fn(async (url: string) => {
       const u = String(url);
-      const chatId = new URL(u).searchParams.get("chat_id") ?? "";
+      const chatId = new URL(u).searchParams.get("chat_id") ;
       const id =
         chatId.toLowerCase() === "@testuser"
           ? 111
@@ -136,10 +136,10 @@ describe("doctor config flow", () => {
 
   it("converts numeric discord ids to strings on repair", async () => {
     await withTempHome(async (home) => {
-      const configDir = path.join(home, ".ravenox");
+      const configDir = path.join(home, "".ravenox");
       await fs.mkdir(configDir, { recursive: true });
       await fs.writeFile(
-        path.join(configDir, .ravenox.json"),
+        path.join(configDir, "ravenox.json"),
         JSON.stringify(
           {
             channels: {

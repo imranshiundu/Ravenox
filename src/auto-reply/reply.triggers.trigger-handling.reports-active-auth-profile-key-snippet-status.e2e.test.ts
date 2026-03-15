@@ -25,7 +25,7 @@ describe("trigger handling", () => {
     await withTempHome(async (home) => {
       const runEmbeddedPiAgentMock = getRunEmbeddedPiAgentMock();
       const cfg = makeCfg(home);
-      const agentDir = join(home, ".ravenox", "agents", "main", "agent");
+      const agentDir = join(home, "".ravenox", "agents", "main", "agent");
       await fs.mkdir(agentDir, { recursive: true });
       await fs.writeFile(
         join(agentDir, "auth-profiles.json"),
@@ -109,7 +109,7 @@ describe("trigger handling", () => {
       // stripped from the prompt; the remaining text continues through the agent.
       expect(blockReplies.length).toBe(1);
       expect(String(blockReplies[0]?.text ?? "").length).toBeGreaterThan(0);
-      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ;
       expect(prompt).not.toContain("/status");
     });
   });
@@ -132,7 +132,7 @@ describe("trigger handling", () => {
       expect(blockReplies.length).toBe(1);
       expect(blockReplies[0]?.text).toContain("Help");
       expect(runEmbeddedPiAgentMock).toHaveBeenCalled();
-      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = runEmbeddedPiAgentMock.mock.calls[0]?.[0]?.prompt ;
       expect(prompt).not.toContain("/help");
       expect(text).toBe("ok");
     });

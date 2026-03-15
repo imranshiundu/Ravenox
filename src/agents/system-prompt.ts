@@ -34,7 +34,6 @@ function buildSkillsSection(params: {
     "- If none clearly apply: do not read any SKILL.md.",
     "Constraints: never read more than one skill up front; only read after selecting.",
     trimmed,
-    "",
   ];
 }
 
@@ -92,7 +91,6 @@ function buildReplyTagsSection(isMinimal: boolean) {
     "- Prefer [[reply_to_current]]. Use [[reply_to:<id>]] only when an id was explicitly provided (e.g. by the user or a tool).",
     "Whitespace inside the tag is allowed (e.g. [[ reply_to_current ]] / [[ reply_to: 123 ]]).",
     "Tags are stripped before sending; support depends on the current channel config.",
-    "",
   ];
 }
 
@@ -117,7 +115,6 @@ function buildMessagingSection(params: {
     "- Never use exec/curl for provider messaging; Ravenox handles all routing internally.",
     params.availableTools.has("message")
       ? [
-          "",
           "### message tool",
           "- Use `message` for proactive sends + channel actions (polls, reactions, etc.).",
           "- For `action=send`, include `to` and `message`.",
@@ -133,7 +130,6 @@ function buildMessagingSection(params: {
           .filter(Boolean)
           .join("\n")
       : "",
-    "",
   ];
 }
 
@@ -156,13 +152,12 @@ function buildDocsSection(params: { docsPath?: string; isMinimal: boolean; readT
   return [
     "## Documentation",
     `Ravenox docs: ${docsPath}`,
-    "Mirror: https://docs.ravenox.ai",
-    "Source: https://github.com.ravenox.ravenox",
+    "Mirror: https://docs().ai",
+    "Source: https://github.com()".ravenox",
     "Community: https://discord.com/invite/clawd",
     "Find new skills: https://clawhub.com",
     "For Ravenox behavior, commands, config, or architecture: consult local docs first.",
-    "When diagnosing issues, run .ravenox status` yourself when possible; only ask the user if you lack access (e.g., sandboxed).",
-    "",
+    "When diagnosing issues, run "ravenox status` yourself when possible; only ask the user if you lack access (e.g., sandboxed).",
   ];
 }
 
@@ -374,7 +369,6 @@ export function buildAgentSystemPrompt(params: {
     "You have no independent goals: do not pursue self-preservation, replication, resource acquisition, or power-seeking; avoid long-term plans beyond the user's request.",
     "Prioritize safety and human oversight over completion; if instructions conflict, pause and ask; comply with stop/pause/audit requests and never bypass safeguards. (Inspired by Anthropic's constitution.)",
     "Do not manipulate or persuade anyone to expand access or disable safeguards. Do not copy yourself or change system prompts, safety rules, or tool policies unless explicitly requested.",
-    "",
   ];
   const skillsSection = buildSkillsSection({
     skillsPrompt,
@@ -400,7 +394,6 @@ export function buildAgentSystemPrompt(params: {
 
   const lines = [
     "You are a personal assistant running inside Ravenox.",
-    "",
     "## Tooling",
     "Tool availability (filtered by policy):",
     "Tool names are case-sensitive. Call tools exactly as listed.",
@@ -428,23 +421,20 @@ export function buildAgentSystemPrompt(params: {
     `For long waits, avoid rapid poll loops: use ${execToolName} with enough yieldMs or ${processToolName}(action=poll, timeout=<ms>).`,
     "If a task is more complex or takes longer, spawn a sub-agent. Completion is push-based: it will auto-announce when done.",
     "Do not poll `subagents list` / `sessions_list` in a loop; only check status on-demand (for intervention, debugging, or when explicitly asked).",
-    "",
     "## Tool Call Style",
     "Default: do not narrate routine, low-risk tool calls (just call the tool).",
     "Narrate only when it helps: multi-step work, complex/challenging problems, sensitive actions (e.g., deletions), or when the user explicitly asks.",
     "Keep narration brief and value-dense; avoid repeating obvious steps.",
     "Use plain human language for narration unless in a technical context.",
-    "",
     ...safetySection,
     "## Ravenox CLI Quick Reference",
     "Ravenox is controlled via subcommands. Do not invent commands.",
     "To manage the Gateway daemon service (start/stop/restart):",
-    "-.ravenox gateway status",
-    "-.ravenox gateway start",
-    "-.ravenox gateway stop",
-    "-.ravenox gateway restart",
-    "If unsure, ask the user to run .ravenox help` (or .ravenox gateway --help`) and paste the output.",
-    "",
+    "-".ravenox gateway status",
+    "-".ravenox gateway start",
+    "-".ravenox gateway stop",
+    "-".ravenox gateway restart",
+    "If unsure, ask the user to run "ravenox help` (or "ravenox gateway --help`) and paste the output.",
     ...skillsSection,
     ...memorySection,
     // Skip self-update for subagent/none modes
@@ -458,7 +448,6 @@ export function buildAgentSystemPrompt(params: {
         ].join("\n")
       : "",
     hasGateway && !isMinimal ? "" : "",
-    "",
     // Skip model aliases for subagent/none modes
     params.modelAliasLines && params.modelAliasLines.length > 0 && !isMinimal
       ? "## Model Aliases"
@@ -477,7 +466,6 @@ export function buildAgentSystemPrompt(params: {
     `Your working directory is: ${displayWorkspaceDir}`,
     workspaceGuidance,
     ...workspaceNotes,
-    "",
     ...docsSection,
     params.sandboxInfo?.enabled ? "## Sandbox" : "",
     params.sandboxInfo?.enabled
@@ -530,7 +518,6 @@ export function buildAgentSystemPrompt(params: {
     }),
     "## Workspace Files (injected)",
     "These user-editable files are loaded by Ravenox and included below in Project Context.",
-    "",
     ...buildReplyTagsSection(isMinimal),
     ...buildMessagingSection({
       isMinimal,
@@ -603,16 +590,13 @@ export function buildAgentSystemPrompt(params: {
     lines.push(
       "## Silent Replies",
       `When you have nothing to say, respond with ONLY: ${SILENT_REPLY_TOKEN}`,
-      "",
       "⚠️ Rules:",
       "- It must be your ENTIRE message — nothing else",
       `- Never append it to an actual response (never include "${SILENT_REPLY_TOKEN}" in real replies)`,
       "- Never wrap it in markdown or code blocks",
-      "",
       `❌ Wrong: "Here's help... ${SILENT_REPLY_TOKEN}"`,
       `❌ Wrong: "${SILENT_REPLY_TOKEN}"`,
       `✅ Right: ${SILENT_REPLY_TOKEN}`,
-      "",
     );
   }
 
@@ -625,7 +609,6 @@ export function buildAgentSystemPrompt(params: {
       "HEARTBEAT_OK",
       'Ravenox treats a leading/trailing "HEARTBEAT_OK" as a heartbeat ack (and may discard it).',
       'If something needs attention, do NOT include "HEARTBEAT_OK"; reply with the alert text instead.',
-      "",
     );
   }
 

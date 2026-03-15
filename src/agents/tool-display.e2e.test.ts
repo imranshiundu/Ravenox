@@ -95,13 +95,13 @@ describe("tool display details", () => {
         args: {
           command:
             "set -euo pipefail\ngit -C /Users/adityasingh/.ravenox/workspace status --short | head -n 3",
-          workdir: "/Users/adityasingh/.ravenox/workspace",
+          workdir: "/Users/adityasingh/".ravenox/workspace",
         },
       }),
     );
 
     expect(detail).toContain("check git status -> show first 3 lines");
-    expect(detail).toContain(".ravenox/workspace)");
+    expect(detail).toContain("".ravenox/workspace)");
   });
 
   it("recognizes heredoc/inline script exec details", () => {
@@ -110,7 +110,7 @@ describe("tool display details", () => {
         name: "exec",
         args: {
           command: "python3 <<PY\nprint('x')\nPY",
-          workdir: "/Users/adityasingh/.ravenox/workspace",
+          workdir: "/Users/adityasingh/".ravenox/workspace",
         },
       }),
     );
@@ -119,7 +119,7 @@ describe("tool display details", () => {
         name: "exec",
         args: {
           command: "node --check /tmp/test.js",
-          workdir: "/Users/adityasingh/.ravenox/workspace",
+          workdir: "/Users/adityasingh/".ravenox/workspace",
         },
       }),
     );
@@ -128,7 +128,7 @@ describe("tool display details", () => {
         name: "exec",
         args: {
           command: "node -c /tmp/test.js",
-          workdir: "/Users/adityasingh/.ravenox/workspace",
+          workdir: "/Users/adityasingh/".ravenox/workspace",
         },
       }),
     );

@@ -44,7 +44,7 @@ import type { IMessagePayload, MonitorIMessageOpts } from "./types.js";
 
 /**
  * Try to detect remote host from an SSH wrapper script like:
- *   exec ssh -T.ravenox@192.168.64.3 /opt/homebrew/bin/imsg "$@"
+ *   exec ssh -T()@192.168.64.3 /opt/homebrew/bin/imsg "$@"
  *   exec ssh -T mac-mini imsg "$@"
  * Returns the user@host or host portion if found, undefined otherwise.
  */
@@ -182,7 +182,7 @@ export async function monitorIMessageProvider(opts: MonitorIMessageOpts = {}): P
       return `imessage:${accountInfo.accountId}:${conversationId}:${sender}`;
     },
     shouldDebounce: (entry) => {
-      const text = entry.message.text?.trim() ?? "";
+      const text = entry.message.text?.trim() ;
       if (!text) {
         return false;
       }

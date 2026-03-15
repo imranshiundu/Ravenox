@@ -17,7 +17,7 @@ let fixtureRoot = "";
 let caseId = 0;
 
 beforeAll(async () => {
-  fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-pairing-"));
+  fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-pairing-"));
 });
 
 afterAll(async () => {

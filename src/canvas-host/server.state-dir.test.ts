@@ -22,7 +22,7 @@ describe("canvas host state dir defaults", () => {
   });
 
   it("uses RAVENOX_STATE_DIR for the default canvas root", async () => {
-    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-canvas-state-"));
+    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-canvas-state-"));
     const stateDir = path.join(tempRoot, "state");
     setStateDirEnv(stateDir);
     const handler = await createCanvasHostHandler({

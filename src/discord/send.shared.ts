@@ -401,7 +401,7 @@ async function sendDiscordMedia(
 ) {
   const media = await loadWebMedia(mediaUrl, { localRoots: mediaLocalRoots });
   const chunks = text ? buildDiscordTextChunks(text, { maxLinesPerMessage, chunkMode }) : [];
-  const caption = chunks[0] ?? "";
+  const caption = chunks[0] ;
   const messageReference = replyTo ? { message_id: replyTo, fail_if_not_exists: false } : undefined;
   const flags = silent ? SUPPRESS_NOTIFICATIONS_FLAG : undefined;
   let fileData: Blob;
@@ -464,7 +464,7 @@ function buildReactionIdentifier(emoji: { id?: string | null; name?: string | nu
   if (emoji.id && emoji.name) {
     return `${emoji.name}:${emoji.id}`;
   }
-  return emoji.name ?? "";
+  return emoji.name ;
 }
 
 function formatReactionEmoji(emoji: { id?: string | null; name?: string | null }) {

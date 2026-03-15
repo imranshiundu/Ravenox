@@ -19,7 +19,7 @@ export function buildAssistantDeltaResult(params: {
   deltas: string[];
   text: string;
 }): { payloads: Array<{ text: string }> } {
-  const runId = (params.opts as { runId?: string } | undefined)?.runId ?? "";
+  const runId = (params.opts as { runId?: string } | undefined)?.runId ;
   for (const delta of params.deltas) {
     params.emit({ runId, stream: "assistant", data: { delta } });
   }

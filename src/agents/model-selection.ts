@@ -250,7 +250,7 @@ export function resolveConfiguredModelRef(params: {
     if (typeof raw === "string") {
       return raw.trim();
     }
-    return raw?.primary?.trim() ?? "";
+    return raw?.primary?.trim() ;
   })();
   if (rawModel) {
     const trimmed = rawModel.trim();

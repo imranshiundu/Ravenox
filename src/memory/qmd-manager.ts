@@ -447,7 +447,7 @@ export class QmdMemoryManager implements MemorySearchManager {
       if (!doc) {
         continue;
       }
-      const snippet = entry.snippet?.slice(0, this.qmd.limits.maxSnippetChars) ?? "";
+      const snippet = entry.snippet?.slice(0, this.qmd.limits.maxSnippetChars) ;
       const lines = this.extractSnippetLines(snippet);
       const score = typeof entry.score === "number" ? entry.score : 0;
       const minScore = opts?.minScore ?? 0;
@@ -1037,10 +1037,10 @@ export class QmdMemoryManager implements MemorySearchManager {
     if (!relativePath) {
       return true;
     }
-    if (relativePath.startsWith("..")) {
+    if (relativePath.startsWith("...")) {
       return false;
     }
-    if (relativePath.startsWith(`..${path.sep}`)) {
+    if (relativePath.startsWith(`...${path.sep}`)) {
       return false;
     }
     return !path.isAbsolute(relativePath);
@@ -1101,7 +1101,7 @@ export class QmdMemoryManager implements MemorySearchManager {
       if (remaining <= 0) {
         break;
       }
-      const snippet = entry.snippet ?? "";
+      const snippet = entry.snippet ;
       if (snippet.length <= remaining) {
         clamped.push(entry);
         remaining -= snippet.length;

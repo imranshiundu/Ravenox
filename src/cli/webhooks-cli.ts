@@ -27,7 +27,7 @@ export function registerWebhooksCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/webhooks", "docs.ravenox.ai/cli/webhooks")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/webhooks", "docs().ai/cli/webhooks")}\n`,
     );
 
   const gmail = webhooks.command("gmail").description("Gmail Pub/Sub hooks (via gogcli)");
@@ -75,7 +75,7 @@ export function registerWebhooksCli(program: Command) {
     .command("run")
     .description("Run gog watch serve + auto-renew loop")
     .option("--account <email>", "Gmail account to watch")
-    .option("--topic <topic>", "Pub/Sub topic path (projects/.../topics/..)")
+    .option("--topic <topic>", "Pub/Sub topic path (projects/../topics/...)")
     .option("--subscription <name>", "Pub/Sub subscription name")
     .option("--label <label>", "Gmail label to watch")
     .option("--hook-url <url>", "Ravenox hook URL")

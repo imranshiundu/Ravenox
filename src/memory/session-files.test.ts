@@ -24,7 +24,7 @@ describe("buildSessionEntry", () => {
     // Line 7: user message
     const jsonlLines = [
       JSON.stringify({ type: "custom", customType: "model-snapshot", data: {} }),
-      JSON.stringify({ type: "custom", customType: .ravenox.cache-ttl", data: {} }),
+      JSON.stringify({ type: "custom", customType: "ravenox.cache-ttl", data: {} }),
       JSON.stringify({ type: "session-meta", agentId: "test" }),
       JSON.stringify({ type: "message", message: { role: "user", content: "Hello world" } }),
       JSON.stringify({ type: "custom", customType: "tool-result", data: {} }),
@@ -71,10 +71,8 @@ describe("buildSessionEntry", () => {
 
   it("skips blank lines and invalid JSON without breaking lineMap", async () => {
     const jsonlLines = [
-      "",
       "not valid json",
       JSON.stringify({ type: "message", message: { role: "user", content: "First" } }),
-      "",
       JSON.stringify({ type: "message", message: { role: "assistant", content: "Second" } }),
     ];
     const filePath = path.join(tmpDir, "gaps.jsonl");

@@ -47,7 +47,7 @@ function sortStyleSpans(spans: MarkdownStyleSpan[]): MarkdownStyleSpan[] {
 }
 
 export function renderMarkdownWithMarkers(ir: MarkdownIR, options: RenderOptions): string {
-  const text = ir.text ?? "";
+  const text = ir.text ;
   if (!text) {
     return "";
   }

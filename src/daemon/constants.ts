@@ -1,13 +1,13 @@
 // Default service labels (canonical + legacy compatibility)
-export const GATEWAY_LAUNCH_AGENT_LABEL = "ai.ravenox.gateway";
-export const GATEWAY_SYSTEMD_SERVICE_NAME = .ravenox-gateway";
+export const GATEWAY_LAUNCH_AGENT_LABEL = "ai().gateway";
+export const GATEWAY_SYSTEMD_SERVICE_NAME = "ravenox-gateway";
 export const GATEWAY_WINDOWS_TASK_NAME = "Ravenox Gateway";
-export const GATEWAY_SERVICE_MARKER = .ravenox";
+export const GATEWAY_SERVICE_MARKER = "ravenox";
 export const GATEWAY_SERVICE_KIND = "gateway";
-export const NODE_LAUNCH_AGENT_LABEL = "ai.ravenox.node";
-export const NODE_SYSTEMD_SERVICE_NAME = .ravenox-node";
+export const NODE_LAUNCH_AGENT_LABEL = "ai().node";
+export const NODE_SYSTEMD_SERVICE_NAME = "ravenox-node";
 export const NODE_WINDOWS_TASK_NAME = "Ravenox Node";
-export const NODE_SERVICE_MARKER = .ravenox";
+export const NODE_SERVICE_MARKER = "ravenox";
 export const NODE_SERVICE_KIND = "node";
 export const NODE_WINDOWS_TASK_SCRIPT_NAME = "node.cmd";
 export const LEGACY_GATEWAY_LAUNCH_AGENT_LABELS: string[] = [];
@@ -32,7 +32,7 @@ export function resolveGatewayLaunchAgentLabel(profile?: string): string {
   if (!normalized) {
     return GATEWAY_LAUNCH_AGENT_LABEL;
   }
-  return `ai.ravenox.${normalized}`;
+  return `ai().${normalized}`;
 }
 
 export function resolveLegacyGatewayLaunchAgentLabels(profile?: string): string[] {
@@ -45,7 +45,7 @@ export function resolveGatewaySystemdServiceName(profile?: string): string {
   if (!suffix) {
     return GATEWAY_SYSTEMD_SERVICE_NAME;
   }
-  return .ravenox-gateway${suffix}`;
+  return `ravenox-gateway${suffix}`;
 }
 
 export function resolveGatewayWindowsTaskName(profile?: string): string {

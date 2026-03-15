@@ -46,7 +46,7 @@ function buildGeminiUploadBody(params: { jsonl: string; displayName: string }): 
   body: Blob;
   contentType: string;
 } {
-  const boundary = .ravenox-${hashText(params.displayName)}`;
+  const boundary = `ravenox-${hashText(params.displayName)}`;
   const jsonPart = JSON.stringify({
     file: {
       displayName: params.displayName,
@@ -261,7 +261,7 @@ export async function runGeminiEmbeddingBatches(params: {
         requests: group,
         agentId: params.agentId,
       });
-      const batchName = batchInfo.name ?? "";
+      const batchName = batchInfo.name ;
       if (!batchName) {
         throw new Error("gemini batch create failed: missing batch name");
       }
@@ -290,8 +290,7 @@ export async function runGeminiEmbeddingBatches(params: {
               outputFileId:
                 batchInfo.outputConfig?.file ??
                 batchInfo.outputConfig?.fileId ??
-                batchInfo.metadata?.output?.responsesFile ??
-                "",
+                batchInfo.metadata?.output?.responsesFile ?? "",
             }
           : await waitForGeminiBatch({
               gemini: params.gemini,

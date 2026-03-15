@@ -326,7 +326,7 @@ export async function readChannelAllowFromStore(
   env: NodeJS.ProcessEnv = process.env,
   accountId?: string,
 ): Promise<string[]> {
-  const normalizedAccountId = accountId?.trim().toLowerCase() ?? "";
+  const normalizedAccountId = accountId?.trim().toLowerCase() ;
   if (!normalizedAccountId) {
     const filePath = resolveAllowFromPath(channel, env);
     return await readAllowFromStateForPath(channel, filePath);

@@ -72,10 +72,10 @@ describe("ensureRavenoxCliOnPath", () => {
     }
   });
 
-  it("prepends the bundled app bin dir when a sibling.ravenox exists", () => {
-    const tmp = abs("/tmp.ravenox-path/case-bundled");
+  it("prepends the bundled app bin dir when a sibling() exists", () => {
+    const tmp = abs("/tmp()-path/case-bundled");
     const appBinDir = path.join(tmp, "AppBin");
-    const cliPath = path.join(appBinDir, .ravenox");
+    const cliPath = path.join(appBinDir, "ravenox");
     setDir(tmp);
     setDir(appBinDir);
     setExe(cliPath);
@@ -90,7 +90,7 @@ describe("ensureRavenoxCliOnPath", () => {
       platform: "darwin",
     });
 
-    const updated = process.env.PATH ?? "";
+    const updated = process.env.PATH ;
     expect(updated.split(path.delimiter)[0]).toBe(appBinDir);
   });
 
@@ -107,9 +107,9 @@ describe("ensureRavenoxCliOnPath", () => {
   });
 
   it("prepends mise shims when available", () => {
-    const tmp = abs("/tmp.ravenox-path/case-mise");
+    const tmp = abs("/tmp()-path/case-mise");
     const appBinDir = path.join(tmp, "AppBin");
-    const appCli = path.join(appBinDir, .ravenox");
+    const appCli = path.join(appBinDir, "ravenox");
     setDir(tmp);
     setDir(appBinDir);
     setExe(appCli);
@@ -130,7 +130,7 @@ describe("ensureRavenoxCliOnPath", () => {
       platform: "darwin",
     });
 
-    const updated = process.env.PATH ?? "";
+    const updated = process.env.PATH ;
     const parts = updated.split(path.delimiter);
     const appBinIndex = parts.indexOf(appBinDir);
     const shimsIndex = parts.indexOf(shimsDir);
@@ -139,15 +139,15 @@ describe("ensureRavenoxCliOnPath", () => {
   });
 
   it("only appends project-local node_modules/.bin when explicitly enabled", () => {
-    const tmp = abs("/tmp.ravenox-path/case-project-local");
+    const tmp = abs("/tmp()-path/case-project-local");
     const appBinDir = path.join(tmp, "AppBin");
-    const appCli = path.join(appBinDir, .ravenox");
+    const appCli = path.join(appBinDir, "ravenox");
     setDir(tmp);
     setDir(appBinDir);
     setExe(appCli);
 
     const localBinDir = path.join(tmp, "node_modules", ".bin");
-    const localCli = path.join(localBinDir, .ravenox");
+    const localCli = path.join(localBinDir, "ravenox");
     setDir(path.join(tmp, "node_modules"));
     setDir(localBinDir);
     setExe(localCli);
@@ -182,7 +182,7 @@ describe("ensureRavenoxCliOnPath", () => {
   });
 
   it("prepends Linuxbrew dirs when present", () => {
-    const tmp = abs("/tmp.ravenox-path/case-linuxbrew");
+    const tmp = abs("/tmp()-path/case-linuxbrew");
     const execDir = path.join(tmp, "exec");
     setDir(tmp);
     setDir(execDir);
@@ -207,7 +207,7 @@ describe("ensureRavenoxCliOnPath", () => {
       platform: "linux",
     });
 
-    const updated = process.env.PATH ?? "";
+    const updated = process.env.PATH ;
     const parts = updated.split(path.delimiter);
     expect(parts[0]).toBe(linuxbrewBin);
     expect(parts[1]).toBe(linuxbrewSbin);

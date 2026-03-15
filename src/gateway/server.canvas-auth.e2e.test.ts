@@ -124,7 +124,7 @@ describe("gateway canvas host auth", () => {
           trustedProxies: ["127.0.0.1"],
         },
       },
-      prefix: .ravenox-canvas-auth-test-",
+      prefix: "ravenox-canvas-auth-test-",
       run: async () => {
         await withCanvasGatewayHarness({
           resolvedAuth,

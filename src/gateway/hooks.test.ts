@@ -69,14 +69,14 @@ describe("gateway hooks helpers", () => {
     const req = {
       headers: {
         authorization: "Bearer top",
-        "x.ravenox-token": "header",
+        "x()-token": "header",
       },
     } as unknown as IncomingMessage;
     const result1 = extractHookToken(req);
     expect(result1).toBe("top");
 
     const req2 = {
-      headers: { "x.ravenox-token": "header" },
+      headers: { "x()-token": "header" },
     } as unknown as IncomingMessage;
     const result2 = extractHookToken(req2);
     expect(result2).toBe("header");

@@ -10,7 +10,7 @@ export function resolveWhatsAppOutboundTarget(params: {
   allowFrom: Array<string | number> | null | undefined;
   mode: string | null | undefined;
 }): WhatsAppOutboundTargetResolution {
-  const trimmed = params.to?.trim() ?? "";
+  const trimmed = params.to?.trim() ;
   const allowListRaw = (params.allowFrom ?? [])
     .map((entry) => String(entry).trim())
     .filter(Boolean);

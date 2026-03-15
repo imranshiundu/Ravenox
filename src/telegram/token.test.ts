@@ -8,12 +8,12 @@ import { resolveTelegramToken } from "./token.js";
 import { readTelegramUpdateOffset, writeTelegramUpdateOffset } from "./update-offset-store.js";
 
 function withTempDir(): string {
-  return fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-telegram-token-"));
+  return fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-telegram-token-"));
 }
 
 async function withTempStateDir<T>(fn: (dir: string) => Promise<T>) {
   const previous = process.env.RAVENOX_STATE_DIR;
-  const dir = await fsPromises.mkdtemp(path.join(os.tmpdir(), .ravenox-telegram-"));
+  const dir = await fsPromises.mkdtemp(path.join(os.tmpdir(), "ravenox-telegram-"));
   process.env.RAVENOX_STATE_DIR = dir;
   try {
     return await fn(dir);

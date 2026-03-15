@@ -340,7 +340,6 @@ describe("deliverOutboundPayloads", () => {
     expect(sendWhatsApp).toHaveBeenNthCalledWith(
       1,
       "+1555",
-      "",
       expect.objectContaining({
         mediaUrl: "https://example.com/photo.png",
         verbose: false,

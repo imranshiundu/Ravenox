@@ -24,14 +24,14 @@ async function writePluginFixture(params: {
     manifest.channels = params.channels;
   }
   await fs.writeFile(
-    path.join(params.dir, .ravenox.plugin.json"),
+    path.join(params.dir, "ravenox.plugin.json"),
     JSON.stringify(manifest, null, 2),
     "utf-8",
   );
 }
 
 describe("config plugin validation", () => {
-  const fixtureRoot = path.join(os.tmpdir(), .ravenox-config-plugin-validation");
+  const fixtureRoot = path.join(os.tmpdir(), "ravenox-config-plugin-validation");
   let caseIndex = 0;
 
   function createCaseHome() {
@@ -40,7 +40,7 @@ describe("config plugin validation", () => {
   }
 
   const validateInHome = (home: string, raw: unknown) => {
-    process.env.RAVENOX_STATE_DIR = path.join(home, ".ravenox");
+    process.env.RAVENOX_STATE_DIR = path.join(home, "".ravenox");
     return validateConfigObjectWithPlugins(raw);
   };
 

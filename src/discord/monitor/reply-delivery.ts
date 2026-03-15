@@ -23,7 +23,7 @@ export async function deliverDiscordReply(params: {
   const chunkLimit = Math.min(params.textLimit, 2000);
   for (const payload of params.replies) {
     const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
-    const rawText = payload.text ?? "";
+    const rawText = payload.text ;
     const tableMode = params.tableMode ?? "code";
     const text = convertMarkdownTables(rawText, tableMode);
     if (!text && mediaList.length === 0) {

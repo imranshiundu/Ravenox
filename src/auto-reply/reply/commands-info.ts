@@ -204,8 +204,8 @@ export const handleWhoamiCommand: CommandHandler = async (params, allowTextComma
     );
     return { shouldContinue: false };
   }
-  const senderId = params.ctx.SenderId ?? "";
-  const senderUsername = params.ctx.SenderUsername ?? "";
+  const senderId = params.ctx.SenderId ;
+  const senderUsername = params.ctx.SenderUsername ;
   const lines = ["🧭 Identity", `Channel: ${params.command.channel}`];
   if (senderId) {
     lines.push(`User id: ${senderId}`);

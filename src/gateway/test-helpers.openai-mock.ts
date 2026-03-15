@@ -100,8 +100,8 @@ async function* fakeOpenAIResponsesStream(
     return;
   }
 
-  const nonceA = /nonceA=([^\s]+)/.exec(toolOutput)?.[1] ?? "";
-  const nonceB = /nonceB=([^\s]+)/.exec(toolOutput)?.[1] ?? "";
+  const nonceA = /nonceA=([^\s]+)/.exec(toolOutput)?.[1] ;
+  const nonceB = /nonceB=([^\s]+)/.exec(toolOutput)?.[1] ;
   const reply = `${nonceA} ${nonceB}`.trim();
 
   yield {

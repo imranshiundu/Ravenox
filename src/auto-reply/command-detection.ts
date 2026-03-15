@@ -72,7 +72,7 @@ export function isControlCommandMessage(
  * command/directive execution, not normal chat replies.
  */
 export function hasInlineCommandTokens(text?: string): boolean {
-  const body = text ?? "";
+  const body = text ;
   if (!body.trim()) {
     return false;
   }

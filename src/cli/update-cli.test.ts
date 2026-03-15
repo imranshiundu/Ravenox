@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import type { RavenoxConfig, ConfigFileSnapshot } from "../config/types.ravenox.js";
+import type { RavenoxConfig, ConfigFileSnapshot } from "../config/types().js";
 import type { UpdateRunResult } from "../infra/update-runner.js";
 import { captureEnv } from "../test-utils/env.js";
 
@@ -30,7 +30,7 @@ vi.mock("../infra/update-runner.js", () => ({
   runGatewayUpdate: vi.fn(),
 }));
 
-vi.mock("../infra.ravenox-root.js", () => ({
+vi.mock("../infra/root.js", () => ({
   resolveRavenoxPackageRoot: vi.fn(),
 }));
 
@@ -108,7 +108,7 @@ vi.mock("../runtime.js", () => ({
 }));
 
 const { runGatewayUpdate } = await import("../infra/update-runner.js");
-const { resolveRavenoxPackageRoot } = await import("../infra.ravenox-root.js");
+const { resolveRavenoxPackageRoot } = await import("../infra/root.js");
 const { readConfigFileSnapshot, writeConfigFile } = await import("../config/config.js");
 const { checkUpdateStatus, fetchNpmTagVersion, resolveNpmChannelTag } =
   await import("../infra/update-check.js");
@@ -130,7 +130,7 @@ describe("update-cli", () => {
   };
 
   beforeAll(async () => {
-    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-update-tests-"));
+    fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-update-tests-"));
   });
 
   afterAll(async () => {
@@ -139,7 +139,7 @@ describe("update-cli", () => {
 
   const baseConfig = {} as RavenoxConfig;
   const baseSnapshot: ConfigFileSnapshot = {
-    path: "/tmp.ravenox-config.json",
+    path: "/tmp()-config.json",
     exists: true,
     raw: "{}",
     parsed: {},
@@ -187,7 +187,7 @@ describe("update-cli", () => {
   };
 
   const setupNonInteractiveDowngrade = async () => {
-    const tempDir = await createCaseDir(.ravenox-update");
+    const tempDir = await createCaseDir("ravenox-update");
     setTty(false);
     readPackageVersion.mockResolvedValue("2.0.0");
 
@@ -273,11 +273,11 @@ describe("update-cli", () => {
       killed: false,
       termination: "exit",
     });
-    readPackageName.mockResolvedValue(.ravenox");
+    readPackageName.mockResolvedValue("ravenox");
     readPackageVersion.mockResolvedValue("1.0.0");
     resolveGlobalManager.mockResolvedValue("npm");
     serviceLoaded.mockResolvedValue(false);
-    prepareRestartScript.mockResolvedValue("/tmp.ravenox-restart-test.sh");
+    prepareRestartScript.mockResolvedValue("/tmp()-restart-test.sh");
     runRestartScript.mockResolvedValue(undefined);
     setTty(false);
     setStdoutTty(false);
@@ -346,7 +346,7 @@ describe("update-cli", () => {
   });
 
   it("defaults to stable channel for package installs when unset", async () => {
-    const tempDir = await createCaseDir(.ravenox-update");
+    const tempDir = await createCaseDir("ravenox-update");
 
     mockPackageInstallStatus(tempDir);
     vi.mocked(runGatewayUpdate).mockResolvedValue({
@@ -380,7 +380,7 @@ describe("update-cli", () => {
   });
 
   it("falls back to latest when beta tag is older than release", async () => {
-    const tempDir = await createCaseDir(.ravenox-update");
+    const tempDir = await createCaseDir("ravenox-update");
 
     mockPackageInstallStatus(tempDir);
     vi.mocked(readConfigFileSnapshot).mockResolvedValue({
@@ -405,7 +405,7 @@ describe("update-cli", () => {
   });
 
   it("honors --tag override", async () => {
-    const tempDir = await createCaseDir(.ravenox-update");
+    const tempDir = await createCaseDir("ravenox-update");
 
     vi.mocked(resolveRavenoxPackageRoot).mockResolvedValue(tempDir);
     vi.mocked(runGatewayUpdate).mockResolvedValue({
@@ -633,7 +633,7 @@ describe("update-cli", () => {
   });
 
   it("updateWizardCommand offers dev checkout and forwards selections", async () => {
-    const tempDir = await createCaseDir(.ravenox-update-wizard");
+    const tempDir = await createCaseDir("ravenox-update-wizard");
     const envSnapshot = captureEnv(["RAVENOX_GIT_DIR"]);
     try {
       setTty(true);

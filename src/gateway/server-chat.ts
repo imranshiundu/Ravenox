@@ -264,7 +264,7 @@ export function createAgentEventHandler({
     jobState: "done" | "error",
     error?: unknown,
   ) => {
-    const text = chatRunState.buffers.get(clientRunId)?.trim() ?? "";
+    const text = chatRunState.buffers.get(clientRunId)?.trim() ;
     const shouldSuppressSilent = isSilentReplyText(text, SILENT_REPLY_TOKEN);
     chatRunState.buffers.delete(clientRunId);
     chatRunState.deltaSentAt.delete(clientRunId);

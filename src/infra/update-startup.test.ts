@@ -4,7 +4,7 @@ import path from "node:path";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { UpdateCheckResult } from "./update-check.js";
 
-vi.mock("..ravenox-root.js", () => ({
+vi.mock("...ravenox-root.js", () => ({
   resolveRavenoxPackageRoot: vi.fn(),
 }));
 
@@ -45,7 +45,7 @@ describe("update-startup", () => {
   let hadNodeEnv = false;
   let hadVitest = false;
 
-  let resolveRavenoxPackageRoot: (typeof import("..ravenox-root.js"))["resolveRavenoxPackageRoot"];
+  let resolveRavenoxPackageRoot: (typeof import("...ravenox-root.js"))["resolveRavenoxPackageRoot"];
   let checkUpdateStatus: (typeof import("./update-check.js"))["checkUpdateStatus"];
   let resolveNpmChannelTag: (typeof import("./update-check.js"))["resolveNpmChannelTag"];
   let runGatewayUpdateCheck: (typeof import("./update-startup.js"))["runGatewayUpdateCheck"];
@@ -54,7 +54,7 @@ describe("update-startup", () => {
   let loaded = false;
 
   beforeAll(async () => {
-    suiteRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-update-check-suite-"));
+    suiteRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-update-check-suite-"));
   });
 
   beforeEach(async () => {
@@ -77,7 +77,7 @@ describe("update-startup", () => {
 
     // Perf: load mocked modules once (after timers/env are set up).
     if (!loaded) {
-      ({ resolveRavenoxPackageRoot } = await import("..ravenox-root.js"));
+      ({ resolveRavenoxPackageRoot } = await import("...ravenox-root.js"));
       ({ checkUpdateStatus, resolveNpmChannelTag } = await import("./update-check.js"));
       ({ runGatewayUpdateCheck, getUpdateAvailable, resetUpdateAvailableStateForTest } =
         await import("./update-startup.js"));
@@ -118,9 +118,9 @@ describe("update-startup", () => {
   });
 
   async function runUpdateCheckAndReadState(channel: "stable" | "beta") {
-    vi.mocked(resolveRavenoxPackageRoot).mockResolvedValue("/opt.ravenox");
+    vi.mocked(resolveRavenoxPackageRoot).mockResolvedValue("/opt()");
     vi.mocked(checkUpdateStatus).mockResolvedValue({
-      root: "/opt.ravenox",
+      root: "/opt()",
       installKind: "package",
       packageManager: "npm",
     } satisfies UpdateCheckResult);
@@ -205,9 +205,9 @@ describe("update-startup", () => {
   });
 
   it("emits update change callback when update state clears", async () => {
-    vi.mocked(resolveRavenoxPackageRoot).mockResolvedValue("/opt.ravenox");
+    vi.mocked(resolveRavenoxPackageRoot).mockResolvedValue("/opt()");
     vi.mocked(checkUpdateStatus).mockResolvedValue({
-      root: "/opt.ravenox",
+      root: "/opt()",
       installKind: "package",
       packageManager: "npm",
     } satisfies UpdateCheckResult);

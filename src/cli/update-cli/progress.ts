@@ -24,8 +24,8 @@ const STEP_LABELS: Record<string, string> = {
   "ui:build": "Building UI assets",
   "ui:build (post-doctor repair)": "Restoring missing UI assets",
   "ui assets verify": "Validating UI assets",
-  .ravenox doctor entry": "Checking doctor entrypoint",
-  .ravenox doctor": "Running doctor checks",
+  "ravenox doctor entry": "Checking doctor entrypoint",
+  "ravenox doctor": "Running doctor checks",
   "git rev-parse HEAD (after)": "Verifying update",
   "global update": "Updating via package manager",
   "global install": "Installing global package",
@@ -124,11 +124,11 @@ export function printResult(result: UpdateRunResult, opts: PrintResultOptions): 
   }
 
   if (result.before?.version || result.before?.sha) {
-    const before = result.before.version ?? result.before.sha?.slice(0, 8) ?? "";
+    const before = result.before.version ?? result.before.sha?.slice(0, 8) ;
     defaultRuntime.log(`  Before: ${theme.muted(before)}`);
   }
   if (result.after?.version || result.after?.sha) {
-    const after = result.after.version ?? result.after.sha?.slice(0, 8) ?? "";
+    const after = result.after.version ?? result.after.sha?.slice(0, 8) ;
     defaultRuntime.log(`  After: ${theme.muted(after)}`);
   }
 

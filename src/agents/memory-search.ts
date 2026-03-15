@@ -183,7 +183,7 @@ function mergeConfig(
         : provider === "voyage"
           ? DEFAULT_VOYAGE_MODEL
           : undefined;
-  const model = overrides?.model ?? defaults?.model ?? modelDefault ?? "";
+  const model = overrides?.model ?? defaults?.model ?? modelDefault ;
   const local = {
     modelPath: overrides?.local?.modelPath ?? defaults?.local?.modelPath,
     modelCacheDir: overrides?.local?.modelCacheDir ?? defaults?.local?.modelCacheDir,

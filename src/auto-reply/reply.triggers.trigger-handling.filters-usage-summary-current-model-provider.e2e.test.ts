@@ -222,7 +222,7 @@ describe("trigger handling", () => {
       expect(String(blockReplies[0]?.text ?? "")).toContain("Model:");
       expect(replies.length).toBe(1);
       expect(replies[0]?.text).toBe("agent says hi");
-      const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = getRunEmbeddedPiAgentMock().mock.calls[0]?.[0]?.prompt ;
       expect(prompt).not.toContain("/status");
     });
   });

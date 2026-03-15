@@ -327,7 +327,7 @@ function buildBaseConfigSchema(): ConfigSchemaResponse {
     unrepresentable: "any",
   });
   schema.title = "RavenoxConfig";
-  const hints = mapSensitivePaths(RavenoxSchema, "", buildBaseHints());
+  const hints = mapSensitivePathsRavenoxSchema, "", buildBaseHints());
   const next = {
     schema: stripChannelSchema(schema),
     uiHints: hints,

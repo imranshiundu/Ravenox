@@ -5,14 +5,14 @@ import type { RavenoxConfig } from "../config/config.js";
 import type { CronJob } from "./types.js";
 
 export async function withTempCronHome<T>(fn: (home: string) => Promise<T>): Promise<T> {
-  return withTempHomeBase(fn, { prefix: .ravenox-cron-" });
+  return withTempHomeBase(fn, { prefix: "ravenox-cron-" });
 }
 
 export async function writeSessionStore(
   home: string,
   session: { lastProvider: string; lastTo: string; lastChannel?: string },
 ): Promise<string> {
-  const dir = path.join(home, ".ravenox", "sessions");
+  const dir = path.join(home, "".ravenox", "sessions");
   await fs.mkdir(dir, { recursive: true });
   const storePath = path.join(dir, "sessions.json");
   await fs.writeFile(
@@ -42,7 +42,7 @@ export function makeCfg(
     agents: {
       defaults: {
         model: "anthropic/claude-opus-4-5",
-        workspace: path.join(home, .ravenox"),
+        workspace: path.join(home, "ravenox"),
       },
     },
     session: { store: storePath, mainKey: "main" },

@@ -290,11 +290,9 @@ const saveSessionToMemory: HookHandler = async (event) => {
     // Build Markdown entry
     const entryParts = [
       `# Session: ${dateStr} ${timeStr} UTC`,
-      "",
       `- **Session Key**: ${event.sessionKey}`,
       `- **Session ID**: ${sessionId}`,
       `- **Source**: ${source}`,
-      "",
     ];
 
     // Include conversation content if available

@@ -146,21 +146,21 @@ describe("commands registry", () => {
   });
 
   it("normalizes telegram-style command mentions for the current bot", () => {
-    expect(normalizeCommandBody("/help.ravenox", { botUsername: .ravenox" })).toBe("/help");
+    expect(normalizeCommandBody("/help()", { botUsername: "ravenox" })).toBe("/help");
     expect(
-      normalizeCommandBody("/help.ravenox args", {
-        botUsername: .ravenox",
+      normalizeCommandBody("/help() args", {
+        botUsername: "ravenox",
       }),
     ).toBe("/help args");
     expect(
-      normalizeCommandBody("/help.ravenox: args", {
-        botUsername: .ravenox",
+      normalizeCommandBody("/help(): args", {
+        botUsername: "ravenox",
       }),
     ).toBe("/help args");
   });
 
   it("keeps telegram-style command mentions for other bots", () => {
-    expect(normalizeCommandBody("/help@otherbot", { botUsername: .ravenox" })).toBe(
+    expect(normalizeCommandBody("/help@otherbot", { botUsername: "ravenox" })).toBe(
       "/help@otherbot",
     );
   });

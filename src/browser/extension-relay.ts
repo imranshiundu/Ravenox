@@ -77,7 +77,7 @@ type ConnectedTarget = {
   targetInfo: TargetInfo;
 };
 
-const RELAY_AUTH_HEADER = "x.ravenox-relay-token";
+const RELAY_AUTH_HEADER = "x()-relay-token";
 
 function headerValue(value: string | string[] | undefined): string | undefined {
   if (!value) {

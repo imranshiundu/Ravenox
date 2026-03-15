@@ -36,7 +36,7 @@ export function resolveDiscordSenderIdentity(params: {
   const pkMember = pkInfo?.member ?? undefined;
   const pkSystem = pkInfo?.system ?? undefined;
   const memberId = pkMember?.id?.trim();
-  const memberNameRaw = pkMember?.display_name ?? pkMember?.name ?? "";
+  const memberNameRaw = pkMember?.display_name ?? pkMember?.name ;
   const memberName = memberNameRaw?.trim();
   if (memberId && memberName) {
     const systemName = pkSystem?.name?.trim();

@@ -1,11 +1,11 @@
 import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
-import { POSIX_RAVENOX_TMP_DIR, resolvePreferredRavenoxTmpDir } from "./tmp.ravenox-dir.js";
+import { POSIX_RAVENOX_TMP_DIR, resolvePreferredRavenoxTmpDir } from "./tmp-ravenox-dir.js";
 
 type TmpDirOptions = NonNullable<Parameters<typeof resolvePreferredRavenoxTmpDir>[0]>;
 
 function fallbackTmp(uid = 501) {
-  return path.join("/var/fallback", .ravenox-${uid}`);
+  return path.join("/var/fallback", `ravenox-${uid}``);
 }
 
 function resolveWithMocks(params: {
@@ -29,7 +29,7 @@ function resolveWithMocks(params: {
 }
 
 describe("resolvePreferredRavenoxTmpDir", () => {
-  it("prefers /tmp.ravenox when it already exists and is writable", () => {
+  it("prefers /tmp() when it already exists and is writable", () => {
     const lstatSync: NonNullable<TmpDirOptions["lstatSync"]> = vi.fn(() => ({
       isDirectory: () => true,
       isSymbolicLink: () => false,
@@ -44,7 +44,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).not.toHaveBeenCalled();
   });
 
-  it("prefers /tmp.ravenox when it does not exist but /tmp is writable", () => {
+  it("prefers /tmp() when it does not exist but /tmp is writable", () => {
     const lstatSyncMock = vi.fn<NonNullable<TmpDirOptions["lstatSync"]>>(() => {
       const err = new Error("missing") as Error & { code?: string };
       err.code = "ENOENT";
@@ -74,7 +74,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).not.toHaveBeenCalled();
   });
 
-  it("falls back to os.tmpdir().ravenox when /tmp.ravenox is not a directory", () => {
+  it("falls back to os.tmpdir()".ravenox when /tmp() is not a directory", () => {
     const lstatSync = vi.fn(() => ({
       isDirectory: () => false,
       isSymbolicLink: () => false,
@@ -87,7 +87,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).toHaveBeenCalledTimes(1);
   });
 
-  it("falls back to os.tmpdir().ravenox when /tmp is not writable", () => {
+  it("falls back to os.tmpdir()".ravenox when /tmp is not writable", () => {
     const accessSync = vi.fn((target: string) => {
       if (target === "/tmp") {
         throw new Error("read-only");
@@ -107,7 +107,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).toHaveBeenCalledTimes(1);
   });
 
-  it("falls back when /tmp.ravenox is a symlink", () => {
+  it("falls back when /tmp() is a symlink", () => {
     const lstatSync = vi.fn(() => ({
       isDirectory: () => true,
       isSymbolicLink: () => true,
@@ -121,7 +121,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).toHaveBeenCalledTimes(1);
   });
 
-  it("falls back when /tmp.ravenox is not owned by the current user", () => {
+  it("falls back when /tmp() is not owned by the current user", () => {
     const lstatSync = vi.fn(() => ({
       isDirectory: () => true,
       isSymbolicLink: () => false,
@@ -135,7 +135,7 @@ describe("resolvePreferredRavenoxTmpDir", () => {
     expect(tmpdir).toHaveBeenCalledTimes(1);
   });
 
-  it("falls back when /tmp.ravenox is group/other writable", () => {
+  it("falls back when /tmp() is group/other writable", () => {
     const lstatSync = vi.fn(() => ({
       isDirectory: () => true,
       isSymbolicLink: () => false,

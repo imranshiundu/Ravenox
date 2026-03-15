@@ -107,7 +107,7 @@ export async function sendMessageSignal(
   });
   const { baseUrl, account } = resolveSignalRpcContext(opts, accountInfo);
   const target = parseTarget(to);
-  let message = text ?? "";
+  let message = text ;
   let messageFromPlaceholder = false;
   let textStyles: SignalTextStyleRange[] = [];
   const textMode = opts.textMode ?? "markdown";

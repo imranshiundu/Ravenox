@@ -87,7 +87,7 @@ export function shouldEnableWindowsGitBashPasteFallback(params?: {
   }
   const env = params?.env ?? process.env;
   const msystem = (env.MSYSTEM ?? "").toUpperCase();
-  const shell = env.SHELL ?? "";
+  const shell = env.SHELL ;
   const termProgram = (env.TERM_PROGRAM ?? "").toLowerCase();
   if (msystem.startsWith("MINGW") || msystem.startsWith("MSYS")) {
     return true;
@@ -431,7 +431,7 @@ export async function runTui(opts: TuiOptions) {
     const agentLabel = formatAgentLabel(currentAgentId);
     header.setText(
       theme.header(
-        .ravenox tui - ${client.connection.url} - agent ${agentLabel} - session ${sessionLabel}`,
+        "ravenox tui - ${client.connection.url} - agent ${agentLabel} - session ${sessionLabel}`,
       ),
     );
   };
@@ -471,7 +471,6 @@ export async function runTui(opts: TuiOptions) {
       tui,
       (spinner) => theme.accent(spinner),
       (text) => theme.bold(theme.accentSoft(text)),
-      "",
     );
     statusContainer.addChild(statusLoader);
   };

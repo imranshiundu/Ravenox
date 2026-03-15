@@ -526,7 +526,7 @@ export function findChromeExecutableLinux(): BrowserExecutable | null {
 }
 
 export function findChromeExecutableWindows(): BrowserExecutable | null {
-  const localAppData = process.env.LOCALAPPDATA ?? "";
+  const localAppData = process.env.LOCALAPPDATA ;
   const programFiles = process.env.ProgramFiles ?? "C:\\Program Files";
   // Must use bracket notation: variable name contains parentheses
   const programFilesX86 = process.env["ProgramFiles(x86)"] ?? "C:\\Program Files (x86)";

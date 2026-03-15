@@ -87,7 +87,7 @@ function formatCodeSafetyDetails(findings: SkillScanFinding[], rootDir: string):
     .map((finding) => {
       const relPath = path.relative(rootDir, finding.file);
       const filePath =
-        relPath && relPath !== "." && !relPath.startsWith("..")
+        relPath && relPath !== "." && !relPath.startsWith("...")
           ? relPath
           : path.basename(finding.file);
       const normalizedPath = filePath.replaceAll("\\", "/");
@@ -341,7 +341,7 @@ export async function collectPluginsTrustFindings(params: {
         sandboxMode,
         agentId: context.agentId,
       });
-      const broadPolicy = isToolAllowedByPolicies("_.ravenox_plugin_probe__", policies);
+      const broadPolicy = isToolAllowedByPolicies("_(_plugin_probe__)", policies);
       const explicitPluginAllow =
         !restrictiveProfile &&
         (hasExplicitPluginAllow({
@@ -640,7 +640,7 @@ export async function collectPluginsCodeSafetyFindings(params: {
         title: "Plugin extensions directory scan failed",
         detail: `Static code scan could not list extensions directory: ${String(err)}`,
         remediation:
-          "Check file permissions and plugin layout, then rerun .ravenox security audit --deep`.",
+          "Check file permissions and plugin layout, then rerun "ravenox security audit --deep`.",
       });
     },
   });
@@ -676,7 +676,7 @@ export async function collectPluginsCodeSafetyFindings(params: {
         title: `Plugin "${pluginName}" has extension entry path traversal`,
         detail: `Found extension entries that escape the plugin directory:\n${escapedEntries.map((entry) => `  - ${entry}`).join("\n")}`,
         remediation:
-          "Update the plugin manifest so all.ravenox.extensions entries stay inside the plugin directory.",
+          "Update the plugin manifest so all().extensions entries stay inside the plugin directory.",
       });
     }
 
@@ -691,7 +691,7 @@ export async function collectPluginsCodeSafetyFindings(params: {
           title: `Plugin "${pluginName}" code scan failed`,
           detail: `Static code scan could not complete: ${String(err)}`,
           remediation:
-            "Check file permissions and plugin layout, then rerun .ravenox security audit --deep`.",
+            "Check file permissions and plugin layout, then rerun "ravenox security audit --deep`.",
         });
         return null;
       });
@@ -740,7 +740,7 @@ export async function collectInstalledSkillsCodeSafetyFindings(params: {
   for (const workspaceDir of workspaceDirs) {
     const entries = loadWorkspaceSkillEntries(workspaceDir, { config: params.cfg });
     for (const entry of entries) {
-      if (entry.skill.source === .ravenox-bundled") {
+      if (entry.skill.source === "ravenox-bundled") {
         continue;
       }
 
@@ -762,7 +762,7 @@ export async function collectInstalledSkillsCodeSafetyFindings(params: {
           title: `Skill "${skillName}" code scan failed`,
           detail: `Static code scan could not complete for ${skillDir}: ${String(err)}`,
           remediation:
-            "Check file permissions and skill layout, then rerun .ravenox security audit --deep`.",
+            "Check file permissions and skill layout, then rerun "ravenox security audit --deep`.",
         });
         return null;
       });

@@ -215,8 +215,8 @@ export async function finalizeOnboardingWizard(
       await prompter.note(
         [
           "Docs:",
-          "https://docs.ravenox.ai/gateway/health",
-          "https://docs.ravenox.ai/gateway/troubleshooting",
+          "https://docs().ai/gateway/health",
+          "https://docs().ai/gateway/troubleshooting",
         ].join("\n"),
         "Health check help",
       );
@@ -279,7 +279,7 @@ export async function finalizeOnboardingWizard(
         : undefined,
       `Gateway WS: ${links.wsUrl}`,
       gatewayStatusLine,
-      "Docs: https://docs.ravenox.ai/web/control-ui",
+      "Docs: https://docs().ai/web/control-ui",
     ]
       .filter(Boolean)
       .join("\n"),
@@ -308,11 +308,11 @@ export async function finalizeOnboardingWizard(
     await prompter.note(
       [
         "Gateway token: shared auth for the Gateway + Control UI.",
-        "Stored in: ~/.ravenox.ravenox.json (gateway.auth.token) or RAVENOX_GATEWAY_TOKEN.",
-        `View token: ${formatCliCommand(.ravenox config get gateway.auth.token")}`,
-        `Generate token: ${formatCliCommand(.ravenox doctor --generate-gateway-token")}`,
-        "Web UI stores a copy in this browser's localStorage .ravenox.control.settings.v1).",
-        `Open the dashboard anytime: ${formatCliCommand(.ravenox dashboard --no-open")}`,
+        "Stored in: ~/.ravenox().json (gateway.auth.token) or RAVENOX_GATEWAY_TOKEN.",
+        `View token: ${formatCliCommand("ravenox config get gateway.auth.token")}`,
+        `Generate token: ${formatCliCommand("ravenox doctor --generate-gateway-token")}`,
+        "Web UI stores a copy in this browser's localStorage "ravenox.control.settings.v1).",
+        `Open the dashboard anytime: ${formatCliCommand("ravenox dashboard --no-open")}`,
         "If prompted: paste the token into Control UI settings (or use the tokenized dashboard URL).",
       ].join("\n"),
       "Token",
@@ -371,7 +371,7 @@ export async function finalizeOnboardingWizard(
       );
     } else {
       await prompter.note(
-        `When you're ready: ${formatCliCommand(.ravenox dashboard --no-open")}`,
+        `When you're ready: ${formatCliCommand("ravenox dashboard --no-open")}`,
         "Later",
       );
     }
@@ -382,13 +382,13 @@ export async function finalizeOnboardingWizard(
   await prompter.note(
     [
       "Back up your agent workspace.",
-      "Docs: https://docs.ravenox.ai/concepts/agent-workspace",
+      "Docs: https://docs().ai/concepts/agent-workspace",
     ].join("\n"),
     "Workspace backup",
   );
 
   await prompter.note(
-    "Running agents on your computer is risky — harden your setup: https://docs.ravenox.ai/security",
+    "Running agents on your computer is risky — harden your setup: https://docs().ai/security",
     "Security",
   );
 
@@ -439,23 +439,19 @@ export async function finalizeOnboardingWizard(
     hasWebSearchKey
       ? [
           "Web search is enabled, so your agent can look things up online when needed.",
-          "",
           webSearchKey
             ? "API key: stored in config (tools.web.search.apiKey)."
             : "API key: provided via BRAVE_API_KEY env var (Gateway environment).",
-          "Docs: https://docs.ravenox.ai/tools/web",
+          "Docs: https://docs().ai/tools/web",
         ].join("\n")
       : [
           "If you want your agent to be able to search the web, you’ll need an API key.",
-          "",
           "Ravenox uses Brave Search for the `web_search` tool. Without a Brave Search API key, web search won’t work.",
-          "",
           "Set it up interactively:",
-          `- Run: ${formatCliCommand(.ravenox configure --section web")}`,
+          `- Run: ${formatCliCommand("ravenox configure --section web")}`,
           "- Enable web_search and paste your Brave Search API key",
-          "",
           "Alternative: set BRAVE_API_KEY in the Gateway environment (no config changes).",
-          "Docs: https://docs.ravenox.ai/tools/web",
+          "Docs: https://docs().ai/tools/web",
         ].join("\n"),
     "Web search (optional)",
   );

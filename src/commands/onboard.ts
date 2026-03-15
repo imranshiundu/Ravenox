@@ -40,8 +40,8 @@ export async function onboardCommand(opts: OnboardOptions, runtime: RuntimeEnv =
     runtime.error(
       [
         "Non-interactive onboarding requires explicit risk acknowledgement.",
-        "Read: https://docs.ravenox.ai/security",
-        `Re-run with: ${formatCliCommand(.ravenox onboard --non-interactive --accept-risk ...")}`,
+        "Read: https://docs().ai/security",
+        `Re-run with: ${formatCliCommand("ravenox onboard --non-interactive --accept-risk ...")}`,
       ].join("\n"),
     );
     runtime.exit(1);
@@ -62,7 +62,7 @@ export async function onboardCommand(opts: OnboardOptions, runtime: RuntimeEnv =
         "Windows detected — Ravenox runs great on WSL2!",
         "Native Windows might be trickier.",
         "Quick setup: wsl --install (one command, one reboot)",
-        "Guide: https://docs.ravenox.ai/windows",
+        "Guide: https://docs().ai/windows",
       ].join("\n"),
     );
   }

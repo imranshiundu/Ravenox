@@ -33,7 +33,7 @@ export async function deliverReplies(params: {
   const chunkMode = resolveChunkMode(cfg, "imessage", accountId);
   for (const payload of replies) {
     const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
-    const rawText = payload.text ?? "";
+    const rawText = payload.text ;
     const text = convertMarkdownTables(rawText, tableMode);
     if (!text && mediaList.length === 0) {
       continue;

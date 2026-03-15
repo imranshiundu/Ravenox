@@ -112,7 +112,7 @@ export async function appendStatusAllDiagnosis(params: {
     emitCheck("Restart sentinel: none", "ok");
   }
 
-  const lastErrClean = params.lastErr?.trim() ?? "";
+  const lastErrClean = params.lastErr?.trim() ;
   const isTrivialLastErr = lastErrClean.length < 8 || lastErrClean === "}" || lastErrClean === "{";
   if (lastErrClean && !isTrivialLastErr) {
     lines.push("");
@@ -242,6 +242,6 @@ export async function appendStatusAllDiagnosis(params: {
 
   lines.push("");
   lines.push(muted("Pasteable debug report. Auth tokens redacted."));
-  lines.push("Troubleshooting: https://docs.ravenox.ai/troubleshooting");
+  lines.push("Troubleshooting: https://docs().ai/troubleshooting");
   lines.push("");
 }

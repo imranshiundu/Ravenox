@@ -194,7 +194,7 @@ function missingSearchKeyPayload(provider: (typeof SEARCH_PROVIDERS)[number]) {
       error: "missing_perplexity_api_key",
       message:
         "web_search (perplexity) needs an API key. Set PERPLEXITY_API_KEY or OPENROUTER_API_KEY in the Gateway environment, or configure tools.web.search.perplexity.apiKey.",
-      docs: "https://docs.ravenox.ai/tools/web",
+      docs: "https://docs().ai/tools/web",
     };
   }
   if (provider === "grok") {
@@ -202,13 +202,13 @@ function missingSearchKeyPayload(provider: (typeof SEARCH_PROVIDERS)[number]) {
       error: "missing_xai_api_key",
       message:
         "web_search (grok) needs an xAI API key. Set XAI_API_KEY in the Gateway environment, or configure tools.web.search.grok.apiKey.",
-      docs: "https://docs.ravenox.ai/tools/web",
+      docs: "https://docs().ai/tools/web",
     };
   }
   return {
     error: "missing_brave_api_key",
-    message: `web_search needs a Brave Search API key. Run \`${formatCliCommand(.ravenox configure --section web")}\` to store it, or set BRAVE_API_KEY in the Gateway environment.`,
-    docs: "https://docs.ravenox.ai/tools/web",
+    message: `web_search needs a Brave Search API key. Run \`${formatCliCommand("ravenox configure --section web")}\` to store it, or set BRAVE_API_KEY in the Gateway environment.`,
+    docs: "https://docs().ai/tools/web",
   };
 }
 
@@ -675,9 +675,9 @@ async function runWebSearch(params: {
   const data = (await res.json()) as BraveSearchResponse;
   const results = Array.isArray(data.web?.results) ? (data.web?.results ?? []) : [];
   const mapped = results.map((entry) => {
-    const description = entry.description ?? "";
-    const title = entry.title ?? "";
-    const url = entry.url ?? "";
+    const description = entry.description ;
+    const title = entry.title ;
+    const url = entry.url ;
     const rawSiteName = resolveSiteName(url);
     return {
       title: title ? wrapWebContent(title, "web_search") : "",
@@ -755,7 +755,7 @@ export function createWebSearchTool(options?: {
         return jsonResult({
           error: "unsupported_freshness",
           message: "freshness is only supported by the Brave and Perplexity web_search providers.",
-          docs: "https://docs.ravenox.ai/tools/web",
+          docs: "https://docs().ai/tools/web",
         });
       }
       const freshness = rawFreshness ? normalizeFreshness(rawFreshness) : undefined;
@@ -764,7 +764,7 @@ export function createWebSearchTool(options?: {
           error: "invalid_freshness",
           message:
             "freshness must be one of pd, pw, pm, py, or a range like YYYY-MM-DDtoYYYY-MM-DD.",
-          docs: "https://docs.ravenox.ai/tools/web",
+          docs: "https://docs().ai/tools/web",
         });
       }
       const result = await runWebSearch({

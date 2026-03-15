@@ -30,7 +30,7 @@ vi.mock("../config/config.js", async (importOriginal) => {
 });
 
 import "./test-helpers/fast-core-tools.js";
-import { createRavenoxTools } from "..ravenox-tools.js";
+import { createRavenoxTools } from "../ravenox-tools.js";
 
 const waitForCalls = async (getCount: () => number, count: number, timeoutMs = 2000) => {
   await vi.waitFor(
@@ -393,7 +393,7 @@ describe("sessions tools", () => {
         agentCallCount += 1;
         const runId = `run-${agentCallCount}`;
         const params = request.params as { message?: string; sessionKey?: string } | undefined;
-        const message = params?.message ?? "";
+        const message = params?.message ;
         let reply = "REPLY_SKIP";
         if (message === "ping" || message === "wait") {
           reply = "done";
@@ -416,7 +416,7 @@ describe("sessions tools", () => {
       }
       if (request.method === "chat.history") {
         _historyCallCount += 1;
-        const text = (lastWaitedRunId && replyByRunId.get(lastWaitedRunId)) ?? "";
+        const text = (lastWaitedRunId && replyByRunId.get(lastWaitedRunId)) ;
         return {
           messages: [
             {
@@ -612,7 +612,7 @@ describe("sessions tools", () => {
         return { runId: params?.runId ?? "run-1", status: "ok" };
       }
       if (request.method === "chat.history") {
-        const text = (lastWaitedRunId && replyByRunId.get(lastWaitedRunId)) ?? "";
+        const text = (lastWaitedRunId && replyByRunId.get(lastWaitedRunId)) ;
         return {
           messages: [
             {

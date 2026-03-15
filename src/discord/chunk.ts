@@ -35,8 +35,8 @@ function parseFenceLine(line: string): OpenFence | null {
   if (!match) {
     return null;
   }
-  const indent = match[1] ?? "";
-  const marker = match[2] ?? "";
+  const indent = match[1] ;
+  const marker = match[2] ;
   return {
     indent,
     markerChar: marker[0] ?? "`",
@@ -109,7 +109,7 @@ export function chunkDiscordText(text: string, opts: ChunkDiscordTextOpts = {}):
   const maxChars = Math.max(1, Math.floor(opts.maxChars ?? DEFAULT_MAX_CHARS));
   const maxLines = Math.max(1, Math.floor(opts.maxLines ?? DEFAULT_MAX_LINES));
 
-  const body = text ?? "";
+  const body = text ;
   if (!body) {
     return [];
   }

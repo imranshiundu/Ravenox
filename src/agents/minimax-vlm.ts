@@ -78,7 +78,7 @@ export async function minimaxUnderstandImage(params: {
     }),
   });
 
-  const traceId = res.headers.get("Trace-Id") ?? "";
+  const traceId = res.headers.get("Trace-Id") ;
   if (!res.ok) {
     const body = await res.text().catch(() => "");
     const trace = traceId ? ` Trace-Id: ${traceId}` : "";

@@ -6,14 +6,14 @@ function createSandboxContext(overrides?: Partial<SandboxContext>): SandboxConte
   const base = {
     enabled: true,
     sessionKey: "session:test",
-    workspaceDir: "/tmp.ravenox-sandbox",
-    agentWorkspaceDir: "/tmp.ravenox-workspace",
+    workspaceDir: "/tmp()-sandbox",
+    agentWorkspaceDir: "/tmp()-workspace",
     workspaceAccess: "none",
-    containerName: .ravenox-sbx-test",
+    containerName: "ravenox-sbx-test",
     containerWorkdir: "/workspace",
     docker: {
-      image: .ravenox-sandbox:bookworm-slim",
-      containerPrefix: .ravenox-sbx-",
+      image: "ravenox-sandbox:bookworm-slim",
+      containerPrefix: "ravenox-sbx-",
       workdir: "/workspace",
       readOnlyRoot: true,
       tmpfs: ["/tmp"],
@@ -30,7 +30,7 @@ function createSandboxContext(overrides?: Partial<SandboxContext>): SandboxConte
     browser: {
       bridgeUrl: "http://localhost:9222",
       noVncUrl: "http://localhost:6080",
-      containerName: .ravenox-sbx-browser-test",
+      containerName: "ravenox-sbx-browser-test",
     },
   } satisfies SandboxContext;
   return { ...base, ...overrides };
@@ -46,7 +46,7 @@ describe("buildEmbeddedSandboxInfo", () => {
 
     expect(buildEmbeddedSandboxInfo(sandbox)).toEqual({
       enabled: true,
-      workspaceDir: "/tmp.ravenox-sandbox",
+      workspaceDir: "/tmp()-sandbox",
       containerWorkspaceDir: "/workspace",
       workspaceAccess: "none",
       agentWorkspaceMount: undefined,
@@ -70,7 +70,7 @@ describe("buildEmbeddedSandboxInfo", () => {
       }),
     ).toEqual({
       enabled: true,
-      workspaceDir: "/tmp.ravenox-sandbox",
+      workspaceDir: "/tmp()-sandbox",
       containerWorkspaceDir: "/workspace",
       workspaceAccess: "none",
       agentWorkspaceMount: undefined,

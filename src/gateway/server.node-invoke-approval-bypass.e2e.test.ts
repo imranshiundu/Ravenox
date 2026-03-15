@@ -33,7 +33,7 @@ async function getConnectedNodeId(ws: WebSocket): Promise<string> {
     {},
   );
   expect(nodes.ok).toBe(true);
-  const nodeId = nodes.payload?.nodes?.find((n) => n.connected)?.nodeId ?? "";
+  const nodeId = nodes.payload?.nodes?.find((n) => n.connected)?.nodeId ;
   expect(nodeId).toBeTruthy();
   return nodeId;
 }

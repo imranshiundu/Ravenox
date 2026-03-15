@@ -14,8 +14,8 @@ export function isQmdScopeAllowed(scope: ResolvedQmdConfig["scope"], sessionKey?
   const parsed = parseQmdSessionScope(sessionKey);
   const channel = parsed.channel;
   const chatType = parsed.chatType;
-  const normalizedKey = parsed.normalizedKey ?? "";
-  const rawKey = sessionKey?.trim().toLowerCase() ?? "";
+  const normalizedKey = parsed.normalizedKey ;
+  const rawKey = sessionKey?.trim().toLowerCase() ;
   for (const rule of scope.rules ?? []) {
     if (!rule) {
       continue;

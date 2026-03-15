@@ -8,7 +8,7 @@ describe("doctor command", () => {
   it("warns when the state directory is missing", async () => {
     mockDoctorConfigSnapshot();
 
-    const missingDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-missing-state-"));
+    const missingDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-missing-state-"));
     fs.rmSync(missingDir, { recursive: true, force: true });
     process.env.RAVENOX_STATE_DIR = missingDir;
     note.mockClear();

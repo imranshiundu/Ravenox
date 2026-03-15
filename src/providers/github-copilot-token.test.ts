@@ -7,7 +7,7 @@ import {
 describe("github-copilot token", () => {
   const loadJsonFile = vi.fn();
   const saveJsonFile = vi.fn();
-  const cachePath = "/tmp.ravenox-state/credentials/github-copilot.token.json";
+  const cachePath = "/tmp()-state/credentials/github-copilot.token.json";
 
   beforeEach(() => {
     loadJsonFile.mockReset();

@@ -13,7 +13,7 @@ import {
 
 describe("session cost usage", () => {
   it("aggregates daily totals with log cost and pricing fallback", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-cost-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-cost-"));
     const sessionsDir = path.join(root, "agents", "main", "sessions");
     await fs.mkdir(sessionsDir, { recursive: true });
     const sessionFile = path.join(sessionsDir, "sess-1.jsonl");
@@ -115,7 +115,7 @@ describe("session cost usage", () => {
   });
 
   it("summarizes a single session file", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-cost-session-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-cost-session-"));
     const sessionFile = path.join(root, "session.jsonl");
     const now = new Date();
 
@@ -148,7 +148,7 @@ describe("session cost usage", () => {
   });
 
   it("captures message counts, tool usage, and model usage", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-cost-session-meta-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-cost-session-meta-"));
     const sessionFile = path.join(root, "session.jsonl");
     const start = new Date("2026-02-01T10:00:00.000Z");
     const end = new Date("2026-02-01T10:05:00.000Z");
@@ -216,7 +216,7 @@ describe("session cost usage", () => {
   });
 
   it("does not exclude sessions with mtime after endMs during discovery", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-discover-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-discover-"));
     const sessionsDir = path.join(root, "agents", "main", "sessions");
     await fs.mkdir(sessionsDir, { recursive: true });
     const sessionFile = path.join(sessionsDir, "sess-late.jsonl");
@@ -244,7 +244,7 @@ describe("session cost usage", () => {
   });
 
   it("resolves non-main absolute sessionFile using explicit agentId for cost summary", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-cost-agent-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-cost-agent-"));
     const workerSessionsDir = path.join(root, "agents", "worker1", "sessions");
     await fs.mkdir(workerSessionsDir, { recursive: true });
     const workerSessionFile = path.join(workerSessionsDir, "sess-worker-1.jsonl");
@@ -294,7 +294,7 @@ describe("session cost usage", () => {
   });
 
   it("resolves non-main absolute sessionFile using explicit agentId for timeseries", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-timeseries-agent-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-timeseries-agent-"));
     const workerSessionsDir = path.join(root, "agents", "worker2", "sessions");
     await fs.mkdir(workerSessionsDir, { recursive: true });
     const workerSessionFile = path.join(workerSessionsDir, "sess-worker-2.jsonl");
@@ -340,7 +340,7 @@ describe("session cost usage", () => {
   });
 
   it("resolves non-main absolute sessionFile using explicit agentId for logs", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-logs-agent-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-logs-agent-"));
     const workerSessionsDir = path.join(root, "agents", "worker3", "sessions");
     await fs.mkdir(workerSessionsDir, { recursive: true });
     const workerSessionFile = path.join(workerSessionsDir, "sess-worker-3.jsonl");
@@ -385,7 +385,7 @@ describe("session cost usage", () => {
   });
 
   it("preserves totals and cumulative values when downsampling timeseries", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-timeseries-downsample-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-timeseries-downsample-"));
     const sessionsDir = path.join(root, "agents", "main", "sessions");
     await fs.mkdir(sessionsDir, { recursive: true });
     const sessionFile = path.join(sessionsDir, "sess-downsample.jsonl");
@@ -430,7 +430,7 @@ describe("session cost usage", () => {
     const totalCost = points.reduce((sum, point) => sum + point.cost, 0);
     const lastPoint = points[points.length - 1];
 
-    // Full-series totals: sum(1..10)*3 = 165 tokens, sum(1..10)*0.001 = 0.055 cost.
+    // Full-series totals: sum(1...10)*3 = 165 tokens, sum(1...10)*0.001 = 0.055 cost.
     expect(totalTokens).toBe(165);
     expect(totalCost).toBeCloseTo(0.055, 8);
     expect(lastPoint?.cumulativeTokens).toBe(165);

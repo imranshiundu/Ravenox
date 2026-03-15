@@ -41,7 +41,7 @@ function resolveReadToken(params: DirectoryConfigParams): string | undefined {
 }
 
 function normalizeQuery(value?: string | null): string {
-  return value?.trim().toLowerCase() ?? "";
+  return value?.trim().toLowerCase() ;
 }
 
 function buildUserRank(user: SlackUser): number {

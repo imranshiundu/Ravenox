@@ -151,7 +151,7 @@ export async function handleTelegramAction(
       readStringParam(params, "content", {
         required: !mediaUrl,
         allowEmpty: true,
-      }) ?? "";
+      }) ;
     const buttons = readTelegramButtons(params);
     if (buttons) {
       const inlineButtonsScope = resolveTelegramInlineButtonsScope({

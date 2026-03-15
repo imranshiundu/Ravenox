@@ -862,7 +862,7 @@ async function dispatchDiscordComponentEvent(params: {
   const textLimit = resolveTextChunkLimit(ctx.cfg, "discord", accountId, {
     fallbackLimit: 2000,
   });
-  const token = ctx.token ?? "";
+  const token = ctx.token ;
   const replyToMode =
     ctx.discordConfig?.replyToMode ?? ctx.cfg.channels?.discord?.replyToMode ?? "off";
   const replyReference = createReplyReferencePlanner({

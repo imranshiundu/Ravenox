@@ -42,12 +42,12 @@ describe("rewriteUpdateFlagArgv", () => {
 
 describe("shouldRegisterPrimarySubcommand", () => {
   it("skips eager primary registration for help/version invocations", () => {
-    expect(shouldRegisterPrimarySubcommand(["node", .ravenox", "status", "--help"])).toBe(false);
-    expect(shouldRegisterPrimarySubcommand(["node", .ravenox", "-V"])).toBe(false);
+    expect(shouldRegisterPrimarySubcommand(["node", "ravenox", "status", "--help"])).toBe(false);
+    expect(shouldRegisterPrimarySubcommand(["node", "ravenox", "-V"])).toBe(false);
   });
 
   it("keeps eager primary registration for regular command runs", () => {
-    expect(shouldRegisterPrimarySubcommand(["node", .ravenox", "status"])).toBe(true);
+    expect(shouldRegisterPrimarySubcommand(["node", "ravenox", "status"])).toBe(true);
   });
 });
 
@@ -55,7 +55,7 @@ describe("shouldSkipPluginCommandRegistration", () => {
   it("skips plugin registration for root help/version", () => {
     expect(
       shouldSkipPluginCommandRegistration({
-        argv: ["node", .ravenox", "--help"],
+        argv: ["node", "ravenox", "--help"],
         primary: null,
         hasBuiltinPrimary: false,
       }),
@@ -65,7 +65,7 @@ describe("shouldSkipPluginCommandRegistration", () => {
   it("skips plugin registration for builtin subcommand help", () => {
     expect(
       shouldSkipPluginCommandRegistration({
-        argv: ["node", .ravenox", "config", "--help"],
+        argv: ["node", "ravenox", "config", "--help"],
         primary: "config",
         hasBuiltinPrimary: true,
       }),
@@ -75,7 +75,7 @@ describe("shouldSkipPluginCommandRegistration", () => {
   it("skips plugin registration for builtin command runs", () => {
     expect(
       shouldSkipPluginCommandRegistration({
-        argv: ["node", .ravenox", "sessions", "--json"],
+        argv: ["node", "ravenox", "sessions", "--json"],
         primary: "sessions",
         hasBuiltinPrimary: true,
       }),
@@ -85,7 +85,7 @@ describe("shouldSkipPluginCommandRegistration", () => {
   it("keeps plugin registration for non-builtin help", () => {
     expect(
       shouldSkipPluginCommandRegistration({
-        argv: ["node", .ravenox", "voicecall", "--help"],
+        argv: ["node", "ravenox", "voicecall", "--help"],
         primary: "voicecall",
         hasBuiltinPrimary: false,
       }),
@@ -95,7 +95,7 @@ describe("shouldSkipPluginCommandRegistration", () => {
   it("keeps plugin registration for non-builtin command runs", () => {
     expect(
       shouldSkipPluginCommandRegistration({
-        argv: ["node", .ravenox", "voicecall", "status"],
+        argv: ["node", "ravenox", "voicecall", "status"],
         primary: "voicecall",
         hasBuiltinPrimary: false,
       }),
@@ -105,19 +105,19 @@ describe("shouldSkipPluginCommandRegistration", () => {
 
 describe("shouldEnsureCliPath", () => {
   it("skips path bootstrap for help/version invocations", () => {
-    expect(shouldEnsureCliPath(["node", .ravenox", "--help"])).toBe(false);
-    expect(shouldEnsureCliPath(["node", .ravenox", "-V"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "--help"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "-V"])).toBe(false);
   });
 
   it("skips path bootstrap for read-only fast paths", () => {
-    expect(shouldEnsureCliPath(["node", .ravenox", "status"])).toBe(false);
-    expect(shouldEnsureCliPath(["node", .ravenox", "sessions", "--json"])).toBe(false);
-    expect(shouldEnsureCliPath(["node", .ravenox", "config", "get", "update"])).toBe(false);
-    expect(shouldEnsureCliPath(["node", .ravenox", "models", "status", "--json"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "status"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "sessions", "--json"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "config", "get", "update"])).toBe(false);
+    expect(shouldEnsureCliPath(["node", "ravenox", "models", "status", "--json"])).toBe(false);
   });
 
   it("keeps path bootstrap for mutating or unknown commands", () => {
-    expect(shouldEnsureCliPath(["node", .ravenox", "message", "send"])).toBe(true);
-    expect(shouldEnsureCliPath(["node", .ravenox", "voicecall", "status"])).toBe(true);
+    expect(shouldEnsureCliPath(["node", "ravenox", "message", "send"])).toBe(true);
+    expect(shouldEnsureCliPath(["node", "ravenox", "voicecall", "status"])).toBe(true);
   });
 });

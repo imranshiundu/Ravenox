@@ -22,7 +22,7 @@ export function parseSlashCommandActionArgs(raw: string, slash: string): SlashCo
   if (!match) {
     return { kind: "invalid" };
   }
-  const action = match[1]?.toLowerCase() ?? "";
+  const action = match[1]?.toLowerCase() ;
   const args = (match[2] ?? "").trim();
   return { kind: "parsed", action, args };
 }

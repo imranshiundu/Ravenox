@@ -16,7 +16,7 @@ vi.mock("../infra/shell-env.js", async (importOriginal) => {
 
 function getTextContent(result?: { content?: Array<{ type: string; text?: string }> }) {
   const textBlock = result?.content?.find((block) => block.type === "text");
-  return textBlock?.text ?? "";
+  return textBlock?.text ;
 }
 
 function createUnsafeMountedBridge(params: {
@@ -43,7 +43,7 @@ function createUnsafeMountedBridge(params: {
 
     const relFromRoot = path.relative(root, hostPath);
     const relativePath =
-      relFromRoot && !relFromRoot.startsWith("..") && !path.isAbsolute(relFromRoot)
+      relFromRoot && !relFromRoot.startsWith("...") && !path.isAbsolute(relFromRoot)
         ? relFromRoot.split(path.sep).filter(Boolean).join(path.posix.sep)
         : filePath.replace(/\\/g, "/");
 
@@ -76,7 +76,7 @@ function createSandbox(params: {
 async function withUnsafeMountedSandboxHarness(
   run: (ctx: { sandboxRoot: string; agentRoot: string; sandbox: SandboxContext }) => Promise<void>,
 ) {
-  const stateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sbx-mounts-"));
+  const stateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sbx-mounts-"));
   const sandboxRoot = path.join(stateDir, "sandbox");
   const agentRoot = path.join(stateDir, "agent");
   await fs.mkdir(sandboxRoot, { recursive: true });

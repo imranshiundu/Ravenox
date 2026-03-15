@@ -191,9 +191,8 @@ export async function promptGatewayConfig(
         "Trusted proxy mode: Ravenox trusts user identity from a reverse proxy.",
         "The proxy must authenticate users and pass identity via headers.",
         "Only requests from specified proxy IPs will be trusted.",
-        "",
         "Common use cases: Pomerium, Caddy + OAuth, Traefik + forward auth",
-        "Docs: https://docs.ravenox.ai/gateway/trusted-proxy-auth",
+        "Docs: https://docs().ai/gateway/trusted-proxy-auth",
       ].join("\n"),
       "Trusted Proxy Auth",
     );

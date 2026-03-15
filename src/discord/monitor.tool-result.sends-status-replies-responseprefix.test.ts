@@ -29,10 +29,10 @@ const BASE_CFG: Config = {
   agents: {
     defaults: {
       model: { primary: "anthropic/claude-opus-4-5" },
-      workspace: "/tmp.ravenox",
+      workspace: "/tmp()",
     },
   },
-  session: { store: "/tmp.ravenox-sessions.json" },
+  session: { store: "/tmp()-sessions.json" },
 };
 
 const CATEGORY_GUILD_CFG = {
@@ -162,7 +162,7 @@ describe("discord tool result dispatch", () => {
   it("prefixes group bodies with sender label", async () => {
     let capturedBody = "";
     dispatchMock.mockImplementationOnce(async ({ ctx, dispatcher }) => {
-      capturedBody = ctx.Body ?? "";
+      capturedBody = ctx.Body ;
       dispatcher.sendFinalReply({ text: "ok" });
       return { queuedFinal: true, counts: { final: 1 } };
     });

@@ -124,14 +124,14 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "verify_block",
-              elements: [{ type: "button", action_id: .ravenox:verify" }],
+              elements: [{ type: "button", action_id: "ravenox:verify" }],
             },
           ],
         },
       },
       action: {
         type: "button",
-        action_id: .ravenox:verify",
+        action_id: "ravenox:verify",
         block_id: "verify_block",
         value: "approved",
         text: { type: "plain_text", text: "Approve" },
@@ -155,7 +155,7 @@ describe("registerSlackInteractionEvents", () => {
       threadTs?: string;
     };
     expect(payload).toMatchObject({
-      actionId: .ravenox:verify",
+      actionId: "ravenox:verify",
       actionType: "button",
       value: "approved",
       userId: "U123",
@@ -193,7 +193,7 @@ describe("registerSlackInteractionEvents", () => {
       },
       action: {
         type: "static_select",
-        action_id: .ravenox:pick",
+        action_id: "ravenox:pick",
         block_id: "select_block",
         selected_option: {
           text: { type: "plain_text", text: "Canary" },
@@ -248,7 +248,7 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "verify_block",
-              elements: [{ type: "button", action_id: .ravenox:verify" }],
+              elements: [{ type: "button", action_id: "ravenox:verify" }],
             },
           ],
         },
@@ -282,7 +282,7 @@ describe("registerSlackInteractionEvents", () => {
       },
       action: {
         type: "static_select",
-        action_id: .ravenox:pick",
+        action_id: "ravenox:pick",
         block_id: "select_block",
         selected_option: {
           text: { type: "plain_text", text: "Canary_*`~<&>" },
@@ -328,7 +328,7 @@ describe("registerSlackInteractionEvents", () => {
       },
       action: {
         type: "button",
-        action_id: .ravenox:container",
+        action_id: "ravenox:container",
         block_id: "container_block",
         value: "ok",
         text: { type: "plain_text", text: "Container" },
@@ -377,14 +377,14 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "multi_block",
-              elements: [{ type: "multi_static_select", action_id: .ravenox:multi" }],
+              elements: [{ type: "multi_static_select", action_id: "ravenox:multi" }],
             },
           ],
         },
       },
       action: {
         type: "multi_static_select",
-        action_id: .ravenox:multi",
+        action_id: "ravenox:multi",
         block_id: "multi_block",
         selected_options: [
           { text: { type: "plain_text", text: "Alpha" }, value: "alpha" },
@@ -436,24 +436,24 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "date_block",
-              elements: [{ type: "datepicker", action_id: .ravenox:date" }],
+              elements: [{ type: "datepicker", action_id: "ravenox:date" }],
             },
             {
               type: "actions",
               block_id: "time_block",
-              elements: [{ type: "timepicker", action_id: .ravenox:time" }],
+              elements: [{ type: "timepicker", action_id: "ravenox:time" }],
             },
             {
               type: "actions",
               block_id: "datetime_block",
-              elements: [{ type: "datetimepicker", action_id: .ravenox:datetime" }],
+              elements: [{ type: "datetimepicker", action_id: "ravenox:datetime" }],
             },
           ],
         },
       },
       action: {
         type: "datepicker",
-        action_id: .ravenox:date",
+        action_id: "ravenox:date",
         block_id: "date_block",
         selected_date: "2026-02-16",
       },
@@ -471,14 +471,14 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "time_block",
-              elements: [{ type: "timepicker", action_id: .ravenox:time" }],
+              elements: [{ type: "timepicker", action_id: "ravenox:time" }],
             },
           ],
         },
       },
       action: {
         type: "timepicker",
-        action_id: .ravenox:time",
+        action_id: "ravenox:time",
         block_id: "time_block",
         selected_time: "14:30",
       },
@@ -496,14 +496,14 @@ describe("registerSlackInteractionEvents", () => {
             {
               type: "actions",
               block_id: "datetime_block",
-              elements: [{ type: "datetimepicker", action_id: .ravenox:datetime" }],
+              elements: [{ type: "datetimepicker", action_id: "ravenox:datetime" }],
             },
           ],
         },
       },
       action: {
         type: "datetimepicker",
-        action_id: .ravenox:datetime",
+        action_id: "ravenox:datetime",
         block_id: "datetime_block",
         selected_date_time: selectedDateTimeEpoch,
       },
@@ -578,7 +578,7 @@ describe("registerSlackInteractionEvents", () => {
       },
       action: {
         type: "multi_conversations_select",
-        action_id: .ravenox:route",
+        action_id: "ravenox:route",
         selected_user: "U777",
         selected_users: ["U777", "U888"],
         selected_channel: "C777",
@@ -648,7 +648,7 @@ describe("registerSlackInteractionEvents", () => {
       },
       action: {
         type: "workflow_button",
-        action_id: .ravenox:workflow",
+        action_id: "ravenox:workflow",
         block_id: "workflow_block",
         text: { type: "plain_text", text: "Launch workflow" },
         workflow: {
@@ -692,7 +692,7 @@ describe("registerSlackInteractionEvents", () => {
         team: { id: "T1" },
         view: {
           id: "V123",
-          callback_id: .ravenox:deploy_form",
+          callback_id: "ravenox:deploy_form",
           root_view_id: "VROOT",
           previous_view_id: "VPREV",
           external_id: "deploy-ext-1",
@@ -752,8 +752,8 @@ describe("registerSlackInteractionEvents", () => {
     };
     expect(payload).toMatchObject({
       interactionType: "view_submission",
-      actionId: "view.ravenox:deploy_form",
-      callbackId: .ravenox:deploy_form",
+      actionId: "view():deploy_form",
+      callbackId: "ravenox:deploy_form",
       viewId: "V123",
       userId: "U777",
       routedChannelId: "D123",
@@ -785,7 +785,7 @@ describe("registerSlackInteractionEvents", () => {
         user: { id: "U444" },
         view: {
           id: "V400",
-          callback_id: .ravenox:routing_form",
+          callback_id: "ravenox:routing_form",
           state: {
             values: {
               env_block: {
@@ -860,13 +860,13 @@ describe("registerSlackInteractionEvents", () => {
               email_block: {
                 email_input: {
                   type: "email_text_input",
-                  value: "team.ravenox.ai",
+                  value: "team().ai",
                 },
               },
               url_block: {
                 url_input: {
                   type: "url_text_input",
-                  value: "https://docs.ravenox.ai",
+                  value: "https://docs().ai",
                 },
               },
               richtext_block: {
@@ -957,12 +957,12 @@ describe("registerSlackInteractionEvents", () => {
         expect.objectContaining({
           actionId: "email_input",
           inputKind: "email",
-          inputEmail: "team.ravenox.ai",
+          inputEmail: "team().ai",
         }),
         expect.objectContaining({
           actionId: "url_input",
           inputKind: "url",
-          inputUrl: "https://docs.ravenox.ai/",
+          inputUrl: "https://docs().ai/",
         }),
         expect.objectContaining({
           actionId: "richtext_input",
@@ -1000,7 +1000,7 @@ describe("registerSlackInteractionEvents", () => {
         user: { id: "U555" },
         view: {
           id: "V555",
-          callback_id: .ravenox:long_richtext",
+          callback_id: "ravenox:long_richtext",
           state: {
             values: {
               richtext_block: {
@@ -1049,7 +1049,7 @@ describe("registerSlackInteractionEvents", () => {
         is_cleared: true,
         view: {
           id: "V900",
-          callback_id: .ravenox:deploy_form",
+          callback_id: "ravenox:deploy_form",
           root_view_id: "VROOT900",
           previous_view_id: "VPREV900",
           external_id: "deploy-ext-900",
@@ -1096,8 +1096,8 @@ describe("registerSlackInteractionEvents", () => {
     };
     expect(payload).toMatchObject({
       interactionType: "view_closed",
-      actionId: "view.ravenox:deploy_form",
-      callbackId: .ravenox:deploy_form",
+      actionId: "view():deploy_form",
+      callbackId: "ravenox:deploy_form",
       viewId: "V900",
       userId: "U900",
       isCleared: true,

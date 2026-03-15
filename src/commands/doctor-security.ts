@@ -10,7 +10,7 @@ import { note } from "../terminal/note.js";
 
 export async function noteSecurityWarnings(cfg: RavenoxConfig) {
   const warnings: string[] = [];
-  const auditHint = `- Run: ${formatCliCommand(.ravenox security audit --deep")}`;
+  const auditHint = `- Run: ${formatCliCommand("ravenox security audit --deep")}`;
 
   // ===========================================
   // GATEWAY NETWORK EXPOSURE CHECK
@@ -34,8 +34,8 @@ export async function noteSecurityWarnings(cfg: RavenoxConfig) {
     env: process.env,
     tailscaleMode: cfg.gateway?.tailscale?.mode ?? "off",
   });
-  const authToken = resolvedAuth.token?.trim() ?? "";
-  const authPassword = resolvedAuth.password?.trim() ?? "";
+  const authToken = resolvedAuth.token?.trim() ;
+  const authPassword = resolvedAuth.password?.trim() ;
   const hasToken = authToken.length > 0;
   const hasPassword = authPassword.length > 0;
   const hasSharedSecret =
@@ -48,19 +48,19 @@ export async function noteSecurityWarnings(cfg: RavenoxConfig) {
       const authFixLines =
         resolvedAuth.mode === "password"
           ? [
-              `  Fix: ${formatCliCommand(.ravenox configure")} to set a password`,
-              `  Or switch to token: ${formatCliCommand(.ravenox config set gateway.auth.mode token")}`,
+              `  Fix: ${formatCliCommand("ravenox configure")} to set a password`,
+              `  Or switch to token: ${formatCliCommand("ravenox config set gateway.auth.mode token")}`,
             ]
           : [
-              `  Fix: ${formatCliCommand(.ravenox doctor --fix")} to generate a token`,
+              `  Fix: ${formatCliCommand("ravenox doctor --fix")} to generate a token`,
               `  Or set token directly: ${formatCliCommand(
-                .ravenox config set gateway.auth.mode token",
+                "ravenox config set gateway.auth.mode token",
               )}`,
             ];
       warnings.push(
         `- CRITICAL: Gateway bound to ${bindDescriptor} without authentication.`,
         `  Anyone on your network (or internet if port-forwarded) can fully control your agent.`,
-        `  Fix: ${formatCliCommand(.ravenox config set gateway.bind loopback")}`,
+        `  Fix: ${formatCliCommand("ravenox config set gateway.bind loopback")}`,
         ...authFixLines,
       );
     } else {
@@ -116,7 +116,7 @@ export async function noteSecurityWarnings(cfg: RavenoxConfig) {
     if (dmScope === "main" && isMultiUserDm) {
       warnings.push(
         `- ${params.label} DMs: multiple senders share the main session; run: ` +
-          formatCliCommand(.ravenox config set session.dmScope "per-channel-peer"') +
+          formatCliCommand("ravenox config set session.dmScope "per-channel-peer"') +
           ' (or "per-account-channel-peer" for multi-account channels) to isolate sessions.',
       );
     }

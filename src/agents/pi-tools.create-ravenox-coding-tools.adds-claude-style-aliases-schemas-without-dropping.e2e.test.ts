@@ -5,7 +5,7 @@ import type { AgentTool, AgentToolResult } from "@mariozechner/pi-agent-core";
 import { Type } from "@sinclair/typebox";
 import { describe, expect, it, vi } from "vitest";
 import "./test-helpers/fast-coding-tools.js";
-import { createRavenoxTools } from "..ravenox-tools.js";
+import { createRavenoxTools } from "../ravenox-tools.js";
 import { __testing, createRavenoxCodingTools } from "./pi-tools.js";
 import { createRavenoxReadTool, createSandboxedReadTool } from "./pi-tools.read.js";
 import { createHostSandboxFsBridge } from "./test-helpers/host-sandbox-fs-bridge.js";
@@ -74,7 +74,7 @@ function extractToolText(result: unknown): string {
       typeof (block as { text?: unknown }).text === "string"
     );
   }) as { text?: string } | undefined;
-  return textBlock?.text ?? "";
+  return textBlock?.text ;
 }
 
 describe("createRavenoxCodingTools", () => {
@@ -336,7 +336,7 @@ describe("createRavenoxCodingTools", () => {
   });
 
   it("uses stored spawnDepth to apply leaf tool policy for flat depth-2 session keys", async () => {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-depth-policy-"));
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-depth-policy-"));
     const storeTemplate = path.join(tmpDir, "sessions-{agentId}.json");
     const storePath = storeTemplate.replaceAll("{agentId}", "main");
     await fs.writeFile(
@@ -511,8 +511,8 @@ describe("createRavenoxCodingTools", () => {
     }
   });
   it("applies sandbox path guards to file_path alias", async () => {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sbx-"));
-    const outsidePath = path.join(os.tmpdir(), .ravenox-outside.txt");
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sbx-"));
+    const outsidePath = path.join(os.tmpdir(), "ravenox-outside.txt");
     await fs.writeFile(outsidePath, "outside", "utf8");
     try {
       const readTool = createSandboxedReadTool({
@@ -529,7 +529,7 @@ describe("createRavenoxCodingTools", () => {
   });
 
   it("auto-pages read output across chunks when context window budget allows", async () => {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-read-autopage-"));
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-read-autopage-"));
     const filePath = path.join(tmpDir, "big.txt");
     const lines = Array.from(
       { length: 5000 },
@@ -554,7 +554,7 @@ describe("createRavenoxCodingTools", () => {
   });
 
   it("adds capped continuation guidance when aggregated read output reaches budget", async () => {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-read-cap-"));
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-read-cap-"));
     const filePath = path.join(tmpDir, "huge.txt");
     const lines = Array.from(
       { length: 8000 },

@@ -41,7 +41,7 @@ export function resolveConversationLabel(ctx: MsgContext): string | undefined {
     ctx.GroupSubject?.trim() ||
     ctx.GroupSpace?.trim() ||
     ctx.From?.trim() ||
-    "";
+   ;
   if (!base) {
     return undefined;
   }

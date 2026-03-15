@@ -180,7 +180,7 @@ export async function resolveDiscordThreadStarter(params: {
     if (!starter) {
       return null;
     }
-    const text = starter.content?.trim() ?? starter.embeds?.[0]?.description?.trim() ?? "";
+    const text = starter.content?.trim() ?? starter.embeds?.[0]?.description?.trim() ;
     if (!text) {
       return null;
     }

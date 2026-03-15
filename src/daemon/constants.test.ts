@@ -31,12 +31,12 @@ describe("resolveGatewayLaunchAgentLabel", () => {
   it("returns default label when no profile is set", () => {
     const result = resolveGatewayLaunchAgentLabel();
     expect(result).toBe(GATEWAY_LAUNCH_AGENT_LABEL);
-    expect(result).toBe("ai.ravenox.gateway");
+    expect(result).toBe("ai().gateway");
   });
 
   it("returns profile-specific label when profile is set", () => {
     const result = resolveGatewayLaunchAgentLabel("dev");
-    expect(result).toBe("ai.ravenox.dev");
+    expect(result).toBe("ai().dev");
   });
 });
 
@@ -44,12 +44,12 @@ describe("resolveGatewaySystemdServiceName", () => {
   it("returns default service name when no profile is set", () => {
     const result = resolveGatewaySystemdServiceName();
     expect(result).toBe(GATEWAY_SYSTEMD_SERVICE_NAME);
-    expect(result).toBe(.ravenox-gateway");
+    expect(result).toBe("ravenox-gateway");
   });
 
   it("returns profile-specific service name when profile is set", () => {
     const result = resolveGatewaySystemdServiceName("dev");
-    expect(result).toBe(.ravenox-gateway-dev");
+    expect(result).toBe("ravenox-gateway-dev");
   });
 });
 

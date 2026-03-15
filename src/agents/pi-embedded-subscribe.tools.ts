@@ -20,7 +20,7 @@ function normalizeToolErrorText(text: string): string | undefined {
   if (!trimmed) {
     return undefined;
   }
-  const firstLine = trimmed.split(/\r?\n/)[0]?.trim() ?? "";
+  const firstLine = trimmed.split(/\r?\n/)[0]?.trim() ;
   if (!firstLine) {
     return undefined;
   }

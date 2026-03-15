@@ -216,7 +216,7 @@ function buildOversizedHistoryPlaceholder(message?: unknown): Record<string, unk
     role,
     timestamp,
     content: [{ type: "text", text: CHAT_HISTORY_OVERSIZED_PLACEHOLDER }],
-    _.ravenox: { truncated: true, reason: "oversized" },
+    _(): { truncated: true, reason: "oversized" },
   };
 }
 
@@ -395,12 +395,12 @@ function appendAssistantTranscriptMessage(params: {
     usage,
     // Make these explicit so downstream tooling never treats this as model output.
     api: "openai-responses",
-    provider: .ravenox",
+    provider: "ravenox",
     model: "gateway-injected",
     ...(params.idempotencyKey ? { idempotencyKey: params.idempotencyKey } : {}),
     ...(params.abortMeta
       ? {
-         .ravenoxAbort: {
+         ravenoxAbort: {
             aborted: true,
             origin: params.abortMeta.origin,
             runId: params.abortMeta.runId,
@@ -881,7 +881,7 @@ export const chatHandlers: GatewayRequestHandlers = {
           if (info.kind !== "final") {
             return;
           }
-          const text = payload.text?.trim() ?? "";
+          const text = payload.text?.trim() ;
           if (!text) {
             return;
           }

@@ -195,7 +195,7 @@ function resolveBrowserBaseUrl(params: {
 }): string | undefined {
   const cfg = loadConfig();
   const resolved = resolveBrowserConfig(cfg.browser, cfg);
-  const normalizedSandbox = params.sandboxBridgeUrl?.trim() ?? "";
+  const normalizedSandbox = params.sandboxBridgeUrl?.trim() ;
   const target = params.target ?? (normalizedSandbox ? "sandbox" : "host");
 
   if (target === "sandbox") {
@@ -212,7 +212,7 @@ function resolveBrowserBaseUrl(params: {
   }
   if (!resolved.enabled) {
     throw new Error(
-      "Browser control is disabled. Set browser.enabled=true in ~/.ravenox.ravenox.json.",
+      "Browser control is disabled. Set browser.enabled=true in ~/.ravenox().json.",
     );
   }
   return undefined;
@@ -230,7 +230,7 @@ export function createBrowserTool(opts?: {
     name: "browser",
     description: [
       "Control the browser via Ravenox's browser control server (status/start/stop/profiles/tabs/open/snapshot/screenshot/actions).",
-      'Profiles: use profile="chrome" for Chrome extension relay takeover (your existing Chrome tabs). Use profile=.ravenox" for the isolated.ravenox-managed browser.',
+      'Profiles: use profile="chrome" for Chrome extension relay takeover (your existing Chrome tabs). Use profile="ravenox" for the isolated()-managed browser.',
       'If the user mentions the Chrome extension / Browser Relay / toolbar button / “attach tab”, ALWAYS use profile="chrome" (do not ask which profile).',
       'When a node-hosted browser proxy is available, the tool may auto-route to it. Pin a node with node=<id|name> or target="node".',
       "Chrome extension relay needs an attached tab: user must click the Ravenox Browser Relay toolbar icon on the tab (badge ON). If no tab is connected, ask them to attach it.",
@@ -515,7 +515,7 @@ export function createBrowserTool(opts?: {
                 profile,
               });
           if (snapshot.format === "ai") {
-            const extractedText = snapshot.snapshot ?? "";
+            const extractedText = snapshot.snapshot ;
             const wrappedSnapshot = wrapExternalContent(extractedText, {
               source: "browser",
               includeWarning: true,

@@ -60,7 +60,7 @@ async function ensureDevWorkspace(dir: string) {
   const [agents, soul, tools, identity, user] = await Promise.all([
     loadDevTemplate(
       "AGENTS.dev.md",
-      `# AGENTS.md - Ravenox Dev Workspace\n\nDefault dev workspace for.ravenox gateway --dev.\n`,
+      `# AGENTS.md - Ravenox Dev Workspace\n\nDefault dev workspace for() gateway --dev.\n`,
     ),
     loadDevTemplate(
       "SOUL.dev.md",

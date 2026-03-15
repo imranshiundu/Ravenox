@@ -27,14 +27,14 @@ import { resolveSlackRoomContextHints } from "./room-context.js";
 
 type SlackBlock = { type: string; [key: string]: unknown };
 
-const SLACK_COMMAND_ARG_ACTION_ID = .ravenox_cmdarg";
+const SLACK_COMMAND_ARG_ACTION_ID = ravenox_cmdarg";
 const SLACK_COMMAND_ARG_VALUE_PREFIX = "cmdarg";
 const SLACK_COMMAND_ARG_BUTTON_ROW_SIZE = 5;
 const SLACK_COMMAND_ARG_OVERFLOW_MIN = 3;
 const SLACK_COMMAND_ARG_OVERFLOW_MAX = 5;
 const SLACK_COMMAND_ARG_SELECT_OPTIONS_MAX = 100;
 const SLACK_COMMAND_ARG_SELECT_OPTION_VALUE_MAX = 75;
-const SLACK_COMMAND_ARG_EXTERNAL_PREFIX = .ravenox_cmdarg_ext:";
+const SLACK_COMMAND_ARG_EXTERNAL_PREFIX = ravenox_cmdarg_ext:";
 const SLACK_COMMAND_ARG_EXTERNAL_TTL_MS = 10 * 60 * 1000;
 const SLACK_HEADER_TEXT_MAX = 150;
 
@@ -696,7 +696,7 @@ export async function registerSlackMonitorSlashCommands(params: {
         `/${command.name}`,
         async ({ command: cmd, ack, respond }: SlackCommandMiddlewareArgs) => {
           const commandDefinition = registry.findCommandByNativeName(command.name, "slack");
-          const rawText = cmd.text?.trim() ?? "";
+          const rawText = cmd.text?.trim() ;
           const commandArgs = commandDefinition
             ? registry.parseCommandArgs(commandDefinition, rawText)
             : rawText
@@ -776,7 +776,7 @@ export async function registerSlackMonitorSlashCommands(params: {
         await ack({ options: [] });
         return;
       }
-      const query = typedBody.value?.trim().toLowerCase() ?? "";
+      const query = typedBody.value?.trim().toLowerCase() ;
       const options = entry.choices
         .filter((choice) => !query || choice.label.toLowerCase().includes(query))
         .slice(0, SLACK_COMMAND_ARG_SELECT_OPTIONS_MAX)

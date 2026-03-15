@@ -210,7 +210,7 @@ describe("draft stream initial message debounce", () => {
       });
 
       // Exactly 30 chars
-      stream.update("I am processing your request..");
+      stream.update("I am processing your request...");
       await stream.flush();
 
       expect(api.sendMessage).toHaveBeenCalled();
@@ -243,12 +243,12 @@ describe("draft stream initial message debounce", () => {
       });
 
       // First message at threshold (30 chars)
-      stream.update("I am processing your request..");
+      stream.update("I am processing your request...");
       await stream.flush();
       expect(api.sendMessage).toHaveBeenCalledTimes(1);
 
       // Subsequent updates should edit, not wait for threshold
-      stream.update("I am processing your request.. and summarizing");
+      stream.update("I am processing your request... and summarizing");
       await stream.flush();
 
       expect(api.editMessageText).toHaveBeenCalled();

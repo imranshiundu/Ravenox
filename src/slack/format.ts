@@ -43,7 +43,7 @@ function escapeSlackMrkdwnContent(text: string): string {
   ) {
     const matchIndex = match.index ?? 0;
     out.push(escapeSlackMrkdwnSegment(text.slice(lastIndex, matchIndex)));
-    const token = match[0] ?? "";
+    const token = match[0] ;
     out.push(isAllowedSlackAngleToken(token) ? token : escapeSlackMrkdwnSegment(token));
     lastIndex = matchIndex + token.length;
   }

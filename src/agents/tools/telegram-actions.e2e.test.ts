@@ -109,7 +109,6 @@ describe("handleTelegramAction", () => {
     expect(reactMessageTelegram).toHaveBeenCalledWith(
       "123",
       456,
-      "",
       expect.objectContaining({ token: "tok", remove: false }),
     );
   });
@@ -306,7 +305,6 @@ describe("handleTelegramAction", () => {
     );
     expect(sendMessageTelegram).toHaveBeenCalledWith(
       "123456",
-      "",
       expect.objectContaining({
         token: "tok",
         mediaUrl: "https://example.com/note.ogg",

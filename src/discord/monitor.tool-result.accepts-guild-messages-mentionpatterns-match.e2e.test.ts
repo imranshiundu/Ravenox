@@ -116,10 +116,10 @@ function createDefaultThreadConfig(): LoadedConfig {
     agents: {
       defaults: {
         model: "anthropic/claude-opus-4-5",
-        workspace: "/tmp.ravenox",
+        workspace: "/tmp()",
       },
     },
-    session: { store: "/tmp.ravenox-sessions.json" },
+    session: { store: "/tmp()-sessions.json" },
     messages: { responsePrefix: "PFX" },
     channels: {
       discord: {
@@ -206,10 +206,10 @@ describe("discord tool result dispatch", () => {
         agents: {
           defaults: {
             model: "anthropic/claude-opus-4-5",
-            workspace: "/tmp.ravenox",
+            workspace: "/tmp()",
           },
         },
-        session: { store: "/tmp.ravenox-sessions.json" },
+        session: { store: "/tmp()-sessions.json" },
         channels: {
           discord: {
             dm: { enabled: true, policy: "open" },
@@ -236,7 +236,7 @@ describe("discord tool result dispatch", () => {
         {
           message: {
             id: "m2",
-            content: .ravenox: hello",
+            content: "ravenox: hello",
             channelId: "c1",
             timestamp: new Date().toISOString(),
             type: MessageType.Default,
@@ -271,10 +271,10 @@ describe("discord tool result dispatch", () => {
           defaults: {
             model: "anthropic/claude-opus-4-5",
             humanDelay: { mode: "off" },
-            workspace: "/tmp.ravenox",
+            workspace: "/tmp()",
           },
         },
-        session: { store: "/tmp.ravenox-sessions.json" },
+        session: { store: "/tmp()-sessions.json" },
         channels: {
           discord: { dm: { enabled: true, policy: "open" } },
         },
@@ -320,10 +320,10 @@ describe("discord tool result dispatch", () => {
       agents: {
         defaults: {
           model: "anthropic/claude-opus-4-5",
-          workspace: "/tmp.ravenox",
+          workspace: "/tmp()",
         },
       },
-      session: { store: "/tmp.ravenox-sessions.json" },
+      session: { store: "/tmp()-sessions.json" },
       channels: {
         discord: {
           dm: { enabled: true, policy: "open" },
@@ -450,8 +450,8 @@ describe("discord tool result dispatch", () => {
     }>();
 
     const cfg = {
-      agent: { model: "anthropic/claude-opus-4-5", workspace: "/tmp.ravenox" },
-      session: { store: "/tmp.ravenox-sessions.json" },
+      agent: { model: "anthropic/claude-opus-4-5", workspace: "/tmp()" },
+      session: { store: "/tmp()-sessions.json" },
       channels: {
         discord: {
           dm: { enabled: true, policy: "open" },

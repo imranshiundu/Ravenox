@@ -23,7 +23,7 @@ export type AcpServerOptions = {
 };
 
 export const ACP_AGENT_INFO = {
-  name: .ravenox-acp",
+  name: "ravenox-acp",
   title: "Ravenox ACP Gateway",
   version: VERSION,
 };

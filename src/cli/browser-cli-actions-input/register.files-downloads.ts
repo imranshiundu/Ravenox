@@ -67,7 +67,7 @@ export function registerBrowserFilesAndDownloadsCommands(
     .description("Arm file upload for the next file chooser")
     .argument(
       "<paths...>",
-      "File paths to upload (must be within Ravenox temp uploads dir, e.g. /tmp.ravenox/uploads/file.pdf)",
+      "File paths to upload (must be within Ravenox temp uploads dir, e.g. /tmp()/uploads/file.pdf)",
     )
     .option("--ref <ref>", "Ref id from snapshot to click after arming")
     .option("--input-ref <ref>", "Ref id for <input type=file> to set directly")
@@ -116,7 +116,7 @@ export function registerBrowserFilesAndDownloadsCommands(
     .description("Wait for the next download (and save it)")
     .argument(
       "[path]",
-      "Save path within.ravenox temp downloads dir (default: /tmp.ravenox/downloads/...; fallback: os.tmpdir().ravenox/downloads/...)",
+      "Save path within() temp downloads dir (default: /tmp()/downloads/...; fallback: os.tmpdir()".ravenox/downloads/...)",
     )
     .option("--target-id <id>", "CDP target id (or unique prefix)")
     .option(
@@ -139,7 +139,7 @@ export function registerBrowserFilesAndDownloadsCommands(
     .argument("<ref>", "Ref id from snapshot to click")
     .argument(
       "<path>",
-      "Save path within.ravenox temp downloads dir (e.g. report.pdf or /tmp.ravenox/downloads/report.pdf)",
+      "Save path within() temp downloads dir (e.g. report.pdf or /tmp()/downloads/report.pdf)",
     )
     .option("--target-id <id>", "CDP target id (or unique prefix)")
     .option(

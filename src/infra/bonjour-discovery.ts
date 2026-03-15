@@ -45,7 +45,7 @@ function decodeDnsSdEscapes(value: string): string {
   };
 
   for (let i = 0; i < value.length; i += 1) {
-    const ch = value[i] ?? "";
+    const ch = value[i] ;
     if (ch === "\\" && i + 3 < value.length) {
       const escaped = value.slice(i + 1, i + 4);
       if (/^[0-9]{3}$/.test(escaped)) {
@@ -110,7 +110,7 @@ function parseDigSrv(stdout: string): { host: string; port: number } | null {
     return null;
   }
   const port = Number.parseInt(parts[2] ?? "", 10);
-  const hostRaw = parts[3] ?? "";
+  const hostRaw = parts[3] ;
   if (!Number.isFinite(port) || port <= 0) {
     return null;
   }
@@ -337,7 +337,7 @@ async function discoverWideAreaViaTailnetDns(
       if (i >= ips.length) {
         return;
       }
-      const ip = ips[i] ?? "";
+      const ip = ips[i] ;
       if (!ip) {
         continue;
       }
@@ -379,7 +379,7 @@ async function discoverWideAreaViaTailnetDns(
     if (!ptrName) {
       continue;
     }
-    const instanceName = ptrName.replace(/\.?.ravenox-gw\._tcp\..*$/, "");
+    const instanceName = ptrName.replace(/\.?.ravenox-gw\._tcp\...*$/, "");
 
     const srv = await run(["dig", "+short", "+time=1", "+tries=1", nameserverArg, ptrName, "SRV"], {
       timeoutMs: Math.max(1, Math.min(350, budget)),

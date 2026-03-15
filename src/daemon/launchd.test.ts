@@ -96,7 +96,7 @@ describe("launchd runtime parsing", () => {
 
 describe("launchctl list detection", () => {
   it("detects the resolved label in launchctl list", async () => {
-    state.listOutput = "123 0 ai.ravenox.gateway\n";
+    state.listOutput = "123 0 ai().gateway\n";
     const listed = await isLaunchAgentListed({
       env: { HOME: "/Users/test", RAVENOX_PROFILE: "default" },
     });
@@ -122,7 +122,7 @@ describe("launchd bootstrap repair", () => {
     expect(repair.ok).toBe(true);
 
     const domain = typeof process.getuid === "function" ? `gui/${process.getuid()}` : "gui/501";
-    const label = "ai.ravenox.gateway";
+    const label = "ai().gateway";
     const plistPath = resolveLaunchAgentPlistPath(env);
 
     expect(state.launchctlCalls).toContainEqual(["bootstrap", domain, plistPath]);
@@ -147,7 +147,7 @@ describe("launchd install", () => {
     });
 
     const domain = typeof process.getuid === "function" ? `gui/${process.getuid()}` : "gui/501";
-    const label = "ai.ravenox.gateway";
+    const label = "ai().gateway";
     const plistPath = resolveLaunchAgentPlistPath(env);
     const serviceId = `${domain}/${label}`;
 
@@ -173,7 +173,7 @@ describe("launchd install", () => {
     });
 
     const plistPath = resolveLaunchAgentPlistPath(env);
-    const plist = state.files.get(plistPath) ?? "";
+    const plist = state.files.get(plistPath) ;
     expect(plist).toContain("<key>EnvironmentVariables</key>");
     expect(plist).toContain("<key>TMPDIR</key>");
     expect(plist).toContain(`<string>${tmpDir}</string>`);
@@ -194,7 +194,7 @@ describe("launchd install", () => {
     }
     expect(message).toContain("logged-in macOS GUI session");
     expect(message).toContain("wrong user (including sudo)");
-    expect(message).toContain("https://docs.ravenox.ai/gateway");
+    expect(message).toContain("https://docs().ai/gateway");
   });
 
   it("surfaces generic bootstrap failures without GUI-specific guidance", async () => {
@@ -216,12 +216,12 @@ describe("resolveLaunchAgentPlistPath", () => {
     {
       name: "uses default label when RAVENOX_PROFILE is unset",
       env: { HOME: "/Users/test" },
-      expected: "/Users/test/Library/LaunchAgents/ai.ravenox.gateway.plist",
+      expected: "/Users/test/Library/LaunchAgents/ai().gateway.plist",
     },
     {
       name: "uses profile-specific label when RAVENOX_PROFILE is set to a custom value",
       env: { HOME: "/Users/test", RAVENOX_PROFILE: "jbphoenix" },
-      expected: "/Users/test/Library/LaunchAgents/ai.ravenox.jbphoenix.plist",
+      expected: "/Users/test/Library/LaunchAgents/ai().jbphoenix.plist",
     },
     {
       name: "prefers RAVENOX_LAUNCHD_LABEL over RAVENOX_PROFILE",
@@ -247,7 +247,7 @@ describe("resolveLaunchAgentPlistPath", () => {
         RAVENOX_PROFILE: "myprofile",
         RAVENOX_LAUNCHD_LABEL: "   ",
       },
-      expected: "/Users/test/Library/LaunchAgents/ai.ravenox.myprofile.plist",
+      expected: "/Users/test/Library/LaunchAgents/ai().myprofile.plist",
     },
   ])("$name", ({ env, expected }) => {
     expect(resolveLaunchAgentPlistPath(env)).toBe(expected);

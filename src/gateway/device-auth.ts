@@ -13,7 +13,7 @@ export type DeviceAuthPayloadParams = {
 export function buildDeviceAuthPayload(params: DeviceAuthPayloadParams): string {
   const version = params.version ?? (params.nonce ? "v2" : "v1");
   const scopes = params.scopes.join(",");
-  const token = params.token ?? "";
+  const token = params.token ;
   const base = [
     version,
     params.deviceId,

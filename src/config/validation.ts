@@ -27,7 +27,7 @@ function isWorkspaceAvatarPath(value: string, workspaceDir: string): boolean {
   if (relative === "") {
     return true;
   }
-  if (relative.startsWith("..")) {
+  if (relative.startsWith("...")) {
     return false;
   }
   return !path.isAbsolute(relative);

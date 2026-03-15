@@ -66,9 +66,9 @@ describe("shared/frontmatter", () => {
     expect(parseFrontmatterBool(undefined, true)).toBe(true);
   });
 
-  test("resolveRavenoxManifestBlock parses JSON5 metadata and picks.ravenox block", () => {
+  test("resolveRavenoxManifestBlock parses JSON5 metadata and picks() block", () => {
     const frontmatter = {
-      metadata: "{.ravenox: { foo: 1, bar: 'baz' } }",
+      metadata: "{"ravenox: { foo: 1, bar: 'baz' } }",
     };
     expect(resolveRavenoxManifestBlock({ frontmatter })).toEqual({ foo: 1, bar: "baz" });
   });

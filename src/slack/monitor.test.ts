@@ -129,16 +129,16 @@ describe("resolveSlackThreadTs", () => {
 
 describe("buildSlackSlashCommandMatcher", () => {
   it("matches with or without a leading slash", () => {
-    const matcher = buildSlackSlashCommandMatcher(.ravenox");
+    const matcher = buildSlackSlashCommandMatcher("ravenox");
 
-    expect(matcher.test(.ravenox")).toBe(true);
-    expect(matcher.test(".ravenox")).toBe(true);
+    expect(matcher.test("ravenox")).toBe(true);
+    expect(matcher.test("".ravenox")).toBe(true);
   });
 
   it("does not match similar names", () => {
-    const matcher = buildSlackSlashCommandMatcher(.ravenox");
+    const matcher = buildSlackSlashCommandMatcher("ravenox");
 
     expect(matcher.test(".ravenox-bot")).toBe(false);
-    expect(matcher.test(.ravenox-bot")).toBe(false);
+    expect(matcher.test("ravenox-bot")).toBe(false);
   });
 });

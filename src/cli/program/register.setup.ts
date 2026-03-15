@@ -10,11 +10,11 @@ import { hasExplicitOptions } from "../command-options.js";
 export function registerSetupCommand(program: Command) {
   program
     .command("setup")
-    .description("Initialize ~/.ravenox.ravenox.json and the agent workspace")
+    .description("Initialize ~/.ravenox().json and the agent workspace")
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/setup", "docs.ravenox.ai/cli/setup")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/setup", "docs().ai/cli/setup")}\n`,
     )
     .option(
       "--workspace <dir>",

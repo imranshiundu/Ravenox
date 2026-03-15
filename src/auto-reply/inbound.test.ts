@@ -260,7 +260,7 @@ describe("createInboundDebouncer", () => {
 
 describe("initSessionState BodyStripped", () => {
   it("prefers BodyForAgent over Body for group chats", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sender-meta-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sender-meta-"));
     const storePath = path.join(root, "sessions.json");
     const cfg = { session: { store: storePath } } as RavenoxConfig;
 
@@ -282,7 +282,7 @@ describe("initSessionState BodyStripped", () => {
   });
 
   it("prefers BodyForAgent over Body for direct chats", async () => {
-    const root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sender-meta-direct-"));
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sender-meta-direct-"));
     const storePath = path.join(root, "sessions.json");
     const cfg = { session: { store: storePath } } as RavenoxConfig;
 
@@ -311,11 +311,11 @@ describe("mention helpers", () => {
       },
     });
     expect(regexes).toHaveLength(1);
-    expect(regexes[0]?.test(.ravenox")).toBe(true);
+    expect(regexes[0]?.test("ravenox")).toBe(true);
   });
 
   it("normalizes zero-width characters", () => {
-    expect(normalizeMentionText("open\u200bclaw")).toBe(.ravenox");
+    expect(normalizeMentionText("open\u200bclaw")).toBe("ravenox");
   });
 
   it("matches patterns case-insensitively", () => {

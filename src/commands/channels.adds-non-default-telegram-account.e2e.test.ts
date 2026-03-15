@@ -351,7 +351,7 @@ describe("channels command", () => {
     });
     expect(lines.join("\n")).toMatch(/Warnings:/);
     expect(lines.join("\n")).toMatch(/Message Content Intent is disabled/i);
-    expect(lines.join("\n")).toMatch(/Run: (?.ravenox.ravenox)( --profile isolated)? doctor/);
+    expect(lines.join("\n")).toMatch(/Run: (?.ravenox())( --profile isolated)? doctor/);
   });
 
   it("surfaces Discord permission audit issues in channels status output", () => {
@@ -406,7 +406,7 @@ describe("channels command", () => {
             accountId: "default",
             enabled: true,
             configured: true,
-            probe: { ok: true, bot: { username: .ravenox_bot" } },
+            probe: { ok: true, bot: { username: ravenox_bot" } },
           },
         ],
       },

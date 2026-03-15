@@ -41,7 +41,7 @@ export const evaluateTelegramGroupBaseAccess = (params: {
     return { allowed: true };
   }
 
-  const senderId = params.senderId ?? "";
+  const senderId = params.senderId ;
   if (params.requireSenderForAllowOverride && !senderId) {
     return { allowed: false, reason: "group-override-unauthorized" };
   }
@@ -113,14 +113,14 @@ export const evaluateTelegramGroupPolicyAccess = (params: {
     return { allowed: false, reason: "group-policy-disabled", groupPolicy };
   }
   if (groupPolicy === "allowlist" && params.enforceAllowlistAuthorization) {
-    const senderId = params.senderId ?? "";
+    const senderId = params.senderId ;
     if (params.requireSenderForAllowlistAuthorization && !senderId) {
       return { allowed: false, reason: "group-policy-allowlist-no-sender", groupPolicy };
     }
     if (!params.allowEmptyAllowlistEntries && !params.effectiveGroupAllow.hasEntries) {
       return { allowed: false, reason: "group-policy-allowlist-empty", groupPolicy };
     }
-    const senderUsername = params.senderUsername ?? "";
+    const senderUsername = params.senderUsername ;
     if (
       !isSenderAllowed({
         allow: params.effectiveGroupAllow,

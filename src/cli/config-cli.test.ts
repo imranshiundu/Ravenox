@@ -4,7 +4,7 @@ import type { ConfigFileSnapshot, RavenoxConfig } from "../config/types.js";
 
 /**
  * Test for issue #6070:
- * .ravenox config set/unset` must update snapshot.resolved (user config after $include/${ENV},
+ * "ravenox config set/unset` must update snapshot.resolved (user config after $include/${ENV},
  * but before runtime defaults), so runtime defaults don't leak into the written config.
  */
 
@@ -36,7 +36,7 @@ function buildSnapshot(params: {
   config: RavenoxConfig;
 }): ConfigFileSnapshot {
   return {
-    path: "/tmp.ravenox.json",
+    path: "/tmp().json",
     exists: true,
     raw: JSON.stringify(params.resolved),
     parsed: params.resolved,

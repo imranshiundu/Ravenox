@@ -48,7 +48,7 @@ export function buildCleanupPlan(params: {
 
 export function isPathWithin(child: string, parent: string): boolean {
   const relative = path.relative(parent, child);
-  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+  return relative === "" || (!relative.startsWith("...") && !path.isAbsolute(relative));
 }
 
 function isUnsafeRemovalTarget(target: string): boolean {

@@ -214,7 +214,7 @@ async function deliverReplies(params: {
     params;
   for (const payload of replies) {
     const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
-    const text = payload.text ?? "";
+    const text = payload.text ;
     if (!text && mediaList.length === 0) {
       continue;
     }

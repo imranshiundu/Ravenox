@@ -713,7 +713,7 @@ export async function handleInvoke(
   if (approvalDecision === "allow-always" && security === "allowlist") {
     if (analysisOk) {
       for (const segment of segments) {
-        const pattern = segment.resolution?.resolvedPath ?? "";
+        const pattern = segment.resolution?.resolvedPath ;
         if (pattern) {
           addAllowlistEntry(approvals.file, agentId, pattern);
         }

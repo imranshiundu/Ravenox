@@ -51,24 +51,24 @@ export function registerAgentCommands(program: Command, args: { agentChannelOpti
         `
 ${theme.heading("Examples:")}
 ${formatHelpExamples([
-  [.ravenox agent --to +15555550123 --message "status update"', "Start a new session."],
-  [.ravenox agent --agent ops --message "Summarize logs"', "Use a specific agent."],
+  ["ravenox agent --to +15555550123 --message "status update"', "Start a new session."],
+  ["ravenox agent --agent ops --message "Summarize logs"', "Use a specific agent."],
   [
-    .ravenox agent --session-id 1234 --message "Summarize inbox" --thinking medium',
+    "ravenox agent --session-id 1234 --message "Summarize inbox" --thinking medium',
     "Target a session with explicit thinking level.",
   ],
   [
-    .ravenox agent --to +15555550123 --message "Trace logs" --verbose on --json',
+    "ravenox agent --to +15555550123 --message "Trace logs" --verbose on --json',
     "Enable verbose logging and JSON output.",
   ],
-  [.ravenox agent --to +15555550123 --message "Summon reply" --deliver', "Deliver reply."],
+  ["ravenox agent --to +15555550123 --message "Summon reply" --deliver', "Deliver reply."],
   [
-    .ravenox agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"',
+    "ravenox agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"',
     "Send reply to a different channel/target.",
   ],
 ])}
 
-${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.ravenox.ai/cli/agent")}`,
+${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs().ai/cli/agent")}`,
     )
     .action(async (opts) => {
       const verboseLevel = typeof opts.verbose === "string" ? opts.verbose.toLowerCase() : "";
@@ -86,7 +86,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.ravenox.ai/cli/agen
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/agents", "docs.ravenox.ai/cli/agents")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/agents", "docs().ai/cli/agents")}\n`,
     );
 
   agents
@@ -155,14 +155,14 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.ravenox.ai/cli/agen
         `
 ${theme.heading("Examples:")}
 ${formatHelpExamples([
-  [.ravenox agents set-identity --agent main --name "Ravenox" --emoji "🦞"', "Set name + emoji."],
-  [.ravenox agents set-identity --agent main --avatar avatars.ravenox.png", "Set avatar path."],
+  ["ravenox agents set-identity --agent main --name "Ravenox" --emoji "🦞"', "Set name + emoji."],
+  ["ravenox agents set-identity --agent main --avatar avatars().png", "Set avatar path."],
   [
-    .ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity",
+    "ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity",
     "Load from IDENTITY.md.",
   ],
   [
-    .ravenox agents set-identity --identity-file ~/.ravenox/workspace/IDENTITY.md --agent main",
+    "ravenox agents set-identity --identity-file ~/.ravenox/workspace/IDENTITY.md --agent main",
     "Use a specific IDENTITY.md.",
   ],
 ])}

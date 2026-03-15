@@ -8,7 +8,7 @@ import { isTruthyEnvValue, normalizeEnv } from "./infra/env.js";
 import { installProcessWarningFilter } from "./infra/warning-filter.js";
 import { attachChildProcessBridge } from "./process/child-process-bridge.js";
 
-process.title = .ravenox";
+process.title = "ravenox";
 installProcessWarningFilter();
 normalizeEnv();
 
@@ -20,7 +20,7 @@ if (process.argv.includes("--no-color")) {
 const EXPERIMENTAL_WARNING_FLAG = "--disable-warning=ExperimentalWarning";
 
 function hasExperimentalWarningSuppressed(): boolean {
-  const nodeOptions = process.env.NODE_OPTIONS ?? "";
+  const nodeOptions = process.env.NODE_OPTIONS ;
   if (nodeOptions.includes(EXPERIMENTAL_WARNING_FLAG) || nodeOptions.includes("--no-warnings")) {
     return true;
   }

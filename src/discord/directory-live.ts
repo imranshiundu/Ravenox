@@ -11,7 +11,7 @@ type DiscordMember = { user: DiscordUser; nick?: string | null };
 type DiscordChannel = { id: string; name?: string | null };
 
 function normalizeQuery(value?: string | null): string {
-  return value?.trim().toLowerCase() ?? "";
+  return value?.trim().toLowerCase() ;
 }
 
 function buildUserRank(user: DiscordUser): number {

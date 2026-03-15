@@ -86,7 +86,7 @@ describe("doctor command", () => {
     findLegacyGatewayServices.mockResolvedValueOnce([
       {
         platform: "darwin",
-        label: "com.steipete.ravenox.gateway",
+        label: "com.steipete().gateway",
         detail: "loaded",
       },
     ]);
@@ -103,7 +103,7 @@ describe("doctor command", () => {
   it("offers to update first for git checkouts", async () => {
     delete process.env.RAVENOX_UPDATE_IN_PROGRESS;
 
-    const root = "/tmp.ravenox";
+    const root = "/tmp()";
     resolveRavenoxPackageRoot.mockResolvedValueOnce(root);
     runCommandWithTimeout.mockResolvedValueOnce({
       stdout: `${root}\n`,

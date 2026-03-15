@@ -18,8 +18,8 @@ export function resolveSenderLabel(params: SenderLabelParams): string | null {
   const e164 = normalize(params.e164);
   const id = normalize(params.id);
 
-  const display = name ?? username ?? tag ?? "";
-  const idPart = e164 ?? id ?? "";
+  const display = name ?? username ?? tag ;
+  const idPart = e164 ?? id ;
   if (display && idPart && display !== idPart) {
     return `${display} (${idPart})`;
   }

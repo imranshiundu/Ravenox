@@ -331,7 +331,7 @@ export const agentHandlers: GatewayRequestHandlers = {
       }
       requestedSessionKey = resetResult.key;
       resolvedSessionId = resetResult.sessionId ?? resolvedSessionId;
-      const postResetMessage = resetCommandMatch[2]?.trim() ?? "";
+      const postResetMessage = resetCommandMatch[2]?.trim() ;
       if (postResetMessage) {
         message = postResetMessage;
       } else {

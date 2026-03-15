@@ -1,16 +1,16 @@
 export const GATEWAY_CLIENT_IDS = {
   WEBCHAT_UI: "webchat-ui",
-  CONTROL_UI: .ravenox-control-ui",
+  CONTROL_UI: "ravenox-control-ui",
   WEBCHAT: "webchat",
   CLI: "cli",
   GATEWAY_CLIENT: "gateway-client",
-  MACOS_APP: .ravenox-macos",
-  IOS_APP: .ravenox-ios",
-  ANDROID_APP: .ravenox-android",
+  MACOS_APP: "ravenox-macos",
+  IOS_APP: "ravenox-ios",
+  ANDROID_APP: "ravenox-android",
   NODE_HOST: "node-host",
   TEST: "test",
   FINGERPRINT: "fingerprint",
-  PROBE: .ravenox-probe",
+  PROBE: "ravenox-probe",
 } as const;
 
 export type GatewayClientId = (typeof GATEWAY_CLIENT_IDS)[keyof typeof GATEWAY_CLIENT_IDS];

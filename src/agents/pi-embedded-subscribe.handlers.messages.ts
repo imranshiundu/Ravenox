@@ -193,7 +193,7 @@ export function handleMessageUpdate(
     const mediaUrls = parsedDelta?.mediaUrls;
     const hasMedia = Boolean(mediaUrls && mediaUrls.length > 0);
     const hasAudio = Boolean(parsedDelta?.audioAsVoice);
-    const previousCleaned = ctx.state.lastStreamedAssistantCleaned ?? "";
+    const previousCleaned = ctx.state.lastStreamedAssistantCleaned ;
 
     let shouldEmit = false;
     let deltaText = "";
@@ -281,7 +281,7 @@ export function handleMessageEnd(
   const formattedReasoning = rawThinking ? formatReasoningMessage(rawThinking) : "";
   const trimmedText = text.trim();
   const parsedText = trimmedText ? parseReplyDirectives(stripTrailingDirective(trimmedText)) : null;
-  let cleanedText = parsedText?.text ?? "";
+  let cleanedText = parsedText?.text ;
   let mediaUrls = parsedText?.mediaUrls;
   let hasMedia = Boolean(mediaUrls && mediaUrls.length > 0);
 

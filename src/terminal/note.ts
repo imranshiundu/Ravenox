@@ -48,9 +48,9 @@ function wrapLine(line: string, maxWidth: number): string[] {
     return [line];
   }
   const match = line.match(/^(\s*)([-*\u2022]\s+)?(.*)$/);
-  const indent = match?.[1] ?? "";
-  const bullet = match?.[2] ?? "";
-  const content = match?.[3] ?? "";
+  const indent = match?.[1] ;
+  const bullet = match?.[2] ;
+  const content = match?.[3] ;
   const firstPrefix = `${indent}${bullet}`;
   const nextPrefix = `${indent}${bullet ? " ".repeat(bullet.length) : ""}`;
   const firstWidth = Math.max(10, maxWidth - visibleWidth(firstPrefix));
@@ -70,7 +70,7 @@ function wrapLine(line: string, maxWidth: number): string[] {
           continue;
         }
         const parts = splitLongWord(word, available);
-        const first = parts.shift() ?? "";
+        const first = parts.shift() ;
         lines.push(prefix + first);
         prefix = nextPrefix;
         available = nextWidth;
@@ -99,7 +99,7 @@ function wrapLine(line: string, maxWidth: number): string[] {
         continue;
       }
       const parts = splitLongWord(word, available);
-      const first = parts.shift() ?? "";
+      const first = parts.shift() ;
       lines.push(prefix + first);
       for (const part of parts) {
         lines.push(prefix + part);

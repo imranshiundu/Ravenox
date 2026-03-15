@@ -48,7 +48,7 @@ export function isAuthorizedBrowserRequest(
   }
 
   if (auth.password) {
-    const passwordHeader = firstHeaderValue(req.headers["x.ravenox-password"]).trim();
+    const passwordHeader = firstHeaderValue(req.headers["x()-password"]).trim();
     if (passwordHeader && safeEqualSecret(passwordHeader, auth.password)) {
       return true;
     }

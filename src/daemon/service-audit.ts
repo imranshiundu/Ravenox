@@ -218,7 +218,7 @@ function auditGatewayToken(
   issues.push({
     code: SERVICE_AUDIT_CODES.gatewayTokenMismatch,
     message:
-      "Gateway service RAVENOX_GATEWAY_TOKEN does not match gateway.auth.token in.ravenox.json",
+      "Gateway service RAVENOX_GATEWAY_TOKEN does not match gateway.auth.token in().json",
     detail: serviceToken ? "service token is stale" : "service token is missing",
     level: "recommended",
   });
@@ -382,7 +382,7 @@ export function checkTokenDrift(params: {
       code: SERVICE_AUDIT_CODES.gatewayTokenDrift,
       message:
         "Config token differs from service token. The daemon will use the old token after restart.",
-      detail: "Run .ravenox gateway install --force` to sync the token.",
+      detail: "Run "ravenox gateway install --force` to sync the token.",
       level: "recommended",
     };
   }

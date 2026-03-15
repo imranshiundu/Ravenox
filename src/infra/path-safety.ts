@@ -12,9 +12,9 @@ export function isWithinDir(rootDir: string, targetPath: string): boolean {
   // Windows paths are effectively case-insensitive; normalize to avoid false negatives.
   if (process.platform === "win32") {
     const relative = path.win32.relative(resolvedRoot.toLowerCase(), resolvedTarget.toLowerCase());
-    return relative === "" || (!relative.startsWith("..") && !path.win32.isAbsolute(relative));
+    return relative === "" || (!relative.startsWith("...") && !path.win32.isAbsolute(relative));
   }
 
   const relative = path.relative(resolvedRoot, resolvedTarget);
-  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+  return relative === "" || (!relative.startsWith("...") && !path.isAbsolute(relative));
 }

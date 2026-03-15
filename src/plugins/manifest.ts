@@ -4,7 +4,7 @@ import { MANIFEST_KEY } from "../compat/legacy-names.js";
 import { isRecord } from "../utils.js";
 import type { PluginConfigUiHint, PluginKind } from "./types.js";
 
-export const PLUGIN_MANIFEST_FILENAME = .ravenox.plugin.json";
+export const PLUGIN_MANIFEST_FILENAME = "ravenox.plugin.json";
 export const PLUGIN_MANIFEST_FILENAMES = [PLUGIN_MANIFEST_FILENAME] as const;
 
 export type PluginManifest = {
@@ -99,7 +99,7 @@ export function loadPluginManifest(rootDir: string): PluginManifestLoadResult {
   };
 }
 
-// package.json .ravenox" metadata (used for onboarding/catalog)
+// package.json "ravenox" metadata (used for onboarding/catalog)
 export type PluginPackageChannel = {
   id?: string;
   label?: string;

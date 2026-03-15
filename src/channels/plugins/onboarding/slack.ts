@@ -54,7 +54,7 @@ function buildSlackManifest(botName: string) {
       },
       slash_commands: [
         {
-          command: ".ravenox",
+          command: "".ravenox",
           description: "Send a message to Ravenox",
           should_escape: false,
         },
@@ -116,7 +116,6 @@ async function noteSlackTokenHelp(prompter: WizardPrompter, botName: string): Pr
       "5) App Home → enable the Messages tab for DMs",
       "Tip: set SLACK_BOT_TOKEN + SLACK_APP_TOKEN in your env.",
       `Docs: ${formatDocsLink("/slack", "slack")}`,
-      "",
       "Manifest (JSON):",
       manifest,
     ].join("\n"),
@@ -232,7 +231,7 @@ async function promptSlackAllowFrom(params: {
       ? (normalizeAccountId(params.accountId) ?? DEFAULT_ACCOUNT_ID)
       : resolveDefaultSlackAccountId(params.cfg);
   const resolved = resolveSlackAccount({ cfg: params.cfg, accountId });
-  const token = resolved.config.userToken ?? resolved.config.botToken ?? "";
+  const token = resolved.config.userToken ?? resolved.config.botToken ;
   const existing =
     params.cfg.channels?.slack?.allowFrom ?? params.cfg.channels?.slack?.dm?.allowFrom ?? [];
   await params.prompter.note(

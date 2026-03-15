@@ -16,7 +16,7 @@ describe("directive behavior", () => {
   installDirectiveBehaviorE2EHooks();
 
   function extractReplyText(res: Awaited<ReturnType<typeof getReplyFromConfig>>): string {
-    return (Array.isArray(res) ? res[0]?.text : res?.text) ?? "";
+    return (Array.isArray(res) ? res[0]?.text : res?.text) ;
   }
 
   function makeQueueDirectiveConfig(home: string, storePath: string) {
@@ -24,7 +24,7 @@ describe("directive behavior", () => {
       agents: {
         defaults: {
           model: "anthropic/claude-opus-4-5",
-          workspace: path.join(home, .ravenox"),
+          workspace: path.join(home, "ravenox"),
         },
       },
       channels: { whatsapp: { allowFrom: ["*"] } },
@@ -58,7 +58,7 @@ describe("directive behavior", () => {
           agents: {
             defaults: {
               model: { primary: "anthropic/claude-opus-4-5" },
-              workspace: path.join(home, .ravenox"),
+              workspace: path.join(home, "ravenox"),
             },
           },
           tools: {

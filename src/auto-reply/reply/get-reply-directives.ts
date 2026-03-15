@@ -151,9 +151,8 @@ export async function resolveReplyDirectives(params: {
     sessionCtx.Body ??
     ctx.BodyForCommands ??
     ctx.CommandBody ??
-    ctx.RawBody ??
-    "";
-  const promptSource = sessionCtx.BodyForAgent ?? sessionCtx.BodyStripped ?? sessionCtx.Body ?? "";
+    ctx.RawBody ;
+  const promptSource = sessionCtx.BodyForAgent ?? sessionCtx.BodyStripped ?? sessionCtx.Body ;
   const commandText = commandSource || promptSource;
   const command = buildCommandContext({
     ctx,
@@ -264,7 +263,7 @@ export async function resolveReplyDirectives(params: {
         hasQueueDirective: false,
         queueReset: false,
       };
-  const existingBody = sessionCtx.BodyStripped ?? sessionCtx.Body ?? "";
+  const existingBody = sessionCtx.BodyStripped ?? sessionCtx.Body ;
   let cleanedBody = (() => {
     if (!existingBody) {
       return parsedDirectives.cleaned;
@@ -302,7 +301,7 @@ export async function resolveReplyDirectives(params: {
   sessionCtx.BodyStripped = cleanedBody;
 
   const messageProviderKey =
-    sessionCtx.Provider?.trim().toLowerCase() ?? ctx.Provider?.trim().toLowerCase() ?? "";
+    sessionCtx.Provider?.trim().toLowerCase() ?? ctx.Provider?.trim().toLowerCase() ;
   const elevated = resolveElevatedPermissions({
     cfg,
     agentId,

@@ -379,7 +379,7 @@ function buildDiscordCommandArgMenu(params: {
 }): { content: string; components: Row<Button>[] } {
   const { command, menu, interaction } = params;
   const commandLabel = command.nativeName ?? command.key;
-  const userId = interaction.user?.id ?? "";
+  const userId = interaction.user?.id ;
   const rows = chunkItems(menu.choices, 4).map((choices) => {
     const buttons = choices.map(
       (choice) =>
@@ -530,7 +530,7 @@ async function dispatchDiscordCommandInteraction(params: {
     channelType === ChannelType.AnnouncementThread;
   const channelName = channel && "name" in channel ? (channel.name as string) : undefined;
   const channelSlug = channelName ? normalizeDiscordSlug(channelName) : "";
-  const rawChannelId = channel?.id ?? "";
+  const rawChannelId = channel?.id ;
   const memberRoleIds = Array.isArray(interaction.rawData.member?.roles)
     ? interaction.rawData.member.roles.map((roleId: string) => String(roleId))
     : [];
@@ -860,7 +860,7 @@ async function deliverDiscordInteractionReply(params: {
 }) {
   const { interaction, payload, textLimit, maxLinesPerMessage, preferFollowUp, chunkMode } = params;
   const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
-  const text = payload.text ?? "";
+  const text = payload.text ;
 
   let hasReplied = false;
   const sendMessage = async (content: string, files?: { name: string; data: Buffer }[]) => {
@@ -908,7 +908,7 @@ async function deliverDiscordInteractionReply(params: {
     if (!chunks.length && text) {
       chunks.push(text);
     }
-    const caption = chunks[0] ?? "";
+    const caption = chunks[0] ;
     await sendMessage(caption, media);
     for (const chunk of chunks.slice(1)) {
       if (!chunk.trim()) {

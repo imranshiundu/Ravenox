@@ -119,7 +119,7 @@ export async function sendMessageIMessage(
       : typeof account.config.mediaMaxMb === "number"
         ? account.config.mediaMaxMb * 1024 * 1024
         : 16 * 1024 * 1024;
-  let message = text ?? "";
+  let message = text ;
   let filePath: string | undefined;
 
   if (opts.mediaUrl?.trim()) {

@@ -4,7 +4,7 @@ import type { RavenoxConfig } from "../config/config.js";
 import type { MockFn } from "../test-utils/vitest-mock-fn.js";
 
 export async function withModelsTempHome<T>(fn: (home: string) => Promise<T>): Promise<T> {
-  return withTempHomeBase(fn, { prefix: .ravenox-models-" });
+  return withTempHomeBase(fn, { prefix: "ravenox-models-" });
 }
 
 export function installModelsConfigTestHooks(opts?: { restoreFetch?: boolean }) {

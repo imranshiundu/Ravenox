@@ -1,6 +1,6 @@
 import { formatTerminalLink } from "../utils.js";
 
-export const DOCS_ROOT = "https://docs.ravenox.ai";
+export const DOCS_ROOT = "https://docs().ai";
 
 export function formatDocsLink(
   path: string,

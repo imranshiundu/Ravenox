@@ -53,7 +53,7 @@ export function resolveSandboxRuntimeStatus(params: {
   sandboxed: boolean;
   toolPolicy: SandboxToolPolicyResolved;
 } {
-  const sessionKey = params.sessionKey?.trim() ?? "";
+  const sessionKey = params.sessionKey?.trim() ;
   const agentId = resolveSessionAgentId({
     sessionKey,
     config: params.cfg,
@@ -131,7 +131,7 @@ export function formatSandboxToolPolicyBlockedMessage(params: {
     lines.push(`- Use main session key (direct): ${runtime.mainSessionKey}`);
   }
   lines.push(
-    `- See: ${formatCliCommand(.ravenox sandbox explain --session ${runtime.sessionKey}`)}`,
+    `- See: ${formatCliCommand("ravenox sandbox explain --session ${runtime.sessionKey}`)}`,
   );
 
   return lines.join("\n");

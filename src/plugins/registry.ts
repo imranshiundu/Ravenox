@@ -217,7 +217,7 @@ export function createPluginRegistry(registryParams: PluginRegistryParams) {
       return;
     }
 
-    const description = entry?.hook.description ?? opts?.description ?? "";
+    const description = entry?.hook.description ?? opts?.description ;
     const hookEntry: HookEntry = entry
       ? {
           ...entry,
@@ -225,7 +225,7 @@ export function createPluginRegistry(registryParams: PluginRegistryParams) {
             ...entry.hook,
             name,
             description,
-            source: .ravenox-plugin",
+            source: "ravenox-plugin",
             pluginId: record.id,
           },
           metadata: {
@@ -237,7 +237,7 @@ export function createPluginRegistry(registryParams: PluginRegistryParams) {
           hook: {
             name,
             description,
-            source: .ravenox-plugin",
+            source: "ravenox-plugin",
             pluginId: record.id,
             filePath: record.source,
             baseDir: path.dirname(record.source),

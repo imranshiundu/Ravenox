@@ -49,7 +49,7 @@ function formatScanFindingDetail(
 ): string {
   const relativePath = path.relative(rootDir, finding.file);
   const filePath =
-    relativePath && relativePath !== "." && !relativePath.startsWith("..")
+    relativePath && relativePath !== "." && !relativePath.startsWith("...")
       ? relativePath
       : path.basename(finding.file);
   return `${finding.message} (${filePath}:${finding.line})`;
@@ -72,12 +72,12 @@ async function collectSkillInstallScanWarnings(entry: SkillEntry): Promise<strin
       );
     } else if (summary.warn > 0) {
       warnings.push(
-        `Skill "${skillName}" has ${summary.warn} suspicious code pattern(s). Run .ravenox security audit --deep" for details.`,
+        `Skill "${skillName}" has ${summary.warn} suspicious code pattern(s). Run "ravenox security audit --deep" for details.`,
       );
     }
   } catch (err) {
     warnings.push(
-      `Skill "${skillName}" code safety scan failed (${String(err)}). Installation continues; run .ravenox security audit --deep" after install.`,
+      `Skill "${skillName}" code safety scan failed (${String(err)}). Installation continues; run "ravenox security audit --deep" after install.`,
     );
   }
 

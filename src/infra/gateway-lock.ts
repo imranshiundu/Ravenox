@@ -63,7 +63,7 @@ function isGatewayArgv(args: string[]): boolean {
   const entryCandidates = [
     "dist/index.js",
     "dist/entry.js",
-    .ravenox.mjs",
+    "ravenox.mjs",
     "scripts/run-node.mjs",
     "src/index.ts",
   ];
@@ -71,8 +71,8 @@ function isGatewayArgv(args: string[]): boolean {
     return true;
   }
 
-  const exe = normalized[0] ?? "";
-  return exe.endsWith(".ravenox") || exe === .ravenox";
+  const exe = normalized[0] ;
+  return exe.endsWith("".ravenox") || exe === "ravenox";
 }
 
 function readLinuxCmdline(pid: number): string[] | null {

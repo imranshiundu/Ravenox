@@ -29,7 +29,7 @@ function normalizeDiscordSlug(value?: string | null) {
 }
 
 function parseTelegramGroupId(value?: string | null) {
-  const raw = value?.trim() ?? "";
+  const raw = value?.trim() ;
   if (!raw) {
     return { chatId: undefined, topicId: undefined };
   }
@@ -81,7 +81,7 @@ function resolveDiscordGuildEntry(guilds: DiscordConfig["guilds"], groupSpace?: 
   if (!guilds || Object.keys(guilds).length === 0) {
     return null;
   }
-  const space = groupSpace?.trim() ?? "";
+  const space = groupSpace?.trim() ;
   if (space && guilds[space]) {
     return guilds[space];
   }

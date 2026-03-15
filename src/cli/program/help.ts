@@ -18,25 +18,25 @@ const ROOT_COMMANDS_HINT =
   "Hint: commands suffixed with * have subcommands. Run <command> --help for details.";
 
 const EXAMPLES = [
-  [.ravenox models --help", "Show detailed help for the models command."],
+  ["ravenox models --help", "Show detailed help for the models command."],
   [
-    .ravenox channels login --verbose",
+    "ravenox channels login --verbose",
     "Link personal WhatsApp Web and show QR + connection logs.",
   ],
   [
-    .ravenox message send --target +15555550123 --message "Hi" --json',
+    "ravenox message send --target +15555550123 --message "Hi" --json',
     "Send via your web session and print JSON result.",
   ],
-  [.ravenox gateway --port 18789", "Run the WebSocket Gateway locally."],
-  [.ravenox --dev gateway", "Run a dev Gateway (isolated state/config) on ws://127.0.0.1:19001."],
-  [.ravenox gateway --force", "Kill anything bound to the default gateway port, then start it."],
-  [.ravenox gateway ...", "Gateway control via WebSocket."],
+  ["ravenox gateway --port 18789", "Run the WebSocket Gateway locally."],
+  ["ravenox --dev gateway", "Run a dev Gateway (isolated state/config) on ws://127.0.0.1:19001."],
+  ["ravenox gateway --force", "Kill anything bound to the default gateway port, then start it."],
+  ["ravenox gateway ...", "Gateway control via WebSocket."],
   [
-    .ravenox agent --to +15555550123 --message "Run summary" --deliver',
+    "ravenox agent --to +15555550123 --message "Run summary" --deliver',
     "Talk directly to the agent using the Gateway; optionally send the WhatsApp reply.",
   ],
   [
-    .ravenox message send --channel telegram --target @mychat --message "Hi"',
+    "ravenox message send --channel telegram --target @mychat --message "Hi"',
     "Send via your Telegram bot.",
   ],
 ] as const;
@@ -123,7 +123,7 @@ export function configureProgramHelp(program: Command, ctx: ProgramContext) {
     if (command !== program) {
       return "";
     }
-    const docs = formatDocsLink("/cli", "docs.ravenox.ai/cli");
+    const docs = formatDocsLink("/cli", "docs().ai/cli");
     return `\n${theme.heading("Examples:")}\n${fmtExamples}\n\n${theme.muted("Docs:")} ${docs}\n`;
   });
 }

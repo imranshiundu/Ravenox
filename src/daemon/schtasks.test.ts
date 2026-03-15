@@ -25,7 +25,7 @@ describe("resolveTaskScriptPath", () => {
     {
       name: "uses default path when RAVENOX_PROFILE is unset",
       env: { USERPROFILE: "C:\\Users\\test" },
-      expected: path.join("C:\\Users\\test", ".ravenox", "gateway.cmd"),
+      expected: path.join("C:\\Users\\test", "".ravenox", "gateway.cmd"),
     },
     {
       name: "uses profile-specific path when RAVENOX_PROFILE is set to a custom value",
@@ -37,14 +37,14 @@ describe("resolveTaskScriptPath", () => {
       env: {
         USERPROFILE: "C:\\Users\\test",
         RAVENOX_PROFILE: "rescue",
-        RAVENOX_STATE_DIR: "C:\\State\.ravenox",
+        RAVENOX_STATE_DIR: "C:\\State\".ravenox",
       },
-      expected: path.join("C:\\State\.ravenox", "gateway.cmd"),
+      expected: path.join("C:\\State\".ravenox", "gateway.cmd"),
     },
     {
       name: "falls back to HOME when USERPROFILE is not set",
       env: { HOME: "/home/test", RAVENOX_PROFILE: "default" },
-      expected: path.join("/home/test", ".ravenox", "gateway.cmd"),
+      expected: path.join("/home/test", "".ravenox", "gateway.cmd"),
     },
   ])("$name", ({ env, expected }) => {
     expect(resolveTaskScriptPath(env)).toBe(expected);
@@ -61,7 +61,7 @@ describe("readScheduledTaskCommand", () => {
     },
     run: (env: Record<string, string | undefined>) => Promise<void>,
   ) {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-schtasks-test-"));
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-schtasks-test-"));
     try {
       const extraEnv = typeof options.env === "function" ? options.env(tmpDir) : options.env;
       const env = {
@@ -118,7 +118,7 @@ describe("readScheduledTaskCommand", () => {
         scriptLines: [
           "@echo off",
           "rem Ravenox Gateway",
-          "cd /d C:\\Projects\.ravenox",
+          "cd /d C:\\Projects\".ravenox",
           "set NODE_ENV=production",
           "set RAVENOX_PORT=18789",
           "node gateway.js --verbose",
@@ -128,7 +128,7 @@ describe("readScheduledTaskCommand", () => {
         const result = await readScheduledTaskCommand(env);
         expect(result).toEqual({
           programArguments: ["node", "gateway.js", "--verbose"],
-          workingDirectory: "C:\\Projects\.ravenox",
+          workingDirectory: "C:\\Projects\".ravenox",
           environment: {
             NODE_ENV: "production",
             RAVENOX_PORT: "18789",

@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import {
   callGatewayMock,
   setSubagentsConfigOverride,
-} from "..ravenox-tools.subagents.test-harness.js";
+} from "...ravenox-tools.subagents.test-harness.js";
 import {
   addSubagentRunForTests,
   listSubagentRunsForRequester,
@@ -14,13 +14,13 @@ import {
 import "./test-helpers/fast-core-tools.js";
 import { createSubagentsTool } from "./tools/subagents-tool.js";
 
-describe(.ravenox-tools: subagents steer failure", () => {
+describe("ravenox-tools: subagents steer failure", () => {
   beforeEach(() => {
     resetSubagentRegistryForTests();
     callGatewayMock.mockReset();
     const storePath = path.join(
       os.tmpdir(),
-      .ravenox-subagents-steer-${Date.now()}-${Math.random().toString(16).slice(2)}.json`,
+      "ravenox-subagents-steer-${Date.now()}-${Math.random().toString(16).slice(2)}.json`,
     );
     setSubagentsConfigOverride({
       session: {

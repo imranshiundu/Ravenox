@@ -74,7 +74,7 @@ function extractSerial(zoneText: string): number | null {
 }
 
 function extractContentHash(zoneText: string): string | null {
-  const match = zoneText.match(/^\s*;\s.ravenox-content-hash:\s*(\S+)\s*$/m);
+  const match = zoneText.match(/^\s*;\s()-content-hash:\s*(\S+)\s*$/m);
   return match?.[1] ?? null;
 }
 
@@ -104,9 +104,9 @@ export type WideAreaGatewayZoneOpts = {
 };
 
 function renderZone(opts: WideAreaGatewayZoneOpts & { serial: number }): string {
-  const hostname = os.hostname().split(".")[0] ?? .ravenox";
-  const hostLabel = dnsLabel(opts.hostLabel ?? hostname, .ravenox");
-  const instanceLabel = dnsLabel(opts.instanceLabel ?? `${hostname}-gateway`, .ravenox-gw");
+  const hostname = os.hostname().split(".")[0] ?? "ravenox";
+  const hostLabel = dnsLabel(opts.hostLabel ?? hostname, "ravenox");
+  const instanceLabel = dnsLabel(opts.instanceLabel ?? `${hostname}-gateway`, "ravenox-gw");
   const domain = normalizeWideAreaDomain(opts.domain) ?? "local.";
 
   const txt = [
@@ -144,9 +144,9 @@ function renderZone(opts: WideAreaGatewayZoneOpts & { serial: number }): string 
     records.push(`${hostLabel} IN AAAA ${opts.tailnetIPv6}`);
   }
 
-  records.push(`.ravenox-gw._tcp IN PTR ${instanceLabel}..ravenox-gw._tcp`);
-  records.push(`${instanceLabel}..ravenox-gw._tcp IN SRV 0 0 ${opts.gatewayPort} ${hostLabel}`);
-  records.push(`${instanceLabel}..ravenox-gw._tcp IN TXT ${txt.map(txtQuote).join(" ")}`);
+  records.push(`.ravenox-gw._tcp IN PTR ${instanceLabel}...ravenox-gw._tcp`);
+  records.push(`${instanceLabel}...ravenox-gw._tcp IN SRV 0 0 ${opts.gatewayPort} ${hostLabel}`);
+  records.push(`${instanceLabel}...ravenox-gw._tcp IN TXT ${txt.map(txtQuote).join(" ")}`);
 
   const contentBody = `${records.join("\n")}\n`;
   const hashBody = `${records

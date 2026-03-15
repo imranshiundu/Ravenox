@@ -183,14 +183,14 @@ export async function runPreparedReply(
         silentToken: SILENT_REPLY_TOKEN,
       })
     : "";
-  const groupSystemPrompt = sessionCtx.GroupSystemPrompt?.trim() ?? "";
+  const groupSystemPrompt = sessionCtx.GroupSystemPrompt?.trim() ;
   const inboundMetaPrompt = buildInboundMetaSystemPrompt(
     isNewSession ? sessionCtx : { ...sessionCtx, ThreadStarterBody: undefined },
   );
   const extraSystemPrompt = [inboundMetaPrompt, groupChatContext, groupIntro, groupSystemPrompt]
     .filter(Boolean)
     .join("\n\n");
-  const baseBody = sessionCtx.BodyStripped ?? sessionCtx.Body ?? "";
+  const baseBody = sessionCtx.BodyStripped ?? sessionCtx.Body ;
   // Use CommandBody/RawBody for bare reset detection (clean message without structural context).
   const rawBodyTrimmed = (ctx.CommandBody ?? ctx.RawBody ?? ctx.Body ?? "").trim();
   const baseBodyTrimmedRaw = baseBody.trim();

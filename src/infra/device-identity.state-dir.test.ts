@@ -21,7 +21,7 @@ describe("device identity state dir defaults", () => {
   });
 
   it("writes the default identity file under RAVENOX_STATE_DIR", async () => {
-    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-identity-state-"));
+    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-identity-state-"));
     const stateDir = path.join(tempRoot, "state");
     setStateDirEnv(stateDir);
     const identity = loadOrCreateDeviceIdentity();

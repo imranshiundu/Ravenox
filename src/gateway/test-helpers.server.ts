@@ -99,10 +99,10 @@ async function setupGatewayTestHome() {
   previousSkipProviders = process.env.RAVENOX_SKIP_PROVIDERS;
   previousSkipCron = process.env.RAVENOX_SKIP_CRON;
   previousMinimalGateway = process.env.RAVENOX_TEST_MINIMAL_GATEWAY;
-  tempHome = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-gateway-home-"));
+  tempHome = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-gateway-home-"));
   process.env.HOME = tempHome;
   process.env.USERPROFILE = tempHome;
-  process.env.RAVENOX_STATE_DIR = path.join(tempHome, ".ravenox");
+  process.env.RAVENOX_STATE_DIR = path.join(tempHome, "".ravenox");
   delete process.env.RAVENOX_CONFIG_PATH;
 }
 
@@ -115,8 +115,8 @@ function applyGatewaySkipEnv() {
   process.env.RAVENOX_SKIP_CRON = "1";
   process.env.RAVENOX_TEST_MINIMAL_GATEWAY = "1";
   process.env.RAVENOX_BUNDLED_PLUGINS_DIR = tempHome
-    ? path.join(tempHome, .ravenox-test-no-bundled-extensions")
-    : .ravenox-test-no-bundled-extensions";
+    ? path.join(tempHome, "ravenox-test-no-bundled-extensions")
+    : "ravenox-test-no-bundled-extensions";
 }
 
 async function resetGatewayTestState(options: { uniqueConfigRoot: boolean }) {
@@ -128,7 +128,7 @@ async function resetGatewayTestState(options: { uniqueConfigRoot: boolean }) {
   }
   applyGatewaySkipEnv();
   if (options.uniqueConfigRoot) {
-    tempConfigRoot = await fs.mkdtemp(path.join(tempHome, .ravenox-test-"));
+    tempConfigRoot = await fs.mkdtemp(path.join(tempHome, "ravenox-test-"));
   } else {
     tempConfigRoot = path.join(tempHome, ".ravenox-test");
     await fs.rm(tempConfigRoot, { recursive: true, force: true });

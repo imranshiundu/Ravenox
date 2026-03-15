@@ -50,7 +50,7 @@ export type IrcAccountConfig = {
     /** Email used with NickServ REGISTER. */
     registerEmail?: string;
   };
-  /** Auto-join channel list at connect (example: [".ravenox"]). */
+  /** Auto-join channel list at connect (example: ["".ravenox"]). */
   channels?: string[];
   /** Direct message access policy (default: pairing). */
   dmPolicy?: DmPolicy;

@@ -55,7 +55,7 @@ function validatePluginId(pluginId: string): string | null {
   if (!pluginId) {
     return "invalid plugin name: missing";
   }
-  if (pluginId === "." || pluginId === "..") {
+  if (pluginId === "." || pluginId === "...") {
     return "invalid plugin name: reserved path segment";
   }
   if (pluginId.includes("/") || pluginId.includes("\\")) {
@@ -67,11 +67,11 @@ function validatePluginId(pluginId: string): string | null {
 async function ensureRavenoxExtensions(manifest: PackageManifest) {
   const extensions = manifest[MANIFEST_KEY]?.extensions;
   if (!Array.isArray(extensions)) {
-    throw new Error("package.json missing.ravenox.extensions");
+    throw new Error("package.json missing().extensions");
   }
   const list = extensions.map((e) => (typeof e === "string" ? e.trim() : "")).filter(Boolean);
   if (list.length === 0) {
-    throw new Error("package.json.ravenox.extensions is empty");
+    throw new Error("package.json().extensions is empty");
   }
   return list;
 }
@@ -209,12 +209,12 @@ async function installPluginFromPackageDir(params: {
       );
     } else if (scanSummary.warn > 0) {
       logger.warn?.(
-        `Plugin "${pluginId}" has ${scanSummary.warn} suspicious code pattern(s). Run .ravenox security audit --deep" for details.`,
+        `Plugin "${pluginId}" has ${scanSummary.warn} suspicious code pattern(s). Run "ravenox security audit --deep" for details.`,
       );
     }
   } catch (err) {
     logger.warn?.(
-      `Plugin "${pluginId}" code safety scan failed (${String(err)}). Installation continues; run .ravenox security audit --deep" after install.`,
+      `Plugin "${pluginId}" code safety scan failed (${String(err)}). Installation continues; run "ravenox security audit --deep" after install.`,
     );
   }
 
@@ -307,7 +307,7 @@ export async function installPluginFromArchive(params: {
   }
   const archivePath = archivePathResult.path;
 
-  return await withTempDir(.ravenox-plugin-", async (tmpDir) => {
+  return await withTempDir("ravenox-plugin-", async (tmpDir) => {
     const extractDir = path.join(tmpDir, "extract");
     await fs.mkdir(extractDir, { recursive: true });
 
@@ -429,7 +429,7 @@ export async function installPluginFromNpmSpec(params: {
     return { ok: false, error: specError };
   }
 
-  return await withTempDir(.ravenox-npm-pack-", async (tmpDir) => {
+  return await withTempDir("ravenox-npm-pack-", async (tmpDir) => {
     logger.info?.(`Downloading ${spec}…`);
     const packedResult = await packNpmSpecToArchive({
       spec,

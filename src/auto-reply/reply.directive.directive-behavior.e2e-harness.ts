@@ -57,10 +57,10 @@ export async function withTempHome<T>(fn: (home: string) => Promise<T>): Promise
     },
     {
       env: {
-        RAVENOX_AGENT_DIR: (home) => path.join(home, ".ravenox", "agent"),
-        PI_CODING_AGENT_DIR: (home) => path.join(home, ".ravenox", "agent"),
+        RAVENOX_AGENT_DIR: (home) => path.join(home, "".ravenox", "agent"),
+        PI_CODING_AGENT_DIR: (home) => path.join(home, "".ravenox", "agent"),
       },
-      prefix: .ravenox-reply-",
+      prefix: "ravenox-reply-",
     },
   );
 }
@@ -77,7 +77,7 @@ export function makeWhatsAppDirectiveConfig(
   return {
     agents: {
       defaults: {
-        workspace: path.join(home, .ravenox"),
+        workspace: path.join(home, "ravenox"),
         ...defaults,
       },
     },
@@ -148,7 +148,7 @@ export function makeRestrictedElevatedDisabledConfig(home: string) {
     agents: {
       defaults: {
         model: "anthropic/claude-opus-4-5",
-        workspace: path.join(home, .ravenox"),
+        workspace: path.join(home, "ravenox"),
       },
       list: [
         {

@@ -46,7 +46,7 @@ export function dedupeBeacons(beacons: GatewayBonjourBeacon[]): GatewayBonjourBe
   const out: GatewayBonjourBeacon[] = [];
   const seen = new Set<string>();
   for (const b of beacons) {
-    const host = pickBeaconHost(b) ?? "";
+    const host = pickBeaconHost(b) ;
     const key = [
       b.domain ?? "",
       b.instanceName ?? "",

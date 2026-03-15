@@ -366,7 +366,7 @@ export function collectSyncedFolderFindings(params: {
       severity: "warn",
       title: "State/config path looks like a synced folder",
       detail: `stateDir=${params.stateDir}, configPath=${params.configPath}. Synced folders (iCloud/Dropbox/OneDrive/Google Drive) can leak tokens and transcripts onto other devices.`,
-      remediation: `Keep RAVENOX_STATE_DIR on a local-only volume and re-run "${formatCliCommand(.ravenox security audit --fix")}".`,
+      remediation: `Keep RAVENOX_STATE_DIR on a local-only volume and re-run "${formatCliCommand("ravenox security audit --fix")}".`,
     });
   }
   return findings;
@@ -426,7 +426,7 @@ export function collectHooksHardeningFindings(
     tailscaleMode: cfg.gateway?.tailscale?.mode ?? "off",
     env,
   });
-  const.ravenoxGatewayToken =
+  const ravenoxGatewayToken =
     typeof env.RAVENOX_GATEWAY_TOKEN === "string" && env.RAVENOX_GATEWAY_TOKEN.trim()
       ? env.RAVENOX_GATEWAY_TOKEN.trim()
       : null;
@@ -528,7 +528,7 @@ export function collectGatewayHttpSessionKeyOverrideFindings(
     severity: "info",
     title: "HTTP API session-key override is enabled",
     detail:
-      `${enabledEndpoints.join(", ")} accept x.ravenox-session-key for per-request session routing. ` +
+      `${enabledEndpoints.join(", ")} accept x()-session-key for per-request session routing. ` +
       "Treat API credential holders as trusted principals.",
   });
 

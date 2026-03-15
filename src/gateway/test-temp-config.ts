@@ -10,8 +10,8 @@ export async function withTempConfig(params: {
   const prevConfigPath = process.env.RAVENOX_CONFIG_PATH;
   const prevDisableCache = process.env.RAVENOX_DISABLE_CONFIG_CACHE;
 
-  const dir = await mkdtemp(path.join(os.tmpdir(), params.prefix ?? .ravenox-test-config-"));
-  const configPath = path.join(dir, .ravenox.json");
+  const dir = await mkdtemp(path.join(os.tmpdir(), params.prefix ?? "ravenox-test-config-"));
+  const configPath = path.join(dir, "ravenox.json");
 
   process.env.RAVENOX_CONFIG_PATH = configPath;
   process.env.RAVENOX_DISABLE_CONFIG_CACHE = "1";

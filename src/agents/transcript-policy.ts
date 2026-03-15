@@ -79,7 +79,7 @@ export function resolveTranscriptPolicy(params: {
   modelId?: string | null;
 }): TranscriptPolicy {
   const provider = normalizeProviderId(params.provider ?? "");
-  const modelId = params.modelId ?? "";
+  const modelId = params.modelId ;
   const isGoogle = isGoogleModelApi(params.modelApi);
   const isAnthropic = isAnthropicApi(params.modelApi, provider);
   const isOpenAi = isOpenAiProvider(provider) || (!provider && isOpenAiApi(params.modelApi));

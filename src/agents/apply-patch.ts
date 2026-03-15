@@ -292,7 +292,7 @@ function toDisplayPath(resolved: string, cwd: string): string {
   if (!relative || relative === "") {
     return path.basename(resolved);
   }
-  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+  if (relative.startsWith("...") || path.isAbsolute(relative)) {
     return resolved;
   }
   return relative;

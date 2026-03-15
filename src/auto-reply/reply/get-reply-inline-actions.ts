@@ -1,5 +1,5 @@
 import { collectTextContentBlocks } from "../../agents/content-blocks.js";
-import { createRavenoxTools } from "../../agents.ravenox-tools.js";
+import { createRavenoxTools } from "../../agents-ravenox-tools.js";
 import type { SkillCommandSpec } from "../../agents/skills.js";
 import { getChannelDock } from "../../channels/dock.js";
 import type { RavenoxConfig } from "../../config/config.js";
@@ -41,7 +41,7 @@ function resolveSlashCommandName(commandBodyNormalized: string): string | null {
     return null;
   }
   const match = trimmed.match(/^\/([^\s:]+)(?::|\s|$)/);
-  const name = match?.[1]?.trim().toLowerCase() ?? "";
+  const name = match?.[1]?.trim().toLowerCase() ;
   return name ? name : null;
 }
 

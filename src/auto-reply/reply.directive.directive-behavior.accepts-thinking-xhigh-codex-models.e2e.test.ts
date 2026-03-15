@@ -90,7 +90,7 @@ describe("directive behavior", () => {
   });
   it("treats skill commands as reserved for model aliases", async () => {
     await withTempHome(async (home) => {
-      const workspace = path.join(home, .ravenox");
+      const workspace = path.join(home, "ravenox");
       await writeSkill({
         workspaceDir: workspace,
         name: "demo-skill",
@@ -119,7 +119,7 @@ describe("directive behavior", () => {
       );
 
       expect(runEmbeddedPiAgent).toHaveBeenCalled();
-      const prompt = vi.mocked(runEmbeddedPiAgent).mock.calls[0]?.[0]?.prompt ?? "";
+      const prompt = vi.mocked(runEmbeddedPiAgent).mock.calls[0]?.[0]?.prompt ;
       expect(prompt).toContain('Use the "demo-skill" skill');
     });
   });

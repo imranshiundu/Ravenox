@@ -73,7 +73,7 @@ export async function auditTelegramGroupMembership(params: {
   timeoutMs: number;
 }): Promise<TelegramGroupMembershipAudit> {
   const started = Date.now();
-  const token = params.token?.trim() ?? "";
+  const token = params.token?.trim() ;
   if (!token || params.groupIds.length === 0) {
     return {
       ok: true,

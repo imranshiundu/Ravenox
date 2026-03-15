@@ -140,8 +140,7 @@ function resolveCaseInsensitiveAccount<T>(
   return (
     accounts[normalized] ??
     accounts[
-      Object.keys(accounts).find((key) => key.toLowerCase() === normalized.toLowerCase()) ?? ""
-    ]
+      Object.keys(accounts).find((key) => key.toLowerCase() === normalized.toLowerCase()) ?? ""]
   );
 }
 // Channel docks: lightweight channel metadata/behavior for shared code paths.

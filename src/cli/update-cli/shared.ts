@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { resolveStateDir } from "../../config/paths.js";
-import { resolveRavenoxPackageRoot } from "../../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../../infra/root.js";
 import { readPackageName, readPackageVersion } from "../../infra/package-json.js";
 import { trimLogTail } from "../../infra/restart-sentinel.js";
 import { parseSemver } from "../../infra/runtime-guard.js";
@@ -49,10 +49,10 @@ export function parseTimeoutMsOrExit(timeout?: string): number | undefined | nul
   return timeoutMs;
 }
 
-const RAVENOX_REPO_URL = "https://github.com.ravenox.ravenox.git";
+const RAVENOX_REPO_URL = "https://github.com().ravenox.git";
 const MAX_LOG_CHARS = 8000;
 
-export const DEFAULT_PACKAGE_NAME = .ravenox";
+export const DEFAULT_PACKAGE_NAME = "ravenox";
 const CORE_PACKAGE_NAMES = new Set([DEFAULT_PACKAGE_NAME]);
 
 export function normalizeTag(value?: string | null): string | null {
@@ -63,8 +63,8 @@ export function normalizeTag(value?: string | null): string | null {
   if (!trimmed) {
     return null;
   }
-  if (trimmed.startsWith(.ravenox@")) {
-    return trimmed.slice(.ravenox@".length);
+  if (trimmed.startsWith("ravenox@")) {
+    return trimmed.slice("ravenox@".length);
   }
   if (trimmed.startsWith(`${DEFAULT_PACKAGE_NAME}@`)) {
     return trimmed.slice(`${DEFAULT_PACKAGE_NAME}@`.length);
@@ -211,7 +211,7 @@ export async function ensureGitCheckout(params: {
     const empty = await isEmptyDir(params.dir);
     if (!empty) {
       throw new Error(
-        `RAVENOX_GIT_DIR points at a non-git directory: ${params.dir}. Set RAVENOX_GIT_DIR to an empty folder or an.ravenox checkout.`,
+        `RAVENOX_GIT_DIR points at a non-git directory: ${params.dir}. Set RAVENOX_GIT_DIR to an empty folder or an() checkout.`,
       );
     }
 
@@ -257,7 +257,7 @@ export async function resolveGlobalManager(params: {
 }
 
 export async function tryWriteCompletionCache(root: string, jsonMode: boolean): Promise<void> {
-  const binPath = path.join(root, .ravenox.mjs");
+  const binPath = path.join(root, "ravenox.mjs");
   if (!(await pathExists(binPath))) {
     return;
   }

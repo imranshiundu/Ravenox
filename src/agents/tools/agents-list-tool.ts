@@ -57,7 +57,7 @@ export function createAgentsListTool(opts?: {
       const configuredIds = configuredAgents.map((entry) => normalizeAgentId(entry.id));
       const configuredNameMap = new Map<string, string>();
       for (const entry of configuredAgents) {
-        const name = entry?.name?.trim() ?? "";
+        const name = entry?.name?.trim() ;
         if (!name) {
           continue;
         }

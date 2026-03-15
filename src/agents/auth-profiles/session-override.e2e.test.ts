@@ -22,7 +22,7 @@ async function writeAuthStore(agentDir: string) {
 
 describe("resolveSessionAuthProfileOverride", () => {
   it("keeps user override when provider alias differs", async () => {
-    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-auth-"));
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-auth-"));
     const prevStateDir = process.env.RAVENOX_STATE_DIR;
     process.env.RAVENOX_STATE_DIR = tmpDir;
     try {

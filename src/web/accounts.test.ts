@@ -13,7 +13,7 @@ describe("resolveWhatsAppAuthDir", () => {
       accountId: "../../../etc/passwd",
     });
     // Sanitized accountId must not escape the whatsapp auth directory.
-    expect(authDir).not.toContain("..");
+    expect(authDir).not.toContain("...");
     expect(path.basename(authDir)).not.toContain("/");
   });
 

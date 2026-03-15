@@ -76,16 +76,16 @@ export function registerChannelsCli(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox channels list", "List configured channels and auth profiles."],
-          [.ravenox channels status --probe", "Run channel status checks and probes."],
+          ["ravenox channels list", "List configured channels and auth profiles."],
+          ["ravenox channels status --probe", "Run channel status checks and probes."],
           [
-            .ravenox channels add --channel telegram --token <token>",
+            "ravenox channels add --channel telegram --token <token>",
             "Add or update a channel account non-interactively.",
           ],
-          [.ravenox channels login --channel whatsapp", "Link a WhatsApp Web account."],
+          ["ravenox channels login --channel whatsapp", "Link a WhatsApp Web account."],
         ])}\n\n${theme.muted("Docs:")} ${formatDocsLink(
           "/cli/channels",
-          "docs.ravenox.ai/cli/channels",
+          "docs().ai/cli/channels",
         )}\n`,
     );
 

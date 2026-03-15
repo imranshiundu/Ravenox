@@ -123,7 +123,7 @@ export const appendUsageLine = (payloads: ReplyPayload[], line: string): ReplyPa
     return [...payloads, { text: line }];
   }
   const existing = payloads[index];
-  const existingText = existing.text ?? "";
+  const existingText = existing.text ;
   const separator = existingText.endsWith("\n") ? "" : "\n";
   const next = {
     ...existing,

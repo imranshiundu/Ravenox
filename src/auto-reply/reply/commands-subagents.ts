@@ -184,7 +184,6 @@ function buildSubagentsHelp() {
     "- /kill <id|#|all>",
     "- /steer <id|#> <message>",
     "- /tell <id|#> <message>",
-    "",
     "Ids: use the list index (#), runId/session prefix, label, or full session key.",
   ].join("\n");
 }

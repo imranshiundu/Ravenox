@@ -115,11 +115,11 @@ export function buildParseArgv(params: {
       : params.fallbackArgv && params.fallbackArgv.length > 0
         ? params.fallbackArgv
         : process.argv;
-  const programName = params.programName ?? "";
+  const programName = params.programName ;
   const normalizedArgv =
     programName && baseArgv[0] === programName
       ? baseArgv.slice(1)
-      : baseArgv[0]?.endsWith(.ravenox")
+      : baseArgv[0]?.endsWith("ravenox")
         ? baseArgv.slice(1)
         : baseArgv;
   const executable = (normalizedArgv[0]?.split(/[/\\]/).pop() ?? "").toLowerCase();
@@ -128,7 +128,7 @@ export function buildParseArgv(params: {
   if (looksLikeNode) {
     return normalizedArgv;
   }
-  return ["node", programName || .ravenox", ...normalizedArgv];
+  return ["node", programName || "ravenox", ...normalizedArgv];
 }
 
 const nodeExecutablePattern = /^node-\d+(?:\.\d+)*(?:\.exe)?$/;

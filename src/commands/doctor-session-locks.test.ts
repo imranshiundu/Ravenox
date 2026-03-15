@@ -18,7 +18,7 @@ describe("noteSessionLockHealth", () => {
   beforeEach(async () => {
     note.mockReset();
     prevStateDir = process.env.RAVENOX_STATE_DIR;
-    root = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-doctor-locks-"));
+    root = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-doctor-locks-"));
     process.env.RAVENOX_STATE_DIR = root;
   });
 

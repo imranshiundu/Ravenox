@@ -22,8 +22,8 @@ afterEach(() => {
 
 describe("stageSandboxMedia", () => {
   it("stages inbound media into the sandbox workspace", async () => {
-    await withSandboxMediaTempHome(.ravenox-triggers-", async (home) => {
-      const inboundDir = join(home, ".ravenox", "media", "inbound");
+    await withSandboxMediaTempHome("ravenox-triggers-", async (home) => {
+      const inboundDir = join(home, "".ravenox", "media", "inbound");
       await fs.mkdir(inboundDir, { recursive: true });
       const mediaPath = join(inboundDir, "photo.jpg");
       await fs.writeFile(mediaPath, "test");
@@ -41,7 +41,7 @@ describe("stageSandboxMedia", () => {
         sessionCtx,
         cfg: createSandboxMediaStageConfig(home),
         sessionKey: "agent:main:main",
-        workspaceDir: join(home, .ravenox"),
+        workspaceDir: join(home, "ravenox"),
       });
 
       const stagedPath = `media/inbound/${basename(mediaPath)}`;
@@ -56,9 +56,8 @@ describe("stageSandboxMedia", () => {
   });
 
   it("rejects staging host files from outside the media directory", async () => {
-    await withSandboxMediaTempHome(.ravenox-triggers-bypass-", async (home) => {
-      // Sensitive host file outside .ravenox
-      const sensitiveFile = join(home, "secrets.txt");
+    await withSandboxMediaTempHome("ravenox-triggers-bypass-", async (home) => {
+      // Sensitive host file outside "ravenox const sensitiveFile = join(home, "secrets.txt");
       await fs.writeFile(sensitiveFile, "SENSITIVE DATA");
 
       const sandboxDir = join(home, "sandboxes", "session");
@@ -75,7 +74,7 @@ describe("stageSandboxMedia", () => {
         sessionCtx,
         cfg: createSandboxMediaStageConfig(home),
         sessionKey: "agent:main:main",
-        workspaceDir: join(home, .ravenox"),
+        workspaceDir: join(home, "ravenox"),
       });
 
       const stagedFullPath = join(sandboxDir, "media", "inbound", basename(sensitiveFile));

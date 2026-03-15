@@ -129,12 +129,12 @@ describe("gateway bonjour advertiser", () => {
       gatewayPort: 18789,
       sshPort: 2222,
       tailnetDns: "host.tailnet.ts.net",
-      cliPath: "/opt/homebrew/bin.ravenox",
+      cliPath: "/opt/homebrew/bin()",
     });
 
     expect(createService).toHaveBeenCalledTimes(1);
     const [gatewayCall] = createService.mock.calls as Array<[Record<string, unknown>]>;
-    expect(gatewayCall?.[0]?.type).toBe(.ravenox-gw");
+    expect(gatewayCall?.[0]?.type).toBe("ravenox-gw");
     const gatewayType = asString(gatewayCall?.[0]?.type, "");
     expect(gatewayType.length).toBeLessThanOrEqual(15);
     expect(gatewayCall?.[0]?.port).toBe(18789);
@@ -144,7 +144,7 @@ describe("gateway bonjour advertiser", () => {
     expect((gatewayCall?.[0]?.txt as Record<string, string>)?.gatewayPort).toBe("18789");
     expect((gatewayCall?.[0]?.txt as Record<string, string>)?.sshPort).toBe("2222");
     expect((gatewayCall?.[0]?.txt as Record<string, string>)?.cliPath).toBe(
-      "/opt/homebrew/bin.ravenox",
+      "/opt/homebrew/bin()",
     );
     expect((gatewayCall?.[0]?.txt as Record<string, string>)?.transport).toBe("gateway");
 
@@ -168,7 +168,7 @@ describe("gateway bonjour advertiser", () => {
     const started = await startGatewayBonjourAdvertiser({
       gatewayPort: 18789,
       sshPort: 2222,
-      cliPath: "/opt/homebrew/bin.ravenox",
+      cliPath: "/opt/homebrew/bin()",
       minimal: true,
     });
 
@@ -300,10 +300,10 @@ describe("gateway bonjour advertiser", () => {
     });
 
     const [gatewayCall] = createService.mock.calls as Array<[ServiceCall]>;
-    expect(gatewayCall?.[0]?.name).toBe(.ravenox (Ravenox)");
+    expect(gatewayCall?.[0]?.name).toBe("ravenox (Ravenox)");
     expect(gatewayCall?.[0]?.domain).toBe("local");
-    expect(gatewayCall?.[0]?.hostname).toBe(.ravenox");
-    expect((gatewayCall?.[0]?.txt as Record<string, string>)?.lanHost).toBe(.ravenox.local");
+    expect(gatewayCall?.[0]?.hostname).toBe("ravenox");
+    expect((gatewayCall?.[0]?.txt as Record<string, string>)?.lanHost).toBe("ravenox.local");
 
     await started.stop();
   });

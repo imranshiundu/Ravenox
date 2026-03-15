@@ -9,7 +9,7 @@ import {
   resolveShellFromEnv,
   usesSlowDynamicCompletion,
 } from "../cli/completion-cli.js";
-import { resolveRavenoxPackageRoot } from "../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../infra/root.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { note } from "../terminal/note.js";
 import type { DoctorPrompter } from "./doctor-prompter.js";
@@ -27,7 +27,7 @@ async function generateCompletionCache(): Promise<boolean> {
     return false;
   }
 
-  const binPath = path.join(root, .ravenox.mjs");
+  const binPath = path.join(root, "ravenox.mjs");
   const result = spawnSync(process.execPath, [binPath, "completion", "--write-state"], {
     cwd: root,
     env: process.env,
@@ -42,13 +42,13 @@ export type ShellCompletionStatus = {
   profileInstalled: boolean;
   cacheExists: boolean;
   cachePath: string;
-  /** True if profile uses slow dynamic pattern like `source <.ravenox completion ...)` */
+  /** True if profile uses slow dynamic pattern like `source <".ravenox completion ...)` */
   usesSlowPattern: boolean;
 };
 
 /** Check the status of shell completion for the current shell. */
 export async function checkShellCompletionStatus(
-  binName = .ravenox",
+  binName = "ravenox",
 ): Promise<ShellCompletionStatus> {
   const shell = resolveShellFromEnv() as CompletionShell;
   const profileInstalled = await isCompletionInstalled(shell, binName);
@@ -167,7 +167,7 @@ export async function doctorShellCompletion(
  * cases where profile has completion but no cache.
  * This is a silent fix - no prompts.
  */
-export async function ensureCompletionCacheExists(binName = .ravenox"): Promise<boolean> {
+export async function ensureCompletionCacheExists(binName = "ravenox"): Promise<boolean> {
   const shell = resolveShellFromEnv() as CompletionShell;
   const cacheExists = await completionCacheExists(shell, binName);
 

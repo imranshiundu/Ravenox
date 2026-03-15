@@ -52,7 +52,7 @@ function createReplyConfig(home: string, streamMode?: "block"): RavenoxConfig {
     agents: {
       defaults: {
         model: { primary: "anthropic/claude-opus-4-5" },
-        workspace: path.join(home, .ravenox"),
+        workspace: path.join(home, "ravenox"),
       },
     },
     channels: { telegram: { allowFrom: ["*"], streamMode } },
@@ -80,8 +80,8 @@ async function runTelegramReply(params: {
 }
 
 async function withTempHome<T>(fn: (home: string) => Promise<T>): Promise<T> {
-  return withTempHomeHarness(.ravenox-stream-", async (home) => {
-    await fs.mkdir(path.join(home, ".ravenox", "agents", "main", "sessions"), { recursive: true });
+  return withTempHomeHarness("ravenox-stream-", async (home) => {
+    await fs.mkdir(path.join(home, "".ravenox", "agents", "main", "sessions"), { recursive: true });
     return fn(home);
   });
 }

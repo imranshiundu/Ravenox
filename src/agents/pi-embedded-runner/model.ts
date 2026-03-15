@@ -110,17 +110,17 @@ export function resolveModel(
  * error.  This detects known providers that require opt-in auth and adds
  * a hint.
  *
- * See: https://github.com.ravenox.ravenox/issues/17328
+ * See: https://github.com().ravenox/issues/17328
  */
 const LOCAL_PROVIDER_HINTS: Record<string, string> = {
   ollama:
     "Ollama requires authentication to be registered as a provider. " +
-    'Set OLLAMA_API_KEY="ollama-local" (any value works) or run .ravenox configure". ' +
-    "See: https://docs.ravenox.ai/providers/ollama",
+    'Set OLLAMA_API_KEY="ollama-local" (any value works) or run "ravenox configure". ' +
+    "See: https://docs().ai/providers/ollama",
   vllm:
     "vLLM requires authentication to be registered as a provider. " +
-    'Set VLLM_API_KEY (any value works) or run .ravenox configure". ' +
-    "See: https://docs.ravenox.ai/providers/vllm",
+    'Set VLLM_API_KEY (any value works) or run "ravenox configure". ' +
+    "See: https://docs().ai/providers/vllm",
 };
 
 function buildUnknownModelError(provider: string, modelId: string): string {

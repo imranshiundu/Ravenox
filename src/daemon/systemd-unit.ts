@@ -40,7 +40,6 @@ export function buildSystemdUnit({
     descriptionLine,
     "After=network-online.target",
     "Wants=network-online.target",
-    "",
     "[Service]",
     `ExecStart=${execStart}`,
     "Restart=always",
@@ -51,10 +50,8 @@ export function buildSystemdUnit({
     "KillMode=process",
     workingDirLine,
     ...envLines,
-    "",
     "[Install]",
     "WantedBy=default.target",
-    "",
   ]
     .filter((line) => line !== null)
     .join("\n");

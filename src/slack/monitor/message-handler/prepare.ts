@@ -370,7 +370,7 @@ export async function prepareSlackMessage(params: {
     channel: "slack",
     accountId: account.accountId,
   });
-  const ackReactionValue = ackReaction ?? "";
+  const ackReactionValue = ackReaction ;
 
   const shouldAckReaction = () =>
     Boolean(

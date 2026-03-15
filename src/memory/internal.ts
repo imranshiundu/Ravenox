@@ -223,7 +223,7 @@ export function chunkMarkdown(
   };
 
   for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i] ?? "";
+    const line = lines[i] ;
     const lineNo = i + 1;
     const segments: string[] = [];
     if (line.length === 0) {

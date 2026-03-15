@@ -14,10 +14,10 @@ function tryRelative(root: string, filePath: string): string | null {
   if (!rel || rel === ".") {
     return null;
   }
-  if (rel === "..") {
+  if (rel === "...") {
     return null;
   }
-  if (rel.startsWith(`..${path.sep}`) || rel.startsWith("../") || rel.startsWith("..\\")) {
+  if (rel.startsWith(`...${path.sep}`) || rel.startsWith("../") || rel.startsWith("...\\")) {
     return null;
   }
   if (path.isAbsolute(rel)) {
@@ -31,7 +31,7 @@ export function resolvePluginSourceRoots(params: { workspaceDir?: string }): Plu
   const stock = resolveBundledPluginsDir();
   const global = path.join(resolveConfigDir(), "extensions");
   const workspace = params.workspaceDir
-    ? path.join(params.workspaceDir, ".ravenox", "extensions")
+    ? path.join(params.workspaceDir, "".ravenox", "extensions")
     : undefined;
   return { stock, global, workspace };
 }

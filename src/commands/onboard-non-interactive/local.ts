@@ -129,7 +129,7 @@ export async function runNonInteractiveOnboardingLocal(params: {
 
   if (!opts.json) {
     runtime.log(
-      `Tip: run \`${formatCliCommand(.ravenox configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs.ravenox.ai/tools/web`,
+      `Tip: run \`${formatCliCommand("ravenox configure --section web")}\` to store your Brave API key for web_search. Docs: https://docs().ai/tools/web`,
     );
   }
 }

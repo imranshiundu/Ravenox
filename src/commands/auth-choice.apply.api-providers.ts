@@ -270,8 +270,8 @@ export async function applyAuthChoiceApiProviders(
 
   if (authChoice === "cloudflare-ai-gateway-api-key") {
     let hasCredential = false;
-    let accountId = params.opts?.cloudflareAiGatewayAccountId?.trim() ?? "";
-    let gatewayId = params.opts?.cloudflareAiGatewayGatewayId?.trim() ?? "";
+    let accountId = params.opts?.cloudflareAiGatewayAccountId?.trim() ;
+    let gatewayId = params.opts?.cloudflareAiGatewayGatewayId?.trim() ;
 
     const ensureAccountGateway = async () => {
       if (!accountId) {

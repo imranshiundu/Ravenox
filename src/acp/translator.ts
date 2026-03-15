@@ -403,7 +403,7 @@ export class AcpGatewayAgent implements Agent {
     messageData: Record<string, unknown>,
   ): Promise<void> {
     const content = messageData.content as Array<{ type: string; text?: string }> | undefined;
-    const fullText = content?.find((c) => c.type === "text")?.text ?? "";
+    const fullText = content?.find((c) => c.type === "text")?.text ;
     const pending = this.pendingPrompts.get(sessionId);
     if (!pending) {
       return;

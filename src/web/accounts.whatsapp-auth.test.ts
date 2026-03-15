@@ -16,7 +16,7 @@ describe("hasAnyWhatsAppAuth", () => {
 
   beforeEach(() => {
     envSnapshot = captureEnv(["RAVENOX_OAUTH_DIR"]);
-    tempOauthDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-oauth-"));
+    tempOauthDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-oauth-"));
     process.env.RAVENOX_OAUTH_DIR = tempOauthDir;
   });
 
@@ -43,7 +43,7 @@ describe("hasAnyWhatsAppAuth", () => {
   });
 
   it("includes authDir overrides", () => {
-    const customDir = fs.mkdtempSync(path.join(os.tmpdir(), .ravenox-wa-auth-"));
+    const customDir = fs.mkdtempSync(path.join(os.tmpdir(), "ravenox-wa-auth-"));
     try {
       writeCreds(customDir);
       const cfg = {

@@ -139,7 +139,7 @@ export async function ensureSandboxBrowser(params: {
   if (hasContainer) {
     const registry = await readBrowserRegistry();
     const registryEntry = registry.entries.find((entry) => entry.containerName === containerName);
-    currentHash = await readDockerContainerLabel(containerName, .ravenox.configHash");
+    currentHash = await readDockerContainerLabel(containerName, "ravenox.configHash");
     hashMismatch = !currentHash || currentHash !== expectedHash;
     if (!currentHash) {
       currentHash = registryEntry?.configHash ?? null;
@@ -152,13 +152,13 @@ export async function ensureSandboxBrowser(params: {
       if (isHot) {
         const hint = (() => {
           if (params.cfg.scope === "session") {
-            return .ravenox sandbox recreate --browser --session ${params.scopeKey}`;
+            return "ravenox sandbox recreate --browser --session ${params.scopeKey}`;
           }
           if (params.cfg.scope === "agent") {
             const agentId = resolveSandboxAgentId(params.scopeKey) ?? "main";
-            return .ravenox sandbox recreate --browser --agent ${agentId}`;
+            return "ravenox sandbox recreate --browser --agent ${agentId}`;
           }
-          return .ravenox sandbox recreate --browser --all";
+          return "ravenox sandbox recreate --browser --all";
         })();
         defaultRuntime.log(
           `Sandbox browser config changed for ${containerName} (recently used). Recreate to apply: ${hint}`,
@@ -177,7 +177,7 @@ export async function ensureSandboxBrowser(params: {
       name: containerName,
       cfg: browserDockerCfg,
       scopeKey: params.scopeKey,
-      labels: { .ravenox.sandboxBrowser": "1" },
+      labels: { "ravenox.sandboxBrowser": "1" },
       configHash: expectedHash,
     });
     const mainMountSuffix =

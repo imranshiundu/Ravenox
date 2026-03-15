@@ -47,7 +47,7 @@ export function registerModelsCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/models", "docs.ravenox.ai/cli/models")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/models", "docs().ai/cli/models")}\n`,
     );
 
   models

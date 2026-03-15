@@ -31,7 +31,7 @@ vi.mock("../web/session.js", () => ({
 
 import { getReplyFromConfig } from "./reply.js";
 
-const { withTempHome } = createTempHomeHarness({ prefix: .ravenox-rawbody-" });
+const { withTempHome } = createTempHomeHarness({ prefix: "ravenox-rawbody-" });
 
 describe("RawBody directive parsing", () => {
   beforeEach(() => {
@@ -82,7 +82,7 @@ describe("RawBody directive parsing", () => {
       expect(agentMocks.runEmbeddedPiAgent).toHaveBeenCalledOnce();
       const prompt =
         (agentMocks.runEmbeddedPiAgent.mock.calls[0]?.[0] as { prompt?: string } | undefined)
-          ?.prompt ?? "";
+          ?.prompt ;
       expect(prompt).toContain("Chat history since last reply (untrusted, for context):");
       expect(prompt).toContain('"sender": "Peter"');
       expect(prompt).toContain('"body": "hello"');

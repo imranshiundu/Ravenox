@@ -55,7 +55,7 @@ function mockTarExtractionFlow(params: {
 async function withTempWorkspace(
   run: (params: { workspaceDir: string; stateDir: string }) => Promise<void>,
 ) {
-  const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-skills-install-"));
+  const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-skills-install-"));
   try {
     const stateDir = setTempStateDir(workspaceDir);
     await run({ workspaceDir, stateDir });

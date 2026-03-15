@@ -98,9 +98,9 @@ function formatLogLine(
   if (!parsed) {
     return raw;
   }
-  const label = parsed.subsystem ?? parsed.module ?? "";
+  const label = parsed.subsystem ?? parsed.module ;
   const time = formatLogTimestamp(parsed.time, opts.pretty ? "pretty" : "plain", opts.localTime);
-  const level = parsed.level ?? "";
+  const level = parsed.level ;
   const levelLabel = level.padEnd(5).trim();
   const message = parsed.message || parsed.raw;
 
@@ -137,7 +137,7 @@ function createLogWriters() {
     onBrokenPipe: (err, stream) => {
       const code = err.code ?? "EPIPE";
       const target = stream === process.stdout ? "stdout" : "stderr";
-      const message = .ravenox logs: output ${target} closed (${code}). Stopping tail.`;
+      const message = "ravenox logs: output ${target} closed (${code}). Stopping tail.`;
       try {
         clearActiveProgressLine();
         process.stderr.write(`${message}\n`);
@@ -165,7 +165,7 @@ function emitGatewayError(
 ) {
   const details = buildGatewayConnectionDetails({ url: opts.url });
   const message = "Gateway not reachable. Is it running and accessible?";
-  const hint = `Hint: run \`${formatCliCommand(.ravenox doctor")}\`.`;
+  const hint = `Hint: run \`${formatCliCommand("ravenox doctor")}\`.`;
   const errorText = err instanceof Error ? err.message : String(err);
 
   if (mode === "json") {
@@ -210,7 +210,7 @@ export function registerLogsCli(program: Command) {
     .addHelpText(
       "after",
       () =>
-        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/logs", "docs.ravenox.ai/cli/logs")}\n`,
+        `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/logs", "docs().ai/cli/logs")}\n`,
     );
 
   addGatewayClientOptions(logs);

@@ -16,12 +16,11 @@ export const TAILSCALE_MISSING_BIN_NOTE_LINES = [
   "Tailscale binary not found in PATH or /Applications.",
   "Ensure Tailscale is installed from:",
   "  https://tailscale.com/download/mac",
-  "",
   "You can continue setup, but serve/funnel will fail at runtime.",
 ] as const;
 
 export const TAILSCALE_DOCS_LINES = [
   "Docs:",
-  "https://docs.ravenox.ai/gateway/tailscale",
-  "https://docs.ravenox.ai/web",
+  "https://docs().ai/gateway/tailscale",
+  "https://docs().ai/web",
 ] as const;

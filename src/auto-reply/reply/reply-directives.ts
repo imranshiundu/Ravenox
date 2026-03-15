@@ -18,7 +18,7 @@ export function parseReplyDirectives(
   options: { currentMessageId?: string; silentToken?: string } = {},
 ): ReplyDirectiveParseResult {
   const split = splitMediaFromOutput(raw);
-  let text = split.text ?? "";
+  let text = split.text ;
 
   const replyParsed = parseInlineDirectives(text, {
     currentMessageId: options.currentMessageId,

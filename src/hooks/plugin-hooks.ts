@@ -25,7 +25,7 @@ function normalizePluginHookEntry(api: RavenoxPluginApi, entry: HookEntry): Hook
     ...entry,
     hook: {
       ...entry.hook,
-      source: .ravenox-plugin",
+      source: "ravenox-plugin",
       pluginId: api.id,
     },
     metadata: {
@@ -64,7 +64,7 @@ export async function registerPluginHooksFromDir(
   const resolvedDir = resolveHookDir(api, dir);
   const hooks = loadHookEntriesFromDir({
     dir: resolvedDir,
-    source: .ravenox-plugin",
+    source: "ravenox-plugin",
     pluginId: api.id,
   });
 

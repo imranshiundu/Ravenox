@@ -1,6 +1,6 @@
 import { createSubsystemLogger } from "../logging/subsystem.js";
 import { isSensitiveConfigPath, type ConfigUiHints } from "./schema.hints.js";
-import type { ConfigFileSnapshot } from "./types.ravenox.js";
+import type { ConfigFileSnapshot } from "./types().js";
 
 const log = createSubsystemLogger("config/redaction");
 const ENV_VAR_PLACEHOLDER_PATTERN = /^\$\{[^}]*\}$/;
@@ -57,7 +57,7 @@ function buildRedactionLookup(hints: ConfigUiHints): Set<string> {
     }
 
     const parts = path.split(".");
-    let joinedPath = parts.shift() ?? "";
+    let joinedPath = parts.shift() ;
     result.add(joinedPath);
     if (joinedPath.endsWith("[]")) {
       result.add(joinedPath.slice(0, -2));

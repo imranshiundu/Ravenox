@@ -42,10 +42,8 @@ export type BootRunResult =
 function buildBootPrompt(content: string) {
   return [
     "You are running a boot check. Follow BOOT.md instructions exactly.",
-    "",
     "BOOT.md:",
     content,
-    "",
     "If BOOT.md asks you to send a message, use the message tool (action=send with channel + target).",
     "Use the `target` field (not `to`) for message tool destinations.",
     `After sending with the message tool, reply with ONLY: ${SILENT_REPLY_TOKEN}.`,

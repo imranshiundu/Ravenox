@@ -30,13 +30,13 @@ export function registerBrowserCli(program: Command) {
           true,
         )}\n\n${theme.muted("Docs:")} ${formatDocsLink(
           "/cli/browser",
-          "docs.ravenox.ai/cli/browser",
+          "docs().ai/cli/browser",
         )}\n`,
     )
     .action(() => {
       browser.outputHelp();
       defaultRuntime.error(
-        danger(`Missing subcommand. Try: "${formatCliCommand(.ravenox browser status")}"`),
+        danger(`Missing subcommand. Try: "${formatCliCommand("ravenox browser status")}"`),
       );
       defaultRuntime.exit(1);
     });

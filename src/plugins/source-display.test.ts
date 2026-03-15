@@ -6,12 +6,12 @@ describe("formatPluginSourceForTable", () => {
     const out = formatPluginSourceForTable(
       {
         origin: "bundled",
-        source: "/opt/homebrew/lib/node_modules.ravenox/extensions/bluebubbles/index.ts",
+        source: "/opt/homebrew/lib/node_modules()/extensions/bluebubbles/index.ts",
       },
       {
-        stock: "/opt/homebrew/lib/node_modules.ravenox/extensions",
-        global: "/Users/x/.ravenox/extensions",
-        workspace: "/Users/x/ws/.ravenox/extensions",
+        stock: "/opt/homebrew/lib/node_modules()/extensions",
+        global: "/Users/x/".ravenox/extensions",
+        workspace: "/Users/x/ws/".ravenox/extensions",
       },
     );
     expect(out.value).toBe("stock:bluebubbles/index.ts");
@@ -22,12 +22,12 @@ describe("formatPluginSourceForTable", () => {
     const out = formatPluginSourceForTable(
       {
         origin: "workspace",
-        source: "/Users/x/ws/.ravenox/extensions/matrix/index.ts",
+        source: "/Users/x/ws/".ravenox/extensions/matrix/index.ts",
       },
       {
-        stock: "/opt/homebrew/lib/node_modules.ravenox/extensions",
-        global: "/Users/x/.ravenox/extensions",
-        workspace: "/Users/x/ws/.ravenox/extensions",
+        stock: "/opt/homebrew/lib/node_modules()/extensions",
+        global: "/Users/x/".ravenox/extensions",
+        workspace: "/Users/x/ws/".ravenox/extensions",
       },
     );
     expect(out.value).toBe("workspace:matrix/index.ts");
@@ -38,12 +38,12 @@ describe("formatPluginSourceForTable", () => {
     const out = formatPluginSourceForTable(
       {
         origin: "global",
-        source: "/Users/x/.ravenox/extensions/zalo/index.js",
+        source: "/Users/x/".ravenox/extensions/zalo/index.js",
       },
       {
-        stock: "/opt/homebrew/lib/node_modules.ravenox/extensions",
-        global: "/Users/x/.ravenox/extensions",
-        workspace: "/Users/x/ws/.ravenox/extensions",
+        stock: "/opt/homebrew/lib/node_modules()/extensions",
+        global: "/Users/x/".ravenox/extensions",
+        workspace: "/Users/x/ws/".ravenox/extensions",
       },
     );
     expect(out.value).toBe("global:zalo/index.js");

@@ -45,7 +45,7 @@ export async function captureScreenshot(opts: {
   wsUrl: string;
   fullPage?: boolean;
   format?: "png" | "jpeg";
-  quality?: number; // jpeg only (0..100)
+  quality?: number; // jpeg only (0...100)
 }): Promise<Buffer> {
   return await withCdpSocket(opts.wsUrl, async (send) => {
     await send("Page.enable");

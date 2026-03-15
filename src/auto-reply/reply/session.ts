@@ -152,7 +152,7 @@ export async function initSessionState(params: {
     normalizedChatType != null && normalizedChatType !== "direct" ? true : Boolean(groupResolution);
   // Prefer CommandBody/RawBody (clean message) for command detection; fall back
   // to Body which may contain structural context (history, sender labels).
-  const commandSource = ctx.BodyForCommands ?? ctx.CommandBody ?? ctx.RawBody ?? ctx.Body ?? "";
+  const commandSource = ctx.BodyForCommands ?? ctx.CommandBody ?? ctx.RawBody ?? ctx.Body ;
   // IMPORTANT: do NOT lowercase the entire command body.
   // Users often pass case-sensitive arguments (e.g. filesystem paths on Linux).
   // Command parsing downstream lowercases only the command token for matching.
@@ -411,8 +411,7 @@ export async function initSessionState(params: {
         ctx.Body ??
         ctx.CommandBody ??
         ctx.RawBody ??
-        ctx.BodyForCommands ??
-        "",
+        ctx.BodyForCommands ?? "",
     ),
     SessionId: sessionId,
     IsNewSession: isNewSession ? "true" : "false",
@@ -421,7 +420,7 @@ export async function initSessionState(params: {
   // Run session plugin hooks (fire-and-forget)
   const hookRunner = getGlobalHookRunner();
   if (hookRunner && isNewSession) {
-    const effectiveSessionId = sessionId ?? "";
+    const effectiveSessionId = sessionId ;
 
     // If replacing an existing session, fire session_end for the old one
     if (previousSessionEntry?.sessionId && previousSessionEntry.sessionId !== effectiveSessionId) {

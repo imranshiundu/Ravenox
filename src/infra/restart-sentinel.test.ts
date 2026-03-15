@@ -17,7 +17,7 @@ describe("restart sentinel", () => {
 
   beforeEach(async () => {
     prevStateDir = process.env.RAVENOX_STATE_DIR;
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-sentinel-"));
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-sentinel-"));
     process.env.RAVENOX_STATE_DIR = tempDir;
   });
 

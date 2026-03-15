@@ -43,15 +43,15 @@ export function registerUpdateCli(program: Command) {
     .option("--yes", "Skip confirmation prompts (non-interactive)", false)
     .addHelpText("after", () => {
       const examples = [
-        [.ravenox update", "Update a source checkout (git)"],
-        [.ravenox update --channel beta", "Switch to beta channel (git + npm)"],
-        [.ravenox update --channel dev", "Switch to dev channel (git + npm)"],
-        [.ravenox update --tag beta", "One-off update to a dist-tag or version"],
-        [.ravenox update --no-restart", "Update without restarting the service"],
-        [.ravenox update --json", "Output result as JSON"],
-        [.ravenox update --yes", "Non-interactive (accept downgrade prompts)"],
-        [.ravenox update wizard", "Interactive update wizard"],
-        [.ravenox --update", "Shorthand for.ravenox update"],
+        ["ravenox update", "Update a source checkout (git)"],
+        ["ravenox update --channel beta", "Switch to beta channel (git + npm)"],
+        ["ravenox update --channel dev", "Switch to dev channel (git + npm)"],
+        ["ravenox update --tag beta", "One-off update to a dist-tag or version"],
+        ["ravenox update --no-restart", "Update without restarting the service"],
+        ["ravenox update --json", "Output result as JSON"],
+        ["ravenox update --yes", "Non-interactive (accept downgrade prompts)"],
+        ["ravenox update wizard", "Interactive update wizard"],
+        ["ravenox --update", "Shorthand for() update"],
       ] as const;
       const fmtExamples = examples
         .map(([cmd, desc]) => `  ${theme.command(cmd)} ${theme.muted(`# ${desc}`)}`)
@@ -63,7 +63,7 @@ ${theme.heading("What this does:")}
 
 ${theme.heading("Switch channels:")}
   - Use --channel stable|beta|dev to persist the update channel in config
-  - Run.ravenox update status to see the active channel and source
+  - Run() update status to see the active channel and source
   - Use --tag <dist-tag|version> for a one-off npm update without persisting
 
 ${theme.heading("Non-interactive:")}
@@ -79,7 +79,7 @@ ${theme.heading("Notes:")}
   - Downgrades require confirmation (can break configuration)
   - Skips update if the working directory has uncommitted changes
 
-${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.ravenox.ai/cli/update")}`;
+${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs().ai/cli/update")}`;
     })
     .action(async (opts) => {
       try {
@@ -103,7 +103,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.ravenox.ai/cli/upd
     .option("--timeout <seconds>", "Timeout for each update step in seconds (default: 1200)")
     .addHelpText(
       "after",
-      `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.ravenox.ai/cli/update")}\n`,
+      `\n${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs().ai/cli/update")}\n`,
     )
     .action(async (opts, command) => {
       try {
@@ -125,14 +125,14 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/update", "docs.ravenox.ai/cli/upd
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          [.ravenox update status", "Show channel + version status."],
-          [.ravenox update status --json", "JSON output."],
-          [.ravenox update status --timeout 10", "Custom timeout."],
+          ["ravenox update status", "Show channel + version status."],
+          ["ravenox update status --json", "JSON output."],
+          ["ravenox update status --timeout 10", "Custom timeout."],
         ])}\n\n${theme.heading("Notes:")}\n${theme.muted(
           "- Shows current update channel (stable/beta/dev) and source",
         )}\n${theme.muted("- Includes git tag/branch/SHA for source checkouts")}\n\n${theme.muted(
           "Docs:",
-        )} ${formatDocsLink("/cli/update", "docs.ravenox.ai/cli/update")}`,
+        )} ${formatDocsLink("/cli/update", "docs().ai/cli/update")}`,
     )
     .action(async (opts, command) => {
       try {

@@ -138,8 +138,7 @@ function resolveChannelGroups(
     channelConfig.accounts?.[
       Object.keys(channelConfig.accounts ?? {}).find(
         (key) => key.toLowerCase() === normalizedAccountId.toLowerCase(),
-      ) ?? ""
-    ]?.groups;
+      ) ?? ""]?.groups;
   return accountGroups ?? channelConfig.groups;
 }
 

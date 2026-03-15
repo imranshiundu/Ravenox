@@ -156,7 +156,7 @@ function applyInsertionsToStyles(
 }
 
 function renderSignalText(ir: MarkdownIR): SignalFormattedText {
-  const text = ir.text ?? "";
+  const text = ir.text ;
   if (!text) {
     return { text: "", styles: [] };
   }

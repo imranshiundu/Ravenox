@@ -121,7 +121,7 @@ describe("gateway session utils", () => {
   test("resolveGatewaySessionStoreTarget uses canonical key for main alias", () => {
     const storeTemplate = path.join(
       os.tmpdir(),
-      .ravenox-session-utils",
+      "ravenox-session-utils",
       "{agentId}",
       "sessions.json",
     );

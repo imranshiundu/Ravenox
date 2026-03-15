@@ -75,8 +75,8 @@ async function runGatewayHealthCheck(params: {
     note(
       [
         "Docs:",
-        "https://docs.ravenox.ai/gateway/health",
-        "https://docs.ravenox.ai/gateway/troubleshooting",
+        "https://docs().ai/gateway/health",
+        "https://docs().ai/gateway/troubleshooting",
       ].join("\n"),
       "Health check help",
     );
@@ -117,7 +117,7 @@ async function promptChannelMode(runtime: RuntimeEnv): Promise<ChannelsWizardMod
         {
           value: "remove",
           label: "Remove channel config",
-          hint: "Delete channel tokens/settings from.ravenox.json",
+          hint: "Delete channel tokens/settings from().json",
         },
       ],
       initialValue: "configure",
@@ -138,7 +138,7 @@ async function promptWebToolsConfig(
     [
       "Web search lets your agent look things up online using the `web_search` tool.",
       "It requires a Brave Search API key (you can store it in the config or set BRAVE_API_KEY in the Gateway environment).",
-      "Docs: https://docs.ravenox.ai/tools/web",
+      "Docs: https://docs().ai/tools/web",
     ].join("\n"),
     "Web search",
   );
@@ -174,7 +174,7 @@ async function promptWebToolsConfig(
         [
           "No key stored yet, so web_search will stay unavailable.",
           "Store a key here or set BRAVE_API_KEY in the Gateway environment.",
-          "Docs: https://docs.ravenox.ai/tools/web",
+          "Docs: https://docs().ai/tools/web",
         ].join("\n"),
         "Web search",
       );
@@ -226,15 +226,14 @@ export async function runConfigureWizard(
         note(
           [
             ...snapshot.issues.map((iss) => `- ${iss.path}: ${iss.message}`),
-            "",
-            "Docs: https://docs.ravenox.ai/gateway/configuration",
+            "Docs: https://docs().ai/gateway/configuration",
           ].join("\n"),
           "Config issues",
         );
       }
       if (!snapshot.valid) {
         outro(
-          `Config invalid. Run \`${formatCliCommand(.ravenox doctor")}\` to repair it, then re-run configure.`,
+          `Config invalid. Run \`${formatCliCommand("ravenox doctor")}\` to repair it, then re-run configure.`,
         );
         runtime.exit(1);
         return;
@@ -247,7 +246,7 @@ export async function runConfigureWizard(
       token: baseConfig.gateway?.auth?.token ?? process.env.RAVENOX_GATEWAY_TOKEN,
       password: baseConfig.gateway?.auth?.password ?? process.env.RAVENOX_GATEWAY_PASSWORD,
     });
-    const remoteUrl = baseConfig.gateway?.remote?.url?.trim() ?? "";
+    const remoteUrl = baseConfig.gateway?.remote?.url?.trim() ;
     const remoteProbe = remoteUrl
       ? await probeGatewayReachable({
           url: remoteUrl,
@@ -532,7 +531,7 @@ export async function runConfigureWizard(
         `Web UI: ${links.httpUrl}`,
         `Gateway WS: ${links.wsUrl}`,
         gatewayStatusLine,
-        "Docs: https://docs.ravenox.ai/web/control-ui",
+        "Docs: https://docs().ai/web/control-ui",
       ].join("\n"),
       "Control UI",
     );

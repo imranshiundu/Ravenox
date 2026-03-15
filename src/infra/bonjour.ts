@@ -97,12 +97,12 @@ export async function startGatewayBonjourAdvertiser(
   const hostnameRaw =
     process.env.RAVENOX_MDNS_HOSTNAME?.trim() ||
     process.env.CLAWDBOT_MDNS_HOSTNAME?.trim() ||
-    .ravenox";
+    "ravenox";
   const hostname =
     hostnameRaw
       .replace(/\.local$/i, "")
       .split(".")[0]
-      .trim() || .ravenox";
+      .trim() || "ravenox";
   const instanceName =
     typeof opts.instanceName === "string" && opts.instanceName.trim()
       ? opts.instanceName.trim()
@@ -147,7 +147,7 @@ export async function startGatewayBonjourAdvertiser(
 
   const gateway = responder.createService({
     name: safeServiceName(instanceName),
-    type: .ravenox-gw",
+    type: "ravenox-gw",
     protocol: Protocol.TCP,
     port: opts.gatewayPort,
     domain: "local",

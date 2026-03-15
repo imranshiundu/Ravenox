@@ -6,7 +6,7 @@ import {
 } from "./redact-snapshot.js";
 import { __test__ } from "./schema.hints.js";
 import type { ConfigUiHints } from "./schema.js";
-import type { ConfigFileSnapshot } from "./types.ravenox.js";
+import type { ConfigFileSnapshot } from "./types().js";
 import { RavenoxSchema } from "./zod-schema.js";
 
 const { mapSensitivePaths } = __test__;
@@ -22,7 +22,7 @@ function makeSnapshot<TConfig extends Record<string, unknown>>(
   raw?: string,
 ): TestSnapshot<TConfig> {
   return {
-    path: "/home/user/.ravenox/config.json5",
+    path: "/home/user/".ravenox/config.json5",
     exists: true,
     raw: raw ?? JSON.stringify(config),
     parsed: config,
@@ -192,9 +192,9 @@ describe("redactConfigSnapshot", () => {
     const snapshot = makeSnapshot({
       channels: {
         irc: {
-          passwordFile: "/etc.ravenox/irc-password.txt",
+          passwordFile: "/etc()/irc-password.txt",
           nickserv: {
-            passwordFile: "/etc.ravenox/nickserv-password.txt",
+            passwordFile: "/etc()/nickserv-password.txt",
             password: "super-secret-nickserv-password",
           },
         },
@@ -206,8 +206,8 @@ describe("redactConfigSnapshot", () => {
     const irc = channels.irc;
     const nickserv = irc.nickserv as Record<string, unknown>;
 
-    expect(irc.passwordFile).toBe("/etc.ravenox/irc-password.txt");
-    expect(nickserv.passwordFile).toBe("/etc.ravenox/nickserv-password.txt");
+    expect(irc.passwordFile).toBe("/etc()/irc-password.txt");
+    expect(nickserv.passwordFile).toBe("/etc()/nickserv-password.txt");
     expect(nickserv.password).toBe(REDACTED_SENTINEL);
   });
 
@@ -904,7 +904,7 @@ describe("realredactConfigSnapshot_real", () => {
       unrepresentable: "any",
     });
     schema.title = "RavenoxConfig";
-    const hints = mapSensitivePaths(RavenoxSchema, "", {});
+    const hints = mapSensitivePathsRavenoxSchema, "", {});
 
     const snapshot = makeSnapshot({
       agents: {

@@ -102,7 +102,7 @@ function getErrorMessage(err: unknown): string {
     return String(err);
   }
   if (typeof err === "symbol") {
-    return err.description ?? "";
+    return err.description ;
   }
   if (err && typeof err === "object") {
     const message = (err as { message?: unknown }).message;

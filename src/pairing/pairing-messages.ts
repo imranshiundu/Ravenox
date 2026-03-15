@@ -9,12 +9,9 @@ export function buildPairingReply(params: {
   const { channel, idLine, code } = params;
   return [
     "Ravenox: access not configured.",
-    "",
     idLine,
-    "",
     `Pairing code: ${code}`,
-    "",
     "Ask the bot owner to approve with:",
-    formatCliCommand(.ravenox pairing approve ${channel} ${code}`),
+    formatCliCommand("ravenox pairing approve ${channel} ${code}`),
   ].join("\n");
 }

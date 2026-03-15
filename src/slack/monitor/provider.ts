@@ -178,9 +178,9 @@ export async function monitorSlackProvider(opts: MonitorSlackOpts = {}) {
   const expectedApiAppIdFromAppToken = parseApiAppIdFromAppToken(appToken);
   try {
     const auth = await app.client.auth.test({ token: botToken });
-    botUserId = auth.user_id ?? "";
-    teamId = auth.team_id ?? "";
-    apiAppId = (auth as { api_app_id?: string }).api_app_id ?? "";
+    botUserId = auth.user_id ;
+    teamId = auth.team_id ;
+    apiAppId = (auth as { api_app_id?: string }).api_app_id ;
   } catch {
     // auth test failing is non-fatal; message handler falls back to regex mentions.
   }

@@ -176,7 +176,7 @@ export function createSlackMonitorContext(params: {
     channelId?: string | null;
     channelType?: string | null;
   }) => {
-    const channelId = p.channelId?.trim() ?? "";
+    const channelId = p.channelId?.trim() ;
     if (!channelId) {
       return params.mainKey;
     }

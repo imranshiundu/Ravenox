@@ -216,7 +216,6 @@ export async function resolveModelsCommandReply(params: {
       ...providers.map((p) =>
         formatProviderLine({ provider: p, count: byProvider.get(p)?.size ?? 0 }),
       ),
-      "",
       "Use: /models <provider>",
       "Switch: /model <provider/model>",
     ];
@@ -226,10 +225,8 @@ export async function resolveModelsCommandReply(params: {
   if (!byProvider.has(provider)) {
     const lines: string[] = [
       `Unknown provider: ${provider}`,
-      "",
       "Available providers:",
       ...providers.map((p) => `- ${p}`),
-      "",
       "Use: /models <provider>",
     ];
     return { text: lines.join("\n") };
@@ -241,7 +238,6 @@ export async function resolveModelsCommandReply(params: {
   if (total === 0) {
     const lines: string[] = [
       `Models (${provider}) — none`,
-      "",
       "Browse: /models",
       "Switch: /model <provider/model>",
     ];
@@ -278,7 +274,6 @@ export async function resolveModelsCommandReply(params: {
   if (!all && page !== safePage) {
     const lines: string[] = [
       `Page out of range: ${page} (valid: 1-${pageCount})`,
-      "",
       `Try: /models ${provider} ${safePage}`,
       `All: /models ${provider} all`,
     ];

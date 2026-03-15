@@ -159,7 +159,7 @@ function resolveCommandsAllowFromList(params: {
   }
 
   // Check provider-specific list first, then fall back to global "*"
-  const providerKey = providerId ?? "";
+  const providerKey = providerId ;
   const providerList = commandsAllowFrom[providerKey];
   const globalList = commandsAllowFrom["*"];
 

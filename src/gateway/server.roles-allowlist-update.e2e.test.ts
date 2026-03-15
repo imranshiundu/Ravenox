@@ -131,7 +131,7 @@ describe("gateway update.run", () => {
       );
       expect(sigusr1).toHaveBeenCalled();
 
-      const sentinelPath = path.join(os.homedir(), ".ravenox", "restart-sentinel.json");
+      const sentinelPath = path.join(os.homedir(), "".ravenox", "restart-sentinel.json");
       const raw = await fs.readFile(sentinelPath, "utf-8");
       const parsed = JSON.parse(raw) as {
         payload?: { kind?: string; stats?: { mode?: string } };
@@ -196,7 +196,7 @@ describe("gateway node command allowlist", () => {
         "node.list",
         {},
       );
-      const nodeId = listRes.payload?.nodes?.find((node) => node.connected)?.nodeId ?? "";
+      const nodeId = listRes.payload?.nodes?.find((node) => node.connected)?.nodeId ;
       expect(nodeId).toBeTruthy();
       return nodeId;
     };
@@ -268,7 +268,7 @@ describe("gateway node command allowlist", () => {
         idempotencyKey: "allowlist-3",
       });
       const payload = await waitForInvoke();
-      const requestId = payload?.id ?? "";
+      const requestId = payload?.id ;
       const nodeIdFromReq = payload?.nodeId ?? "node-allowed";
       await allowedClient.request("node.invoke.result", {
         id: requestId,
@@ -286,7 +286,7 @@ describe("gateway node command allowlist", () => {
         idempotencyKey: "allowlist-null-payloadjson",
       });
       const payloadNull = await waitForInvoke();
-      const requestIdNull = payloadNull?.id ?? "";
+      const requestIdNull = payloadNull?.id ;
       const nodeIdNull = payloadNull?.nodeId ?? "node-allowed";
       await allowedClient.request("node.invoke.result", {
         id: requestIdNull,

@@ -5,7 +5,7 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
-const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
+const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "...");
 
 type DockerSetupSandbox = {
   rootDir: string;
@@ -39,7 +39,7 @@ exit 0
 }
 
 async function createDockerSetupSandbox(): Promise<DockerSetupSandbox> {
-  const rootDir = await mkdtemp(join(tmpdir(), .ravenox-docker-setup-"));
+  const rootDir = await mkdtemp(join(tmpdir(), "ravenox-docker-setup-"));
   const scriptPath = join(rootDir, "docker-setup.sh");
   const dockerfilePath = join(rootDir, "Dockerfile");
   const composePath = join(rootDir, "docker-compose.yml");
@@ -51,7 +51,7 @@ async function createDockerSetupSandbox(): Promise<DockerSetupSandbox> {
   await writeFile(dockerfilePath, "FROM scratch\n");
   await writeFile(
     composePath,
-    "services:\n .ravenox-gateway:\n    image: noop\n .ravenox-cli:\n    image: noop\n",
+    "services:\n "ravenox-gateway:\n    image: noop\n "ravenox-cli:\n    image: noop\n",
   );
   await writeDockerStub(binDir, logPath);
 
@@ -71,7 +71,7 @@ function createEnv(
     DOCKER_STUB_LOG: sandbox.logPath,
     RAVENOX_GATEWAY_TOKEN: "test-token",
     RAVENOX_CONFIG_DIR: join(sandbox.rootDir, "config"),
-    RAVENOX_WORKSPACE_DIR: join(sandbox.rootDir, .ravenox"),
+    RAVENOX_WORKSPACE_DIR: join(sandbox.rootDir, "ravenox"),
   };
 
   for (const [key, value] of Object.entries(overrides)) {
@@ -120,7 +120,7 @@ describe("docker-setup.sh", () => {
       env: createEnv(sandbox, {
         RAVENOX_DOCKER_APT_PACKAGES: "ffmpeg build-essential",
         RAVENOX_EXTRA_MOUNTS: undefined,
-        RAVENOX_HOME_VOLUME: .ravenox-home",
+        RAVENOX_HOME_VOLUME: "ravenox-home",
       }),
       stdio: ["ignore", "ignore", "pipe"],
     });
@@ -128,11 +128,11 @@ describe("docker-setup.sh", () => {
     const envFile = await readFile(join(sandbox.rootDir, ".env"), "utf8");
     expect(envFile).toContain("RAVENOX_DOCKER_APT_PACKAGES=ffmpeg build-essential");
     expect(envFile).toContain("RAVENOX_EXTRA_MOUNTS=");
-    expect(envFile).toContain("RAVENOX_HOME_VOLUME.ravenox-home");
+    expect(envFile).toContain("RAVENOX_HOME_VOLUME()-home");
     const extraCompose = await readFile(join(sandbox.rootDir, "docker-compose.extra.yml"), "utf8");
-    expect(extraCompose).toContain(.ravenox-home:/home/node");
+    expect(extraCompose).toContain("ravenox-home:/home/node");
     expect(extraCompose).toContain("volumes:");
-    expect(extraCompose).toContain(.ravenox-home:");
+    expect(extraCompose).toContain("ravenox-home:");
     const log = await readFile(sandbox.logPath, "utf8");
     expect(log).toContain("--build-arg RAVENOX_DOCKER_APT_PACKAGES=ffmpeg build-essential");
   });

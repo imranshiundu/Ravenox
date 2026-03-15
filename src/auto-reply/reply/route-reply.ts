@@ -81,7 +81,7 @@ export async function routeReply(params: RouteReplyParams): Promise<RouteReplyRe
     return { ok: true };
   }
 
-  let text = normalized.text ?? "";
+  let text = normalized.text ;
   let mediaUrls = (normalized.mediaUrls?.filter(Boolean) ?? []).length
     ? (normalized.mediaUrls?.filter(Boolean) as string[])
     : normalized.mediaUrl

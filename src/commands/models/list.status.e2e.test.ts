@@ -30,8 +30,8 @@ const mocks = vi.hoisted(() => {
 
   return {
     store,
-    resolveRavenoxAgentDir: vi.fn().mockReturnValue("/tmp.ravenox-agent"),
-    resolveAgentDir: vi.fn().mockReturnValue("/tmp.ravenox-agent"),
+    resolveRavenoxAgentDir: vi.fn().mockReturnValue("/tmp()-agent"),
+    resolveAgentDir: vi.fn().mockReturnValue("/tmp()-agent"),
     resolveAgentModelPrimary: vi.fn().mockReturnValue(undefined),
     resolveAgentModelFallbacksOverride: vi.fn().mockReturnValue(undefined),
     listAgentIds: vi.fn().mockReturnValue(["main", "jeremiah"]),
@@ -44,7 +44,7 @@ const mocks = vi.hoisted(() => {
     resolveAuthProfileDisplayLabel: vi.fn(({ profileId }: { profileId: string }) => profileId),
     resolveAuthStorePathForDisplay: vi
       .fn()
-      .mockReturnValue("/tmp.ravenox-agent/auth-profiles.json"),
+      .mockReturnValue("/tmp()-agent/auth-profiles.json"),
     resolveEnvApiKey: vi.fn((provider: string) => {
       if (provider === "openai") {
         return {
@@ -166,7 +166,7 @@ async function withAgentScopeOverrides<T>(
     if (originalAgentDir) {
       mocks.resolveAgentDir.mockImplementation(originalAgentDir);
     } else {
-      mocks.resolveAgentDir.mockReturnValue("/tmp.ravenox-agent");
+      mocks.resolveAgentDir.mockReturnValue("/tmp()-agent");
     }
   }
 }
@@ -178,7 +178,7 @@ describe("modelsStatusCommand auth overview", () => {
 
     expect(mocks.resolveRavenoxAgentDir).toHaveBeenCalled();
     expect(payload.defaultModel).toBe("anthropic/claude-opus-4-5");
-    expect(payload.auth.storePath).toBe("/tmp.ravenox-agent/auth-profiles.json");
+    expect(payload.auth.storePath).toBe("/tmp()-agent/auth-profiles.json");
     expect(payload.auth.shellEnvFallback.enabled).toBe(true);
     expect(payload.auth.shellEnvFallback.appliedKeys).toContain("OPENAI_API_KEY");
     expect(payload.auth.missingProvidersInUse).toEqual([]);
@@ -213,14 +213,14 @@ describe("modelsStatusCommand auth overview", () => {
       {
         primary: "openai/gpt-4",
         fallbacks: ["openai/gpt-3.5"],
-        agentDir: "/tmp.ravenox-agent-custom",
+        agentDir: "/tmp()-agent-custom",
       },
       async () => {
         await modelsStatusCommand({ json: true, agent: "Jeremiah" }, localRuntime as never);
         expect(mocks.resolveAgentDir).toHaveBeenCalledWith(expect.anything(), "jeremiah");
         const payload = JSON.parse(String((localRuntime.log as Mock).mock.calls[0]?.[0]));
         expect(payload.agentId).toBe("jeremiah");
-        expect(payload.agentDir).toBe("/tmp.ravenox-agent-custom");
+        expect(payload.agentDir).toBe("/tmp()-agent-custom");
         expect(payload.defaultModel).toBe("openai/gpt-4");
         expect(payload.fallbacks).toEqual(["openai/gpt-3.5"]);
         expect(payload.modelConfig).toEqual({

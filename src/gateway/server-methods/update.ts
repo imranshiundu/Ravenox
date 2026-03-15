@@ -1,6 +1,6 @@
 import { loadConfig } from "../../config/config.js";
 import { extractDeliveryInfo } from "../../config/sessions.js";
-import { resolveRavenoxPackageRoot } from "../../infra.ravenox-root.js";
+import { resolveRavenoxPackageRoot } from "../../infra/root.js";
 import {
   formatDoctorNonInteractiveHint,
   type RestartSentinelPayload,

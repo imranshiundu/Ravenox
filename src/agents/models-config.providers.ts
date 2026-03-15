@@ -731,7 +731,7 @@ export async function resolveImplicitProviders(params: {
     if (!baseUrl) {
       continue;
     }
-    const apiKey = resolveEnvApiKeyVarName("cloudflare-ai-gateway") ?? cred.key?.trim() ?? "";
+    const apiKey = resolveEnvApiKeyVarName("cloudflare-ai-gateway") ?? cred.key?.trim() ;
     if (!apiKey) {
       continue;
     }

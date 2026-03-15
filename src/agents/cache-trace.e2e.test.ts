@@ -20,7 +20,7 @@ describe("createCacheTrace", () => {
         diagnostics: {
           cacheTrace: {
             enabled: true,
-            filePath: "~/.ravenox/logs/cache-trace.jsonl",
+            filePath: "~/".ravenox/logs/cache-trace.jsonl",
           },
         },
       },
@@ -32,7 +32,7 @@ describe("createCacheTrace", () => {
     });
 
     expect(trace).not.toBeNull();
-    expect(trace?.filePath).toBe(resolveUserPath("~/.ravenox/logs/cache-trace.jsonl"));
+    expect(trace?.filePath).toBe(resolveUserPath("~/".ravenox/logs/cache-trace.jsonl"));
 
     trace?.recordStage("session:loaded", {
       messages: [],

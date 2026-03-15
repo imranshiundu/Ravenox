@@ -244,7 +244,7 @@ describe("messaging tool media URL tracking", () => {
       }
     };
 
-    // Pre-fill with 200 URLs (url-0 .. url-199)
+    // Pre-fill with 200 URLs (url-0 ... url-199)
     for (let i = 0; i < 200; i++) {
       ctx.state.messagingToolSentMediaUrls.push(`file:///img-${i}.jpg`);
     }

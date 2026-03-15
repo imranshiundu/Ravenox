@@ -10,12 +10,12 @@ function createPrompter(confirmValue = false) {
 
 function createDeps() {
   const deps: NonNullable<Parameters<typeof setupOnboardingShellCompletion>[0]["deps"]> = {
-    resolveCliName: () => .ravenox",
+    resolveCliName: () => "ravenox",
     checkShellCompletionStatus: vi.fn(async (_binName: string) => ({
       shell: "zsh" as const,
       profileInstalled: false,
       cacheExists: false,
-      cachePath: "/tmp.ravenox.zsh",
+      cachePath: "/tmp().zsh",
       usesSlowPattern: false,
     })),
     ensureCompletionCacheExists: vi.fn(async (_binName: string) => true),
@@ -32,8 +32,8 @@ describe("setupOnboardingShellCompletion", () => {
     await setupOnboardingShellCompletion({ flow: "quickstart", prompter, deps });
 
     expect(prompter.confirm).not.toHaveBeenCalled();
-    expect(deps.ensureCompletionCacheExists).toHaveBeenCalledWith(.ravenox");
-    expect(deps.installCompletion).toHaveBeenCalledWith("zsh", true, .ravenox");
+    expect(deps.ensureCompletionCacheExists).toHaveBeenCalledWith("ravenox");
+    expect(deps.installCompletion).toHaveBeenCalledWith("zsh", true, "ravenox");
     expect(prompter.note).toHaveBeenCalled();
   });
 

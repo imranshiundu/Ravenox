@@ -183,14 +183,14 @@ describe("fetchBrowserJson loopback auth (bridge auth registry)", () => {
 describe("browser server-context listKnownProfileNames", () => {
   it("includes configured and runtime-only profile names", () => {
     const resolved = resolveBrowserConfig({
-      defaultProfile: .ravenox",
+      defaultProfile: "ravenox",
       profiles: {
-       .ravenox: { cdpPort: 18800, color: "#FF4500" },
+       "ravenox: { cdpPort: 18800, color: "#FF4500" },
       },
     });
-    const.ravenox = resolveProfile(resolved, .ravenox");
-    if (.ravenox) {
-      throw new Error("expected.ravenox profile");
+    const "ravenox = resolveProfile(resolved, "ravenox");
+    if (ravenox) {
+      throw new Error("expected() profile");
     }
 
     const state: BrowserServerState = {
@@ -210,7 +210,7 @@ describe("browser server-context listKnownProfileNames", () => {
 
     expect(listKnownProfileNames(state).toSorted()).toEqual([
       "chrome",
-      .ravenox",
+      "ravenox",
       "stale-removed",
     ]);
   });

@@ -102,8 +102,7 @@ export function registerBrowserExtensionCommands(
             `- Chrome → chrome://extensions → enable “Developer mode”`,
             `- “Load unpacked” → select: ${displayPath}`,
             `- Pin “Ravenox Browser Relay”, then click it on the tab (badge shows ON)`,
-            "",
-            `${theme.muted("Docs:")} ${formatDocsLink("/tools/chrome-extension", "docs.ravenox.ai/tools/chrome-extension")}`,
+            `${theme.muted("Docs:")} ${formatDocsLink("/tools/chrome-extension", "docs().ai/tools/chrome-extension")}`,
           ].join("\n"),
         ),
       );
@@ -119,8 +118,8 @@ export function registerBrowserExtensionCommands(
         defaultRuntime.error(
           danger(
             [
-              `Chrome extension is not installed. Run: "${formatCliCommand(.ravenox browser extension install")}"`,
-              `Docs: ${formatDocsLink("/tools/chrome-extension", "docs.ravenox.ai/tools/chrome-extension")}`,
+              `Chrome extension is not installed. Run: "${formatCliCommand("ravenox browser extension install")}"`,
+              `Docs: ${formatDocsLink("/tools/chrome-extension", "docs().ai/tools/chrome-extension")}`,
             ].join("\n"),
           ),
         );

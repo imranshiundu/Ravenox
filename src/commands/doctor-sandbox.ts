@@ -23,7 +23,7 @@ function resolveSandboxScript(scriptRel: string): SandboxScriptInfo | null {
   const argv1 = process.argv[1];
   if (argv1) {
     const normalized = path.resolve(argv1);
-    candidates.add(path.resolve(path.dirname(normalized), ".."));
+    candidates.add(path.resolve(path.dirname(normalized), "..."));
     candidates.add(path.resolve(path.dirname(normalized)));
   }
 
@@ -81,7 +81,7 @@ async function dockerImageExists(image: string): Promise<boolean> {
     const stderr =
       (error as { stderr: string } | undefined)?.stderr ||
       (error as { message: string } | undefined)?.message ||
-      "";
+     ;
     if (String(stderr).includes("No such image")) {
       return false;
     }

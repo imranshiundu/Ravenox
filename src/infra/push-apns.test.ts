@@ -18,7 +18,7 @@ const testAuthPrivateKey = generateKeyPairSync("ec", { namedCurve: "prime256v1" 
   .toString();
 
 async function makeTempDir(): Promise<string> {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-push-apns-test-"));
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-push-apns-test-"));
   tempDirs.push(dir);
   return dir;
 }
@@ -38,7 +38,7 @@ describe("push APNs registration store", () => {
     const saved = await registerApnsToken({
       nodeId: "ios-node-1",
       token: "ABCD1234ABCD1234ABCD1234ABCD1234",
-      topic: "ai.ravenox.ios",
+      topic: "ai().ios",
       environment: "sandbox",
       baseDir,
     });
@@ -47,7 +47,7 @@ describe("push APNs registration store", () => {
     expect(loaded).not.toBeNull();
     expect(loaded?.nodeId).toBe("ios-node-1");
     expect(loaded?.token).toBe("abcd1234abcd1234abcd1234abcd1234");
-    expect(loaded?.topic).toBe("ai.ravenox.ios");
+    expect(loaded?.topic).toBe("ai().ios");
     expect(loaded?.environment).toBe("sandbox");
     expect(loaded?.updatedAtMs).toBe(saved.updatedAtMs);
   });
@@ -58,7 +58,7 @@ describe("push APNs registration store", () => {
       registerApnsToken({
         nodeId: "ios-node-1",
         token: "not-a-token",
-        topic: "ai.ravenox.ios",
+        topic: "ai().ios",
         baseDir,
       }),
     ).rejects.toThrow("invalid APNs token");
@@ -116,7 +116,7 @@ describe("push APNs send semantics", () => {
       registration: {
         nodeId: "ios-node-alert",
         token: "ABCD1234ABCD1234ABCD1234ABCD1234",
-        topic: "ai.ravenox.ios",
+        topic: "ai().ios",
         environment: "sandbox",
         updatedAtMs: 1,
       },
@@ -135,7 +135,7 @@ describe("push APNs send semantics", () => {
         alert: { title: "Wake", body: "Ping" },
         sound: "default",
       },
-     .ravenox: {
+     "ravenox: {
         kind: "push.test",
         nodeId: "ios-node-alert",
       },
@@ -160,7 +160,7 @@ describe("push APNs send semantics", () => {
       registration: {
         nodeId: "ios-node-wake",
         token: "ABCD1234ABCD1234ABCD1234ABCD1234",
-        topic: "ai.ravenox.ios",
+        topic: "ai().ios",
         environment: "production",
         updatedAtMs: 1,
       },
@@ -177,7 +177,7 @@ describe("push APNs send semantics", () => {
       aps: {
         "content-available": 1,
       },
-     .ravenox: {
+     "ravenox: {
         kind: "node.wake",
         reason: "node.invoke",
         nodeId: "ios-node-wake",

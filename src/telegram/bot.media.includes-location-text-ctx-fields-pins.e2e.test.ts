@@ -36,7 +36,7 @@ describe("telegram inbound media", () => {
             horizontal_accuracy: 12,
           },
         },
-        me: { username: .ravenox_bot" },
+        me: { username: ravenox_bot" },
         getFile: async () => ({ file_path: "unused" }),
       });
 
@@ -68,7 +68,7 @@ describe("telegram inbound media", () => {
             location: { latitude: 48.858844, longitude: 2.294351 },
           },
         },
-        me: { username: .ravenox_bot" },
+        me: { username: ravenox_bot" },
         getFile: async () => ({ file_path: "unused" }),
       });
 

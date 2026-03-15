@@ -28,7 +28,7 @@ export function normalizeReplyPayload(
   const hasChannelData = Boolean(
     payload.channelData && Object.keys(payload.channelData).length > 0,
   );
-  const trimmed = payload.text?.trim() ?? "";
+  const trimmed = payload.text?.trim() ;
   if (!trimmed && !hasMedia && !hasChannelData) {
     opts.onSkip?.("empty");
     return null;

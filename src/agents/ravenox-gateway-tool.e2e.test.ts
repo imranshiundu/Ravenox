@@ -4,7 +4,7 @@ import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { captureEnv } from "../test-utils/env.js";
 import "./test-helpers/fast-core-tools.js";
-import { createRavenoxTools } from "..ravenox-tools.js";
+import { createRavenoxTools } from "../ravenox-tools.js";
 
 vi.mock("./tools/gateway.js", () => ({
   callGatewayTool: vi.fn(async (method: string) => {
@@ -20,7 +20,7 @@ describe("gateway tool", () => {
     vi.useFakeTimers();
     const kill = vi.spyOn(process, "kill").mockImplementation(() => true);
     const envSnapshot = captureEnv(["RAVENOX_STATE_DIR", "RAVENOX_PROFILE"]);
-    const stateDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-test-"));
+    const stateDir = await fs.mkdtemp(path.join(os.tmpdir(), "ravenox-test-"));
     process.env.RAVENOX_STATE_DIR = stateDir;
     process.env.RAVENOX_PROFILE = "isolated";
 
@@ -51,7 +51,7 @@ describe("gateway tool", () => {
       };
       expect(parsed.payload?.kind).toBe("restart");
       expect(parsed.payload?.doctorHint).toBe(
-        "Run:.ravenox --profile isolated doctor --non-interactive",
+        "Run:".ravenox --profile isolated doctor --non-interactive",
       );
 
       expect(kill).not.toHaveBeenCalled();
@@ -75,7 +75,7 @@ describe("gateway tool", () => {
       throw new Error("missing gateway tool");
     }
 
-    const raw = '{\n  agents: { defaults: { workspace: "~.ravenox" } }\n}\n';
+    const raw = '{\n  agents: { defaults: { workspace: "~".ravenox" } }\n}\n';
     await tool.execute("call2", {
       action: "config.apply",
       raw,

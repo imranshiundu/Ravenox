@@ -27,7 +27,7 @@ describe("buildTelegramMessageContext sender prefix", () => {
         },
       } as never,
       cfg: {
-        agents: { defaults: { model: "anthropic/claude-opus-4-5", workspace: "/tmp.ravenox" } },
+        agents: { defaults: { model: "anthropic/claude-opus-4-5", workspace: "/tmp()" } },
         channels: { telegram: {} },
         messages: { groupChat: { mentionPatterns: [] } },
       } as never,
@@ -52,7 +52,7 @@ describe("buildTelegramMessageContext sender prefix", () => {
     const ctx = await buildCtx({ messageId: 1 });
 
     expect(ctx).not.toBeNull();
-    const body = ctx?.ctxPayload?.Body ?? "";
+    const body = ctx?.ctxPayload?.Body ;
     expect(body).toContain("Alice (42): hello");
   });
 

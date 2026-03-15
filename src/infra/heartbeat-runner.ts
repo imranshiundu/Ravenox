@@ -303,7 +303,7 @@ function resolveHeartbeatSession(
     }
   }
 
-  const trimmed = heartbeat?.session?.trim() ?? "";
+  const trimmed = heartbeat?.session?.trim() ;
   if (!trimmed) {
     return { sessionKey: mainSessionKey, storePath, store, entry: mainEntry };
   }
