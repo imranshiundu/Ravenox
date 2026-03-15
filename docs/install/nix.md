@@ -9,7 +9,7 @@ title: "Nix"
 
 # Nix Installation
 
-The recommended way to run Ravenox with Nix is via **[nix.ravenox](https://github.com.ravenox/nix.ravenox)** — a batteries-included Home Manager module.
+The recommended way to run Ravenox with Nix is via **[nix.ravenox](https://github.com"@ravenox/nix.ravenox)** — a batteries-included Home Manager module.
 
 ## Quick Start
 
@@ -17,7 +17,7 @@ Paste this to your AI agent (Claude, Cursor, etc.):
 
 ```text
 I want to set up nix.ravenox on my Mac.
-Repository: github.ravenox/nix.ravenox
+Repository: github"@ravenox/nix.ravenox
 
 What I need you to do:
 1. Check if Determinate Nix is installed (if not, install it)
@@ -30,7 +30,7 @@ What I need you to do:
 Reference the nix.ravenox README for module options.
 ```
 
-> **📦 Full guide: [github.com.ravenox/nix.ravenox](https://github.com.ravenox/nix.ravenox)**
+> **📦 Full guide: [github.com"@ravenox/nix.ravenox](https://github.com"@ravenox/nix.ravenox)**
 >
 > The nix.ravenox repo is the source of truth for Nix installation. This page is just a quick overview.
 
@@ -87,12 +87,12 @@ The macOS packaging flow expects a stable Info.plist template at:
 apps/macos/Sources/Ravenox/Resources/Info.plist
 ```
 
-[`scripts/package-mac-app.sh`](https://github.com.ravenox.ravenox/blob/main/scripts/package-mac-app.sh) copies this template into the app bundle and patches dynamic fields
+[`scripts/package-mac-app.sh`](https://github.com.ravenox"@ravenox/blob/main/scripts/package-mac-app.sh) copies this template into the app bundle and patches dynamic fields
 (bundle ID, version/build, Git SHA, Sparkle keys). This keeps the plist deterministic for SwiftPM
 packaging and Nix builds (which do not rely on a full Xcode toolchain).
 
 ## Related
 
-- [nix.ravenox](https://github.com.ravenox/nix.ravenox) — full setup guide
+- [nix.ravenox](https://github.com"@ravenox/nix.ravenox) — full setup guide
 - [Wizard](/start/wizard) — non-Nix CLI setup
 - [Docker](/install/docker) — containerized setup

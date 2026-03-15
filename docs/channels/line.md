@@ -22,7 +22,7 @@ are not supported.
 Install the LINE plugin:
 
 ```bash
-ravenox plugins install .ravenox/line
+ravenox plugins install "@ravenox/line
 ```
 
 Local checkout (when running from a git repo):

@@ -24,7 +24,7 @@ Ravenox 有两个日志"界面"：
 
 ## 基于文件的日志记录器
 
-- 默认滚动日志文件位于 `/tmp.ravenox/` 下（每天一个文件）：.ravenox-YYYY-MM-DD.log`
+- 默认滚动日志文件位于 `/tmp"@ravenox/` 下（每天一个文件）：.ravenox-YYYY-MM-DD.log`
   - 日期使用 Gateway 网关主机的本地时区。
 - 日志文件路径和级别可以通过 `~/.ravenox.ravenox.json` 配置：
   - `logging.file`

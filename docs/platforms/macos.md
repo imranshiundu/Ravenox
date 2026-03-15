@@ -78,7 +78,7 @@ Gateway -> Node Service (WS)
 Security + ask + allowlist are stored locally on the Mac in:
 
 ```
-~/.ravenox/exec-approvals.json
+~/"@ravenox/exec-approvals.json
 ```
 
 Example:

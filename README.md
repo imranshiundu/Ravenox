@@ -79,6 +79,15 @@ graph TD
 
 ---
 
+## 🛠️ Developer: Sovereign Validation
+To ensure systemic stability and prevent "breaking changes," developers must run the automated validation suite before pushing code:
+```bash
+# Runs JSON syntax checks, legacy name leakage checks, and core integrity tests
+./scripts/validate.sh
+```
+
+---
+
 ## 👥 Maintenance & Governance
 Ravenox is directed and maintained by **Imran Shiundu (Lead Architect)**. 
 

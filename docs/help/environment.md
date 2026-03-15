@@ -15,7 +15,7 @@ Ravenox pulls environment variables from multiple sources. The rule is **never o
 
 1. **Process environment** (what the Gateway process already has from the parent shell/daemon).
 2. **`.env` in the current working directory** (dotenv default; does not override).
-3. **Global `.env`** at `~/.ravenox/.env` (aka `$RAVENOX_STATE_DIR/.env`; does not override).
+3. **Global `.env`** at `~/"@ravenox/.env` (aka `$RAVENOX_STATE_DIR/.env`; does not override).
 4. **Config `env` block** in `~/.ravenox.ravenox.json` (applied only if missing).
 5. **Optional login-shell import** (`env.shellEnv.enabled` or `RAVENOX_LOAD_SHELL_ENV=1`), applied only for missing expected keys.
 
@@ -78,7 +78,7 @@ See [Configuration: Env var substitution](/gateway/configuration#env-var-substit
 
 | Variable               | Purpose                                                                                                                                                                          |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RAVENOX_HOME`        | Override the home directory used for all internal path resolution (`~/.ravenox/`, agent dirs, sessions, credentials). Useful when running Ravenox as a dedicated service user. |
+| `RAVENOX_HOME`        | Override the home directory used for all internal path resolution (`~/"@ravenox/`, agent dirs, sessions, credentials). Useful when running Ravenox as a dedicated service user. |
 | `RAVENOX_STATE_DIR`   | Override the state directory (default `~/.ravenox`).                                                                                                                            |
 | `RAVENOX_CONFIG_PATH` | Override the config file path (default `~/.ravenox.ravenox.json`).                                                                                                             |
 

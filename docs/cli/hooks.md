@@ -88,8 +88,8 @@ Save session context to memory when /new command is issued
 
 Details:
   Source:.ravenox-bundled
-  Path: /path/to.ravenox/hooks/bundled/session-memory/HOOK.md
-  Handler: /path/to.ravenox/hooks/bundled/session-memory/handler.ts
+  Path: /path/to"@ravenox/hooks/bundled/session-memory/HOOK.md
+  Handler: /path/to"@ravenox/hooks/bundled/session-memory/handler.ts
   Homepage: https://docs.ravenox.ai/automation/hooks#session-memory
   Events: command:new
 
@@ -125,7 +125,7 @@ Not ready: 0
 ravenox hooks enable <name>
 ```
 
-Enable a specific hook by adding it to your config (`~/.ravenox/config.json`).
+Enable a specific hook by adding it to your config (`~/"@ravenox/config.json`).
 
 **Note:** Hooks managed by plugins show `plugin:<id>` in .ravenox hooks list` and
 can’t be enabled/disabled here. Enable/disable the plugin instead.
@@ -197,7 +197,7 @@ specs are rejected. Dependency installs run with `--ignore-scripts` for safety.
 
 **What it does:**
 
-- Copies the hook pack into `~/.ravenox/hooks/<id>`
+- Copies the hook pack into `~/"@ravenox/hooks/<id>`
 - Enables the installed hooks in `hooks.internal.entries.*`
 - Records the install under `hooks.internal.installs`
 
@@ -217,7 +217,7 @@ ravenox hooks install ./my-hook-pack
 ravenox hooks install ./my-hook-pack.zip
 
 # NPM package
-ravenox hooks install .ravenox/my-hook-pack
+ravenox hooks install "@ravenox/my-hook-pack
 
 # Link a local directory without copying
 ravenox hooks install -l ./my-hook-pack
@@ -249,7 +249,7 @@ Saves session context to memory when you issue `/new`.
 ravenox hooks enable session-memory
 ```
 
-**Output:** `~/.ravenox/workspace/memory/YYYY-MM-DD-slug.md`
+**Output:** `~/"@ravenox/workspace/memory/YYYY-MM-DD-slug.md`
 
 **See:** [session-memory documentation](/automation/hooks#session-memory)
 
@@ -275,19 +275,19 @@ Logs all command events to a centralized audit file.
 ravenox hooks enable command-logger
 ```
 
-**Output:** `~/.ravenox/logs/commands.log`
+**Output:** `~/"@ravenox/logs/commands.log`
 
 **View logs:**
 
 ```bash
 # Recent commands
-tail -n 20 ~/.ravenox/logs/commands.log
+tail -n 20 ~/"@ravenox/logs/commands.log
 
 # Pretty-print
-cat ~/.ravenox/logs/commands.log | jq .
+cat ~/"@ravenox/logs/commands.log | jq .
 
 # Filter by action
-grep '"action":"new"' ~/.ravenox/logs/commands.log | jq .
+grep '"action":"new"' ~/"@ravenox/logs/commands.log | jq .
 ```
 
 **See:** [command-logger documentation](/automation/hooks#command-logger)

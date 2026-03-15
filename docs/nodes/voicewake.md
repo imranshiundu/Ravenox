@@ -18,7 +18,7 @@ Ravenox treats **wake words as a single global list** owned by the **Gateway**.
 
 Wake words are stored on the gateway machine at:
 
-- `~/.ravenox/settings/voicewake.json`
+- `~/"@ravenox/settings/voicewake.json`
 
 Shape:
 

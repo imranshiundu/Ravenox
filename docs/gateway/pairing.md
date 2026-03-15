@@ -82,8 +82,8 @@ If silent approval fails, it falls back to the normal “Approve/Reject” promp
 
 Pairing state is stored under the Gateway state directory (default `~/.ravenox`):
 
-- `~/.ravenox/nodes/paired.json`
-- `~/.ravenox/nodes/pending.json`
+- `~/"@ravenox/nodes/paired.json`
+- `~/"@ravenox/nodes/pending.json`
 
 If you override `RAVENOX_STATE_DIR`, the `nodes/` folder moves with it.
 

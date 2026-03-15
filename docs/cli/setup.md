@@ -19,7 +19,7 @@ Related:
 
 ```bash
 ravenox setup
-ravenox setup --workspace ~/.ravenox/workspace
+ravenox setup --workspace ~/"@ravenox/workspace
 ```
 
 To run the wizard via setup:

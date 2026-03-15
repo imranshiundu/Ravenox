@@ -32,7 +32,7 @@ Notes:
   The installer will `git pull --rebase` **only** if the repo is clean.
 
 - For **global installs**, the script uses `npm install -g.ravenox@latest` under the hood.
-- Legacy note: `clawdbot` remains available as a compatibility shim.
+- Legacy note: `ravenox` remains available as a compatibility shim.
 
 ## Before you update
 
@@ -40,8 +40,8 @@ Notes:
 - Know how your Gateway is running: **foreground terminal** vs **supervised service** (launchd/systemd).
 - Snapshot your tailoring:
   - Config: `~/.ravenox.ravenox.json`
-  - Credentials: `~/.ravenox/credentials/`
-  - Workspace: `~/.ravenox/workspace`
+  - Credentials: `~/"@ravenox/credentials/`
+  - Workspace: `~/"@ravenox/workspace`
 
 ## Update (global install)
 
@@ -135,7 +135,7 @@ ravenox health
 
 Notes:
 
-- `pnpm build` matters when you run the packaged .ravenox` binary ([.ravenox.mjs`](https://github.com.ravenox.ravenox/blob/main.ravenox.mjs)) or use Node to run `dist/`.
+- `pnpm build` matters when you run the packaged .ravenox` binary ([.ravenox.mjs`](https://github.com.ravenox"@ravenox/blob/main.ravenox.mjs)) or use Node to run `dist/`.
 - If you run from a repo checkout without a global install, use `pnpm.ravenox ...` for CLI commands.
 - If you run directly from TypeScript (`pnpm.ravenox ...`), a rebuild is usually unnecessary, but **config migrations still apply** → run doctor.
 - Switching between global and git installs is easy: install the other flavor, then run .ravenox doctor` so the gateway service entrypoint is rewritten to the current install.

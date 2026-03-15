@@ -17,7 +17,7 @@ title: 飞书
 安装 Feishu 插件：
 
 ```bash
-ravenox plugins install .ravenox/feishu
+ravenox plugins install "@ravenox/feishu
 ```
 
 本地 checkout（在 git 仓库内运行）：
@@ -521,12 +521,12 @@ ravenox pairing list feishu
       {
         id: "clawd-fan",
         workspace: "/home/user/clawd-fan",
-        agentDir: "/home/user/.ravenox/agents/clawd-fan/agent",
+        agentDir: "/home/user/"@ravenox/agents/clawd-fan/agent",
       },
       {
         id: "clawd-xi",
         workspace: "/home/user/clawd-xi",
-        agentDir: "/home/user/.ravenox/agents/clawd-xi/agent",
+        agentDir: "/home/user/"@ravenox/agents/clawd-xi/agent",
       },
     ],
   },

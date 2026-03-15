@@ -77,13 +77,13 @@ apt install -y nodejs
 curl -fsSL https:/.ravenox.ai/install.sh | bash
 
 # Verify
-arthur --version
+ravenox --version
 ```
 
 ## 4) 运行新手引导
 
 ```bash
-arthur onboard --install-daemon
+ravenox onboard --install-daemon
 ```
 
 向导将引导你完成：
@@ -97,7 +97,7 @@ arthur onboard --install-daemon
 
 ```bash
 # Check status
-arthur status
+ravenox status
 
 # Check service
 systemctl --user status.ravenox-gateway.service
@@ -127,8 +127,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 
 # Configure Gateway to use Tailscale Serve
-arthur config set gateway.tailscale.mode serve
-arthur gateway restart
+ravenox config set gateway.tailscale.mode serve
+ravenox gateway restart
 ```
 
 打开：`https://<magicdns>/`
@@ -141,8 +141,8 @@ arthur gateway restart
 **选项 C：Tailnet 绑定（不使用 Serve）**
 
 ```bash
-arthur config set gateway.bind tailnet
-arthur gateway restart
+ravenox config set gateway.bind tailnet
+ravenox gateway restart
 ```
 
 打开：`http://<tailscale-ip>:18789`（需要令牌）。
@@ -152,14 +152,14 @@ arthur gateway restart
 ### Telegram
 
 ```bash
-arthur pairing list telegram
-arthur pairing approve telegram <CODE>
+ravenox pairing list telegram
+ravenox pairing approve telegram <CODE>
 ```
 
 ### WhatsApp
 
 ```bash
-arthur channels login whatsapp
+ravenox channels login whatsapp
 # Scan QR code
 ```
 
@@ -237,8 +237,8 @@ Oracle Cloud 提供 **Always Free** ARM 实例，比这里任何付费选项都�
 ### Gateway 网关无法启动
 
 ```bash
-arthur gateway status
-arthur doctor --non-interactive
+ravenox gateway status
+ravenox doctor --non-interactive
 journalctl -u.ravenox --no-pager -n 50
 ```
 

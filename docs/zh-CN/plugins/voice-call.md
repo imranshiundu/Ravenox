@@ -42,7 +42,7 @@ Voice Call 插件运行在 **Gateway 网关进程内部**。
 ### 选项 A：从 npm 安装（推荐）
 
 ```bash
-ravenox plugins install .ravenox/voice-call
+ravenox plugins install "@ravenox/voice-call
 ```
 
 之后重启 Gateway 网关。

@@ -54,7 +54,7 @@ ravenox dns setup --apply
 这会安装 CoreDNS 并配置它：
 
 - 仅在 Gateway 网关的 Tailscale 接口上监听 53 端口
-- 从 `~/.ravenox/dns/<domain>.db` 提供你选择的域名服务（示例：.ravenox.internal.`）
+- 从 `~/"@ravenox/dns/<domain>.db` 提供你选择的域名服务（示例：.ravenox.internal.`）
 
 从 Tailnet 连接的机器上验证：
 

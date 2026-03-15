@@ -14,6 +14,7 @@ Ravenox is a strictly directed project maintained by **Imran Shiundu (Lead Archi
 3. **Standards**: 
    - Code must be clean, typed, and efficient.
    - Follow the "Ghost Architecture" principles (no unnecessary polling or resource consumption).
+   - **Crucial**: Run the validation suite (`./scripts/validate.sh`) and ensure it passes before submission.
    - Ensure all tests pass (`pnpm test`) before submission.
 
 ## 🤝 AI-Assisted Philosophy

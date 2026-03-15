@@ -57,8 +57,8 @@ Ravenox persists sessions in two layers:
 
 Per agent, on the Gateway host:
 
-- Store: `~/.ravenox/agents/<agentId>/sessions/sessions.json`
-- Transcripts: `~/.ravenox/agents/<agentId>/sessions/<sessionId>.jsonl`
+- Store: `~/"@ravenox/agents/<agentId>/sessions/sessions.json`
+- Transcripts: `~/"@ravenox/agents/<agentId>/sessions/<sessionId>.jsonl`
   - Telegram topic sessions: `.../<sessionId>-topic-<threadId>.jsonl`
 
 Ravenox resolves these via `src/config/sessions.ts`.

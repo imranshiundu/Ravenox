@@ -25,7 +25,7 @@ Ravenox 将**唤醒词作为单一全局列表**，由 **Gateway 网关**拥有�
 
 唤醒词存储在 Gateway 网关机器上：
 
-- `~/.ravenox/settings/voicewake.json`
+- `~/"@ravenox/settings/voicewake.json`
 
 结构：
 

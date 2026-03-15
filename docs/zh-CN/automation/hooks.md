@@ -50,8 +50,8 @@ hooks 系统允许你：
 
 Ravenox 附带三个自动发现的捆绑 hooks：
 
-- **💾 session-memory**：当你发出 `/new` 时将会话上下文保存到智能体工作区（默认 `~/.ravenox/workspace/memory/`）
-- **📝 command-logger**：将所有命令事件记录到 `~/.ravenox/logs/commands.log`
+- **💾 session-memory**：当你发出 `/new` 时将会话上下文保存到智能体工作区（默认 `~/"@ravenox/workspace/memory/`）
+- **📝 command-logger**：将所有命令事件记录到 `~/"@ravenox/logs/commands.log`
 - **🚀 boot-md**：当 Gateway 网关启动时运行 `BOOT.md`（需要启用内部 hooks）
 
 列出可用的 hooks：
@@ -87,7 +87,7 @@ ravenox hooks info session-memory
 Hooks 从三个目录自动发现（按优先级顺序）：
 
 1. **工作区 hooks**：`<workspace>/hooks/`（每智能体，最高优先级）
-2. **托管 hooks**：`~/.ravenox/hooks/`（用户安装，跨工作区共享）
+2. **托管 hooks**：`~/"@ravenox/hooks/`（用户安装，跨工作区共享）
 3. **捆绑 hooks**：`.ravenox>/dist/hooks/bundled/`（随 Ravenox 附带）
 
 托管 hook 目录可以是**单个 hook** 或 **hook 包**（包目录）。
@@ -114,14 +114,14 @@ ravenox hooks install <path-or-spec>
 {
   "name": "@acme/my-hooks",
   "version": "0.1.0",
-  .ravenox": {
+  "ravenox": {
     "hooks": ["./hooks/my-hook", "./hooks/other-hook"]
   }
 }
 ```
 
 每个条目指向包含 `HOOK.md` 和 `handler.ts`（或 `index.ts`）的 hook 目录。
-Hook 包可以附带依赖；它们将安装在 `~/.ravenox/hooks/<id>` 下。
+Hook 包可以附带依赖；它们将安装在 `~/"@ravenox/hooks/<id>` 下。
 
 ## Hook 结构
 
@@ -135,7 +135,7 @@ name: my-hook
 description: "Short description of what this hook does"
 homepage: https://docs.ravenox.ai/automation/hooks#my-hook
 metadata:
-  { .ravenox": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
+  { "ravenox": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 
 # My Hook
@@ -266,13 +266,13 @@ export default myHandler;
 ### 1. 选择位置
 
 - **工作区 hooks**（`<workspace>/hooks/`）：每智能体，最高优先级
-- **托管 hooks**（`~/.ravenox/hooks/`）：跨工作区共享
+- **托管 hooks**（`~/"@ravenox/hooks/`）：跨工作区共享
 
 ### 2. 创建目录结构
 
 ```bash
-mkdir -p ~/.ravenox/hooks/my-hook
-cd ~/.ravenox/hooks/my-hook
+mkdir -p ~/"@ravenox/hooks/my-hook
+cd ~/"@ravenox/hooks/my-hook
 ```
 
 ### 3. 创建 HOOK.md
@@ -281,7 +281,7 @@ cd ~/.ravenox/hooks/my-hook
 ---
 name: my-hook
 description: "Does something useful"
-metadata: { .ravenox": { "emoji": "🎯", "events": ["command:new"] } }
+metadata: { "ravenox": { "emoji": "🎯", "events": ["command:new"] } }
 ---
 
 # My Custom Hook
@@ -459,7 +459,7 @@ ravenox hooks disable command-logger
 
 **要求**：必须配置 `workspace.dir`
 
-**输出**：`<workspace>/memory/YYYY-MM-DD-slug.md`（默认为 `~/.ravenox/workspace`）
+**输出**：`<workspace>/memory/YYYY-MM-DD-slug.md`（默认为 `~/"@ravenox/workspace`）
 
 **功能**：
 
@@ -498,7 +498,7 @@ ravenox hooks enable session-memory
 
 **要求**：无
 
-**输出**：`~/.ravenox/logs/commands.log`
+**输出**：`~/"@ravenox/logs/commands.log`
 
 **功能**：
 
@@ -517,13 +517,13 @@ ravenox hooks enable session-memory
 
 ```bash
 # View recent commands
-tail -n 20 ~/.ravenox/logs/commands.log
+tail -n 20 ~/"@ravenox/logs/commands.log
 
 # Pretty-print with jq
-cat ~/.ravenox/logs/commands.log | jq .
+cat ~/"@ravenox/logs/commands.log | jq .
 
 # Filter by action
-grep '"action":"new"' ~/.ravenox/logs/commands.log | jq .
+grep '"action":"new"' ~/"@ravenox/logs/commands.log | jq .
 ```
 
 **启用**：
@@ -607,13 +607,13 @@ const handler: HookHandler = async (event) => {
 尽可能在元数据中指定确切事件：
 
 ```yaml
-metadata: { .ravenox": { "events": ["command:new"] } } # Specific
+metadata: { "ravenox": { "events": ["command:new"] } } # Specific
 ```
 
 而不是：
 
 ```yaml
-metadata: { .ravenox": { "events": ["command"] } } # General - more overhead
+metadata: { "ravenox": { "events": ["command"] } } # General - more overhead
 ```
 
 ## 调试
@@ -668,7 +668,7 @@ ravenox hooks info my-hook
 ./scripts/clawlog.sh -f
 
 # Other platforms
-tail -f ~/.ravenox/gateway.log
+tail -f ~/"@ravenox/gateway.log
 ```
 
 ### 直接测试 Hooks
@@ -744,14 +744,14 @@ Gateway 网关启动
 1. 检查目录结构：
 
    ```bash
-   ls -la ~/.ravenox/hooks/my-hook/
+   ls -la ~/"@ravenox/hooks/my-hook/
    # Should show: HOOK.md, handler.ts
    ```
 
 2. 验证 HOOK.md 格式：
 
    ```bash
-   cat ~/.ravenox/hooks/my-hook/HOOK.md
+   cat ~/"@ravenox/hooks/my-hook/HOOK.md
    # Should have YAML frontmatter with name and metadata
    ```
 
@@ -827,8 +827,8 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 1. 创建 hook 目录：
 
    ```bash
-   mkdir -p ~/.ravenox/hooks/my-hook
-   mv ./hooks/handlers/my-handler.ts ~/.ravenox/hooks/my-hook/handler.ts
+   mkdir -p ~/"@ravenox/hooks/my-hook
+   mv ./hooks/handlers/my-handler.ts ~/"@ravenox/hooks/my-hook/handler.ts
    ```
 
 2. 创建 HOOK.md：
@@ -837,7 +837,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
    ---
    name: my-hook
    description: "My custom hook"
-   metadata: { .ravenox": { "emoji": "🎯", "events": ["command:new"] } }
+   metadata: { "ravenox": { "emoji": "🎯", "events": ["command:new"] } }
    ---
 
    # My Hook
@@ -877,6 +877,6 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 ## 另请参阅
 
 - [CLI 参考：hooks](/cli/hooks)
-- [捆绑 Hooks README](https://github.com.ravenox.ravenox/tree/main/src/hooks/bundled)
+- [捆绑 Hooks README](https://github.com.ravenox"@ravenox/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [配置](/gateway/configuration#hooks)

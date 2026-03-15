@@ -16,7 +16,7 @@ Nextcloud Talk ships as a plugin and is not bundled with the core install.
 Install via CLI (npm registry):
 
 ```bash
-ravenox plugins install .ravenox/nextcloud-talk
+ravenox plugins install "@ravenox/nextcloud-talk
 ```
 
 Local checkout (when running from a git repo):

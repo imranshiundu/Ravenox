@@ -34,7 +34,7 @@ GitHub Copilot 是 GitHub 的 AI 编程助手。它为你的 GitHub 账户和订
 ## CLI 设置
 
 ```bash
-arthur models auth login-github-copilot
+ravenox models auth login-github-copilot
 ```
 
 系统会提示你访问一个 URL 并输入一次性代码。请保持终端打开直到流程完成。
@@ -42,14 +42,14 @@ arthur models auth login-github-copilot
 ### 可选参数
 
 ```bash
-arthur models auth login-github-copilot --profile-id github-copilot:work
-arthur models auth login-github-copilot --yes
+ravenox models auth login-github-copilot --profile-id github-copilot:work
+ravenox models auth login-github-copilot --yes
 ```
 
 ## 设置默认模型
 
 ```bash
-arthur models set github-copilot/gpt-4o
+ravenox models set github-copilot/gpt-4o
 ```
 
 ### 配置片段

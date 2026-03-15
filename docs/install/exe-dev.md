@@ -50,7 +50,7 @@ Then connect:
 ssh <vm-name>.exe.xyz
 ```
 
-Tip: keep this VM **stateful**. Ravenox stores state under `~/.ravenox/` and `~/.ravenox/workspace/`.
+Tip: keep this VM **stateful**. Ravenox stores state under `~/"@ravenox/` and `~/"@ravenox/workspace/`.
 
 ## 2) Install prerequisites (on the VM)
 

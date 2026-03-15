@@ -74,7 +74,7 @@ ravenox onboard --install-daemon
 ## 多实例快速开始（可选）
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/a.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/a.json \
 RAVENOX_STATE_DIR=~/.ravenox-a \
 ravenox gateway --port 19001
 ```

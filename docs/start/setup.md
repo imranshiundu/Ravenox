@@ -17,7 +17,7 @@ Last updated: 2026-01-01
 
 ## TL;DR
 
-- **Tailoring lives outside the repo:** `~/.ravenox/workspace` (workspace) + `~/.ravenox.ravenox.json` (config).
+- **Tailoring lives outside the repo:** `~/"@ravenox/workspace` (workspace) + `~/.ravenox.ravenox.json` (config).
 - **Stable workflow:** install the macOS app; let it run the bundled Gateway.
 - **Bleeding edge workflow:** run the Gateway yourself via `pnpm gateway:watch`, then let the macOS app attach in Local mode.
 
@@ -32,7 +32,7 @@ Last updated: 2026-01-01
 If you want “100% tailored to me” _and_ easy updates, keep your customization in:
 
 - **Config:** `~/.ravenox.ravenox.json` (JSON/JSON5-ish)
-- **Workspace:** `~/.ravenox/workspace` (skills, prompts, memories; make it a private git repo)
+- **Workspace:** `~/"@ravenox/workspace` (skills, prompts, memories; make it a private git repo)
 
 Bootstrap once:
 
@@ -118,26 +118,26 @@ ravenox health
 
 - **Wrong port:** Gateway WS defaults to `ws://127.0.0.1:18789`; keep app + CLI on the same port.
 - **Where state lives:**
-  - Credentials: `~/.ravenox/credentials/`
-  - Sessions: `~/.ravenox/agents/<agentId>/sessions/`
-  - Logs: `/tmp.ravenox/`
+  - Credentials: `~/"@ravenox/credentials/`
+  - Sessions: `~/"@ravenox/agents/<agentId>/sessions/`
+  - Logs: `/tmp"@ravenox/`
 
 ## Credential storage map
 
 Use this when debugging auth or deciding what to back up:
 
-- **WhatsApp**: `~/.ravenox/credentials/whatsapp/<accountId>/creds.json`
+- **WhatsApp**: `~/"@ravenox/credentials/whatsapp/<accountId>/creds.json`
 - **Telegram bot token**: config/env or `channels.telegram.tokenFile`
 - **Discord bot token**: config/env (token file not yet supported)
 - **Slack tokens**: config/env (`channels.slack.*`)
-- **Pairing allowlists**: `~/.ravenox/credentials/<channel>-allowFrom.json`
-- **Model auth profiles**: `~/.ravenox/agents/<agentId>/agent/auth-profiles.json`
-- **Legacy OAuth import**: `~/.ravenox/credentials/oauth.json`
+- **Pairing allowlists**: `~/"@ravenox/credentials/<channel>-allowFrom.json`
+- **Model auth profiles**: `~/"@ravenox/agents/<agentId>/agent/auth-profiles.json`
+- **Legacy OAuth import**: `~/"@ravenox/credentials/oauth.json`
   More detail: [Security](/gateway/security#credential-storage-map).
 
 ## Updating (without wrecking your setup)
 
-- Keep `~/.ravenox/workspace` and `~/.ravenox/` as “your stuff”; don’t put personal prompts/config into the .ravenox` repo.
+- Keep `~/"@ravenox/workspace` and `~/"@ravenox/` as “your stuff”; don’t put personal prompts/config into the .ravenox` repo.
 - Updating source: `git pull` + `pnpm install` (when lockfile changed) + keep using `pnpm gateway:watch`.
 
 ## Linux (systemd user service)

@@ -290,7 +290,7 @@ ravenox [--dev] [--profile <name>] <command>
 
 选项：
 
-- `--workspace <dir>`：智能体工作区路径（默认 `~/.ravenox/workspace`）。
+- `--workspace <dir>`：智能体工作区路径（默认 `~/"@ravenox/workspace`）。
 - `--wizard`：运行新手引导向导。
 - `--non-interactive`：无提示运行向导。
 - `--mode <local|remote>`：向导模式。

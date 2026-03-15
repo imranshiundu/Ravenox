@@ -15,12 +15,12 @@ An **agent** is a fully scoped brain with its own:
 
 - **Workspace** (files, AGENTS.md/SOUL.md/USER.md, local notes, persona rules).
 - **State directory** (`agentDir`) for auth profiles, model registry, and per-agent config.
-- **Session store** (chat history + routing state) under `~/.ravenox/agents/<agentId>/sessions`.
+- **Session store** (chat history + routing state) under `~/"@ravenox/agents/<agentId>/sessions`.
 
 Auth profiles are **per-agent**. Each agent reads from its own:
 
 ```text
-~/.ravenox/agents/<agentId>/agent/auth-profiles.json
+~/"@ravenox/agents/<agentId>/agent/auth-profiles.json
 ```
 
 Main agent credentials are **not** shared automatically. Never reuse `agentDir`
@@ -28,7 +28,7 @@ across agents (it causes auth/session collisions). If you want to share creds,
 copy `auth-profiles.json` into the other agent's `agentDir`.
 
 Skills are per-agent via each workspace’s `skills/` folder, with shared skills
-available from `~/.ravenox/skills`. See [Skills: per-agent vs shared](/tools/skills#per-agent-vs-shared-skills).
+available from `~/"@ravenox/skills`. See [Skills: per-agent vs shared](/tools/skills#per-agent-vs-shared-skills).
 
 The Gateway can host **one agent** (default) or **many agents** side-by-side.
 
@@ -41,9 +41,9 @@ reach other host locations unless sandboxing is enabled. See
 
 - Config: `~/.ravenox.ravenox.json` (or `RAVENOX_CONFIG_PATH`)
 - State dir: `~/.ravenox` (or `RAVENOX_STATE_DIR`)
-- Workspace: `~/.ravenox/workspace` (or `~/.ravenox/workspace-<agentId>`)
-- Agent dir: `~/.ravenox/agents/<agentId>/agent` (or `agents.list[].agentDir`)
-- Sessions: `~/.ravenox/agents/<agentId>/sessions`
+- Workspace: `~/"@ravenox/workspace` (or `~/"@ravenox/workspace-<agentId>`)
+- Agent dir: `~/"@ravenox/agents/<agentId>/agent` (or `agents.list[].agentDir`)
+- Sessions: `~/"@ravenox/agents/<agentId>/sessions`
 
 ### Single-agent mode (default)
 
@@ -51,8 +51,8 @@ If you do nothing, Ravenox runs a single agent:
 
 - `agentId` defaults to **`main`**.
 - Sessions are keyed as `agent:main:<mainKey>`.
-- Workspace defaults to `~/.ravenox/workspace` (or `~/.ravenox/workspace-<profile>` when `RAVENOX_PROFILE` is set).
-- State defaults to `~/.ravenox/agents/main/agent`.
+- Workspace defaults to `~/"@ravenox/workspace` (or `~/"@ravenox/workspace-<profile>` when `RAVENOX_PROFILE` is set).
+- State defaults to `~/"@ravenox/agents/main/agent`.
 
 ## Agent helper
 
@@ -82,7 +82,7 @@ ravenox agents add coding
 ravenox agents add social
 ```
 
-Each agent gets its own workspace with `SOUL.md`, `AGENTS.md`, and optional `USER.md`, plus a dedicated `agentDir` and session store under `~/.ravenox/agents/<agentId>`.
+Each agent gets its own workspace with `SOUL.md`, `AGENTS.md`, and optional `USER.md`, plus a dedicated `agentDir` and session store under `~/"@ravenox/agents/<agentId>`.
 
   </Step>
 
@@ -141,8 +141,8 @@ Example:
 {
   agents: {
     list: [
-      { id: "alex", workspace: "~/.ravenox/workspace-alex" },
-      { id: "mia", workspace: "~/.ravenox/workspace-mia" },
+      { id: "alex", workspace: "~/"@ravenox/workspace-alex" },
+      { id: "mia", workspace: "~/"@ravenox/workspace-mia" },
     ],
   },
   bindings: [
@@ -208,8 +208,8 @@ Each Discord bot account maps to a unique `accountId`. Bind each account to an a
 {
   agents: {
     list: [
-      { id: "main", workspace: "~/.ravenox/workspace-main" },
-      { id: "coding", workspace: "~/.ravenox/workspace-coding" },
+      { id: "main", workspace: "~/"@ravenox/workspace-main" },
+      { id: "coding", workspace: "~/"@ravenox/workspace-coding" },
     ],
   },
   bindings: [
@@ -257,8 +257,8 @@ Notes:
 {
   agents: {
     list: [
-      { id: "main", workspace: "~/.ravenox/workspace-main" },
-      { id: "alerts", workspace: "~/.ravenox/workspace-alerts" },
+      { id: "main", workspace: "~/"@ravenox/workspace-main" },
+      { id: "alerts", workspace: "~/"@ravenox/workspace-alerts" },
     ],
   },
   bindings: [
@@ -307,14 +307,14 @@ ravenox channels login --channel whatsapp --account biz
         id: "home",
         default: true,
         name: "Home",
-        workspace: "~/.ravenox/workspace-home",
-        agentDir: "~/.ravenox/agents/home/agent",
+        workspace: "~/"@ravenox/workspace-home",
+        agentDir: "~/"@ravenox/agents/home/agent",
       },
       {
         id: "work",
         name: "Work",
-        workspace: "~/.ravenox/workspace-work",
-        agentDir: "~/.ravenox/agents/work/agent",
+        workspace: "~/"@ravenox/workspace-work",
+        agentDir: "~/"@ravenox/agents/work/agent",
       },
     ],
   },
@@ -347,12 +347,12 @@ ravenox channels login --channel whatsapp --account biz
     whatsapp: {
       accounts: {
         personal: {
-          // Optional override. Default: ~/.ravenox/credentials/whatsapp/personal
-          // authDir: "~/.ravenox/credentials/whatsapp/personal",
+          // Optional override. Default: ~/"@ravenox/credentials/whatsapp/personal
+          // authDir: "~/"@ravenox/credentials/whatsapp/personal",
         },
         biz: {
-          // Optional override. Default: ~/.ravenox/credentials/whatsapp/biz
-          // authDir: "~/.ravenox/credentials/whatsapp/biz",
+          // Optional override. Default: ~/"@ravenox/credentials/whatsapp/biz
+          // authDir: "~/"@ravenox/credentials/whatsapp/biz",
         },
       },
     },
@@ -371,13 +371,13 @@ Split by channel: route WhatsApp to a fast everyday agent and Telegram to an Opu
       {
         id: "chat",
         name: "Everyday",
-        workspace: "~/.ravenox/workspace-chat",
+        workspace: "~/"@ravenox/workspace-chat",
         model: "anthropic/claude-sonnet-4-5",
       },
       {
         id: "opus",
         name: "Deep Work",
-        workspace: "~/.ravenox/workspace-opus",
+        workspace: "~/"@ravenox/workspace-opus",
         model: "anthropic/claude-opus-4-6",
       },
     ],
@@ -405,13 +405,13 @@ Keep WhatsApp on the fast agent, but route one DM to Opus:
       {
         id: "chat",
         name: "Everyday",
-        workspace: "~/.ravenox/workspace-chat",
+        workspace: "~/"@ravenox/workspace-chat",
         model: "anthropic/claude-sonnet-4-5",
       },
       {
         id: "opus",
         name: "Deep Work",
-        workspace: "~/.ravenox/workspace-opus",
+        workspace: "~/"@ravenox/workspace-opus",
         model: "anthropic/claude-opus-4-6",
       },
     ],
@@ -440,7 +440,7 @@ and a tighter tool policy:
       {
         id: "family",
         name: "Family",
-        workspace: "~/.ravenox/workspace-family",
+        workspace: "~/"@ravenox/workspace-family",
         identity: { name: "Family Bot" },
         groupChat: {
           mentionPatterns: ["@family", "@familybot", "@Family Bot"],
@@ -493,7 +493,7 @@ Starting with v2026.1.6, each agent can have its own sandbox and tool restrictio
     list: [
       {
         id: "personal",
-        workspace: "~/.ravenox/workspace-personal",
+        workspace: "~/"@ravenox/workspace-personal",
         sandbox: {
           mode: "off",  // No sandbox for personal agent
         },
@@ -501,7 +501,7 @@ Starting with v2026.1.6, each agent can have its own sandbox and tool restrictio
       },
       {
         id: "family",
-        workspace: "~/.ravenox/workspace-family",
+        workspace: "~/"@ravenox/workspace-family",
         sandbox: {
           mode: "all",     // Always sandboxed
           scope: "agent",  // One container per agent

@@ -47,7 +47,7 @@ ravenox dns setup --apply
 This installs CoreDNS and configures it to:
 
 - listen on port 53 only on the gateway’s Tailscale interfaces
-- serve your chosen domain (example: .ravenox.internal.`) from `~/.ravenox/dns/<domain>.db`
+- serve your chosen domain (example: .ravenox.internal.`) from `~/"@ravenox/dns/<domain>.db`
 
 Validate from a tailnet‑connected machine:
 

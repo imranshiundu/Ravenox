@@ -83,7 +83,7 @@ WhatsApp runs through the gateway's web channel (Baileys Web). It starts automat
         default: {},
         personal: {},
         biz: {
-          // authDir: "~/.ravenox/credentials/whatsapp/biz",
+          // authDir: "~/"@ravenox/credentials/whatsapp/biz",
         },
       },
     },
@@ -341,7 +341,7 @@ WhatsApp runs through the gateway's web channel (Baileys Web). It starts automat
 
 ### Mattermost
 
-Mattermost ships as a plugin: .ravenox plugins install .ravenox/mattermost`.
+Mattermost ships as a plugin: .ravenox plugins install "@ravenox/mattermost`.
 
 ```json5
 {
@@ -550,11 +550,11 @@ Include your own number in `allowFrom` to enable self-chat mode (ignores native 
 
 ### `agents.defaults.workspace`
 
-Default: `~/.ravenox/workspace`.
+Default: `~/"@ravenox/workspace`.
 
 ```json5
 {
-  agents: { defaults: { workspace: "~/.ravenox/workspace" } },
+  agents: { defaults: { workspace: "~/"@ravenox/workspace" } },
 }
 ```
 
@@ -866,7 +866,7 @@ Optional **Docker sandboxing** for the embedded agent. See [Sandboxing](/gateway
         mode: "non-main", // off | non-main | all
         scope: "agent", // session | agent | shared
         workspaceAccess: "none", // none | ro | rw
-        workspaceRoot: "~/.ravenox/sandboxes",
+        workspaceRoot: "~/"@ravenox/sandboxes",
         docker: {
           image: .ravenox-sandbox:bookworm-slim",
           containerPrefix: .ravenox-sbx-",
@@ -938,7 +938,7 @@ Optional **Docker sandboxing** for the embedded agent. See [Sandboxing](/gateway
 
 **Workspace access:**
 
-- `none`: per-scope sandbox workspace under `~/.ravenox/sandboxes`
+- `none`: per-scope sandbox workspace under `~/"@ravenox/sandboxes`
 - `ro`: sandbox workspace at `/workspace`, agent workspace mounted read-only at `/agent`
 - `rw`: agent workspace mounted read/write at `/workspace`
 
@@ -980,8 +980,8 @@ scripts/sandbox-browser-setup.sh   # optional browser image
         id: "main",
         default: true,
         name: "Main Agent",
-        workspace: "~/.ravenox/workspace",
-        agentDir: "~/.ravenox/agents/main/agent",
+        workspace: "~/"@ravenox/workspace",
+        agentDir: "~/"@ravenox/agents/main/agent",
         model: "anthropic/claude-opus-4-6", // or { primary, fallbacks }
         identity: {
           name: "Samantha",
@@ -1021,8 +1021,8 @@ Run multiple isolated agents inside one Gateway. See [Multi-Agent](/concepts/mul
 {
   agents: {
     list: [
-      { id: "home", default: true, workspace: "~/.ravenox/workspace-home" },
-      { id: "work", workspace: "~/.ravenox/workspace-work" },
+      { id: "home", default: true, workspace: "~/"@ravenox/workspace-home" },
+      { id: "work", workspace: "~/"@ravenox/workspace-work" },
     ],
   },
   bindings: [
@@ -1060,7 +1060,7 @@ Within each tier, the first matching `bindings` entry wins.
     list: [
       {
         id: "personal",
-        workspace: "~/.ravenox/workspace-personal",
+        workspace: "~/"@ravenox/workspace-personal",
         sandbox: { mode: "off" },
       },
     ],
@@ -1078,7 +1078,7 @@ Within each tier, the first matching `bindings` entry wins.
     list: [
       {
         id: "family",
-        workspace: "~/.ravenox/workspace-family",
+        workspace: "~/"@ravenox/workspace-family",
         sandbox: { mode: "all", scope: "agent", workspaceAccess: "ro" },
         tools: {
           allow: [
@@ -1107,7 +1107,7 @@ Within each tier, the first matching `bindings` entry wins.
     list: [
       {
         id: "public",
-        workspace: "~/.ravenox/workspace-public",
+        workspace: "~/"@ravenox/workspace-public",
         sandbox: { mode: "all", scope: "agent", workspaceAccess: "none" },
         tools: {
           allow: [
@@ -1170,7 +1170,7 @@ See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for preceden
       group: { mode: "idle", idleMinutes: 120 },
     },
     resetTriggers: ["/new", "/reset"],
-    store: "~/.ravenox/agents/{agentId}/sessions/sessions.json",
+    store: "~/"@ravenox/agents/{agentId}/sessions/sessions.json",
     maintenance: {
       mode: "warn", // warn | enforce
       pruneAfter: "30d",
@@ -1278,7 +1278,7 @@ Batches rapid text-only messages from the same sender into a single agent turn. 
       modelOverrides: { enabled: true },
       maxTextLength: 4000,
       timeoutMs: 30000,
-      prefsPath: "~/.ravenox/settings/tts.json",
+      prefsPath: "~/"@ravenox/settings/tts.json",
       elevenlabs: {
         apiKey: "elevenlabs_api_key",
         baseUrl: "https://api.elevenlabs.io",
@@ -1607,7 +1607,7 @@ Notes:
 
 ## Custom providers and base URLs
 
-Ravenox uses the pi-coding-agent model catalog. Add custom providers via `models.providers` in config or `~/.ravenox/agents/<agentId>/agent/models.json`.
+Ravenox uses the pi-coding-agent model catalog. Add custom providers via `models.providers` in config or `~/"@ravenox/agents/<agentId>/agent/models.json`.
 
 ```json5
 {
@@ -1912,7 +1912,7 @@ See [Local Models](/gateway/local-models). TL;DR: run MiniMax M2.1 via LM Studio
 }
 ```
 
-- Loaded from `~/.ravenox/extensions`, `<workspace>/.ravenox/extensions`, plus `plugins.load.paths`.
+- Loaded from `~/"@ravenox/extensions`, `<workspace>/"@ravenox/extensions`, plus `plugins.load.paths`.
 - **Config changes require a gateway restart.**
 - `allow`: optional allowlist (only listed plugins load). `deny` wins.
 
@@ -2051,7 +2051,7 @@ See [Plugins](/tools/plugin).
 Run multiple gateways on one host with unique ports and state dirs:
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/a.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/a.json \
 RAVENOX_STATE_DIR=~/.ravenox-a \
 ravenox gateway --port 19001
 ```
@@ -2076,7 +2076,7 @@ See [Multiple Gateways](/gateway/multiple-gateways).
     allowedSessionKeyPrefixes: ["hook:"],
     allowedAgentIds: ["hooks", "main"],
     presets: ["gmail"],
-    transformsDir: "~/.ravenox/hooks/transforms",
+    transformsDir: "~/"@ravenox/hooks/transforms",
     mappings: [
       {
         match: { path: "gmail" },
@@ -2154,7 +2154,7 @@ Auth: `Authorization: Bearer <token>` or `x.ravenox-token: <token>`.
 ```json5
 {
   canvasHost: {
-    root: "~/.ravenox/workspace/canvas",
+    root: "~/"@ravenox/workspace/canvas",
     liveReload: true,
     // enabled: false, // or RAVENOX_SKIP_CANVAS_HOST=1
   },
@@ -2203,7 +2203,7 @@ Auth: `Authorization: Bearer <token>` or `x.ravenox-token: <token>`.
 }
 ```
 
-Writes a unicast DNS-SD zone under `~/.ravenox/dns/`. For cross-network discovery, pair with a DNS server (CoreDNS recommended) + Tailscale split DNS.
+Writes a unicast DNS-SD zone under `~/"@ravenox/dns/`. For cross-network discovery, pair with a DNS server (CoreDNS recommended) + Tailscale split DNS.
 
 Setup: .ravenox dns setup --apply`.
 
@@ -2229,7 +2229,7 @@ Setup: .ravenox dns setup --apply`.
 ```
 
 - Inline env vars are only applied if the process env is missing the key.
-- `.env` files: CWD `.env` + `~/.ravenox/.env` (neither overrides existing vars).
+- `.env` files: CWD `.env` + `~/"@ravenox/.env` (neither overrides existing vars).
 - `shellEnv`: imports missing expected keys from your login shell profile.
 - See [Environment](/help/environment) for full precedence.
 
@@ -2269,7 +2269,7 @@ Reference env vars in any config string with `${VAR_NAME}`:
 ```
 
 - Per-agent auth profiles stored at `<agentDir>/auth-profiles.json`.
-- Legacy OAuth imports from `~/.ravenox/credentials/oauth.json`.
+- Legacy OAuth imports from `~/"@ravenox/credentials/oauth.json`.
 - See [OAuth](/concepts/oauth).
 
 ---

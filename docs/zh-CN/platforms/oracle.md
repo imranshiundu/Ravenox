@@ -290,13 +290,13 @@ uname -m  # 应该显示 aarch64
 
 所有状态存储在：
 
-- `~/.ravenox/` — 配置、凭证、会话数据
-- `~/.ravenox/workspace/` — 工作区（SOUL.md、记忆、产物）
+- `~/"@ravenox/` — 配置、凭证、会话数据
+- `~/"@ravenox/workspace/` — 工作区（SOUL.md、记忆、产物）
 
 定期备份：
 
 ```bash
-tar -czvf.ravenox-backup.tar.gz ~/.ravenox ~/.ravenox/workspace
+tar -czvf.ravenox-backup.tar.gz ~/.ravenox ~/"@ravenox/workspace
 ```
 
 ---

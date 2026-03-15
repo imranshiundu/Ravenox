@@ -287,8 +287,8 @@ Tip: ask the agent to **plan and supervise** the fix (step-by-step), then execut
 necessary commands. That keeps changes small and easier to audit.
 
 If you discover a real bug or fix, please file a GitHub issue or send a PR:
-[https://github.com.ravenox.ravenox/issues](https://github.com.ravenox.ravenox/issues)
-[https://github.com.ravenox.ravenox/pulls](https://github.com.ravenox.ravenox/pulls)
+[https://github.com.ravenox"@ravenox/issues](https://github.com.ravenox"@ravenox/issues)
+[https://github.com.ravenox"@ravenox/pulls](https://github.com.ravenox"@ravenox/pulls)
 
 Start with these commands (share outputs when asking for help):
 
@@ -417,7 +417,7 @@ state) as long as you copy **both** locations:
 
 1. Install Ravenox on the new machine.
 2. Copy `$RAVENOX_STATE_DIR` (default: `~/.ravenox`) from the old machine.
-3. Copy your workspace (default: `~/.ravenox/workspace`).
+3. Copy your workspace (default: `~/"@ravenox/workspace`).
 4. Run .ravenox doctor` and restart the Gateway service.
 
 That preserves config, auth profiles, WhatsApp creds, sessions, and memory. If you're in
@@ -425,7 +425,7 @@ remote mode, remember the gateway host owns the session store and workspace.
 
 **Important:** if you only commit/push your workspace to GitHub, you're backing
 up **memory + bootstrap files**, but **not** session history or auth. Those live
-under `~/.ravenox/` (for example `~/.ravenox/agents/<agentId>/sessions/`).
+under `~/"@ravenox/` (for example `~/"@ravenox/agents/<agentId>/sessions/`).
 
 Related: [Migrating](/install/migrating), [Where things live on disk](/help/faq#where-does.ravenox-store-its-data),
 [Agent workspace](/concepts/agent-workspace), [Doctor](/gateway/doctor),
@@ -434,7 +434,7 @@ Related: [Migrating](/install/migrating), [Where things live on disk](/help/faq#
 ### Where do I see what is new in the latest version
 
 Check the GitHub changelog:
-[https://github.com.ravenox.ravenox/blob/main/CHANGELOG.md](https://github.com.ravenox.ravenox/blob/main/CHANGELOG.md)
+[https://github.com.ravenox"@ravenox/blob/main/CHANGELOG.md](https://github.com.ravenox"@ravenox/blob/main/CHANGELOG.md)
 
 Newest entries are at the top. If the top section is marked **Unreleased**, the next dated
 section is the latest shipped version. Entries are grouped by **Highlights**, **Changes**, and
@@ -448,7 +448,7 @@ detail: [Troubleshooting](/help/troubleshooting#doc.ravenoxai-shows-an-ssl-error
 Please help us unblock it by reporting here: [https://spa.xfinity.com/check_url_status](https://spa.xfinity.com/check_url_status).
 
 If you still can't reach the site, the docs are mirrored on GitHub:
-[https://github.com.ravenox.ravenox/tree/main/docs](https://github.com.ravenox.ravenox/tree/main/docs)
+[https://github.com.ravenox"@ravenox/tree/main/docs](https://github.com.ravenox"@ravenox/tree/main/docs)
 
 ### What's the difference between stable and beta
 
@@ -462,7 +462,7 @@ that same version to `latest`**. That's why beta and stable can point at the
 **same version**.
 
 See what changed:
-[https://github.com.ravenox.ravenox/blob/main/CHANGELOG.md](https://github.com.ravenox.ravenox/blob/main/CHANGELOG.md)
+[https://github.com.ravenox"@ravenox/blob/main/CHANGELOG.md](https://github.com.ravenox"@ravenox/blob/main/CHANGELOG.md)
 
 ### How do I install the beta version and whats the difference between beta and dev
 
@@ -847,7 +847,7 @@ Docs: [Getting started](/start/getting-started), [Updating](/install/updating).
 
 Yes. Install the other flavor, then run Doctor so the gateway service points at the new entrypoint.
 This **does not delete your data** - it only changes the Ravenox code install. Your state
-(`~/.ravenox`) and workspace (`~/.ravenox/workspace`) stay untouched.
+(`~/.ravenox`) and workspace (`~/"@ravenox/workspace`) stay untouched.
 
 From npm → git:
 
@@ -1009,11 +1009,11 @@ Showcase: [https:/.ravenox.ai/showcase](https:/.ravenox.ai/showcase)
 
 ### How do I customize skills without keeping the repo dirty
 
-Use managed overrides instead of editing the repo copy. Put your changes in `~/.ravenox/skills/<name>/SKILL.md` (or add a folder via `skills.load.extraDirs` in `~/.ravenox.ravenox.json`). Precedence is `<workspace>/skills` > `~/.ravenox/skills` > bundled, so managed overrides win without touching git. Only upstream-worthy edits should live in the repo and go out as PRs.
+Use managed overrides instead of editing the repo copy. Put your changes in `~/"@ravenox/skills/<name>/SKILL.md` (or add a folder via `skills.load.extraDirs` in `~/.ravenox.ravenox.json`). Precedence is `<workspace>/skills` > `~/"@ravenox/skills` > bundled, so managed overrides win without touching git. Only upstream-worthy edits should live in the repo and go out as PRs.
 
 ### Can I load skills from a custom folder
 
-Yes. Add extra directories via `skills.load.extraDirs` in `~/.ravenox.ravenox.json` (lowest precedence). Default precedence remains: `<workspace>/skills` → `~/.ravenox/skills` → bundled → `skills.load.extraDirs`. `clawhub` installs into `./skills` by default, which Ravenox treats as `<workspace>/skills`.
+Yes. Add extra directories via `skills.load.extraDirs` in `~/.ravenox.ravenox.json` (lowest precedence). Default precedence remains: `<workspace>/skills` → `~/"@ravenox/skills` → bundled → `skills.load.extraDirs`. `clawhub` installs into `./skills` by default, which Ravenox treats as `<workspace>/skills`.
 
 ### How can I use different models for different tasks
 
@@ -1108,13 +1108,13 @@ Keep the Gateway on Linux, but make the required CLI binaries resolve to SSH wra
    ```
 
 2. Put the wrapper on `PATH` on the Linux host (for example `~/bin/memo`).
-3. Override the skill metadata (workspace or `~/.ravenox/skills`) to allow Linux:
+3. Override the skill metadata (workspace or `~/"@ravenox/skills`) to allow Linux:
 
    ```markdown
    ---
    name: apple-notes
    description: Manage Apple Notes via the memo CLI on macOS.
-   metadata: { .ravenox": { "os": ["darwin", "linux"], "requires": { "bins": ["memo"] } } }
+   metadata: { "ravenox": { "os": ["darwin", "linux"], "requires": { "bins": ["memo"] } } }
    ---
    ```
 
@@ -1144,7 +1144,7 @@ clawhub install <skill-slug>
 clawhub update --all
 ```
 
-ClawHub installs into `./skills` under your current directory (or falls back to your configured Ravenox workspace); Ravenox treats that as `<workspace>/skills` on the next session. For shared skills across agents, place them in `~/.ravenox/skills/<name>/SKILL.md`. Some skills expect binaries installed via Homebrew; on Linux that means Linuxbrew (see the Homebrew Linux FAQ entry above). See [Skills](/tools/skills) and [ClawHub](/tools/clawhub).
+ClawHub installs into `./skills` under your current directory (or falls back to your configured Ravenox workspace); Ravenox treats that as `<workspace>/skills` on the next session. For shared skills across agents, place them in `~/"@ravenox/skills/<name>/SKILL.md`. Some skills expect binaries installed via Homebrew; on Linux that means Linuxbrew (see the Homebrew Linux FAQ entry above). See [Skills](/tools/skills) and [ClawHub](/tools/clawhub).
 
 ### How do I install the Chrome extension for browser takeover
 
@@ -1278,9 +1278,9 @@ Everything lives under `$RAVENOX_STATE_DIR` (default: `~/.ravenox`):
 | `$RAVENOX_STATE_DIR/agents/<agentId>/sessions/`                | Conversation history & state (per agent)                     |
 | `$RAVENOX_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Session metadata (per agent)                                 |
 
-Legacy single-agent path: `~/.ravenox/agent/*` (migrated by .ravenox doctor`).
+Legacy single-agent path: `~/"@ravenox/agent/*` (migrated by .ravenox doctor`).
 
-Your **workspace** (AGENTS.md, memory files, skills, etc.) is separate and configured via `agents.defaults.workspace` (default: `~/.ravenox/workspace`).
+Your **workspace** (AGENTS.md, memory files, skills, etc.) is separate and configured via `agents.defaults.workspace` (default: `~/"@ravenox/workspace`).
 
 ### Where should AGENTSmd SOULmd USERmd MEMORYmd live
 
@@ -1289,13 +1289,13 @@ These files live in the **agent workspace**, not `~/.ravenox`.
 - **Workspace (per agent)**: `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`,
   `MEMORY.md` (or `memory.md`), `memory/YYYY-MM-DD.md`, optional `HEARTBEAT.md`.
 - **State dir (`~/.ravenox`)**: config, credentials, auth profiles, sessions, logs,
-  and shared skills (`~/.ravenox/skills`).
+  and shared skills (`~/"@ravenox/skills`).
 
-Default workspace is `~/.ravenox/workspace`, configurable via:
+Default workspace is `~/"@ravenox/workspace`, configurable via:
 
 ```json5
 {
-  agents: { defaults: { workspace: "~/.ravenox/workspace" } },
+  agents: { defaults: { workspace: "~/"@ravenox/workspace" } },
 }
 ```
 
@@ -1360,7 +1360,7 @@ Ravenox reads an optional **JSON5** config from `$RAVENOX_CONFIG_PATH` (default:
 $RAVENOX_CONFIG_PATH
 ```
 
-If the file is missing, it uses safe-ish defaults (including a default workspace of `~/.ravenox/workspace`).
+If the file is missing, it uses safe-ish defaults (including a default workspace of `~/"@ravenox/workspace`).
 
 ### I set gatewaybind lan or tailnet and now nothing listens the UI says unauthorized
 
@@ -1424,7 +1424,7 @@ Notes:
 
 - If you use allowlists, add `web_search`/`web_fetch` or `group:web`.
 - `web_fetch` is enabled by default (unless explicitly disabled).
-- Daemons read env vars from `~/.ravenox/.env` (or the service environment).
+- Daemons read env vars from `~/"@ravenox/.env` (or the service environment).
 
 Docs: [Web tools](/tools/web).
 
@@ -1618,7 +1618,7 @@ Docs: [Config](/cli/config), [Configure](/cli/configure), [Doctor](/gateway/doct
 
 ```json5
 {
-  agents: { defaults: { workspace: "~/.ravenox/workspace" } },
+  agents: { defaults: { workspace: "~/"@ravenox/workspace" } },
   channels: { whatsapp: { allowFrom: ["+15555550123"] } },
 }
 ```
@@ -1677,7 +1677,7 @@ Docs: [Gateway protocol](/gateway/protocol), [Discovery](/gateway/discovery), [m
 Ravenox reads env vars from the parent process (shell, launchd/systemd, CI, etc.) and additionally loads:
 
 - `.env` from the current working directory
-- a global fallback `.env` from `~/.ravenox/.env` (aka `$RAVENOX_STATE_DIR/.env`)
+- a global fallback `.env` from `~/"@ravenox/.env` (aka `$RAVENOX_STATE_DIR/.env`)
 
 Neither `.env` file overrides existing env vars.
 
@@ -1698,7 +1698,7 @@ See [/environment](/help/environment) for full precedence and sources.
 
 Two common fixes:
 
-1. Put the missing keys in `~/.ravenox/.env` so they're picked up even when the service doesn't inherit your shell env.
+1. Put the missing keys in `~/"@ravenox/.env` so they're picked up even when the service doesn't inherit your shell env.
 2. Enable shell import (opt-in convenience):
 
 ```json5
@@ -1724,7 +1724,7 @@ your login shell automatically.
 If the Gateway runs as a service (launchd/systemd), it won't inherit your shell
 environment. Fix by doing one of these:
 
-1. Put the token in `~/.ravenox/.env`:
+1. Put the token in `~/"@ravenox/.env`:
 
    ```
    COPILOT_GITHUB_TOKEN=...
@@ -1923,7 +1923,7 @@ Direct chats collapse to the main session by default. Groups/channels have their
 
 No hard limits. Dozens (even hundreds) are fine, but watch for:
 
-- **Disk growth:** sessions + transcripts live under `~/.ravenox/agents/<agentId>/sessions/`.
+- **Disk growth:** sessions + transcripts live under `~/"@ravenox/agents/<agentId>/sessions/`.
 - **Token cost:** more agents means more concurrent model usage.
 - **Ops overhead:** per-agent auth profiles, workspaces, and channel routing.
 
@@ -2214,7 +2214,7 @@ This usually means the **new agent** has an empty auth store. Auth is per-agent 
 stored in:
 
 ```
-~/.ravenox/agents/<agentId>/agent/auth-profiles.json
+~/"@ravenox/agents/<agentId>/agent/auth-profiles.json
 ```
 
 Fix options:
@@ -2246,10 +2246,10 @@ It means the system attempted to use the auth profile ID `anthropic:default`, bu
 ### Fix checklist for No credentials found for profile anthropicdefault
 
 - **Confirm where auth profiles live** (new vs legacy paths)
-  - Current: `~/.ravenox/agents/<agentId>/agent/auth-profiles.json`
-  - Legacy: `~/.ravenox/agent/*` (migrated by .ravenox doctor`)
+  - Current: `~/"@ravenox/agents/<agentId>/agent/auth-profiles.json`
+  - Legacy: `~/"@ravenox/agent/*` (migrated by .ravenox doctor`)
 - **Confirm your env var is loaded by the Gateway**
-  - If you set `ANTHROPIC_API_KEY` in your shell but run the Gateway via systemd/launchd, it may not inherit it. Put it in `~/.ravenox/.env` or enable `env.shellEnv`.
+  - If you set `ANTHROPIC_API_KEY` in your shell but run the Gateway via systemd/launchd, it may not inherit it. Put it in `~/"@ravenox/.env` or enable `env.shellEnv`.
 - **Make sure you're editing the correct agent**
   - Multi-agent setups mean there can be multiple `auth-profiles.json` files.
 - **Sanity-check model/auth status**
@@ -2264,7 +2264,7 @@ can't find it in its auth store.
   - Run `claude setup-token`, then paste it with .ravenox models auth setup-token --provider anthropic`.
   - If the token was created on another machine, use .ravenox models auth paste-token --provider anthropic`.
 - **If you want to use an API key instead**
-  - Put `ANTHROPIC_API_KEY` in `~/.ravenox/.env` on the **gateway host**.
+  - Put `ANTHROPIC_API_KEY` in `~/"@ravenox/.env` on the **gateway host**.
   - Clear any pinned order that forces a missing profile:
 
     ```bash
@@ -2296,7 +2296,7 @@ Related: [/concepts/oauth](/concepts/oauth) (OAuth flows, token storage, multi-a
 An auth profile is a named credential record (OAuth or API key) tied to a provider. Profiles live in:
 
 ```
-~/.ravenox/agents/<agentId>/agent/auth-profiles.json
+~/"@ravenox/agents/<agentId>/agent/auth-profiles.json
 ```
 
 ### What are typical profile IDs
@@ -2500,7 +2500,7 @@ ravenox logs --follow
 
 Service/supervisor logs (when the gateway runs via launchd/systemd):
 
-- macOS: `$RAVENOX_STATE_DIR/logs/gateway.log` and `gateway.err.log` (default: `~/.ravenox/logs/...`; profiles use `~/.ravenox-<profile>/logs/...`)
+- macOS: `$RAVENOX_STATE_DIR/logs/gateway.log` and `gateway.err.log` (default: `~/"@ravenox/logs/...`; profiles use `~/.ravenox-<profile>/logs/...`)
 - Linux: `journalctl --user -u.ravenox-gateway[-<profile>].service -n 200 --no-pager`
 - Windows: `schtasks /Query /TN "Ravenox Gateway (<profile>)" /V /FO LIST`
 
@@ -2856,4 +2856,4 @@ You can add options like `debounce:2s cap:25 drop:summarize` for followup modes.
 
 ---
 
-Still stuck? Ask in [Discord](https://discord.com/invite/clawd) or open a [GitHub discussion](https://github.com.ravenox.ravenox/discussions).
+Still stuck? Ask in [Discord](https://discord.com/invite/clawd) or open a [GitHub discussion](https://github.com.ravenox"@ravenox/discussions).

@@ -43,7 +43,7 @@ pnpm gateway:watch
   - OpenAI Chat Completions（HTTP）：[`/v1/chat/completions`](/gateway/openai-http-api)。
   - OpenResponses（HTTP）：[`/v1/responses`](/gateway/openresponses-http-api)。
   - Tools Invoke（HTTP）：[`/tools/invoke`](/gateway/tools-invoke-http-api)。
-- 默认在 `canvasHost.port`（默认 `18793`）上启动 Canvas 文件服务器，从 `~/.ravenox/workspace/canvas` 提供 `http://<gateway-host>:18793/_.ravenox__/canvas/`。使用 `canvasHost.enabled=false` 或 `RAVENOX_SKIP_CANVAS_HOST=1` 禁用。
+- 默认在 `canvasHost.port`（默认 `18793`）上启动 Canvas 文件服务器，从 `~/"@ravenox/workspace/canvas` 提供 `http://<gateway-host>:18793/_.ravenox__/canvas/`。使用 `canvasHost.enabled=false` 或 `RAVENOX_SKIP_CANVAS_HOST=1` 禁用。
 - 输出日志到 stdout；使用 launchd/systemd 保持运行并轮转日志。
 - 故障排除时传递 `--verbose` 以将调试日志（握手、请求/响应、事件）从日志文件镜像到 stdio。
 - `--force` 使用 `lsof` 查找所选端口上的监听器，发送 SIGTERM，记录它终止了什么，然后启动 Gateway 网关（如果缺少 `lsof` 则快速失败）。
@@ -101,7 +101,7 @@ ravenox --dev health
 - `RAVENOX_GATEWAY_PORT=19001`（Gateway 网关 WS + HTTP）
 - 浏览器控制服务端口 = `19003`（派生：`gateway.port+2`，仅 loopback）
 - `canvasHost.port=19005`（派生：`gateway.port+4`）
-- 当你在 `--dev` 下运行 `setup`/`onboard` 时，`agents.defaults.workspace` 默认变为 `~/.ravenox/workspace-dev`。
+- 当你在 `--dev` 下运行 `setup`/`onboard` 时，`agents.defaults.workspace` 默认变为 `~/"@ravenox/workspace-dev`。
 
 派生端口（经验法则）：
 
@@ -128,8 +128,8 @@ ravenox --profile rescue gateway install
 示例：
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/a.json RAVENOX_STATE_DIR=~/.ravenox-a.ravenox gateway --port 19001
-RAVENOX_CONFIG_PATH=~/.ravenox/b.json RAVENOX_STATE_DIR=~/.ravenox-b.ravenox gateway --port 19002
+RAVENOX_CONFIG_PATH=~/"@ravenox/a.json RAVENOX_STATE_DIR=~/.ravenox-a.ravenox gateway --port 19001
+RAVENOX_CONFIG_PATH=~/"@ravenox/b.json RAVENOX_STATE_DIR=~/.ravenox-b.ravenox gateway --port 19002
 ```
 
 ## 协议（运维视角）

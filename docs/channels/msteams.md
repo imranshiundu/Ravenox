@@ -24,7 +24,7 @@ Explainable: keeps core installs lighter and lets MS Teams dependencies update i
 Install via CLI (npm registry):
 
 ```bash
-ravenox plugins install .ravenox/msteams
+ravenox plugins install "@ravenox/msteams
 ```
 
 Local checkout (when running from a git repo):
@@ -239,7 +239,7 @@ This is often easier than hand-editing JSON manifests.
 ## Setup (minimal text-only)
 
 1. **Install the Microsoft Teams plugin**
-   - From npm: .ravenox plugins install .ravenox/msteams`
+   - From npm: .ravenox plugins install "@ravenox/msteams`
    - From a local checkout: .ravenox plugins install ./extensions/msteams`
 
 2. **Bot registration**
@@ -599,7 +599,7 @@ Uploaded files are stored in a `/RavenoxShared/` folder in the configured ShareP
 Ravenox sends Teams polls as Adaptive Cards (there is no native Teams poll API).
 
 - CLI: .ravenox message poll --channel msteams --target conversation:<id> ...`
-- Votes are recorded by the gateway in `~/.ravenox/msteams-polls.json`.
+- Votes are recorded by the gateway in `~/"@ravenox/msteams-polls.json`.
 - The gateway must stay online to record votes.
 - Polls do not auto-post result summaries yet (inspect the store file if needed).
 

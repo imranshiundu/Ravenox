@@ -79,7 +79,7 @@ sudo apt --fix-broken install -y  # if there are dependency errors
 ```bash
 chromium-browser --headless --no-sandbox --disable-gpu \
   --remote-debugging-port=18800 \
-  --user-data-dir=$HOME/.ravenox/browser.ravenox/user-data \
+  --user-data-dir=$HOME/"@ravenox/browser"@ravenox/user-data \
   about:blank &
 ```
 
@@ -92,7 +92,7 @@ Description=Ravenox Browser (Chrome CDP)
 After=network.target
 
 [Service]
-ExecStart=/snap/bin/chromium --headless --no-sandbox --disable-gpu --remote-debugging-port=18800 --user-data-dir=%h/.ravenox/browser.ravenox/user-data about:blank
+ExecStart=/snap/bin/chromium --headless --no-sandbox --disable-gpu --remote-debugging-port=18800 --user-data-dir=%h/"@ravenox/browser"@ravenox/user-data about:blank
 Restart=on-failure
 RestartSec=5
 

@@ -34,7 +34,7 @@ Contents (examples):
 
 Delivery:
 
-- Publish as .ravenox/plugin-sdk` (or export from core under .ravenox/plugin-sdk`).
+- Publish as "@ravenox/plugin-sdk` (or export from core under "@ravenox/plugin-sdk`).
 - Semver with explicit stability guarantees.
 
 ### 2) Plugin Runtime (execution surface, injected)
@@ -154,7 +154,7 @@ Notes:
 
 ### Phase 0: scaffolding
 
-- Introduce .ravenox/plugin-sdk`.
+- Introduce "@ravenox/plugin-sdk`.
 - Add `api.runtime` to `RavenoxPluginApi` with the surface above.
 - Maintain existing imports during a transition window (deprecation warnings).
 

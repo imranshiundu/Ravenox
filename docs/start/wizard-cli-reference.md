@@ -43,7 +43,7 @@ It does not install or modify anything on the remote host.
     - Full option matrix is in [Auth and model options](#auth-and-model-options).
   </Step>
   <Step title="Workspace">
-    - Default `~/.ravenox/workspace` (configurable).
+    - Default `~/"@ravenox/workspace` (configurable).
     - Seeds workspace files needed for first-run bootstrap ritual.
     - Workspace layout: [Agent workspace](/concepts/agent-workspace).
   </Step>
@@ -140,7 +140,7 @@ What you set:
   </Accordion>
   <Accordion title="OpenAI API key">
     Uses `OPENAI_API_KEY` if present or prompts for a key, then saves it to
-    `~/.ravenox/.env` so launchd can read it.
+    `~/"@ravenox/.env` so launchd can read it.
 
     Sets `agents.defaults.model` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
 
@@ -199,12 +199,12 @@ Model behavior:
 
 Credential and profile paths:
 
-- OAuth credentials: `~/.ravenox/credentials/oauth.json`
-- Auth profiles (API keys + OAuth): `~/.ravenox/agents/<agentId>/agent/auth-profiles.json`
+- OAuth credentials: `~/"@ravenox/credentials/oauth.json`
+- Auth profiles (API keys + OAuth): `~/"@ravenox/agents/<agentId>/agent/auth-profiles.json`
 
 <Note>
 Headless and server tip: complete OAuth on a machine with a browser, then copy
-`~/.ravenox/credentials/oauth.json` (or `$RAVENOX_STATE_DIR/credentials/oauth.json`)
+`~/"@ravenox/credentials/oauth.json` (or `$RAVENOX_STATE_DIR/credentials/oauth.json`)
 to the gateway host.
 </Note>
 
@@ -226,8 +226,8 @@ Typical fields in `~/.ravenox.ravenox.json`:
 
 .ravenox agents add` writes `agents.list[]` and optional `bindings`.
 
-WhatsApp credentials go under `~/.ravenox/credentials/whatsapp/<accountId>/`.
-Sessions are stored under `~/.ravenox/agents/<agentId>/sessions/`.
+WhatsApp credentials go under `~/"@ravenox/credentials/whatsapp/<accountId>/`.
+Sessions are stored under `~/"@ravenox/agents/<agentId>/sessions/`.
 
 <Note>
 Some channels are delivered as plugins. When selected during onboarding, the wizard
@@ -246,7 +246,7 @@ Clients (macOS app and Control UI) can render steps without re-implementing onbo
 Signal setup behavior:
 
 - Downloads the appropriate release asset
-- Stores it under `~/.ravenox/tools/signal-cli/<version>/`
+- Stores it under `~/"@ravenox/tools/signal-cli/<version>/`
 - Writes `channels.signal.cliPath` in config
 - JVM builds require Java 21
 - Native builds are used when available

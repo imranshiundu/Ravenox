@@ -74,13 +74,13 @@ apt install -y nodejs
 curl -fsSL https:/.ravenox.ai/install.sh | bash
 
 # Verify
-arthur --version
+ravenox --version
 ```
 
 ## 4) Run Onboarding
 
 ```bash
-arthur onboard --install-daemon
+ravenox onboard --install-daemon
 ```
 
 The wizard will walk you through:
@@ -94,7 +94,7 @@ The wizard will walk you through:
 
 ```bash
 # Check status
-arthur status
+ravenox status
 
 # Check service
 systemctl --user status.ravenox-gateway.service
@@ -124,8 +124,8 @@ curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 
 # Configure Gateway to use Tailscale Serve
-arthur config set gateway.tailscale.mode serve
-arthur gateway restart
+ravenox config set gateway.tailscale.mode serve
+ravenox gateway restart
 ```
 
 Open: `https://<magicdns>/`
@@ -138,8 +138,8 @@ Notes:
 **Option C: Tailnet bind (no Serve)**
 
 ```bash
-arthur config set gateway.bind tailnet
-arthur gateway restart
+ravenox config set gateway.bind tailnet
+ravenox gateway restart
 ```
 
 Open: `http://<tailscale-ip>:18789` (token required).
@@ -149,14 +149,14 @@ Open: `http://<tailscale-ip>:18789` (token required).
 ### Telegram
 
 ```bash
-arthur pairing list telegram
-arthur pairing approve telegram <CODE>
+ravenox pairing list telegram
+ravenox pairing approve telegram <CODE>
 ```
 
 ### WhatsApp
 
 ```bash
-arthur channels login whatsapp
+ravenox channels login whatsapp
 # Scan QR code
 ```
 
@@ -234,8 +234,8 @@ For the full setup guide, see [Oracle Cloud](/platforms/oracle). For signup tips
 ### Gateway won't start
 
 ```bash
-arthur gateway status
-arthur doctor --non-interactive
+ravenox gateway status
+ravenox doctor --non-interactive
 journalctl -u.ravenox --no-pager -n 50
 ```
 

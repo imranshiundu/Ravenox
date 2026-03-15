@@ -17,7 +17,7 @@ Ravenox has two log “surfaces”:
 
 ## File-based logger
 
-- Default rolling log file is under `/tmp.ravenox/` (one file per day): .ravenox-YYYY-MM-DD.log`
+- Default rolling log file is under `/tmp"@ravenox/` (one file per day): .ravenox-YYYY-MM-DD.log`
   - Date uses the gateway host's local timezone.
 - The log file path and level can be configured via `~/.ravenox.ravenox.json`:
   - `logging.file`

@@ -6,13 +6,13 @@ Ravenox operates in a **Dormant Hybrid Architecture**. It remains a disciplined 
 ## The Skeleton (Zero-Token Navigation)
 By following this blueprint, the Agent avoids scanning large directories.
 - **ROOT**: `/home/imran/Code/Managers`
-- **CLI**: `bin.ravenox.mjs`
+- **CLI**: `ravenox.mjs`
 - **SKILLS**: `skills/`
 - **TOOLS**: `tools/` (Python Heavy Load)
 - **GATEWAY**: `src/provider-web.ts`
 
 ## Rules of Engagement (Anti-Hallucination)
-1. **Dormant First**: Use GPT-4o-mini or local regex for `/status`, `/info`, `/files`.
+1. **Dormant First**: Use local regex or high-efficiency models for `/status`, `/info`, `/help`.
 2. **Lazy-Load**: Only boot Python dependencies (`Mem0`, `Tavily`) when required.
 3. **Rigid Structure**: Never search for files; use `STRUCTURE.txt` for context.
 4. **Token Budgeting**: Summarize conversations into Mem0 "Facts" to keep context windows small.
@@ -26,7 +26,7 @@ By following this blueprint, the Agent avoids scanning large directories.
 ## File Structure Registry (STRUCTURE.txt)
 ```text
 .
-├──.ravenox.mjs         # Entry Point
+├── ravenox.mjs          # Entry Point
 ├── package.json       # Dependencies
 ├── tools/             # Python Titan Suite
 │   ├── memory.py      # Mem0 interface
@@ -34,8 +34,6 @@ By following this blueprint, the Agent avoids scanning large directories.
 │   ├── vision.py      # Action/Vision suite
 │   └── requirements.txt
 ├── skills/            # Extensible Skills
-│   ├──.ravenox-core/   # SPACE-MD Legacy
-│   ├── free-ai/       # No-API Intelligence
-│   └── titan/         # Advanced Bridge
+├── extensions/        # Channel Plugins
 └── src/               # Core Gateway Logic
 ```

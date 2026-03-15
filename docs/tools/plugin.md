@@ -28,7 +28,7 @@ ravenox plugins list
 2. Install an official plugin (example: Voice Call):
 
 ```bash
-ravenox plugins install .ravenox/voice-call
+ravenox plugins install "@ravenox/voice-call
 ```
 
 Npm specs are **registry-only** (package name + optional version/tag). Git/URL/file
@@ -41,15 +41,15 @@ Looking for third-party listings? See [Community plugins](/plugins/community).
 
 ## Available plugins (official)
 
-- Microsoft Teams is plugin-only as of 2026.1.15; install `.ravenox/msteams` if you use Teams.
+- Microsoft Teams is plugin-only as of 2026.1.15; install `"@ravenox/msteams` if you use Teams.
 - Memory (Core) — bundled memory search plugin (enabled by default via `plugins.slots.memory`)
 - Memory (LanceDB) — bundled long-term memory plugin (auto-recall/capture; set `plugins.slots.memory = "memory-lancedb"`)
-- [Voice Call](/plugins/voice-call) — `.ravenox/voice-call`
-- [Zalo Personal](/plugins/zalouser) — `.ravenox/zalouser`
-- [Matrix](/channels/matrix) — `.ravenox/matrix`
-- [Nostr](/channels/nostr) — `.ravenox/nostr`
-- [Zalo](/channels/zalo) — `.ravenox/zalo`
-- [Microsoft Teams](/channels/msteams) — `.ravenox/msteams`
+- [Voice Call](/plugins/voice-call) — `"@ravenox/voice-call`
+- [Zalo Personal](/plugins/zalouser) — `"@ravenox/zalouser`
+- [Matrix](/channels/matrix) — `"@ravenox/matrix`
+- [Nostr](/channels/nostr) — `"@ravenox/nostr`
+- [Zalo](/channels/zalo) — `"@ravenox/zalo`
+- [Microsoft Teams](/channels/msteams) — `"@ravenox/msteams`
 - Google Antigravity OAuth (provider auth) — bundled as `google-antigravity-auth` (disabled by default)
 - Gemini CLI OAuth (provider auth) — bundled as `google-gemini-cli-auth` (disabled by default)
 - Qwen OAuth (provider auth) — bundled as `qwen-portal-auth` (disabled by default)
@@ -100,13 +100,13 @@ Ravenox scans, in order:
 
 2. Workspace extensions
 
-- `<workspace>/.ravenox/extensions/*.ts`
-- `<workspace>/.ravenox/extensions/*/index.ts`
+- `<workspace>/"@ravenox/extensions/*.ts`
+- `<workspace>/"@ravenox/extensions/*/index.ts`
 
 3. Global extensions
 
-- `~/.ravenox/extensions/*.ts`
-- `~/.ravenox/extensions/*/index.ts`
+- `~/"@ravenox/extensions/*.ts`
+- `~/"@ravenox/extensions/*/index.ts`
 
 4. Bundled extensions (shipped with Ravenox, **disabled by default**)
 
@@ -130,7 +130,7 @@ A plugin directory may include a `package.json` with .ravenox.extensions`:
 ```json
 {
   "name": "my-pack",
-  .ravenox": {
+  "ravenox": {
     "extensions": ["./src/safety.ts", "./src/tools.ts"]
   }
 }
@@ -155,8 +155,8 @@ Example:
 
 ```json
 {
-  "name": ".ravenox/nextcloud-talk",
-  .ravenox": {
+  "name": ""@ravenox/nextcloud-talk",
+  "ravenox": {
     "extensions": ["./index.ts"],
     "channel": {
       "id": "nextcloud-talk",
@@ -169,7 +169,7 @@ Example:
       "aliases": ["nc-talk", "nc"]
     },
     "install": {
-      "npmSpec": ".ravenox/nextcloud-talk",
+      "npmSpec": ""@ravenox/nextcloud-talk",
       "localPath": "extensions/nextcloud-talk",
       "defaultChoice": "npm"
     }
@@ -180,13 +180,13 @@ Example:
 Ravenox can also merge **external channel catalogs** (for example, an MPM
 registry export). Drop a JSON file at one of:
 
-- `~/.ravenox/mpm/plugins.json`
-- `~/.ravenox/mpm/catalog.json`
-- `~/.ravenox/plugins/catalog.json`
+- `~/"@ravenox/mpm/plugins.json`
+- `~/"@ravenox/mpm/catalog.json`
+- `~/"@ravenox/plugins/catalog.json`
 
 Or point `RAVENOX_PLUGIN_CATALOG_PATHS` (or `RAVENOX_MPM_CATALOG_PATHS`) at
 one or more JSON files (comma/semicolon/`PATH`-delimited). Each file should
-contain `{ "entries": [ { "name": "@scope/pkg", .ravenox": { "channel": {...}, "install": {...} } } ] }`.
+contain `{ "entries": [ { "name": "@scope/pkg", "ravenox": { "channel": {...}, "install": {...} } } ] }`.
 
 ## Plugin IDs
 
@@ -289,12 +289,12 @@ Example:
 ```bash
 ravenox plugins list
 ravenox plugins info <id>
-ravenox plugins install <path>                 # copy a local file/dir into ~/.ravenox/extensions/<id>
+ravenox plugins install <path>                 # copy a local file/dir into ~/"@ravenox/extensions/<id>
 ravenox plugins install ./extensions/voice-call # relative path ok
 ravenox plugins install ./plugin.tgz           # install from a local tarball
 ravenox plugins install ./plugin.zip           # install from a local zip
 ravenox plugins install -l ./extensions/voice-call # link (no copy) for dev
-ravenox plugins install .ravenox/voice-call # install from npm
+ravenox plugins install "@ravenox/voice-call # install from npm
 ravenox plugins update <id>
 ravenox plugins update --all
 ravenox plugins enable <id>
@@ -321,7 +321,7 @@ event-driven automation without a separate hook pack install.
 ### Example
 
 ```
-import { registerPluginHooksFromDir } from .ravenox/plugin-sdk";
+import { registerPluginHooksFromDir } from "@ravenox/plugin-sdk";
 
 export default function register(api) {
   registerPluginHooksFromDir(api, "./hooks");
@@ -633,13 +633,13 @@ it’s present in your workspace/managed skills locations.
 Recommended packaging:
 
 - Main package: .ravenox` (this repo)
-- Plugins: separate npm packages under `.ravenox/*` (example: `.ravenox/voice-call`)
+- Plugins: separate npm packages under `"@ravenox/*` (example: `"@ravenox/voice-call`)
 
 Publishing contract:
 
 - Plugin `package.json` must include .ravenox.extensions` with one or more entry files.
 - Entry files can be `.js` or `.ts` (jiti loads TS at runtime).
-- .ravenox plugins install <npm-spec>` uses `npm pack`, extracts into `~/.ravenox/extensions/<id>/`, and enables it in config.
+- .ravenox plugins install <npm-spec>` uses `npm pack`, extracts into `~/"@ravenox/extensions/<id>/`, and enables it in config.
 - Config key stability: scoped packages are normalized to the **unscoped** id for `plugins.entries.*`.
 
 ## Example plugin: Voice Call

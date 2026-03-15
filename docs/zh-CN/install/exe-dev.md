@@ -56,7 +56,7 @@ ssh exe.dev new
 ssh <vm-name>.exe.xyz
 ```
 
-提示：保持此 VM **有状态**。Ravenox 在 `~/.ravenox/` 和 `~/.ravenox/workspace/` 下存储状态。
+提示：保持此 VM **有状态**。Ravenox 在 `~/"@ravenox/` 和 `~/"@ravenox/workspace/` 下存储状态。
 
 ## 2) 安装先决条件（在 VM 上）
 

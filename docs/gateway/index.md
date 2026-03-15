@@ -176,8 +176,8 @@ Checklist per instance:
 Example:
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/a.json RAVENOX_STATE_DIR=~/.ravenox-a.ravenox gateway --port 19001
-RAVENOX_CONFIG_PATH=~/.ravenox/b.json RAVENOX_STATE_DIR=~/.ravenox-b.ravenox gateway --port 19002
+RAVENOX_CONFIG_PATH=~/"@ravenox/a.json RAVENOX_STATE_DIR=~/.ravenox-a.ravenox gateway --port 19001
+RAVENOX_CONFIG_PATH=~/"@ravenox/b.json RAVENOX_STATE_DIR=~/.ravenox-b.ravenox gateway --port 19002
 ```
 
 See: [Multiple gateways](/gateway/multiple-gateways).

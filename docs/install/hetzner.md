@@ -22,7 +22,7 @@ Hetzner pricing changes; pick the smallest Debian/Ubuntu VPS and scale up if you
 - Rent a small Linux server (Hetzner VPS)
 - Install Docker (isolated app runtime)
 - Start the Ravenox Gateway in Docker
-- Persist `~/.ravenox` + `~/.ravenox/workspace` on the host (survives restarts/rebuilds)
+- Persist `~/.ravenox` + `~/"@ravenox/workspace` on the host (survives restarts/rebuilds)
 - Access the Control UI from your laptop via an SSH tunnel
 
 The Gateway can be accessed via:
@@ -113,7 +113,7 @@ Docker containers are ephemeral.
 All long-lived state must live on the host.
 
 ```bash
-mkdir -p /root/.ravenox/workspace
+mkdir -p /root/"@ravenox/workspace
 
 # Set ownership to the container user (uid 1000):
 chown -R 1000:1000 /root/.ravenox
@@ -132,7 +132,7 @@ RAVENOX_GATEWAY_BIND=lan
 RAVENOX_GATEWAY_PORT=18789
 
 RAVENOX_CONFIG_DIR=/root/.ravenox
-RAVENOX_WORKSPACE_DIR=/root/.ravenox/workspace
+RAVENOX_WORKSPACE_DIR=/root/"@ravenox/workspace
 
 GOG_KEYRING_PASSWORD=change-me-now
 XDG_CONFIG_HOME=/home/node/.ravenox
@@ -172,7 +172,7 @@ services:
       - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
       - ${RAVENOX_CONFIG_DIR}:/home/node/.ravenox
-      - ${RAVENOX_WORKSPACE_DIR}:/home/node/.ravenox/workspace
+      - ${RAVENOX_WORKSPACE_DIR}:/home/node/"@ravenox/workspace
     ports:
       # Recommended: keep the Gateway loopback-only on the VPS; access via SSH tunnel.
       # To expose it publicly, remove the `127.0.0.1:` prefix and firewall accordingly.
@@ -315,12 +315,12 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 
 | Component           | Location                          | Persistence mechanism  | Notes                            |
 | ------------------- | --------------------------------- | ---------------------- | -------------------------------- |
-| Gateway config      | `/home/node/.ravenox/`           | Host volume mount      | Includes .ravenox.json`, tokens |
-| Model auth profiles | `/home/node/.ravenox/`           | Host volume mount      | OAuth tokens, API keys           |
-| Skill configs       | `/home/node/.ravenox/skills/`    | Host volume mount      | Skill-level state                |
-| Agent workspace     | `/home/node/.ravenox/workspace/` | Host volume mount      | Code and agent artifacts         |
-| WhatsApp session    | `/home/node/.ravenox/`           | Host volume mount      | Preserves QR login               |
-| Gmail keyring       | `/home/node/.ravenox/`           | Host volume + password | Requires `GOG_KEYRING_PASSWORD`  |
+| Gateway config      | `/home/node/"@ravenox/`           | Host volume mount      | Includes .ravenox.json`, tokens |
+| Model auth profiles | `/home/node/"@ravenox/`           | Host volume mount      | OAuth tokens, API keys           |
+| Skill configs       | `/home/node/"@ravenox/skills/`    | Host volume mount      | Skill-level state                |
+| Agent workspace     | `/home/node/"@ravenox/workspace/` | Host volume mount      | Code and agent artifacts         |
+| WhatsApp session    | `/home/node/"@ravenox/`           | Host volume mount      | Preserves QR login               |
+| Gmail keyring       | `/home/node/"@ravenox/`           | Host volume + password | Requires `GOG_KEYRING_PASSWORD`  |
 | External binaries   | `/usr/local/bin/`                 | Docker image           | Must be baked at build time      |
 | Node runtime        | Container filesystem              | Docker image           | Rebuilt every image build        |
 | OS packages         | Container filesystem              | Docker image           | Do not install at runtime        |

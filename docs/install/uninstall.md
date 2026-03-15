@@ -53,7 +53,7 @@ If you set `RAVENOX_CONFIG_PATH` to a custom location outside the state dir, del
 4. Delete your workspace (optional, removes agent files):
 
 ```bash
-rm -rf ~/.ravenox/workspace
+rm -rf ~/"@ravenox/workspace
 ```
 
 5. Remove the CLI install (pick the one you used):

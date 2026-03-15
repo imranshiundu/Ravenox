@@ -14,10 +14,10 @@ A skill is a directory containing a `SKILL.md` file (which provides instructions
 
 ### 1. Create the Directory
 
-Skills live in your workspace, usually `~/.ravenox/workspace/skills/`. Create a new folder for your skill:
+Skills live in your workspace, usually `~/"@ravenox/workspace/skills/`. Create a new folder for your skill:
 
 ```bash
-mkdir -p ~/.ravenox/workspace/skills/hello-world
+mkdir -p ~/"@ravenox/workspace/skills/hello-world
 ```
 
 ### 2. Define the `SKILL.md`

@@ -11,7 +11,7 @@ title: "Agent Workspace"
 The workspace is the agent's home. It is the only working directory used for
 file tools and for workspace context. Keep it private and treat it as memory.
 
-This is separate from `~/.ravenox/`, which stores config, credentials, and
+This is separate from `~/"@ravenox/`, which stores config, credentials, and
 sessions.
 
 **Important:** the workspace is the **default cwd**, not a hard sandbox. Tools
@@ -19,19 +19,19 @@ resolve relative paths against the workspace, but absolute paths can still reach
 elsewhere on the host unless sandboxing is enabled. If you need isolation, use
 [`agents.defaults.sandbox`](/gateway/sandboxing) (and/or per‑agent sandbox config).
 When sandboxing is enabled and `workspaceAccess` is not `"rw"`, tools operate
-inside a sandbox workspace under `~/.ravenox/sandboxes`, not your host workspace.
+inside a sandbox workspace under `~/"@ravenox/sandboxes`, not your host workspace.
 
 ## Default location
 
-- Default: `~/.ravenox/workspace`
+- Default: `~/"@ravenox/workspace`
 - If `RAVENOX_PROFILE` is set and not `"default"`, the default becomes
-  `~/.ravenox/workspace-<profile>`.
+  `~/"@ravenox/workspace-<profile>`.
 - Override in `~/.ravenox.ravenox.json`:
 
 ```json5
 {
   agent: {
-    workspace: "~/.ravenox/workspace",
+    workspace: "~/"@ravenox/workspace",
   },
 }
 ```
@@ -123,12 +123,12 @@ files.
 
 ## What is NOT in the workspace
 
-These live under `~/.ravenox/` and should NOT be committed to the workspace repo:
+These live under `~/"@ravenox/` and should NOT be committed to the workspace repo:
 
 - `~/.ravenox.ravenox.json` (config)
-- `~/.ravenox/credentials/` (OAuth tokens, API keys)
-- `~/.ravenox/agents/<agentId>/sessions/` (session transcripts + metadata)
-- `~/.ravenox/skills/` (managed skills)
+- `~/"@ravenox/credentials/` (OAuth tokens, API keys)
+- `~/"@ravenox/agents/<agentId>/sessions/` (session transcripts + metadata)
+- `~/"@ravenox/skills/` (managed skills)
 
 If you need to migrate sessions or config, copy them separately and keep them
 out of version control.
@@ -147,7 +147,7 @@ If git is installed, brand-new workspaces are initialized automatically. If this
 workspace is not already a repo, run:
 
 ```bash
-cd ~/.ravenox/workspace
+cd ~/"@ravenox/workspace
 git init
 git add AGENTS.md SOUL.md TOOLS.md IDENTITY.md USER.md HEARTBEAT.md memory/
 git commit -m "Add agent workspace"
@@ -202,11 +202,11 @@ git push
 Even in a private repo, avoid storing secrets in the workspace:
 
 - API keys, OAuth tokens, passwords, or private credentials.
-- Anything under `~/.ravenox/`.
+- Anything under `~/"@ravenox/`.
 - Raw dumps of chats or sensitive attachments.
 
 If you must store sensitive references, use placeholders and keep the real
-secret elsewhere (password manager, environment variables, or `~/.ravenox/`).
+secret elsewhere (password manager, environment variables, or `~/"@ravenox/`).
 
 Suggested `.gitignore` starter:
 
@@ -220,10 +220,10 @@ Suggested `.gitignore` starter:
 
 ## Moving the workspace to a new machine
 
-1. Clone the repo to the desired path (default `~/.ravenox/workspace`).
+1. Clone the repo to the desired path (default `~/"@ravenox/workspace`).
 2. Set `agents.defaults.workspace` to that path in `~/.ravenox.ravenox.json`.
 3. Run .ravenox setup --workspace <path>` to seed any missing files.
-4. If you need sessions, copy `~/.ravenox/agents/<agentId>/sessions/` from the
+4. If you need sessions, copy `~/"@ravenox/agents/<agentId>/sessions/` from the
    old machine separately.
 
 ## Advanced notes

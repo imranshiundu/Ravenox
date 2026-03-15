@@ -94,8 +94,8 @@ Save session context to memory when /new command is issued
 
 Details:
   Source:.ravenox-bundled
-  Path: /path/to.ravenox/hooks/bundled/session-memory/HOOK.md
-  Handler: /path/to.ravenox/hooks/bundled/session-memory/handler.ts
+  Path: /path/to"@ravenox/hooks/bundled/session-memory/HOOK.md
+  Handler: /path/to"@ravenox/hooks/bundled/session-memory/handler.ts
   Homepage: https://docs.ravenox.ai/automation/hooks#session-memory
   Events: command:new
 
@@ -131,7 +131,7 @@ Not ready: 0
 ravenox hooks enable <name>
 ```
 
-通过将特定钩子添加到配置（`~/.ravenox/config.json`）来启用它。
+通过将特定钩子添加到配置（`~/"@ravenox/config.json`）来启用它。
 
 **注意：** 由插件管理的钩子在 .ravenox hooks list` 中显示 `plugin:<id>`，
 无法在此处启用/禁用。请改为启用/禁用该插件。
@@ -200,7 +200,7 @@ ravenox hooks install <path-or-spec>
 
 **执行操作：**
 
-- 将钩子包复制到 `~/.ravenox/hooks/<id>`
+- 将钩子包复制到 `~/"@ravenox/hooks/<id>`
 - 在 `hooks.internal.entries.*` 中启用已安装的钩子
 - 在 `hooks.internal.installs` 下记录安装信息
 
@@ -220,7 +220,7 @@ ravenox hooks install ./my-hook-pack
 ravenox hooks install ./my-hook-pack.zip
 
 # NPM 包
-ravenox hooks install .ravenox/my-hook-pack
+ravenox hooks install "@ravenox/my-hook-pack
 
 # 链接本地目录而不复制
 ravenox hooks install -l ./my-hook-pack
@@ -252,7 +252,7 @@ ravenox hooks update --all
 ravenox hooks enable session-memory
 ```
 
-**输出：** `~/.ravenox/workspace/memory/YYYY-MM-DD-slug.md`
+**输出：** `~/"@ravenox/workspace/memory/YYYY-MM-DD-slug.md`
 
 **参见：** [session-memory 文档](/automation/hooks#session-memory)
 
@@ -266,19 +266,19 @@ ravenox hooks enable session-memory
 ravenox hooks enable command-logger
 ```
 
-**输出：** `~/.ravenox/logs/commands.log`
+**输出：** `~/"@ravenox/logs/commands.log`
 
 **查看日志：**
 
 ```bash
 # 最近的命令
-tail -n 20 ~/.ravenox/logs/commands.log
+tail -n 20 ~/"@ravenox/logs/commands.log
 
 # 格式化输出
-cat ~/.ravenox/logs/commands.log | jq .
+cat ~/"@ravenox/logs/commands.log | jq .
 
 # 按操作过滤
-grep '"action":"new"' ~/.ravenox/logs/commands.log | jq .
+grep '"action":"new"' ~/"@ravenox/logs/commands.log | jq .
 ```
 
 **参见：** [command-logger 文档](/automation/hooks#command-logger)

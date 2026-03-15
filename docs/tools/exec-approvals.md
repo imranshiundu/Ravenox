@@ -34,7 +34,7 @@ macOS split:
 
 Approvals live in a local JSON file on the execution host:
 
-`~/.ravenox/exec-approvals.json`
+`~/"@ravenox/exec-approvals.json`
 
 Example schema:
 
@@ -42,7 +42,7 @@ Example schema:
 {
   "version": 1,
   "socket": {
-    "path": "~/.ravenox/exec-approvals.sock",
+    "path": "~/"@ravenox/exec-approvals.sock",
     "token": "base64url-token"
   },
   "defaults": {
@@ -148,7 +148,7 @@ per pattern so you can keep the list tidy.
 The target selector chooses **Gateway** (local approvals) or a **Node**. Nodes
 must advertise `system.execApprovals.get/set` (macOS app or headless node host).
 If a node does not advertise exec approvals yet, edit its local
-`~/.ravenox/exec-approvals.json` directly.
+`~/"@ravenox/exec-approvals.json` directly.
 
 CLI: .ravenox approvals` supports gateway or node editing (see [Approvals CLI](/cli/approvals)).
 

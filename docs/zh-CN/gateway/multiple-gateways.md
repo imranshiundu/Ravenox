@@ -101,11 +101,11 @@ ravenox --profile rescue gateway install
 ## 手动环境变量示例
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/main.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/main.json \
 RAVENOX_STATE_DIR=~/.ravenox-main \
 ravenox gateway --port 18789
 
-RAVENOX_CONFIG_PATH=~/.ravenox/rescue.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/rescue.json \
 RAVENOX_STATE_DIR=~/.ravenox-rescue \
 ravenox gateway --port 19001
 ```

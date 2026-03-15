@@ -136,12 +136,12 @@ Gateway 网关在检测到遗留配置格式时也会在启动时自动运行 do
 Doctor 可以将旧的磁盘布局迁移到当前结构：
 
 - 会话存储 + 记录：
-  - 从 `~/.ravenox/sessions/` 到 `~/.ravenox/agents/<agentId>/sessions/`
+  - 从 `~/"@ravenox/sessions/` 到 `~/"@ravenox/agents/<agentId>/sessions/`
 - 智能体目录：
-  - 从 `~/.ravenox/agent/` 到 `~/.ravenox/agents/<agentId>/agent/`
+  - 从 `~/"@ravenox/agent/` 到 `~/"@ravenox/agents/<agentId>/agent/`
 - WhatsApp 认证状态（Baileys）：
-  - 从遗留的 `~/.ravenox/credentials/*.json`（除 `oauth.json` 外）
-  - 到 `~/.ravenox/credentials/whatsapp/<accountId>/...`（默认账户 id：`default`）
+  - 从遗留的 `~/"@ravenox/credentials/*.json`（除 `oauth.json` 外）
+  - 到 `~/"@ravenox/credentials/whatsapp/<accountId>/...`（默认账户 id：`default`）
 
 这些迁移是尽力而为且幂等的；当 doctor 将任何遗留文件夹作为备份保留时会发出警告。Gateway 网关/CLI 也会在启动时自动迁移遗留会话 + 智能体目录，因此历史/认证/模型会落在每智能体路径中，无需手动运行 doctor。WhatsApp 认证有意仅通过 .ravenox doctor` 迁移。
 

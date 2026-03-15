@@ -119,19 +119,19 @@ pnpm gateway:watch --force --raw-stream
 可选路径覆盖：
 
 ```bash
-pnpm gateway:watch --force --raw-stream --raw-stream-path ~/.ravenox/logs/raw-stream.jsonl
+pnpm gateway:watch --force --raw-stream --raw-stream-path ~/"@ravenox/logs/raw-stream.jsonl
 ```
 
 等效环境变量：
 
 ```bash
 RAVENOX_RAW_STREAM=1
-RAVENOX_RAW_STREAM_PATH=~/.ravenox/logs/raw-stream.jsonl
+RAVENOX_RAW_STREAM_PATH=~/"@ravenox/logs/raw-stream.jsonl
 ```
 
 默认文件：
 
-`~/.ravenox/logs/raw-stream.jsonl`
+`~/"@ravenox/logs/raw-stream.jsonl`
 
 ## 原始块日志（pi-mono）
 

@@ -12,8 +12,8 @@ This guide migrates a Ravenox Gateway from one machine to another **without redo
 
 The migration is simple conceptually:
 
-- Copy the **state directory** (`$RAVENOX_STATE_DIR`, default: `~/.ravenox/`) — this includes config, auth, sessions, and channel state.
-- Copy your **workspace** (`~/.ravenox/workspace/` by default) — this includes your agent files (memory, prompts, etc.).
+- Copy the **state directory** (`$RAVENOX_STATE_DIR`, default: `~/"@ravenox/`) — this includes config, auth, sessions, and channel state.
+- Copy your **workspace** (`~/"@ravenox/workspace/` by default) — this includes your agent files (memory, prompts, etc.).
 
 But there are common footguns around **profiles**, **permissions**, and **partial copies**.
 
@@ -23,7 +23,7 @@ But there are common footguns around **profiles**, **permissions**, and **partia
 
 Most installs use the default:
 
-- **State dir:** `~/.ravenox/`
+- **State dir:** `~/"@ravenox/`
 
 But it may be different if you use:
 
@@ -42,7 +42,7 @@ Look for mentions of `RAVENOX_STATE_DIR` / profile in the output. If you run mul
 
 Common defaults:
 
-- `~/.ravenox/workspace/` (recommended workspace)
+- `~/"@ravenox/workspace/` (recommended workspace)
 - a custom folder you created
 
 Your workspace is where files like `MEMORY.md`, `USER.md`, and `memory/*.md` live.
@@ -82,7 +82,7 @@ ravenox gateway stop
 cd ~
 tar -czf.ravenox-state.tgz .ravenox
 
-tar -czf.ravenox-workspace.tgz .ravenox/workspace
+tar -czf.ravenox-workspace.tgz "@ravenox/workspace
 ```
 
 If you have multiple profiles/state dirs (e.g. `~/.ravenox-main`, `~/.ravenox-work`), archive each.
@@ -93,14 +93,14 @@ On the **new** machine, install the CLI (and Node if needed):
 
 - See: [Install](/install)
 
-At this stage, it’s OK if onboarding creates a fresh `~/.ravenox/` — you will overwrite it in the next step.
+At this stage, it’s OK if onboarding creates a fresh `~/"@ravenox/` — you will overwrite it in the next step.
 
 ### Step 2 — Copy the state dir + workspace to the new machine
 
 Copy **both**:
 
-- `$RAVENOX_STATE_DIR` (default `~/.ravenox/`)
-- your workspace (default `~/.ravenox/workspace/`)
+- `$RAVENOX_STATE_DIR` (default `~/"@ravenox/`)
+- your workspace (default `~/"@ravenox/workspace/`)
 
 Common approaches:
 
@@ -110,7 +110,7 @@ Common approaches:
 
 After copying, ensure:
 
-- Hidden directories were included (e.g. `.ravenox/`)
+- Hidden directories were included (e.g. `"@ravenox/`)
 - File ownership is correct for the user running the gateway
 
 ### Step 3 — Run Doctor (migrations + service repair)

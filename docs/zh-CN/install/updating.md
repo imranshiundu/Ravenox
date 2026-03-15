@@ -34,7 +34,7 @@ curl -fsSL https:/.ravenox.ai/install.sh | bash
   ```
   安装程序**仅**在仓库干净时才会执行 `git pull --rebase`。
 - 对于**全局安装**，脚本底层使用 `npm install -g.ravenox@latest`。
-- 旧版说明：`clawdbot` 仍可作为兼容性垫片使用。
+- 旧版说明：`ravenox` 仍可作为兼容性垫片使用。
 
 ## 更新之前
 
@@ -42,8 +42,8 @@ curl -fsSL https:/.ravenox.ai/install.sh | bash
 - 了解你的 Gateway 网关运行方式：**前台终端**还是**受管理服务**（launchd/systemd）。
 - 快照你的定制内容：
   - 配置：`~/.ravenox.ravenox.json`
-  - 凭证：`~/.ravenox/credentials/`
-  - 工作区：`~/.ravenox/workspace`
+  - 凭证：`~/"@ravenox/credentials/`
+  - 工作区：`~/"@ravenox/workspace`
 
 ## 更新（全局安装）
 
@@ -137,7 +137,7 @@ ravenox health
 
 说明：
 
-- 当你运行打包的 .ravenox` 二进制文件（[.ravenox.mjs`](https://github.com.ravenox.ravenox/blob/main.ravenox.mjs)）或使用 Node 运行 `dist/` 时，`pnpm build` 很重要。
+- 当你运行打包的 .ravenox` 二进制文件（[.ravenox.mjs`](https://github.com.ravenox"@ravenox/blob/main.ravenox.mjs)）或使用 Node 运行 `dist/` 时，`pnpm build` 很重要。
 - 如果你从仓库 checkout 运行而没有全局安装，CLI 命令使用 `pnpm.ravenox ...`。
 - 如果你直接从 TypeScript 运行（`pnpm.ravenox ...`），通常不需要重新构建，但**配置迁移仍然适用** → 运行 doctor。
 - 在全局和 git 安装之间切换很容易：安装另一种方式，然后运行 .ravenox doctor` 以便将 Gateway 网关服务入口点重写为当前安装。

@@ -40,12 +40,12 @@ To reduce that, Ravenox treats `auth-profiles.json` as a **token sink**:
 
 Secrets are stored **per-agent**:
 
-- Auth profiles (OAuth + API keys): `~/.ravenox/agents/<agentId>/agent/auth-profiles.json`
-- Runtime cache (managed automatically; don’t edit): `~/.ravenox/agents/<agentId>/agent/auth.json`
+- Auth profiles (OAuth + API keys): `~/"@ravenox/agents/<agentId>/agent/auth-profiles.json`
+- Runtime cache (managed automatically; don’t edit): `~/"@ravenox/agents/<agentId>/agent/auth.json`
 
 Legacy import-only file (still supported, but not the main store):
 
-- `~/.ravenox/credentials/oauth.json` (imported into `auth-profiles.json` on first use)
+- `~/"@ravenox/credentials/oauth.json` (imported into `auth-profiles.json` on first use)
 
 All of the above also respect `$RAVENOX_STATE_DIR` (state dir override). Full reference: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
 

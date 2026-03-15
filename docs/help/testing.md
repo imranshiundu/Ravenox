@@ -310,7 +310,7 @@ Live tests discover credentials the same way the CLI does. Practical implication
 - If the CLI works, live tests should find the same keys.
 - If a live test says “no creds”, debug the same way you’d debug .ravenox models list` / model selection.
 
-- Profile store: `~/.ravenox/credentials/` (preferred; what “profile keys” means in the tests)
+- Profile store: `~/"@ravenox/credentials/` (preferred; what “profile keys” means in the tests)
 - Config: `~/.ravenox.ravenox.json` (or `RAVENOX_CONFIG_PATH`)
 
 If you want to rely on env keys (e.g. exported in your `~/.profile`), run local tests after `source ~/.profile`, or use the Docker runners below (they can mount `~/.profile` into the container).
@@ -333,7 +333,7 @@ These run `pnpm test:live` inside the repo Docker image, mounting your local con
 Useful env vars:
 
 - `RAVENOX_CONFIG_DIR=...` (default: `~/.ravenox`) mounted to `/home/node/.ravenox`
-- `RAVENOX_WORKSPACE_DIR=...` (default: `~/.ravenox/workspace`) mounted to `/home/node/.ravenox/workspace`
+- `RAVENOX_WORKSPACE_DIR=...` (default: `~/"@ravenox/workspace`) mounted to `/home/node/"@ravenox/workspace`
 - `RAVENOX_PROFILE_FILE=...` (default: `~/.profile`) mounted to `/home/node/.profile` and sourced before running tests
 - `RAVENOX_LIVE_GATEWAY_MODELS=...` / `RAVENOX_LIVE_MODELS=...` to narrow the run
 - `RAVENOX_LIVE_REQUIRE_PROFILE_KEYS=1` to ensure creds come from the profile store (not env)

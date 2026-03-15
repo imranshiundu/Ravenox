@@ -104,12 +104,12 @@ ravenox nodes approve <requestId>
 ```
 
 节点主机将其节点 id、token、显示名称和 Gateway 网关连接信息存储在
-`~/.ravenox/node.json` 中。
+`~/"@ravenox/node.json` 中。
 
 ## 执行批准
 
 `system.run` 受本地执行批准限制：
 
-- `~/.ravenox/exec-approvals.json`
+- `~/"@ravenox/exec-approvals.json`
 - [执行批准](/tools/exec-approvals)
 - .ravenox approvals --node <id|name|ip>`（从 Gateway 网关编辑）

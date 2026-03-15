@@ -104,7 +104,7 @@ ravenox gateway --port 18789
 
 Ravenox 从其工作区目录读取操作指令和"记忆"。
 
-默认情况下，Ravenox 使用 `~/.ravenox/workspace` 作为智能体工作区，并会在设置/首次智能体运行时自动创建它（加上起始的 `AGENTS.md`、`SOUL.md`、`TOOLS.md`、`IDENTITY.md`、`USER.md`）。`BOOTSTRAP.md` 仅在工作区是全新的时候创建（删除后不应再出现）。
+默认情况下，Ravenox 使用 `~/"@ravenox/workspace` 作为智能体工作区，并会在设置/首次智能体运行时自动创建它（加上起始的 `AGENTS.md`、`SOUL.md`、`TOOLS.md`、`IDENTITY.md`、`USER.md`）。`BOOTSTRAP.md` 仅在工作区是全新的时候创建（删除后不应再出现）。
 
 提示：将此文件夹视为 Ravenox 的"记忆"，并将其设为 git 仓库（最好是私有的），这样你的 `AGENTS.md` + 记忆文件就有了备份。如果安装了 git，全新的工作区会自动初始化。
 
@@ -120,7 +120,7 @@ ravenox setup
 ```json5
 {
   agent: {
-    workspace: "~/.ravenox/workspace",
+    workspace: "~/"@ravenox/workspace",
   },
 }
 ```
@@ -150,7 +150,7 @@ Ravenox 默认为良好的助手设置，但你通常需要调整：
   logging: { level: "info" },
   agent: {
     model: "anthropic/claude-opus-4-5",
-    workspace: "~/.ravenox/workspace",
+    workspace: "~/"@ravenox/workspace",
     thinkingDefault: "high",
     timeoutSeconds: 1800,
     // 从 0 开始；稍后启用。
@@ -183,8 +183,8 @@ Ravenox 默认为良好的助手设置，但你通常需要调整：
 
 ## 会话和记忆
 
-- 会话文件：`~/.ravenox/agents/<agentId>/sessions/{{SessionId}}.jsonl`
-- 会话元数据（token 使用量、最后路由等）：`~/.ravenox/agents/<agentId>/sessions/sessions.json`（旧版：`~/.ravenox/sessions/sessions.json`）
+- 会话文件：`~/"@ravenox/agents/<agentId>/sessions/{{SessionId}}.jsonl`
+- 会话元数据（token 使用量、最后路由等）：`~/"@ravenox/agents/<agentId>/sessions/sessions.json`（旧版：`~/"@ravenox/sessions/sessions.json`）
 - `/new` 或 `/reset` 为该聊天启动新会话（可通过 `resetTriggers` 配置）。如果单独发送，智能体会回复一个简短的问候来确认重置。
 - `/compact [instructions]` 压缩会话上下文并报告剩余的上下文预算。
 
@@ -233,7 +233,7 @@ ravenox status --deep   # 添加 Gateway 网关健康探测（Telegram + Discord
 ravenox health --json   # Gateway 网关健康快照（WS）
 ```
 
-日志位于 `/tmp.ravenox/`（默认：.ravenox-YYYY-MM-DD.log`）。
+日志位于 `/tmp"@ravenox/`（默认：.ravenox-YYYY-MM-DD.log`）。
 
 ## 下一步
 

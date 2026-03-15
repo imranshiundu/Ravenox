@@ -60,7 +60,7 @@ rm -rf "${RAVENOX_STATE_DIR:-$HOME/.ravenox}"
 4. 删除你的工作区（可选，移除智能体文件）：
 
 ```bash
-rm -rf ~/.ravenox/workspace
+rm -rf ~/"@ravenox/workspace
 ```
 
 5. 移除 CLI 安装（选择你使用的那个）：

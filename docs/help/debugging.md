@@ -119,19 +119,19 @@ pnpm gateway:watch --raw-stream
 Optional path override:
 
 ```bash
-pnpm gateway:watch --raw-stream --raw-stream-path ~/.ravenox/logs/raw-stream.jsonl
+pnpm gateway:watch --raw-stream --raw-stream-path ~/"@ravenox/logs/raw-stream.jsonl
 ```
 
 Equivalent env vars:
 
 ```bash
 RAVENOX_RAW_STREAM=1
-RAVENOX_RAW_STREAM_PATH=~/.ravenox/logs/raw-stream.jsonl
+RAVENOX_RAW_STREAM_PATH=~/"@ravenox/logs/raw-stream.jsonl
 ```
 
 Default file:
 
-`~/.ravenox/logs/raw-stream.jsonl`
+`~/"@ravenox/logs/raw-stream.jsonl`
 
 ## Raw chunk logging (pi-mono)
 

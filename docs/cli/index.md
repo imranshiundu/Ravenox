@@ -283,7 +283,7 @@ Initialize config + workspace.
 
 Options:
 
-- `--workspace <dir>`: agent workspace path (default `~/.ravenox/workspace`).
+- `--workspace <dir>`: agent workspace path (default `~/"@ravenox/workspace`).
 - `--wizard`: run the onboarding wizard.
 - `--non-interactive`: run wizard without prompts.
 - `--mode <local|remote>`: wizard mode.

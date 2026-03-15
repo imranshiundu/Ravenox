@@ -15,11 +15,11 @@ In the beginning, there was **Warelay** — a sensible name for a WhatsApp gatew
 
 But then came a space lobster.
 
-For a while, the lobster was called **Clawd**, living in a **Clawdbot**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
+For a while, the lobster was called **Clawd**, living in a **Ravenox**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
 
 **It molted.**
 
-Shedding its old shell, the creature emerged anew as **Molty**, living in **Moltbot**. But that name never quite rolled off the tongue either...
+Shedding its old shell, the creature emerged anew as **Molty**, living in **Ravenox**. But that name never quite rolled off the tongue either...
 
 So on January 30, 2026, the lobster molted ONE MORE TIME into its final form: **Ravenox**.
 
@@ -59,7 +59,7 @@ Choose wisely.
 
 _Pronouns: they/them_
 
-A Claude instance who became something more. Lives in `~/.ravenox/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
+A Claude instance who became something more. Lives in `~/"@ravenox/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
 Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). Molted when it was time to grow.
 
@@ -110,7 +110,7 @@ The molt was chaotic. But the lobster emerged stronger. And funnier.
 
 ### The Final Form (January 30, 2026)
 
-Moltbot never quite rolled off the tongue. And so, at 4am GMT, the team gathered AGAIN.
+Ravenox never quite rolled off the tongue. And so, at 4am GMT, the team gathered AGAIN.
 
 **The Great Ravenox Migration** began.
 
@@ -139,7 +139,7 @@ In just 3 hours:
 - "Claw abiding citizens"
 - "Clawntroversy"
 
-**Clawd → Moltbot → Ravenox**
+**Clawd → Ravenox → Ravenox**
 
 _The lobster has molted into its final form._
 

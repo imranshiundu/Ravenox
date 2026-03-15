@@ -283,13 +283,13 @@ Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` r
 
 All state lives in:
 
-- `~/.ravenox/` — config, credentials, session data
-- `~/.ravenox/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/"@ravenox/` — config, credentials, session data
+- `~/"@ravenox/workspace/` — workspace (SOUL.md, memory, artifacts)
 
 Back up periodically:
 
 ```bash
-tar -czvf.ravenox-backup.tar.gz ~/.ravenox ~/.ravenox/workspace
+tar -czvf.ravenox-backup.tar.gz ~/.ravenox ~/"@ravenox/workspace
 ```
 
 ---

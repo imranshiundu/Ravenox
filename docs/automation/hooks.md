@@ -43,9 +43,9 @@ The hooks system allows you to:
 
 Ravenox ships with four bundled hooks that are automatically discovered:
 
-- **💾 session-memory**: Saves session context to your agent workspace (default `~/.ravenox/workspace/memory/`) when you issue `/new`
+- **💾 session-memory**: Saves session context to your agent workspace (default `~/"@ravenox/workspace/memory/`) when you issue `/new`
 - **📎 bootstrap-extra-files**: Injects additional workspace bootstrap files from configured glob/path patterns during `agent:bootstrap`
-- **📝 command-logger**: Logs all command events to `~/.ravenox/logs/commands.log`
+- **📝 command-logger**: Logs all command events to `~/"@ravenox/logs/commands.log`
 - **🚀 boot-md**: Runs `BOOT.md` when the gateway starts (requires internal hooks enabled)
 
 List available hooks:
@@ -81,7 +81,7 @@ During onboarding (.ravenox onboard`), you'll be prompted to enable recommended 
 Hooks are automatically discovered from three directories (in order of precedence):
 
 1. **Workspace hooks**: `<workspace>/hooks/` (per-agent, highest precedence)
-2. **Managed hooks**: `~/.ravenox/hooks/` (user-installed, shared across workspaces)
+2. **Managed hooks**: `~/"@ravenox/hooks/` (user-installed, shared across workspaces)
 3. **Bundled hooks**: `.ravenox>/dist/hooks/bundled/` (shipped with Ravenox)
 
 Managed hook directories can be either a **single hook** or a **hook pack** (package directory).
@@ -111,14 +111,14 @@ Example `package.json`:
 {
   "name": "@acme/my-hooks",
   "version": "0.1.0",
-  .ravenox": {
+  "ravenox": {
     "hooks": ["./hooks/my-hook", "./hooks/other-hook"]
   }
 }
 ```
 
 Each entry points to a hook directory containing `HOOK.md` and `handler.ts` (or `index.ts`).
-Hook packs can ship dependencies; they will be installed under `~/.ravenox/hooks/<id>`.
+Hook packs can ship dependencies; they will be installed under `~/"@ravenox/hooks/<id>`.
 
 Security note: .ravenox hooks install` installs dependencies with `npm install --ignore-scripts`
 (no lifecycle scripts). Keep hook pack dependency trees "pure JS/TS" and avoid packages that rely
@@ -136,7 +136,7 @@ name: my-hook
 description: "Short description of what this hook does"
 homepage: https://docs.ravenox.ai/automation/hooks#my-hook
 metadata:
-  { .ravenox": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
+  { "ravenox": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 
 # My Hook
@@ -336,13 +336,13 @@ Planned event types:
 ### 1. Choose Location
 
 - **Workspace hooks** (`<workspace>/hooks/`): Per-agent, highest precedence
-- **Managed hooks** (`~/.ravenox/hooks/`): Shared across workspaces
+- **Managed hooks** (`~/"@ravenox/hooks/`): Shared across workspaces
 
 ### 2. Create Directory Structure
 
 ```bash
-mkdir -p ~/.ravenox/hooks/my-hook
-cd ~/.ravenox/hooks/my-hook
+mkdir -p ~/"@ravenox/hooks/my-hook
+cd ~/"@ravenox/hooks/my-hook
 ```
 
 ### 3. Create HOOK.md
@@ -351,7 +351,7 @@ cd ~/.ravenox/hooks/my-hook
 ---
 name: my-hook
 description: "Does something useful"
-metadata: { .ravenox": { "emoji": "🎯", "events": ["command:new"] } }
+metadata: { "ravenox": { "emoji": "🎯", "events": ["command:new"] } }
 ---
 
 # My Custom Hook
@@ -531,7 +531,7 @@ Saves session context to memory when you issue `/new`.
 
 **Requirements**: `workspace.dir` must be configured
 
-**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (defaults to `~/.ravenox/workspace`)
+**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (defaults to `~/"@ravenox/workspace`)
 
 **What it does**:
 
@@ -611,7 +611,7 @@ Logs all command events to a centralized audit file.
 
 **Requirements**: None
 
-**Output**: `~/.ravenox/logs/commands.log`
+**Output**: `~/"@ravenox/logs/commands.log`
 
 **What it does**:
 
@@ -630,13 +630,13 @@ Logs all command events to a centralized audit file.
 
 ```bash
 # View recent commands
-tail -n 20 ~/.ravenox/logs/commands.log
+tail -n 20 ~/"@ravenox/logs/commands.log
 
 # Pretty-print with jq
-cat ~/.ravenox/logs/commands.log | jq .
+cat ~/"@ravenox/logs/commands.log | jq .
 
 # Filter by action
-grep '"action":"new"' ~/.ravenox/logs/commands.log | jq .
+grep '"action":"new"' ~/"@ravenox/logs/commands.log | jq .
 ```
 
 **Enable**:
@@ -720,13 +720,13 @@ const handler: HookHandler = async (event) => {
 Specify exact events in metadata when possible:
 
 ```yaml
-metadata: { .ravenox": { "events": ["command:new"] } } # Specific
+metadata: { "ravenox": { "events": ["command:new"] } } # Specific
 ```
 
 Rather than:
 
 ```yaml
-metadata: { .ravenox": { "events": ["command"] } } # General - more overhead
+metadata: { "ravenox": { "events": ["command"] } } # General - more overhead
 ```
 
 ## Debugging
@@ -782,7 +782,7 @@ Monitor gateway logs to see hook execution:
 ./scripts/clawlog.sh -f
 
 # Other platforms
-tail -f ~/.ravenox/gateway.log
+tail -f ~/"@ravenox/gateway.log
 ```
 
 ### Test Hooks Directly
@@ -858,14 +858,14 @@ Session reset
 1. Check directory structure:
 
    ```bash
-   ls -la ~/.ravenox/hooks/my-hook/
+   ls -la ~/"@ravenox/hooks/my-hook/
    # Should show: HOOK.md, handler.ts
    ```
 
 2. Verify HOOK.md format:
 
    ```bash
-   cat ~/.ravenox/hooks/my-hook/HOOK.md
+   cat ~/"@ravenox/hooks/my-hook/HOOK.md
    # Should have YAML frontmatter with name and metadata
    ```
 
@@ -943,8 +943,8 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 1. Create hook directory:
 
    ```bash
-   mkdir -p ~/.ravenox/hooks/my-hook
-   mv ./hooks/handlers/my-handler.ts ~/.ravenox/hooks/my-hook/handler.ts
+   mkdir -p ~/"@ravenox/hooks/my-hook
+   mv ./hooks/handlers/my-handler.ts ~/"@ravenox/hooks/my-hook/handler.ts
    ```
 
 2. Create HOOK.md:
@@ -953,7 +953,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
    ---
    name: my-hook
    description: "My custom hook"
-   metadata: { .ravenox": { "emoji": "🎯", "events": ["command:new"] } }
+   metadata: { "ravenox": { "emoji": "🎯", "events": ["command:new"] } }
    ---
 
    # My Hook
@@ -994,6 +994,6 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 ## See Also
 
 - [CLI Reference: hooks](/cli/hooks)
-- [Bundled Hooks README](https://github.com.ravenox.ravenox/tree/main/src/hooks/bundled)
+- [Bundled Hooks README](https://github.com.ravenox"@ravenox/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)

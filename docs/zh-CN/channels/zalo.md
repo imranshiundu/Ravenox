@@ -20,7 +20,7 @@ x-i18n:
 
 Zalo 以插件形式提供，不包含在核心安装中。
 
-- 通过 CLI 安装：.ravenox plugins install .ravenox/zalo`
+- 通过 CLI 安装：.ravenox plugins install "@ravenox/zalo`
 - 或在新手引导期间选择 **Zalo** 并确认安装提示
 - 详情：[插件](/tools/plugin)
 
@@ -28,7 +28,7 @@ Zalo 以插件形式提供，不包含在核心安装中。
 
 1. 安装 Zalo 插件：
    - 从源代码检出：.ravenox plugins install ./extensions/zalo`
-   - 从 npm（如果已发布）：.ravenox plugins install .ravenox/zalo`
+   - 从 npm（如果已发布）：.ravenox plugins install "@ravenox/zalo`
    - 或在新手引导中选择 **Zalo** 并确认安装提示
 2. 设置 token：
    - 环境变量：`ZALO_BOT_TOKEN=...`

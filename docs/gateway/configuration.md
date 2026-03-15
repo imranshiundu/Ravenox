@@ -28,7 +28,7 @@ See the [full reference](/gateway/configuration-reference) for every available f
 ```json5
 // ~/.ravenox.ravenox.json
 {
-  agents: { defaults: { workspace: "~/.ravenox/workspace" } },
+  agents: { defaults: { workspace: "~/"@ravenox/workspace" } },
   channels: { whatsapp: { allowFrom: ["+15555550123"] } },
 }
 ```
@@ -289,8 +289,8 @@ When validation fails:
     {
       agents: {
         list: [
-          { id: "home", default: true, workspace: "~/.ravenox/workspace-home" },
-          { id: "work", workspace: "~/.ravenox/workspace-work" },
+          { id: "home", default: true, workspace: "~/"@ravenox/workspace-home" },
+          { id: "work", workspace: "~/"@ravenox/workspace-work" },
         ],
       },
       bindings: [
@@ -389,7 +389,7 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
     ```bash
    .ravenox gateway call config.get --params '{}'  # capture payload.hash
    .ravenox gateway call config.apply --params '{
-      "raw": "{ agents: { defaults: { workspace: \"~/.ravenox/workspace\" } } }",
+      "raw": "{ agents: { defaults: { workspace: \"~/"@ravenox/workspace\" } } }",
       "baseHash": "<hash>",
       "sessionKey": "agent:main:whatsapp:dm:+15555550123"
     }'
@@ -425,7 +425,7 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
 Ravenox reads env vars from the parent process plus:
 
 - `.env` from the current working directory (if present)
-- `~/.ravenox/.env` (global fallback)
+- `~/"@ravenox/.env` (global fallback)
 
 Neither file overrides existing env vars. You can also set inline env vars in config:
 

@@ -25,8 +25,8 @@ x-i18n:
 
 ```bash
 ravenox agents list
-ravenox agents add work --workspace ~/.ravenox/workspace-work
-ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity
+ravenox agents add work --workspace ~/"@ravenox/workspace-work
+ravenox agents set-identity --workspace ~/"@ravenox/workspace --from-identity
 ravenox agents set-identity --agent main --avatar avatars.ravenox.png
 ravenox agents delete work
 ```
@@ -35,7 +35,7 @@ ravenox agents delete work
 
 每个智能体工作区可以在工作区根目录包含一个 `IDENTITY.md`：
 
-- 示例路径：`~/.ravenox/workspace/IDENTITY.md`
+- 示例路径：`~/"@ravenox/workspace/IDENTITY.md`
 - `set-identity --from-identity` 从工作区根目录读取（或从显式指定的 `--identity-file` 读取）
 
 头像路径相对于工作区根目录解析。
@@ -52,7 +52,7 @@ ravenox agents delete work
 从 `IDENTITY.md` 加载：
 
 ```bash
-ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity
+ravenox agents set-identity --workspace ~/"@ravenox/workspace --from-identity
 ```
 
 显式覆盖字段：

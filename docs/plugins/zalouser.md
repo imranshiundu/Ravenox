@@ -27,7 +27,7 @@ If you use a remote Gateway, install/configure it on the **machine running the G
 ### Option A: install from npm
 
 ```bash
-ravenox plugins install .ravenox/zalouser
+ravenox plugins install "@ravenox/zalouser
 ```
 
 Restart the Gateway afterwards.

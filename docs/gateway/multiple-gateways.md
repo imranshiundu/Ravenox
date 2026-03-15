@@ -94,11 +94,11 @@ If you override any of these in config or env, you must keep them unique per ins
 ## Manual env example
 
 ```bash
-RAVENOX_CONFIG_PATH=~/.ravenox/main.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/main.json \
 RAVENOX_STATE_DIR=~/.ravenox-main \
 ravenox gateway --port 18789
 
-RAVENOX_CONFIG_PATH=~/.ravenox/rescue.json \
+RAVENOX_CONFIG_PATH=~/"@ravenox/rescue.json \
 RAVENOX_STATE_DIR=~/.ravenox-rescue \
 ravenox gateway --port 19001
 ```

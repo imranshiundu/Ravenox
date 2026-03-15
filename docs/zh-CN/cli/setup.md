@@ -26,7 +26,7 @@ x-i18n:
 
 ```bash
 ravenox setup
-ravenox setup --workspace ~/.ravenox/workspace
+ravenox setup --workspace ~/"@ravenox/workspace
 ```
 
 通过 setup 运行向导：

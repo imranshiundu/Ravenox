@@ -138,12 +138,12 @@ remove the override and restore per-model API routing + costs.
 Doctor can migrate older on-disk layouts into the current structure:
 
 - Sessions store + transcripts:
-  - from `~/.ravenox/sessions/` to `~/.ravenox/agents/<agentId>/sessions/`
+  - from `~/"@ravenox/sessions/` to `~/"@ravenox/agents/<agentId>/sessions/`
 - Agent dir:
-  - from `~/.ravenox/agent/` to `~/.ravenox/agents/<agentId>/agent/`
+  - from `~/"@ravenox/agent/` to `~/"@ravenox/agents/<agentId>/agent/`
 - WhatsApp auth state (Baileys):
-  - from legacy `~/.ravenox/credentials/*.json` (except `oauth.json`)
-  - to `~/.ravenox/credentials/whatsapp/<accountId>/...` (default account id: `default`)
+  - from legacy `~/"@ravenox/credentials/*.json` (except `oauth.json`)
+  - to `~/"@ravenox/credentials/whatsapp/<accountId>/...` (default account id: `default`)
 
 These migrations are best-effort and idempotent; doctor will emit warnings when
 it leaves any legacy folders behind as backups. The Gateway/CLI also auto-migrates

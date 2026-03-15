@@ -60,7 +60,7 @@ Ravenox 使用单一智能体工作区目录（`agents.defaults.workspace`）作
 Ravenox 从三个位置加载 Skills（名称冲突时工作区优先）：
 
 - 内置（随安装包提供）
-- 托管/本地：`~/.ravenox/skills`
+- 托管/本地：`~/"@ravenox/skills`
 - 工作区：`<workspace>/skills`
 
 Skills 可通过配置/环境变量控制（参见 [Gateway 网关配置](/gateway/configuration) 中的 `skills`）。
@@ -76,7 +76,7 @@ Ravenox 复用 pi-mono 代码库的部分内容（模型/工具），但**会话
 
 会话记录以 JSONL 格式存储在：
 
-- `~/.ravenox/agents/<agentId>/sessions/<SessionId>.jsonl`
+- `~/"@ravenox/agents/<agentId>/sessions/<SessionId>.jsonl`
 
 会话 ID 是稳定的，由 Ravenox 选择。
 **不**读取旧版 Pi/Tau 会话文件夹。

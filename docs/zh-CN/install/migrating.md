@@ -19,8 +19,8 @@ x-i18n:
 
 迁移在概念上很简单：
 
-- 复制**状态目录**（`$RAVENOX_STATE_DIR`，默认：`~/.ravenox/`）— 这包括配置、认证、会话和渠道状态。
-- 复制你的**工作区**（默认 `~/.ravenox/workspace/`）— 这包括你的智能体文件（记忆、提示等）。
+- 复制**状态目录**（`$RAVENOX_STATE_DIR`，默认：`~/"@ravenox/`）— 这包括配置、认证、会话和渠道状态。
+- 复制你的**工作区**（默认 `~/"@ravenox/workspace/`）— 这包括你的智能体文件（记忆、提示等）。
 
 但在**配置文件**、**权限**和**部分复制**方面有常见的陷阱。
 
@@ -30,7 +30,7 @@ x-i18n:
 
 大多数安装使用默认值：
 
-- **状态目录：** `~/.ravenox/`
+- **状态目录：** `~/"@ravenox/`
 
 但如果你使用以下方式，可能会不同：
 
@@ -49,7 +49,7 @@ ravenox status
 
 常见默认值：
 
-- `~/.ravenox/workspace/`（推荐的工作区）
+- `~/"@ravenox/workspace/`（推荐的工作区）
 - 你创建的自定义文件夹
 
 你的工作区是 `MEMORY.md`、`USER.md` 和 `memory/*.md` 等文件所在的位置。
@@ -89,7 +89,7 @@ ravenox gateway stop
 cd ~
 tar -czf.ravenox-state.tgz .ravenox
 
-tar -czf.ravenox-workspace.tgz .ravenox/workspace
+tar -czf.ravenox-workspace.tgz "@ravenox/workspace
 ```
 
 如果你有多个配置文件/状态目录（例如 `~/.ravenox-main`、`~/.ravenox-work`），分别归档每个。
@@ -100,14 +100,14 @@ tar -czf.ravenox-workspace.tgz .ravenox/workspace
 
 - 参见：[安装](/install)
 
-在这个阶段，如果新手引导创建了一个新的 `~/.ravenox/` 也没关系 — 你将在下一步覆盖它。
+在这个阶段，如果新手引导创建了一个新的 `~/"@ravenox/` 也没关系 — 你将在下一步覆盖它。
 
 ### 步骤 2 — 将状态目录 + 工作区复制到新机器
 
 复制**两者**：
 
-- `$RAVENOX_STATE_DIR`（默认 `~/.ravenox/`）
-- 你的工作区（默认 `~/.ravenox/workspace/`）
+- `$RAVENOX_STATE_DIR`（默认 `~/"@ravenox/`）
+- 你的工作区（默认 `~/"@ravenox/workspace/`）
 
 常见方法：
 
@@ -117,7 +117,7 @@ tar -czf.ravenox-workspace.tgz .ravenox/workspace
 
 复制后，确保：
 
-- 包含了隐藏目录（例如 `.ravenox/`）
+- 包含了隐藏目录（例如 `"@ravenox/`）
 - 文件所有权对于运行 Gateway 网关的用户是正确的
 
 ### 步骤 3 — 运行 Doctor（迁移 + 服务修复）

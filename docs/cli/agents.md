@@ -18,8 +18,8 @@ Related:
 
 ```bash
 ravenox agents list
-ravenox agents add work --workspace ~/.ravenox/workspace-work
-ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity
+ravenox agents add work --workspace ~/"@ravenox/workspace-work
+ravenox agents set-identity --workspace ~/"@ravenox/workspace --from-identity
 ravenox agents set-identity --agent main --avatar avatars.ravenox.png
 ravenox agents delete work
 ```
@@ -28,7 +28,7 @@ ravenox agents delete work
 
 Each agent workspace can include an `IDENTITY.md` at the workspace root:
 
-- Example path: `~/.ravenox/workspace/IDENTITY.md`
+- Example path: `~/"@ravenox/workspace/IDENTITY.md`
 - `set-identity --from-identity` reads from the workspace root (or an explicit `--identity-file`)
 
 Avatar paths resolve relative to the workspace root.
@@ -45,7 +45,7 @@ Avatar paths resolve relative to the workspace root.
 Load from `IDENTITY.md`:
 
 ```bash
-ravenox agents set-identity --workspace ~/.ravenox/workspace --from-identity
+ravenox agents set-identity --workspace ~/"@ravenox/workspace --from-identity
 ```
 
 Override fields explicitly:

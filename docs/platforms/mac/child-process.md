@@ -38,19 +38,19 @@ Replace the label with `bot.molt.<profile>` when running a named profile.
 `scripts/restart-mac.sh --no-sign` is for fast local builds when you don’t have
 signing keys. To prevent launchd from pointing at an unsigned relay binary, it:
 
-- Writes `~/.ravenox/disable-launchagent`.
+- Writes `~/"@ravenox/disable-launchagent`.
 
 Signed runs of `scripts/restart-mac.sh` clear this override if the marker is
 present. To reset manually:
 
 ```bash
-rm ~/.ravenox/disable-launchagent
+rm ~/"@ravenox/disable-launchagent
 ```
 
 ## Attach-only mode
 
 To force the macOS app to **never install or manage launchd**, launch it with
-`--attach-only` (or `--no-launchd`). This sets `~/.ravenox/disable-launchagent`,
+`--attach-only` (or `--no-launchd`). This sets `~/"@ravenox/disable-launchagent`,
 so the app only attaches to an already running Gateway. You can toggle the same
 behavior in Debug Settings.
 

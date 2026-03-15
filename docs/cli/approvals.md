@@ -47,4 +47,4 @@ ravenox approvals allowlist remove "~/Projects/**/bin/rg"
 - `--node` uses the same resolver as .ravenox nodes` (id, name, ip, or id prefix).
 - `--agent` defaults to `"*"`, which applies to all agents.
 - The node host must advertise `system.execApprovals.get/set` (macOS app or headless node host).
-- Approvals files are stored per host at `~/.ravenox/exec-approvals.json`.
+- Approvals files are stored per host at `~/"@ravenox/exec-approvals.json`.

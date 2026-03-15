@@ -22,12 +22,12 @@ Ravenox 使用**兼容 [AgentSkills](https://agentskills.io)** 的 Skills 文件
 Skills 从**三个**位置加载：
 
 1. **内置 Skills**：随安装包一起发布（npm 包或 Ravenox.app）
-2. **托管/本地 Skills**：`~/.ravenox/skills`
+2. **托管/本地 Skills**：`~/"@ravenox/skills`
 3. **工作区 Skills**：`<workspace>/skills`
 
 如果 Skills 名称冲突，优先级为：
 
-`<workspace>/skills`（最高）→ `~/.ravenox/skills` → 内置 Skills（最低）
+`<workspace>/skills`（最高）→ `~/"@ravenox/skills` → 内置 Skills（最低）
 
 此外，你可以通过 `~/.ravenox.ravenox.json` 中的 `skills.load.extraDirs` 配置额外的 Skills 文件夹（最低优先级）。
 
@@ -36,7 +36,7 @@ Skills 从**三个**位置加载：
 在**多智能体**设置中，每个智能体有自己的工作区。这意味着：
 
 - **单智能体 Skills** 位于 `<workspace>/skills` 中，仅供该智能体使用。
-- **共享 Skills** 位于 `~/.ravenox/skills`（托管/本地），对同一机器上的**所有智能体**可见。
+- **共享 Skills** 位于 `~/"@ravenox/skills`（托管/本地），对同一机器上的**所有智能体**可见。
 - 如果你想要多个智能体使用一个通用的 Skills 包，也可以通过 `skills.load.extraDirs`（最低优先级）添加**共享文件夹**。
 
 如果同一个 Skills 名称存在于多个位置，将应用通常的优先级规则：工作区优先，然后是托管/本地，最后是内置。
@@ -105,7 +105,7 @@ name: nano-banana-pro
 description: Generate or edit images via Gemini 3 Pro Image
 metadata:
   {
-    .ravenox":
+    "@ravenox/plugin-sdk":
       {
         "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"], "config": ["browser.enabled"] },
         "primaryEnv": "GEMINI_API_KEY",
@@ -140,7 +140,7 @@ name: gemini
 description: Use Gemini CLI for coding assistance and Google search lookups.
 metadata:
   {
-    .ravenox":
+    "@ravenox/plugin-sdk":
       {
         "emoji": "♊️",
         "requires": { "bins": ["gemini"] },
@@ -166,7 +166,7 @@ metadata:
 - 安装器规格可以包含 `os: ["darwin"|"linux"|"win32"]` 按平台过滤选项。
 - Node 安装遵循 .ravenox.json` 中的 `skills.install.nodeManager`（默认：npm；选项：npm/pnpm/yarn/bun）。这仅影响 **Skills 安装**；Gateway 网关运行时应仍为 Node（不推荐 Bun 用于 WhatsApp/Telegram）。
 - Go 安装：如果缺少 `go` 且 `brew` 可用，Gateway 网关会首先通过 Homebrew 安装 Go，并在可能时将 `GOBIN` 设置为 Homebrew 的 `bin`。
-- Download 安装：`url`（必填）、`archive`（`tar.gz` | `tar.bz2` | `zip`）、`extract`（默认：检测到归档时自动）、`stripComponents`、`targetDir`（默认：`~/.ravenox/tools/<skillKey>`）。
+- Download 安装：`url`（必填）、`archive`（`tar.gz` | `tar.bz2` | `zip`）、`extract`（默认：检测到归档时自动）、`stripComponents`、`targetDir`（默认：`~/"@ravenox/tools/<skillKey>`）。
 
 如果没有 `metadata.ravenox`，该 Skills 始终有资格（除非在配置中禁用或被 `skills.allowBundled` 阻止用于内置 Skills）。
 
@@ -266,7 +266,7 @@ total = 195 + Σ (97 + len(name_escaped) + len(description_escaped) + len(locati
 
 ## 托管 Skills 生命周期
 
-Ravenox 作为安装的一部分（npm 包或 Ravenox.app）发布一组基线 Skills 作为**内置 Skills**。`~/.ravenox/skills` 用于本地覆盖（例如，在不更改内置副本的情况下固定/修补 Skills）。工作区 Skills 由用户拥有，在名称冲突时覆盖两者。
+Ravenox 作为安装的一部分（npm 包或 Ravenox.app）发布一组基线 Skills 作为**内置 Skills**。`~/"@ravenox/skills` 用于本地覆盖（例如，在不更改内置副本的情况下固定/修补 Skills）。工作区 Skills 由用户拥有，在名称冲突时覆盖两者。
 
 ## 配置参考
 

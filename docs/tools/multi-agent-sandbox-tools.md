@@ -26,7 +26,7 @@ when the container is created.
 Auth is per-agent: each agent reads from its own `agentDir` auth store at:
 
 ```
-~/.ravenox/agents/<agentId>/agent/auth-profiles.json
+~/"@ravenox/agents/<agentId>/agent/auth-profiles.json
 ```
 
 Credentials are **not** shared between agents. Never reuse `agentDir` across agents.
@@ -49,13 +49,13 @@ For debugging “why is this blocked?”, see [Sandbox vs Tool Policy vs Elevate
         "id": "main",
         "default": true,
         "name": "Personal Assistant",
-        "workspace": "~/.ravenox/workspace",
+        "workspace": "~/"@ravenox/workspace",
         "sandbox": { "mode": "off" }
       },
       {
         "id": "family",
         "name": "Family Bot",
-        "workspace": "~/.ravenox/workspace-family",
+        "workspace": "~/"@ravenox/workspace-family",
         "sandbox": {
           "mode": "all",
           "scope": "agent"
@@ -98,12 +98,12 @@ For debugging “why is this blocked?”, see [Sandbox vs Tool Policy vs Elevate
     "list": [
       {
         "id": "personal",
-        "workspace": "~/.ravenox/workspace-personal",
+        "workspace": "~/"@ravenox/workspace-personal",
         "sandbox": { "mode": "off" }
       },
       {
         "id": "work",
-        "workspace": "~/.ravenox/workspace-work",
+        "workspace": "~/"@ravenox/workspace-work",
         "sandbox": {
           "mode": "all",
           "scope": "shared",
@@ -158,14 +158,14 @@ For debugging “why is this blocked?”, see [Sandbox vs Tool Policy vs Elevate
     "list": [
       {
         "id": "main",
-        "workspace": "~/.ravenox/workspace",
+        "workspace": "~/"@ravenox/workspace",
         "sandbox": {
           "mode": "off" // Override: main never sandboxed
         }
       },
       {
         "id": "public",
-        "workspace": "~/.ravenox/workspace-public",
+        "workspace": "~/"@ravenox/workspace-public",
         "sandbox": {
           "mode": "all", // Override: public always sandboxed
           "scope": "agent"
@@ -257,7 +257,7 @@ Mitigation patterns:
 {
   "agents": {
     "defaults": {
-      "workspace": "~/.ravenox/workspace",
+      "workspace": "~/"@ravenox/workspace",
       "sandbox": {
         "mode": "non-main"
       }
@@ -283,7 +283,7 @@ Mitigation patterns:
       {
         "id": "main",
         "default": true,
-        "workspace": "~/.ravenox/workspace",
+        "workspace": "~/"@ravenox/workspace",
         "sandbox": { "mode": "off" }
       }
     ]

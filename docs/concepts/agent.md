@@ -58,7 +58,7 @@ guidance for how _you_ want them used.
 Ravenox loads skills from three locations (workspace wins on name conflict):
 
 - Bundled (shipped with the install)
-- Managed/local: `~/.ravenox/skills`
+- Managed/local: `~/"@ravenox/skills`
 - Workspace: `<workspace>/skills`
 
 Skills can be gated by config/env (see `skills` in [Gateway configuration](/gateway/configuration)).
@@ -74,7 +74,7 @@ Ravenox reuses pieces of the pi-mono codebase (models/tools), but **session mana
 
 Session transcripts are stored as JSONL at:
 
-- `~/.ravenox/agents/<agentId>/sessions/<SessionId>.jsonl`
+- `~/"@ravenox/agents/<agentId>/sessions/<SessionId>.jsonl`
 
 The session ID is stable and chosen by Ravenox.
 Legacy Pi/Tau session folders are **not** read.

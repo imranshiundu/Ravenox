@@ -82,8 +82,8 @@ ravenox nodes rename --node <id|name|ip> --name "Living Room iPad"
 
 配对状态存储在 Gateway 网关状态目录下（默认 `~/.ravenox`）：
 
-- `~/.ravenox/nodes/paired.json`
-- `~/.ravenox/nodes/pending.json`
+- `~/"@ravenox/nodes/paired.json`
+- `~/"@ravenox/nodes/pending.json`
 
 如果你覆盖了 `RAVENOX_STATE_DIR`，`nodes/` 文件夹会随之移动。
 

@@ -317,7 +317,7 @@ Broadcast groups work alongside existing routing:
 **Debug:**
 
 ```bash
-tail -f ~/.ravenox/logs/gateway.log | grep broadcast
+tail -f ~/"@ravenox/logs/gateway.log | grep broadcast
 ```
 
 ### Only One Agent Responding

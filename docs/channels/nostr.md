@@ -29,7 +29,7 @@ You can always override the choice in the prompt.
 ### Manual install
 
 ```bash
-ravenox plugins install .ravenox/nostr
+ravenox plugins install "@ravenox/nostr
 ```
 
 Use a local checkout (dev workflows):

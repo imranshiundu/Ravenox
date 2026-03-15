@@ -101,12 +101,12 @@ ravenox nodes approve <requestId>
 ```
 
 The node host stores its node id, token, display name, and gateway connection info in
-`~/.ravenox/node.json`.
+`~/"@ravenox/node.json`.
 
 ## Exec approvals
 
 `system.run` is gated by local exec approvals:
 
-- `~/.ravenox/exec-approvals.json`
+- `~/"@ravenox/exec-approvals.json`
 - [Exec approvals](/tools/exec-approvals)
 - .ravenox approvals --node <id|name|ip>` (edit from the Gateway)

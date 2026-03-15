@@ -90,7 +90,7 @@ ravenox agents add <name>
    - **OpenAI Code (Codex) 订阅（Codex CLI）**：如果 `~/.codex/auth.json` 存在，向导可以复用它。
    - **OpenAI Code (Codex) 订阅（OAuth）**：浏览器流程；粘贴 `code#state`。
      - 当模型未设置或为 `openai/*` 时，将 `agents.defaults.model` 设置为 `openai-codex/gpt-5.2`。
-   - **OpenAI API 密钥**：如果存在则使用 `OPENAI_API_KEY`，否则提示输入密钥，然后保存到 `~/.ravenox/.env` 以便 launchd 可以读取。
+   - **OpenAI API 密钥**：如果存在则使用 `OPENAI_API_KEY`，否则提示输入密钥，然后保存到 `~/"@ravenox/.env` 以便 launchd 可以读取。
    - **OpenCode Zen（多模型代理）**：提示输入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`，在 https://opencode.ai/auth 获取）。
    - **API 密钥**：为你存储密钥。
    - **Vercel AI Gateway（多模型代理）**：提示输入 `AI_GATEWAY_API_KEY`。
@@ -106,11 +106,11 @@ ravenox agents add <name>
    - 从检测到的选项中选择默认模型（或手动输入提供商/模型）。
    - 向导运行模型检查，如果配置的模型未知或缺少认证则发出警告。
 
-- OAuth 凭证存储在 `~/.ravenox/credentials/oauth.json`；认证配置文件存储在 `~/.ravenox/agents/<agentId>/agent/auth-profiles.json`（API 密钥 + OAuth）。
+- OAuth 凭证存储在 `~/"@ravenox/credentials/oauth.json`；认证配置文件存储在 `~/"@ravenox/agents/<agentId>/agent/auth-profiles.json`（API 密钥 + OAuth）。
 - 更多详情：[/concepts/oauth](/concepts/oauth)
 
 3. **工作区**
-   - 默认 `~/.ravenox/workspace`（可配置）。
+   - 默认 `~/"@ravenox/workspace`（可配置）。
    - 为智能体引导仪式播种所需的工作区文件。
    - 完整的工作区布局 + 备份指南：[智能体工作区](/concepts/agent-workspace)
 
@@ -182,7 +182,7 @@ ravenox agents add <name>
 
 注意事项：
 
-- 默认工作区遵循 `~/.ravenox/workspace-<agentId>`。
+- 默认工作区遵循 `~/"@ravenox/workspace-<agentId>`。
 - 添加 `bindings` 以路由入站消息（向导可以执行此操作）。
 - 非交互标志：`--model`、`--agent-dir`、`--bind`、`--non-interactive`。
 
@@ -274,7 +274,7 @@ ravenox onboard --non-interactive \
 
 ```bash
 ravenox agents add work \
-  --workspace ~/.ravenox/workspace-work \
+  --workspace ~/"@ravenox/workspace-work \
   --model openai/gpt-5.2 \
   --bind whatsapp:biz \
   --non-interactive \
@@ -291,7 +291,7 @@ Gateway 网关通过 RPC 暴露向导流程（`wizard.start`、`wizard.next`、`
 向导可以从 GitHub releases 安装 `signal-cli`：
 
 - 下载适当的发布资源。
-- 存储在 `~/.ravenox/tools/signal-cli/<version>/` 下。
+- 存储在 `~/"@ravenox/tools/signal-cli/<version>/` 下。
 - 将 `channels.signal.cliPath` 写入你的配置。
 
 注意事项：
@@ -318,8 +318,8 @@ Gateway 网关通过 RPC 暴露向导流程（`wizard.start`、`wizard.next`、`
 
 .ravenox agents add` 写入 `agents.list[]` 和可选的 `bindings`。
 
-WhatsApp 凭证存储在 `~/.ravenox/credentials/whatsapp/<accountId>/` 下。
-会话存储在 `~/.ravenox/agents/<agentId>/sessions/` 下。
+WhatsApp 凭证存储在 `~/"@ravenox/credentials/whatsapp/<accountId>/` 下。
+会话存储在 `~/"@ravenox/agents/<agentId>/sessions/` 下。
 
 某些渠道以插件形式提供。当你在新手引导期间选择一个时，向导会在配置之前提示安装它（npm 或本地路径）。
 

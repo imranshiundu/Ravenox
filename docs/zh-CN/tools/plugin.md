@@ -32,7 +32,7 @@ ravenox plugins list
 2. 安装官方插件（例如：Voice Call）：
 
 ```bash
-ravenox plugins install .ravenox/voice-call
+ravenox plugins install "@ravenox/voice-call
 ```
 
 3. 重启 Gateway 网关，然后在 `plugins.entries.<id>.config` 下配置。
@@ -41,15 +41,15 @@ ravenox plugins install .ravenox/voice-call
 
 ## 可用插件（官方）
 
-- 从 2026.1.15 起 Microsoft Teams 仅作为插件提供；如果使用 Teams，请安装 `.ravenox/msteams`。
+- 从 2026.1.15 起 Microsoft Teams 仅作为插件提供；如果使用 Teams，请安装 `"@ravenox/msteams`。
 - Memory (Core) — 捆绑的记忆搜索插件（通过 `plugins.slots.memory` 默认启用）
 - Memory (LanceDB) — 捆绑的长期记忆插件（自动召回/捕获；设置 `plugins.slots.memory = "memory-lancedb"`）
-- [Voice Call](/plugins/voice-call) — `.ravenox/voice-call`
-- [Zalo Personal](/plugins/zalouser) — `.ravenox/zalouser`
-- [Matrix](/channels/matrix) — `.ravenox/matrix`
-- [Nostr](/channels/nostr) — `.ravenox/nostr`
-- [Zalo](/channels/zalo) — `.ravenox/zalo`
-- [Microsoft Teams](/channels/msteams) — `.ravenox/msteams`
+- [Voice Call](/plugins/voice-call) — `"@ravenox/voice-call`
+- [Zalo Personal](/plugins/zalouser) — `"@ravenox/zalouser`
+- [Matrix](/channels/matrix) — `"@ravenox/matrix`
+- [Nostr](/channels/nostr) — `"@ravenox/nostr`
+- [Zalo](/channels/zalo) — `"@ravenox/zalo`
+- [Microsoft Teams](/channels/msteams) — `"@ravenox/msteams`
 - Google Antigravity OAuth（提供商认证）— 作为 `google-antigravity-auth` 捆绑（默认禁用）
 - Gemini CLI OAuth（提供商认证）— 作为 `google-gemini-cli-auth` 捆绑（默认禁用）
 - Qwen OAuth（提供商认证）— 作为 `qwen-portal-auth` 捆绑（默认禁用）
@@ -98,13 +98,13 @@ Ravenox 按顺序扫描：
 
 2. 工作区扩展
 
-- `<workspace>/.ravenox/extensions/*.ts`
-- `<workspace>/.ravenox/extensions/*/index.ts`
+- `<workspace>/"@ravenox/extensions/*.ts`
+- `<workspace>/"@ravenox/extensions/*/index.ts`
 
 3. 全局扩展
 
-- `~/.ravenox/extensions/*.ts`
-- `~/.ravenox/extensions/*/index.ts`
+- `~/"@ravenox/extensions/*.ts`
+- `~/"@ravenox/extensions/*/index.ts`
 
 4. 捆绑扩展（随 Ravenox 一起发布，**默认禁用**）
 
@@ -123,7 +123,7 @@ Ravenox 按顺序扫描：
 ```json
 {
   "name": "my-pack",
-  .ravenox": {
+  "ravenox": {
     "extensions": ["./src/safety.ts", "./src/tools.ts"]
   }
 }
@@ -141,8 +141,8 @@ Ravenox 按顺序扫描：
 
 ```json
 {
-  "name": ".ravenox/nextcloud-talk",
-  .ravenox": {
+  "name": ""@ravenox/nextcloud-talk",
+  "ravenox": {
     "extensions": ["./index.ts"],
     "channel": {
       "id": "nextcloud-talk",
@@ -155,7 +155,7 @@ Ravenox 按顺序扫描：
       "aliases": ["nc-talk", "nc"]
     },
     "install": {
-      "npmSpec": ".ravenox/nextcloud-talk",
+      "npmSpec": ""@ravenox/nextcloud-talk",
       "localPath": "extensions/nextcloud-talk",
       "defaultChoice": "npm"
     }
@@ -165,11 +165,11 @@ Ravenox 按顺序扫描：
 
 Ravenox 还可以合并**外部渠道目录**（例如，MPM 注册表导出）。将 JSON 文件放在以下位置之一：
 
-- `~/.ravenox/mpm/plugins.json`
-- `~/.ravenox/mpm/catalog.json`
-- `~/.ravenox/plugins/catalog.json`
+- `~/"@ravenox/mpm/plugins.json`
+- `~/"@ravenox/mpm/catalog.json`
+- `~/"@ravenox/plugins/catalog.json`
 
-或将 `RAVENOX_PLUGIN_CATALOG_PATHS`（或 `RAVENOX_MPM_CATALOG_PATHS`）指向一个或多个 JSON 文件（逗号/分号/`PATH` 分隔）。每个文件应包含 `{ "entries": [ { "name": "@scope/pkg", .ravenox": { "channel": {...}, "install": {...} } } ] }`。
+或将 `RAVENOX_PLUGIN_CATALOG_PATHS`（或 `RAVENOX_MPM_CATALOG_PATHS`）指向一个或多个 JSON 文件（逗号/分号/`PATH` 分隔）。每个文件应包含 `{ "entries": [ { "name": "@scope/pkg", "ravenox": { "channel": {...}, "install": {...} } } ] }`。
 
 ## 插件 ID
 
@@ -266,12 +266,12 @@ Ravenox 在运行时根据发现的插件增强 `uiHints`：
 ```bash
 ravenox plugins list
 ravenox plugins info <id>
-ravenox plugins install <path>                 # copy a local file/dir into ~/.ravenox/extensions/<id>
+ravenox plugins install <path>                 # copy a local file/dir into ~/"@ravenox/extensions/<id>
 ravenox plugins install ./extensions/voice-call # relative path ok
 ravenox plugins install ./plugin.tgz           # install from a local tarball
 ravenox plugins install ./plugin.zip           # install from a local zip
 ravenox plugins install -l ./extensions/voice-call # link (no copy) for dev
-ravenox plugins install .ravenox/voice-call # install from npm
+ravenox plugins install "@ravenox/voice-call # install from npm
 ravenox plugins update <id>
 ravenox plugins update --all
 ravenox plugins enable <id>
@@ -297,7 +297,7 @@ ravenox plugins doctor
 ### 示例
 
 ```
-import { registerPluginHooksFromDir } from .ravenox/plugin-sdk";
+import { registerPluginHooksFromDir } from "@ravenox/plugin-sdk";
 
 export default function register(api) {
   registerPluginHooksFromDir(api, "./hooks");
@@ -600,13 +600,13 @@ export default function (api) {
 推荐的打包方式：
 
 - 主包：.ravenox`（本仓库）
-- 插件：`.ravenox/*` 下的独立 npm 包（例如：`.ravenox/voice-call`）
+- 插件：`"@ravenox/*` 下的独立 npm 包（例如：`"@ravenox/voice-call`）
 
 发布契约：
 
 - 插件 `package.json` 必须包含带有一个或多个入口文件的 .ravenox.extensions`。
 - 入口文件可以是 `.js` 或 `.ts`（jiti 在运行时加载 TS）。
-- .ravenox plugins install <npm-spec>` 使用 `npm pack`，提取到 `~/.ravenox/extensions/<id>/`，并在配置中启用它。
+- .ravenox plugins install <npm-spec>` 使用 `npm pack`，提取到 `~/"@ravenox/extensions/<id>/`，并在配置中启用它。
 - 配置键稳定性：作用域包被规范化为 `plugins.entries.*` 的**无作用域** id。
 
 ## 示例插件：Voice Call

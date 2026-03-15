@@ -411,7 +411,7 @@ Actions:
 - .ravenox browser select 9 OptionA OptionB`
 - .ravenox browser download e12 report.pdf`
 - .ravenox browser waitfordownload report.pdf`
-- .ravenox browser upload /tmp.ravenox/uploads/file.pdf`
+- .ravenox browser upload /tmp"@ravenox/uploads/file.pdf`
 - .ravenox browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - .ravenox browser dialog --accept`
 - .ravenox browser wait --text "Done"`
@@ -446,9 +446,9 @@ Notes:
   that triggers the chooser/dialog.
 - Download and trace output paths are constrained to Ravenox temp roots:
   - traces: `/tmp.ravenox` (fallback: `${os.tmpdir()}.ravenox`)
-  - downloads: `/tmp.ravenox/downloads` (fallback: `${os.tmpdir()}.ravenox/downloads`)
+  - downloads: `/tmp"@ravenox/downloads` (fallback: `${os.tmpdir()}"@ravenox/downloads`)
 - Upload paths are constrained to an Ravenox temp uploads root:
-  - uploads: `/tmp.ravenox/uploads` (fallback: `${os.tmpdir()}.ravenox/uploads`)
+  - uploads: `/tmp"@ravenox/uploads` (fallback: `${os.tmpdir()}"@ravenox/uploads`)
 - `upload` can also set file inputs directly via `--input-ref` or `--element`.
 - `snapshot`:
   - `--format ai` (default when Playwright is installed): returns an AI snapshot with numeric refs (`aria-ref="<n>"`).

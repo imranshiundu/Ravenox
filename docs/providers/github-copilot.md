@@ -36,7 +36,7 @@ profile.
 ## CLI setup
 
 ```bash
-arthur models auth login-github-copilot
+ravenox models auth login-github-copilot
 ```
 
 You'll be prompted to visit a URL and enter a one-time code. Keep the terminal
@@ -45,14 +45,14 @@ open until it completes.
 ### Optional flags
 
 ```bash
-arthur models auth login-github-copilot --profile-id github-copilot:work
-arthur models auth login-github-copilot --yes
+ravenox models auth login-github-copilot --profile-id github-copilot:work
+ravenox models auth login-github-copilot --yes
 ```
 
 ## Set a default model
 
 ```bash
-arthur models set github-copilot/gpt-4o
+ravenox models set github-copilot/gpt-4o
 ```
 
 ### Config snippet

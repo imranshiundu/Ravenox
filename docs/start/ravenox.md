@@ -71,7 +71,7 @@ When onboarding finishes, we auto-open the dashboard and print a clean (non-toke
 
 Ravenox reads operating instructions and “memory” from its workspace directory.
 
-By default, Ravenox uses `~/.ravenox/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
+By default, Ravenox uses `~/"@ravenox/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
 
 Tip: treat this folder like Ravenox’s “memory” and make it a git repo (ideally private) so your `AGENTS.md` + memory files are backed up. If git is installed, brand-new workspaces are auto-initialized.
 
@@ -87,7 +87,7 @@ Optional: choose a different workspace with `agents.defaults.workspace` (support
 ```json5
 {
   agent: {
-    workspace: "~/.ravenox/workspace",
+    workspace: "~/"@ravenox/workspace",
   },
 }
 ```
@@ -117,7 +117,7 @@ Example:
   logging: { level: "info" },
   agent: {
     model: "anthropic/claude-opus-4-6",
-    workspace: "~/.ravenox/workspace",
+    workspace: "~/"@ravenox/workspace",
     thinkingDefault: "high",
     timeoutSeconds: 1800,
     // Start with 0; enable later.
@@ -150,8 +150,8 @@ Example:
 
 ## Sessions and memory
 
-- Session files: `~/.ravenox/agents/<agentId>/sessions/{{SessionId}}.jsonl`
-- Session metadata (token usage, last route, etc): `~/.ravenox/agents/<agentId>/sessions/sessions.json` (legacy: `~/.ravenox/sessions/sessions.json`)
+- Session files: `~/"@ravenox/agents/<agentId>/sessions/{{SessionId}}.jsonl`
+- Session metadata (token usage, last route, etc): `~/"@ravenox/agents/<agentId>/sessions/sessions.json` (legacy: `~/"@ravenox/sessions/sessions.json`)
 - `/new` or `/reset` starts a fresh session for that chat (configurable via `resetTriggers`). If sent alone, the agent replies with a short hello to confirm the reset.
 - `/compact [instructions]` compacts the session context and reports the remaining context budget.
 
@@ -200,7 +200,7 @@ ravenox status --deep   # adds gateway health probes (Telegram + Discord)
 ravenox health --json   # gateway health snapshot (WS)
 ```
 
-Logs live under `/tmp.ravenox/` (default: .ravenox-YYYY-MM-DD.log`).
+Logs live under `/tmp"@ravenox/` (default: .ravenox-YYYY-MM-DD.log`).
 
 ## Next steps
 

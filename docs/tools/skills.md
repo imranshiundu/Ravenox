@@ -15,12 +15,12 @@ Ravenox uses **[AgentSkills](https://agentskills.io)-compatible** skill folders 
 Skills are loaded from **three** places:
 
 1. **Bundled skills**: shipped with the install (npm package or Ravenox.app)
-2. **Managed/local skills**: `~/.ravenox/skills`
+2. **Managed/local skills**: `~/"@ravenox/skills`
 3. **Workspace skills**: `<workspace>/skills`
 
 If a skill name conflicts, precedence is:
 
-`<workspace>/skills` (highest) → `~/.ravenox/skills` → bundled skills (lowest)
+`<workspace>/skills` (highest) → `~/"@ravenox/skills` → bundled skills (lowest)
 
 Additionally, you can configure extra skill folders (lowest precedence) via
 `skills.load.extraDirs` in `~/.ravenox.ravenox.json`.
@@ -30,7 +30,7 @@ Additionally, you can configure extra skill folders (lowest precedence) via
 In **multi-agent** setups, each agent has its own workspace. That means:
 
 - **Per-agent skills** live in `<workspace>/skills` for that agent only.
-- **Shared skills** live in `~/.ravenox/skills` (managed/local) and are visible
+- **Shared skills** live in `~/"@ravenox/skills` (managed/local) and are visible
   to **all agents** on the same machine.
 - **Shared folders** can also be added via `skills.load.extraDirs` (lowest
   precedence) if you want a common skills pack used by multiple agents.
@@ -112,7 +112,7 @@ name: nano-banana-pro
 description: Generate or edit images via Gemini 3 Pro Image
 metadata:
   {
-    .ravenox":
+    "@ravenox/plugin-sdk":
       {
         "requires": { "bins": ["uv"], "env": ["GEMINI_API_KEY"], "config": ["browser.enabled"] },
         "primaryEnv": "GEMINI_API_KEY",
@@ -152,7 +152,7 @@ name: gemini
 description: Use Gemini CLI for coding assistance and Google search lookups.
 metadata:
   {
-    .ravenox":
+    "@ravenox/plugin-sdk":
       {
         "emoji": "♊️",
         "requires": { "bins": ["gemini"] },
@@ -180,7 +180,7 @@ Notes:
   This only affects **skill installs**; the Gateway runtime should still be Node
   (Bun is not recommended for WhatsApp/Telegram).
 - Go installs: if `go` is missing and `brew` is available, the gateway installs Go via Homebrew first and sets `GOBIN` to Homebrew’s `bin` when possible.
-- Download installs: `url` (required), `archive` (`tar.gz` | `tar.bz2` | `zip`), `extract` (default: auto when archive detected), `stripComponents`, `targetDir` (default: `~/.ravenox/tools/<skillKey>`).
+- Download installs: `url` (required), `archive` (`tar.gz` | `tar.bz2` | `zip`), `extract` (default: auto when archive detected), `stripComponents`, `targetDir` (default: `~/"@ravenox/tools/<skillKey>`).
 
 If no `metadata.ravenox` is present, the skill is always eligible (unless
 disabled in config or blocked by `skills.allowBundled` for bundled skills).
@@ -285,7 +285,7 @@ Notes:
 ## Managed skills lifecycle
 
 Ravenox ships a baseline set of skills as **bundled skills** as part of the
-install (npm package or Ravenox.app). `~/.ravenox/skills` exists for local
+install (npm package or Ravenox.app). `~/"@ravenox/skills` exists for local
 overrides (for example, pinning/patching a skill without changing the bundled
 copy). Workspace skills are user-owned and override both on name conflicts.
 

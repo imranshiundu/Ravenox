@@ -172,7 +172,7 @@ exec ssh -T gateway-host imsg "$@"
   channels: {
     imessage: {
       enabled: true,
-      cliPath: "~/.ravenox/scripts/imsg-ssh",
+      cliPath: "~/"@ravenox/scripts/imsg-ssh",
       remoteHost: "bot@mac-mini.tailnet-1234.ts.net",
       includeAttachments: true,
       dbPath: "/Users/bot/Library/Messages/chat.db",
@@ -181,7 +181,7 @@ exec ssh -T gateway-host imsg "$@"
 }
 ```
 
-示例包装脚本（`~/.ravenox/scripts/imsg-ssh`）：
+示例包装脚本（`~/"@ravenox/scripts/imsg-ssh`）：
 
 ```bash
 #!/usr/bin/env bash
