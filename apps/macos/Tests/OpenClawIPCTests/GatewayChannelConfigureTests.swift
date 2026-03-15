@@ -1,8 +1,8 @@
-import OpenClawKit
+import RavenoxKit
 import Foundation
 import os
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite struct GatewayConnectionTests {
     private final class FakeWebSocketTask: WebSocketTasking, @unchecked Sendable {

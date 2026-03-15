@@ -1,13 +1,13 @@
 ---
 name: healthcheck
-description: Host security hardening and risk-tolerance configuration for Agent Aurthur deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, Agent Aurthur cron scheduling for periodic checks, or version status checks on a machine running Agent Aurthur (laptop, workstation, Pi, VPS).
+description: Host security hardening and risk-tolerance configuration for Ravenox deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, Ravenox cron scheduling for periodic checks, or version status checks on a machine running Ravenox (laptop, workstation, Pi, VPS).
 ---
 
-# Agent Aurthur Host Hardening
+# Ravenox Host Hardening
 
 ## Overview
 
-Assess and harden the host running Agent Aurthur, then align it to a user-defined risk tolerance without breaking access. Use Agent Aurthur security tooling as a first-class signal, but treat OS hardening as a separate, explicit set of steps.
+Assess and harden the host running Ravenox, then align it to a user-defined risk tolerance without breaking access. Use Ravenox security tooling as a first-class signal, but treat OS hardening as a separate, explicit set of steps.
 
 ## Core rules
 
@@ -15,7 +15,7 @@ Assess and harden the host running Agent Aurthur, then align it to a user-define
 - Require explicit approval before any state-changing action.
 - Do not modify remote access settings without confirming how the user connects.
 - Prefer reversible, staged changes with a rollback plan.
-- Never claim Agent Aurthur changes the host firewall, SSH, or OS updates; it does not.
+- Never claim Ravenox changes the host firewall, SSH, or OS updates; it does not.
 - If role/identity is unknown, provide recommendations only.
 - Formatting: every set of user choices must be numbered so the user can reply with a single digit.
 - System-level backups are recommended; try to verify status.
@@ -36,12 +36,12 @@ Determine (in order):
 2. Privilege level (root/admin vs user).
 3. Access path (local console, SSH, RDP, tailnet).
 4. Network exposure (public IP, reverse proxy, tunnel).
-5. Agent Aurthur gateway status and bind address.
+5. Ravenox gateway status and bind address.
 6. Backup system and status (e.g., Time Machine, system images, snapshots).
 7. Deployment context (local mac app, headless gateway host, remote gateway, container/CI).
 8. Disk encryption status (FileVault/LUKS/BitLocker).
 9. OS automatic security updates status.
-   Note: these are not blocking items, but are highly recommended, especially if Agent Aurthur can access sensitive data.
+   Note: these are not blocking items, but are highly recommended, especially if Ravenox can access sensitive data.
 10. Usage mode for a personal assistant with full access (local workstation vs headless/remote vs other).
 
 First ask once for permission to run read-only checks. If granted, run them by default and only ask questions for items you cannot infer or verify. Do not ask for information already visible in runtime or command output. Keep the permission ask as a single sentence, and list follow-up info needed as an unordered list (not numbered) unless you are presenting selectable choices.
@@ -74,24 +74,24 @@ If the user grants read-only permission, run the OS-appropriate checks by defaul
    - macOS: `/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate` and `pfctl -s info`.
 4. Backups (macOS): `tmutil status` (if Time Machine is used).
 
-### 2) Run Agent Aurthur security audits (read-only)
+### 2) Run Ravenox security audits (read-only)
 
-As part of the default read-only checks, run `arthur security audit --deep`. Only offer alternatives if the user requests them:
+As part of the default read-only checks, run .ravenox security audit --deep`. Only offer alternatives if the user requests them:
 
-1. `arthur security audit` (faster, non-probing)
-2. `arthur security audit --json` (structured output)
+1. .ravenox security audit` (faster, non-probing)
+2. .ravenox security audit --json` (structured output)
 
-Offer to apply Agent Aurthur safe defaults (numbered):
+Offer to apply Ravenox safe defaults (numbered):
 
-1. `arthur security audit --fix`
+1. .ravenox security audit --fix`
 
-Be explicit that `--fix` only tightens Agent Aurthur defaults and file permissions. It does not change host firewall, SSH, or OS update policies.
+Be explicit that `--fix` only tightens Ravenox defaults and file permissions. It does not change host firewall, SSH, or OS update policies.
 
 If browser control is enabled, recommend that 2FA be enabled on all important accounts, with hardware keys preferred and SMS not sufficient.
 
-### 3) Check Agent Aurthur version/update status (read-only)
+### 3) Check Ravenox version/update status (read-only)
 
-As part of the default read-only checks, run `arthur update status`.
+As part of the default read-only checks, run .ravenox update status`.
 
 Report the current channel and whether an update is available.
 
@@ -117,7 +117,7 @@ Provide a plan that includes:
 - Access-preservation strategy and rollback
 - Risks and potential lockout scenarios
 - Least-privilege notes (e.g., avoid admin usage, tighten ownership/permissions where safe)
-- Credential hygiene notes (location of Agent Aurthur creds, prefer disk encryption)
+- Credential hygiene notes (location of Ravenox creds, prefer disk encryption)
 
 Always show the plan before any changes.
 
@@ -146,7 +146,7 @@ Re-check:
 - Firewall status
 - Listening ports
 - Remote access still works
-- Agent Aurthur security audit (re-run)
+- Ravenox security audit (re-run)
 
 Deliver a final posture report and note any deferred items.
 
@@ -168,50 +168,50 @@ If unsure, ask.
 
 ## Periodic checks
 
-After Agent Aurthur install or first hardening pass, run at least one baseline audit and version check:
+After Ravenox install or first hardening pass, run at least one baseline audit and version check:
 
-- `arthur security audit`
-- `arthur security audit --deep`
-- `arthur update status`
+- .ravenox security audit`
+- .ravenox security audit --deep`
+- .ravenox update status`
 
-Ongoing monitoring is recommended. Use the Agent Aurthur cron tool/CLI to schedule periodic audits (Gateway scheduler). Do not create scheduled tasks without explicit approval. Store outputs in a user-approved location and avoid secrets in logs.
+Ongoing monitoring is recommended. Use the Ravenox cron tool/CLI to schedule periodic audits (Gateway scheduler). Do not create scheduled tasks without explicit approval. Store outputs in a user-approved location and avoid secrets in logs.
 When scheduling headless cron runs, include a note in the output that instructs the user to call `healthcheck` so issues can be fixed.
 
 ### Required prompt to schedule (always)
 
 After any audit or hardening pass, explicitly offer scheduling and require a direct response. Use a short prompt like (numbered):
 
-1. “Do you want me to schedule periodic audits (e.g., daily/weekly) via `arthur cron add`?”
+1. “Do you want me to schedule periodic audits (e.g., daily/weekly) via .ravenox cron add`?”
 
 If the user says yes, ask for:
 
 - cadence (daily/weekly), preferred time window, and output location
-- whether to also schedule `arthur update status`
+- whether to also schedule .ravenox update status`
 
 Use a stable cron job name so updates are deterministic. Prefer exact names:
 
 - `healthcheck:security-audit`
 - `healthcheck:update-status`
 
-Before creating, `arthur cron list` and match on exact `name`. If found, `arthur cron edit <id> ...`.
-If not found, `arthur cron add --name <name> ...`.
+Before creating, .ravenox cron list` and match on exact `name`. If found, .ravenox cron edit <id> ...`.
+If not found, .ravenox cron add --name <name> ...`.
 
 Also offer a periodic version check so the user can decide when to update (numbered):
 
-1. `arthur update status` (preferred for source checkouts and channels)
-2. `npm view arthur version` (published npm version)
+1. .ravenox update status` (preferred for source checkouts and channels)
+2. `npm view.ravenox version` (published npm version)
 
-## Agent Aurthur command accuracy
+## Ravenox command accuracy
 
 Use only supported commands and flags:
 
-- `arthur security audit [--deep] [--fix] [--json]`
-- `arthur status` / `arthur status --deep`
-- `arthur health --json`
-- `arthur update status`
-- `arthur cron add|list|runs|run`
+- .ravenox security audit [--deep] [--fix] [--json]`
+- .ravenox status` / .ravenox status --deep`
+- .ravenox health --json`
+- .ravenox update status`
+- .ravenox cron add|list|runs|run`
 
-Do not invent CLI flags or imply Agent Aurthur enforces host firewall/SSH policies.
+Do not invent CLI flags or imply Ravenox enforces host firewall/SSH policies.
 
 ## Logging and audit trail
 
@@ -230,7 +230,7 @@ Only write to memory files when the user explicitly opts in and the session is a
 (per `docs/reference/templates/AGENTS.md`). Otherwise provide a redacted, paste-ready summary the user can
 decide to save elsewhere.
 
-Follow the durable-memory prompt format used by Agent Aurthur compaction:
+Follow the durable-memory prompt format used by Ravenox compaction:
 
 - Write lasting notes to `memory/YYYY-MM-DD.md`.
 

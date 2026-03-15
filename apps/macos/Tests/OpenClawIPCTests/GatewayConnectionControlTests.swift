@@ -1,8 +1,8 @@
-import OpenClawKit
+import RavenoxKit
 import Foundation
 import Testing
-@testable import OpenClaw
-@testable import OpenClawIPC
+@testable import Ravenox
+@testable import RavenoxIPC
 
 private final class FakeWebSocketTask: WebSocketTasking, @unchecked Sendable {
     var state: URLSessionTask.State = .running

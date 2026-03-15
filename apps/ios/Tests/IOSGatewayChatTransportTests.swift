@@ -1,6 +1,6 @@
-import OpenClawKit
+import RavenoxKit
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite struct IOSGatewayChatTransportTests {
     @Test func requestsFailFastWhenGatewayNotConnected() async {

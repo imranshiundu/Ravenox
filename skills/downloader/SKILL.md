@@ -3,7 +3,7 @@ name: downloader
 description: Download media (video, audio, images) from social media links (YouTube, Instagram, TikTok, Facebook, Pinterest, etc.) using yt-dlp.
 metadata:
   {
-    "arthur":
+    .ravenox":
       {
         "emoji": "📥",
         "requires": { "bins": ["yt-dlp", "ffmpeg"] },

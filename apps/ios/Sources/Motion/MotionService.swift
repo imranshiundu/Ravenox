@@ -1,9 +1,9 @@
 import CoreMotion
 import Foundation
-import OpenClawKit
+import RavenoxKit
 
 final class MotionService: MotionServicing {
-    func activities(params: OpenClawMotionActivityParams) async throws -> OpenClawMotionActivityPayload {
+    func activities(params: RavenoxMotionActivityParams) async throws -> RavenoxMotionActivityPayload {
         guard CMMotionActivityManager.isActivityAvailable() else {
             throw NSError(domain: "Motion", code: 1, userInfo: [
                 NSLocalizedDescriptionKey: "MOTION_UNAVAILABLE: activity not supported on this device",
@@ -20,7 +20,7 @@ final class MotionService: MotionServicing {
         let limit = max(1, min(params.limit ?? 200, 1000))
 
         let manager = CMMotionActivityManager()
-        let mapped = try await withCheckedThrowingContinuation { (cont: CheckedContinuation<[OpenClawMotionActivityEntry], Error>) in
+        let mapped = try await withCheckedThrowingContinuation { (cont: CheckedContinuation<[RavenoxMotionActivityEntry], Error>) in
             manager.queryActivityStarting(from: start, to: end, to: OperationQueue()) { activity, error in
                 if let error {
                     cont.resume(throwing: error)
@@ -28,7 +28,7 @@ final class MotionService: MotionServicing {
                     let formatter = ISO8601DateFormatter()
                     let sliced = Array((activity ?? []).suffix(limit))
                     let entries = sliced.map { entry in
-                        OpenClawMotionActivityEntry(
+                        RavenoxMotionActivityEntry(
                             startISO: formatter.string(from: entry.startDate),
                             endISO: formatter.string(from: end),
                             confidence: Self.confidenceString(entry.confidence),
@@ -44,10 +44,10 @@ final class MotionService: MotionServicing {
             }
         }
 
-        return OpenClawMotionActivityPayload(activities: mapped)
+        return RavenoxMotionActivityPayload(activities: mapped)
     }
 
-    func pedometer(params: OpenClawPedometerParams) async throws -> OpenClawPedometerPayload {
+    func pedometer(params: RavenoxPedometerParams) async throws -> RavenoxPedometerPayload {
         guard CMPedometer.isStepCountingAvailable() else {
             throw NSError(domain: "Motion", code: 2, userInfo: [
                 NSLocalizedDescriptionKey: "PEDOMETER_UNAVAILABLE: step counting not supported",
@@ -62,13 +62,13 @@ final class MotionService: MotionServicing {
 
         let (start, end) = Self.resolveRange(startISO: params.startISO, endISO: params.endISO)
         let pedometer = CMPedometer()
-        let payload = try await withCheckedThrowingContinuation { (cont: CheckedContinuation<OpenClawPedometerPayload, Error>) in
+        let payload = try await withCheckedThrowingContinuation { (cont: CheckedContinuation<RavenoxPedometerPayload, Error>) in
             pedometer.queryPedometerData(from: start, to: end) { data, error in
                 if let error {
                     cont.resume(throwing: error)
                 } else {
                     let formatter = ISO8601DateFormatter()
-                    let payload = OpenClawPedometerPayload(
+                    let payload = RavenoxPedometerPayload(
                         startISO: formatter.string(from: start),
                         endISO: formatter.string(from: end),
                         steps: data?.numberOfSteps.intValue,

@@ -1,6 +1,6 @@
 import Testing
 
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite struct CameraCaptureServiceTests {
     @Test func normalizeSnapDefaults() {

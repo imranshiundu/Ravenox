@@ -1,11 +1,11 @@
 import Foundation
 
-public enum OpenClawWatchCommand: String, Codable, Sendable {
+public enum RavenoxWatchCommand: String, Codable, Sendable {
     case status = "watch.status"
     case notify = "watch.notify"
 }
 
-public struct OpenClawWatchStatusPayload: Codable, Sendable, Equatable {
+public struct RavenoxWatchStatusPayload: Codable, Sendable, Equatable {
     public var supported: Bool
     public var paired: Bool
     public var appInstalled: Bool
@@ -27,19 +27,19 @@ public struct OpenClawWatchStatusPayload: Codable, Sendable, Equatable {
     }
 }
 
-public struct OpenClawWatchNotifyParams: Codable, Sendable, Equatable {
+public struct RavenoxWatchNotifyParams: Codable, Sendable, Equatable {
     public var title: String
     public var body: String
-    public var priority: OpenClawNotificationPriority?
+    public var priority: RavenoxNotificationPriority?
 
-    public init(title: String, body: String, priority: OpenClawNotificationPriority? = nil) {
+    public init(title: String, body: String, priority: RavenoxNotificationPriority? = nil) {
         self.title = title
         self.body = body
         self.priority = priority
     }
 }
 
-public struct OpenClawWatchNotifyPayload: Codable, Sendable, Equatable {
+public struct RavenoxWatchNotifyPayload: Codable, Sendable, Equatable {
     public var deliveredImmediately: Bool
     public var queuedForDelivery: Bool
     public var transport: String

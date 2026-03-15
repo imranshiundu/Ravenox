@@ -1,0 +1,6 @@
+mem0ai
+tavily-python
+pyautogui
+mss
+litellm
+python-dotenv

@@ -1,5 +1,5 @@
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite struct GatewayAgentChannelTests {
     @Test func shouldDeliverBlocksWebChat() {

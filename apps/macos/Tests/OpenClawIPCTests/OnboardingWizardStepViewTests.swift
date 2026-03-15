@@ -1,9 +1,9 @@
-import OpenClawProtocol
+import RavenoxProtocol
 import SwiftUI
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
-private typealias ProtoAnyCodable = OpenClawProtocol.AnyCodable
+private typealias ProtoAnyCodable = RavenoxProtocol.AnyCodable
 
 @Suite(.serialized)
 @MainActor

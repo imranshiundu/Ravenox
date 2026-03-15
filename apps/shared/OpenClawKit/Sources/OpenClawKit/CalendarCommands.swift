@@ -1,11 +1,11 @@
 import Foundation
 
-public enum OpenClawCalendarCommand: String, Codable, Sendable {
+public enum RavenoxCalendarCommand: String, Codable, Sendable {
     case events = "calendar.events"
     case add = "calendar.add"
 }
 
-public struct OpenClawCalendarEventsParams: Codable, Sendable, Equatable {
+public struct RavenoxCalendarEventsParams: Codable, Sendable, Equatable {
     public var startISO: String?
     public var endISO: String?
     public var limit: Int?
@@ -17,7 +17,7 @@ public struct OpenClawCalendarEventsParams: Codable, Sendable, Equatable {
     }
 }
 
-public struct OpenClawCalendarAddParams: Codable, Sendable, Equatable {
+public struct RavenoxCalendarAddParams: Codable, Sendable, Equatable {
     public var title: String
     public var startISO: String
     public var endISO: String
@@ -48,7 +48,7 @@ public struct OpenClawCalendarAddParams: Codable, Sendable, Equatable {
     }
 }
 
-public struct OpenClawCalendarEventPayload: Codable, Sendable, Equatable {
+public struct RavenoxCalendarEventPayload: Codable, Sendable, Equatable {
     public var identifier: String
     public var title: String
     public var startISO: String
@@ -76,18 +76,18 @@ public struct OpenClawCalendarEventPayload: Codable, Sendable, Equatable {
     }
 }
 
-public struct OpenClawCalendarEventsPayload: Codable, Sendable, Equatable {
-    public var events: [OpenClawCalendarEventPayload]
+public struct RavenoxCalendarEventsPayload: Codable, Sendable, Equatable {
+    public var events: [RavenoxCalendarEventPayload]
 
-    public init(events: [OpenClawCalendarEventPayload]) {
+    public init(events: [RavenoxCalendarEventPayload]) {
         self.events = events
     }
 }
 
-public struct OpenClawCalendarAddPayload: Codable, Sendable, Equatable {
-    public var event: OpenClawCalendarEventPayload
+public struct RavenoxCalendarAddPayload: Codable, Sendable, Equatable {
+    public var event: RavenoxCalendarEventPayload
 
-    public init(event: OpenClawCalendarEventPayload) {
+    public init(event: RavenoxCalendarEventPayload) {
         self.event = event
     }
 }

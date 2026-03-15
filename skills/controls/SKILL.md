@@ -17,10 +17,10 @@ This skill provides direct, non-automated commands to control your local machine
 
 ## Available Commands
 
-- **Open Spotify**: `arthur control spotify`
-- **Open Code Editor**: `arthur control code`
-- **Screenshot**: `arthur control screenshot`
-- **System Info**: `arthur control info`
+- **Open Spotify**: .ravenox control spotify`
+- **Open Code Editor**: .ravenox control code`
+- **Screenshot**: .ravenox control screenshot`
+- **System Info**: .ravenox control info`
 
 ## Usage Examples
 
@@ -38,7 +38,7 @@ code .
 ```
 
 ## Task Selection Logic
-When you ask Arthur "What can you do?", it will present this menu:
+When you ask Ravenox "What can you do?", it will present this menu:
 1. 🎵 **Spotify**: Control music playback.
 2. 💻 **VS Code**: Open editors and projects.
 3. 📸 **Screen**: Take and analyze screenshots.

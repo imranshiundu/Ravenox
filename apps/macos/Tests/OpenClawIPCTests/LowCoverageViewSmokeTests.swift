@@ -1,9 +1,9 @@
 import AppKit
-import OpenClawProtocol
+import RavenoxProtocol
 import SwiftUI
 import Testing
 
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite(.serialized)
 @MainActor

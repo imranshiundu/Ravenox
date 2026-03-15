@@ -1,12 +1,12 @@
 import Foundation
-import OpenClawKit
+import RavenoxKit
 import OSLog
 
 @MainActor
 final class MacNodeModeCoordinator {
     static let shared = MacNodeModeCoordinator()
 
-    private let logger = Logger(subsystem: "ai.openclaw", category: "mac-node")
+    private let logger = Logger(subsystem: "ai.ravenox", category: "mac-node")
     private var task: Task<Void, Never>?
     private let runtime = MacNodeRuntime()
     private let session = GatewayNodeSession()
@@ -60,7 +60,7 @@ final class MacNodeModeCoordinator {
                     caps: caps,
                     commands: commands,
                     permissions: permissions,
-                    clientId: "openclaw-macos",
+                    clientId: .ravenox-macos",
                     clientMode: "node",
                     clientDisplayName: InstanceIdentity.displayName)
                 let sessionBox = self.buildSessionBox(url: config.url)
@@ -91,7 +91,7 @@ final class MacNodeModeCoordinator {
                             return BridgeInvokeResponse(
                                 id: req.id,
                                 ok: false,
-                                error: OpenClawNodeError(code: .unavailable, message: "UNAVAILABLE: node not ready"))
+                                error: RavenoxNodeError(code: .unavailable, message: "UNAVAILABLE: node not ready"))
                         }
                         return await self.runtime.handleInvoke(req)
                     })
@@ -107,13 +107,13 @@ final class MacNodeModeCoordinator {
     }
 
     private func currentCaps() -> [String] {
-        var caps: [String] = [OpenClawCapability.canvas.rawValue, OpenClawCapability.screen.rawValue]
+        var caps: [String] = [RavenoxCapability.canvas.rawValue, RavenoxCapability.screen.rawValue]
         if UserDefaults.standard.object(forKey: cameraEnabledKey) as? Bool ?? false {
-            caps.append(OpenClawCapability.camera.rawValue)
+            caps.append(RavenoxCapability.camera.rawValue)
         }
         let rawLocationMode = UserDefaults.standard.string(forKey: locationModeKey) ?? "off"
-        if OpenClawLocationMode(rawValue: rawLocationMode) != .off {
-            caps.append(OpenClawCapability.location.rawValue)
+        if RavenoxLocationMode(rawValue: rawLocationMode) != .off {
+            caps.append(RavenoxCapability.location.rawValue)
         }
         return caps
     }
@@ -125,30 +125,30 @@ final class MacNodeModeCoordinator {
 
     private func currentCommands(caps: [String]) -> [String] {
         var commands: [String] = [
-            OpenClawCanvasCommand.present.rawValue,
-            OpenClawCanvasCommand.hide.rawValue,
-            OpenClawCanvasCommand.navigate.rawValue,
-            OpenClawCanvasCommand.evalJS.rawValue,
-            OpenClawCanvasCommand.snapshot.rawValue,
-            OpenClawCanvasA2UICommand.push.rawValue,
-            OpenClawCanvasA2UICommand.pushJSONL.rawValue,
-            OpenClawCanvasA2UICommand.reset.rawValue,
+            RavenoxCanvasCommand.present.rawValue,
+            RavenoxCanvasCommand.hide.rawValue,
+            RavenoxCanvasCommand.navigate.rawValue,
+            RavenoxCanvasCommand.evalJS.rawValue,
+            RavenoxCanvasCommand.snapshot.rawValue,
+            RavenoxCanvasA2UICommand.push.rawValue,
+            RavenoxCanvasA2UICommand.pushJSONL.rawValue,
+            RavenoxCanvasA2UICommand.reset.rawValue,
             MacNodeScreenCommand.record.rawValue,
-            OpenClawSystemCommand.notify.rawValue,
-            OpenClawSystemCommand.which.rawValue,
-            OpenClawSystemCommand.run.rawValue,
-            OpenClawSystemCommand.execApprovalsGet.rawValue,
-            OpenClawSystemCommand.execApprovalsSet.rawValue,
+            RavenoxSystemCommand.notify.rawValue,
+            RavenoxSystemCommand.which.rawValue,
+            RavenoxSystemCommand.run.rawValue,
+            RavenoxSystemCommand.execApprovalsGet.rawValue,
+            RavenoxSystemCommand.execApprovalsSet.rawValue,
         ]
 
         let capsSet = Set(caps)
-        if capsSet.contains(OpenClawCapability.camera.rawValue) {
-            commands.append(OpenClawCameraCommand.list.rawValue)
-            commands.append(OpenClawCameraCommand.snap.rawValue)
-            commands.append(OpenClawCameraCommand.clip.rawValue)
+        if capsSet.contains(RavenoxCapability.camera.rawValue) {
+            commands.append(RavenoxCameraCommand.list.rawValue)
+            commands.append(RavenoxCameraCommand.snap.rawValue)
+            commands.append(RavenoxCameraCommand.clip.rawValue)
         }
-        if capsSet.contains(OpenClawCapability.location.rawValue) {
-            commands.append(OpenClawLocationCommand.get.rawValue)
+        if capsSet.contains(RavenoxCapability.location.rawValue) {
+            commands.append(RavenoxLocationCommand.get.rawValue)
         }
 
         return commands

@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite struct VoiceWakeOverlayTests {
     @Test func guardTokenDropsWhenNoActive() {

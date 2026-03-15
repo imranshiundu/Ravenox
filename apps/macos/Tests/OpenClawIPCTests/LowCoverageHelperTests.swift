@@ -1,13 +1,13 @@
 import AppKit
-import OpenClawProtocol
+import RavenoxProtocol
 import Foundation
 import Testing
 
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite(.serialized)
 struct LowCoverageHelperTests {
-    private typealias ProtoAnyCodable = OpenClawProtocol.AnyCodable
+    private typealias ProtoAnyCodable = RavenoxProtocol.AnyCodable
 
     @Test func anyCodableHelperAccessors() throws {
         let payload: [String: ProtoAnyCodable] = [

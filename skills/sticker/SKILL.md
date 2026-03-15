@@ -3,7 +3,7 @@ name: sticker
 description: Convert images and short videos into stickers for WhatsApp, Telegram, and Discord.
 metadata:
   {
-    "arthur":
+    .ravenox":
       {
         "emoji": "🎨",
         "requires": { "bins": ["ffmpeg", "convert"] },

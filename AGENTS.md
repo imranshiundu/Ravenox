@@ -240,4 +240,4 @@
 - Before tagging/publishing, run:
   - `node --import tsx scripts/release-check.ts`
   - `pnpm release:check`
-  - `pnpm test:install:smoke` or `OPENCLAW_INSTALL_SMOKE_SKIP_NONROOT=1 pnpm test:install:smoke` for non-root smoke path.
+  - `pnpm test:install:smoke` or `RAVENOX_INSTALL_SMOKE_SKIP_NONROOT=1 pnpm test:install:smoke` for non-root smoke path.

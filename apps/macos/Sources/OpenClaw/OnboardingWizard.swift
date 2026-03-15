@@ -1,18 +1,18 @@
 import Foundation
 import Observation
-import OpenClawKit
-import OpenClawProtocol
+import RavenoxKit
+import RavenoxProtocol
 import OSLog
 import SwiftUI
 
-private let onboardingWizardLogger = Logger(subsystem: "ai.openclaw", category: "onboarding.wizard")
+private let onboardingWizardLogger = Logger(subsystem: "ai.ravenox", category: "onboarding.wizard")
 
 // MARK: - Swift 6 AnyCodable Bridging Helpers
 
-// Bridge between OpenClawProtocol.AnyCodable and the local module to avoid
+// Bridge between RavenoxProtocol.AnyCodable and the local module to avoid
 // Swift 6 strict concurrency type conflicts.
 
-private typealias ProtocolAnyCodable = OpenClawProtocol.AnyCodable
+private typealias ProtocolAnyCodable = RavenoxProtocol.AnyCodable
 
 private func bridgeToLocal(_ value: ProtocolAnyCodable) -> AnyCodable {
     if let data = try? JSONEncoder().encode(value),
@@ -192,7 +192,7 @@ final class OnboardingWizardModel {
     }
 
     private func shouldSkipWizard() -> Bool {
-        let root = OpenClawConfigFile.loadDict()
+        let root = RavenoxConfigFile.loadDict()
         if let wizard = root["wizard"] as? [String: Any], !wizard.isEmpty {
             return true
         }

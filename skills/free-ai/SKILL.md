@@ -3,7 +3,7 @@ name: free-ai
 description: Access AI intelligence without an OpenAI or Anthropic API key. Uses free community providers and scrapers to answer questions.
 metadata:
   {
-    "arthur":
+    .ravenox":
       {
         "emoji": "🧠",
         "requires": { "bins": ["curl"] },

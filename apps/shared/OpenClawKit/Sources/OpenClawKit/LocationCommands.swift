@@ -1,28 +1,28 @@
 import Foundation
 
-public enum OpenClawLocationCommand: String, Codable, Sendable {
+public enum RavenoxLocationCommand: String, Codable, Sendable {
     case get = "location.get"
 }
 
-public enum OpenClawLocationAccuracy: String, Codable, Sendable {
+public enum RavenoxLocationAccuracy: String, Codable, Sendable {
     case coarse
     case balanced
     case precise
 }
 
-public struct OpenClawLocationGetParams: Codable, Sendable, Equatable {
+public struct RavenoxLocationGetParams: Codable, Sendable, Equatable {
     public var timeoutMs: Int?
     public var maxAgeMs: Int?
-    public var desiredAccuracy: OpenClawLocationAccuracy?
+    public var desiredAccuracy: RavenoxLocationAccuracy?
 
-    public init(timeoutMs: Int? = nil, maxAgeMs: Int? = nil, desiredAccuracy: OpenClawLocationAccuracy? = nil) {
+    public init(timeoutMs: Int? = nil, maxAgeMs: Int? = nil, desiredAccuracy: RavenoxLocationAccuracy? = nil) {
         self.timeoutMs = timeoutMs
         self.maxAgeMs = maxAgeMs
         self.desiredAccuracy = desiredAccuracy
     }
 }
 
-public struct OpenClawLocationPayload: Codable, Sendable, Equatable {
+public struct RavenoxLocationPayload: Codable, Sendable, Equatable {
     public var lat: Double
     public var lon: Double
     public var accuracyMeters: Double

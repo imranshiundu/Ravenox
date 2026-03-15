@@ -1,4 +1,4 @@
-import OpenClawProtocol
+import RavenoxProtocol
 import SwiftUI
 
 extension ChannelsSettings {

@@ -1,9 +1,9 @@
 ---
 name: titan
-description: The "Freight Train" engine for Agent Aurthur. Provides long-term memory, advanced web research, and local machine control.
+description: The "Freight Train" engine for Ravenox. Provides long-term memory, advanced web research, and local machine control.
 metadata:
   {
-    "openclaw":
+    "ravenox":
       {
         "emoji": "🦾",
         "requires": { "bins": ["python3", "pip3"] },
@@ -13,7 +13,7 @@ metadata:
 
 # Titan Bridge (High Autonomy Engine)
 
-This skill bridges Agent Aurthur to the Python-based Titan tools. It enables the "Freight Train" mode when high-level engineering or personal context is needed.
+This skill bridges Ravenox to the Python-based Titan tools. It enables the "Freight Train" mode when high-level engineering or personal context is needed.
 
 ## Features
 

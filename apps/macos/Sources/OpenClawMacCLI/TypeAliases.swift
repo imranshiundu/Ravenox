@@ -1,5 +1,5 @@
-import OpenClawKit
-import OpenClawProtocol
+import RavenoxKit
+import RavenoxProtocol
 
-typealias ProtoAnyCodable = OpenClawProtocol.AnyCodable
-typealias KitAnyCodable = OpenClawKit.AnyCodable
+typealias ProtoAnyCodable = RavenoxProtocol.AnyCodable
+typealias KitAnyCodable = RavenoxKit.AnyCodable

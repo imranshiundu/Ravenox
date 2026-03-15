@@ -3,7 +3,7 @@ name: sherpa-onnx-tts
 description: Local text-to-speech via sherpa-onnx (offline, no cloud)
 metadata:
   {
-    "arthur":
+    .ravenox":
       {
         "emoji": "🗣️",
         "os": ["darwin", "linux", "win32"],
@@ -63,10 +63,10 @@ Local TTS using the sherpa-onnx offline CLI.
 
 ## Install
 
-1. Download the runtime for your OS (extracts into `~/.arthur/tools/sherpa-onnx-tts/runtime`)
-2. Download a voice model (extracts into `~/.arthur/tools/sherpa-onnx-tts/models`)
+1. Download the runtime for your OS (extracts into `~/.ravenox/tools/sherpa-onnx-tts/runtime`)
+2. Download a voice model (extracts into `~/.ravenox/tools/sherpa-onnx-tts/models`)
 
-Update `~/.arthur/arthur.json`:
+Update `~/.ravenox.ravenox.json`:
 
 ```json5
 {
@@ -74,8 +74,8 @@ Update `~/.arthur/arthur.json`:
     entries: {
       "sherpa-onnx-tts": {
         env: {
-          SHERPA_ONNX_RUNTIME_DIR: "~/.arthur/tools/sherpa-onnx-tts/runtime",
-          SHERPA_ONNX_MODEL_DIR: "~/.arthur/tools/sherpa-onnx-tts/models/vits-piper-en_US-lessac-high",
+          SHERPA_ONNX_RUNTIME_DIR: "~/.ravenox/tools/sherpa-onnx-tts/runtime",
+          SHERPA_ONNX_MODEL_DIR: "~/.ravenox/tools/sherpa-onnx-tts/models/vits-piper-en_US-lessac-high",
         },
       },
     },

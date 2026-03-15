@@ -1,7 +1,7 @@
-import OpenClawDiscovery
+import RavenoxDiscovery
 import SwiftUI
 import Testing
-@testable import OpenClaw
+@testable import Ravenox
 
 @Suite(.serialized)
 @MainActor
