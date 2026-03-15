@@ -1,14 +1,14 @@
 {
   "name": "ravenox",
-  "version": "2026.2.18",
-  "description": "Ravenox: Multi-channel AI gateway with extensible messaging integrations",
-  "keywords": [],
+  "version": "1.0.5",
+  "description": "Ravenox: The Sovereign Intelligence System. High-autonomy personal AI distribution.",
+  "keywords": ["ai", "assistant", "whatsapp", "telegram", "automation", "ghost-mode"],
   "homepage": "https://github.com/imranshiundu/Ravenox#readme",
   "bugs": {
     "url": "https://github.com/imranshiundu/Ravenox/issues"
   },
   "license": "MIT",
-  "author": "",
+  "author": "Imran Shiundu",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imranshiundu/Ravenox.git"
