@@ -3,20 +3,20 @@
 Achieve a sub-200ms wake-up time with zero idle CPU burn by converting Ravenox into a "Ghost."
 
 ## 1. Webhooks: The Doorbell vs. The Paranoia
-Polling is "Paranoia"—constantly asking the server for updates. Webhooks are the "Doorbell"—Arthur sleeps until a message hits the server.
+Polling is "Paranoia"—constantly asking the server for updates. Webhooks are the "Doorbell"—Ravenox sleeps until a message hits the server.
 
 - **Polled (Default)**: 1-2s delay, constant CPU/RAM burn.
 - **Webhook (Ghost Mode)**: Sub-10ms server reaction, 0% idle CPU.
 
 ### Deployment Options:
-- **Cloudflare Workers (True Sleep)**: Sub-5ms boot. Arthur only exists during the request.
+- **Cloudflare Workers (True Sleep)**: Sub-5ms boot. Ravenox only exists during the request.
 - **Local Express Listener (Idle Listener)**: Suspended in RAM until network I/O wakes it.
 
 ## 2. Dodging the .jsonl Trap (Context Compression)
-Waking up in 10ms doesn't matter if Arthur takes 10 seconds to read a massive session log.
+Waking up in 10ms doesn't matter if Ravenox takes 10 seconds to read a massive session log.
 
 ### The Fix: Sliding Window & Summarization
-- **Hard Cap**: Force Arthur to only send the **last 5 raw messages** to the LLM.
+- **Hard Cap**: Force Ravenox to only send the **last 5 raw messages** to the LLM.
 - **State Compression**: Use **Gemini 1.5 Flash** to summarize older history into a single, dense "State" paragraph.
 - **Result**: Tiny (200-token) payloads = lightning-fast LLM generation.
 

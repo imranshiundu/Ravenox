@@ -7,7 +7,7 @@
 **Ravenox** is a state-of-the-art, high-autonomy personal AI assistant designed to run on your own hardware. It is built for absolute speed, total privacy, and sovereign control. It is a performance-tuned superset of the OpenClaw codebase.
 
 > [!NOTE]
-> **Lineage Credit**: Ravenox is a performance-tuned distribution of [OpenClaw](https://github.com/arthur/arthur). We acknowledge and credit the OpenClaw team for the foundational code. Ravenox maintains **100% feature parity** with OpenClaw—you lose nothing while gaining everything.
+> **Lineage Credit**: Ravenox is a performance-tuned distribution of [OpenClaw](https://github.com/ravenox/ravenox). We acknowledge and credit the OpenClaw team for the foundational code. Ravenox maintains **100% feature parity** with OpenClaw—you lose nothing while gaining everything.
 
 ## 🌟 The "Ghost" Architecture
 Ravenox isn't just a bot; it's a **Ghost**. It lives on your devices, consumes **zero resources** when idle, and wakes up in **under 200ms** to serve your needs. 
