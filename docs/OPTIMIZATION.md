@@ -1,6 +1,6 @@
-# 👻 Agent Aurthur: The Architectural Diet (Ghost Mode)
+# 👻 Ravenox: The Architectural Diet (Ghost Mode)
 
-Achieve a sub-200ms wake-up time with zero idle CPU burn by converting Agent Aurthur into a "Ghost."
+Achieve a sub-200ms wake-up time with zero idle CPU burn by converting Ravenox into a "Ghost."
 
 ## 1. Webhooks: The Doorbell vs. The Paranoia
 Polling is "Paranoia"—constantly asking the server for updates. Webhooks are the "Doorbell"—Arthur sleeps until a message hits the server.
@@ -25,13 +25,13 @@ The following modules are "Heavy" and should be pruned for Pi Zero or Microcontr
 
 | Component | Resource Usage | Optimization Path |
 | :--- | :--- | :--- |
-| **Playwright/Chromium** | ~150MB RAM | Use `ARTHUR_LIGHT_MODE=1` to disable browser. |
+| **Playwright/Chromium** | ~150MB RAM | Use `RAVENOX_LIGHT_MODE=1` to disable browser. |
 | **Sharp** | ~20MB RAM | Prune `skills/vision` if not doing image editing. |
 | **Python tools/** | ~30MB RAM | Use native JS replacements for simple tasks. |
 | **FFmpeg** | High CPU Burst | Use external APIs for media compression. |
 
 ## 4. Configuration
-Edit your `arthur.json`:
+Edit your `ravenox.json`:
 ```json
 {
   "agent": {

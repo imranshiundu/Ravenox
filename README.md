@@ -1,81 +1,87 @@
-# Agent Aurthur 🤖🚀
+<p align="center">
+  <img src="assets/logo.png" width="300" alt="Ravenox Logo">
+</p>
 
-**Agent Aurthur** is a state-of-the-art, high-autonomy personal AI assistant designed to run on your own hardware. It is built for absolute speed, total privacy, and sovereign control. It is a performance-tuned superset of the OpenClaw codebase.
+# Ravenox 🐦‍⬛🚀
+
+**Ravenox** is a state-of-the-art, high-autonomy personal AI assistant designed to run on your own hardware. It is built for absolute speed, total privacy, and sovereign control. It is a performance-tuned superset of the OpenClaw codebase.
 
 > [!NOTE]
-> **Lineage Credit**: Agent Aurthur is a performance-tuned distribution of [OpenClaw](https://github.com/arthur/arthur). We acknowledge and credit the OpenClaw team for the foundational code. Agent Aurthur maintains **100% feature parity** with OpenClaw—you lose nothing while gaining everything.
+> **Lineage Credit**: Ravenox is a performance-tuned distribution of [OpenClaw](https://github.com/arthur/arthur). We acknowledge and credit the OpenClaw team for the foundational code. Ravenox maintains **100% feature parity** with OpenClaw—you lose nothing while gaining everything.
 
-## 📊 Specification & Efficiency Comparison
+## 🌟 The "Ghost" Architecture
+Ravenox isn't just a bot; it's a **Ghost**. It lives on your devices, consumes **zero resources** when idle, and wakes up in **under 200ms** to serve your needs. 
 
-Agent Aurthur is engineered to be a "Ghost"—consuming zero resources when idle and responding in under 200ms.
+- **Sub-200ms Wake-up**: Lightning-fast reactions via Webhook "Doorbell" triggers.
+- **Zero Idle CPU**: No polling, no constant battery drain.
+- **Micro-Hardware Ready**: Optimized to run on a **$5 Raspberry Pi Zero** or **ESP32** (via MimiClaw).
 
-| Feature | OpenClaw (Standard) | Agent Aurthur (Ghost Mode) |
-| :--- | :--- | :--- |
-| **Idle CPU Usage** | 2% - 5% (Constant Polling) | **0% (Webhook Triggered)** |
-| **Idle RAM Usage** | ~250MB - 400MB | **<128MB (with `LIGHT_MODE=1`)** |
-| **Response Latency** | 2s - 10s (Polling + Context Bloat) | **<200ms (Webhook + Compaction)** |
-| **Hardware Support** | VPS, PC, Mac | **ESP32, Pi Zero, Cloudflare Workers** |
-| **Memory Persistence** | Session-based (Short-term) | **Permanent Fact Graph (Mem0)** |
-| **Web Research** | Headless Browser (Heavy) | **Tavily AI Proxy (Instant/Light)** |
+## 🟢 WhatsApp Automation (Raven Edition)
+Ravenox treats WhatsApp as a first-class control surface. You don't just chat; you command.
 
----
+### 📜 Available Categories
+1. **AI MENU**
+2. **AUDIO MENU**
+3. **DOWNLOAD MENU**
+4. **EPHOTO360 MENU**
+5. **FUN MENU**
+6. **GROUP MENU**
+7. **IMAGE MENU**
+8. **MULTISESSION MENU**
+9. **OTHER MENU**
+10. **OWNER MENU**
+11. **RELIGION MENU**
+12. **SEARCH MENU**
+13. **SETTINGS MENU**
+14. **SPORTS MENU**
+15. **SUPPORT MENU**
+16. **TOOLS MENU**
+17. **VIDEO MENU**
 
-## 🟢 WhatsApp & Messaging Intelligence
-Agent Aurthur treats messaging apps (WhatsApp, Telegram, Slack) as first-class control surfaces. 
+### 📂 Settings Commands
+Command Prefix: `.` (e.g., `.mode`)
 
-- **Ghost Wake-up**: Replaces the latency-heavy "polling" loop with instant **Webhooks**. Aurthur sleeps until a message arrives, waking up in under 10ms.
-- **Remote Task Execution**: Trigger complex workflows on your PC via simple messages.
-- **Media Support**: Send images or voice notes for Aurthur to analyze using his Vision and Audio pipelines.
-
-## 🛠 Zero-API / Offline Mode (Deterministic Commands)
-One of Aurthur's most powerful features is the ability to operate **without an AI API key**. Using deterministic command routing, you can control your machine even when offline or tokens are exhausted.
-
-- **Fast Commands**: Use `/` prefixed messages to bypass the LLM entirely for known tasks.
-- **Direct Control**: Aurthur detects commands like `/play`, `/status`, `/lock`, or `/search` and executes them locally using shell scripts or Python tools, saving you money and time.
-
-## 🪐 SPACE-MD Capabilities (Structural Precision)
-Integrated from the **SPACE-MD** (CypherX) project, Aurthur uses high-autonomy structural maps to navigate your codebase without wasting tokens.
-
-- **Zero-Token Navigation**: Uses `SPACE.md` and `STRUCTURE.txt` to give the AI a static blueprint of your project. No more expensive directory recursive listings.
-- **Context Compaction**: Aurthur dodges the ".jsonl trap" by summarizing your history into a dense "State" paragraph, keeping payloads tiny and responses instant.
+| Command | Action |
+| :--- | :--- |
+| `.mode` | Switch Ravenox operation modes. |
+| `.setprefix` | Customize the command prefix. |
+| `.addsudo` | Add a sudo user for advanced permissions. |
+| `.alwaysonline` | Toggle "Always Online" presence. |
+| `.anticall` | Automatically block incoming calls. |
+| `.antidelete` | Prevent message deletion. |
+| `.chatbot` | Toggle AI chat capabilities. |
+| `.setbotname` | Rename your Ravenox instance. |
+| `.getsettings` | View current configuration. |
 
 ## 🚀 Titan Hybrid Capabilities
-- **Mem0 (Long-Term Memory)**: A persistent memory graph that tracks your preferences across months, not just minutes.
-- **Tavily AI Search**: AI-optimized web research that returns clean Markdown instead of heavy HTML.
-- **PyAutoGUI Vision**: Grant Aurthur "eyes" to see your screen and "hands" to click and type in any application.
+- **Mem0 (Long-Term Memory)**: Ravenox builds a persistent memory graph of your preferences and projects.
+- **Tavily AI Search**: Real-time, research-grade web searching without the bloat.
+- **PyAutoGUI Vision**: Grant Ravenox eyes and hands to automate any desktop app.
+- **Context Compaction**: Dodges the ".jsonl trap" by summarizing history into a dense "State" paragraph.
 
 ## ⌨️ Command Guide
-### Messaging Interface
 | Command | Description |
 | :--- | :--- |
-| `/menu` | Display a structured list of Aurthur's skills. |
-| `/status` | Check system health and resource consumption. |
-| `/search <query>` | Instant AI-ready web research via Tavily. |
-| `/remember <fact>` | Save a fact to long-term memory (Mem0). |
-| `/vision` | Screenshot the screen and analyze the current view. |
-
-### CLI Interface
-| Command | Description |
-| :--- | :--- |
-| `arthur onboard` | Launch the setup wizard. |
-| `arthur gateway run` | Start the dormant control plane. |
-| `arthur tui` | Open the terminal-based UI dashboard. |
+| `.menu` | Display the structured Ravenox interactive menu. |
+| `/status` | Check system health and connection status. |
+| `/search` | Perform an AI-optimized web search. |
+| `/remember` | Manually add a fact to long-term memory. |
 
 ## 📦 Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/imranshiundu/Agent-Aurther.git
+git clone https://github.com/imranshiundu/Ravenox.git
 
 # Install dependencies
 pnpm install
 
 # Run the onboarding wizard
-arthur onboard
+ravenox onboard
 ```
 
 ## 👥 Maintenance
 Maintained with passion by **Imran Shiundu (Lead Architect)**.
 
 ---
-*Elevate your digital reality with Agent Aurthur.*
+*Elevate your digital reality with Ravenox.*

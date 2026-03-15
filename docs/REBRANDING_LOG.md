@@ -1,17 +1,17 @@
-# Agent Aurthur Implementation & Rebranding Log
+# Ravenox Implementation & Rebranding Log
 
-This document tracks the comprehensive transformation of the project from **OpenClaw** to **Agent Aurthur**, integrating high-autonomy tools and the **SPACE-MD** structural principles.
+This document tracks the comprehensive transformation of the project from **OpenClaw** to **Ravenox**, integrating high-autonomy tools and the **SPACE-MD** structural principles.
 
 ## 📅 Project Timeline: March 15, 2026
 
 ### 1. Rebranding Phase
-- **Global Search & Replace**: Successfully replaced all occurrences of `OpenClaw` with `Agent Aurthur` and `openclaw` with `arthur`.
-- **Entry Point Migration**: `openclaw.mjs` moved to `arthur.mjs`.
-- **CLI Updates**: Refined the CLI binary name to `arthur`. Updated `package.json` scripts (`dev`, `onboard`, `gateway`, etc.) to use the new command.
-- **Pathing**: Updated configuration and session storage defaults to `~/.arthur`.
+- **Global Search & Replace**: Successfully replaced all occurrences of `OpenClaw` with `Ravenox` and `openclaw` with `ravenox`.
+- **Entry Point Migration**: `openclaw.mjs` moved to `ravenox.mjs`.
+- **CLI Updates**: Refined the CLI binary name to `ravenox`. Updated `package.json` scripts (`dev`, `onboard`, `gateway`, etc.) to use the new command.
+- **Pathing**: Updated configuration and session storage defaults to `~/.ravenox`.
 
 ### 2. SPACE-MD Integration
-- **Legacy Port**: Moved the **SPACE-MD** (CypherX) codebase into `skills/arthur-core`.
+- **Legacy Port**: Moved the **SPACE-MD** (CypherX) codebase into `skills/ravenox-core`.
 - **Structural Blueprint**: Created `SPACE.md` to define the "Dormant Hybrid Architecture" and "Zero-Token Navigation."
 - **Context Optimization**: Generated `STRUCTURE.txt` to provide a static file map, reducing LLM token spend on directory listing.
 
@@ -31,12 +31,12 @@ Implemented a modular Python-based tool suite in `/tools` to offload heavy tasks
 
 ### 5. Task Menu & Local Control
 - **Manual Control**: Added the capability for "No-Automation" tasks like opening applications (Spotify, Editor) using local shell commands or `pyautogui`.
-- **TUI Integration**: Aligned the `arthur tui` logic to support a menu-driven interface similar to the SPACE-MD bot.
+- **TUI Integration**: Aligned the `ravenox tui` logic to support a menu-driven interface similar to the SPACE-MD bot.
 
 ### 6. Architectural Diet & Optimization
 - **The .git Purge**: Prepared strategy for `git gc --aggressive` to shrink repo bloat from 211MB.
 - **Heavy Bloat Audit**: Identified `playwright`, `sharp`, and `python` tools as primary RAM hogs.
-- **ARTHUR_LIGHT_MODE**: Implemented environment-level pruning to skip heavy module initialization.
+- **RAVENOX_LIGHT_MODE**: Implemented environment-level pruning to skip heavy module initialization.
 
 ### 7. Ghost Architecture (Performance Tuning)
 - **Sub-200ms Wake-up**: Documented the "Doorbell" Webhook architecture to replace the latency-heavy polling loop.
@@ -46,12 +46,18 @@ Implemented a modular Python-based tool suite in `/tools` to offload heavy tasks
 
 ### 8. Documentation Overhaul
 - **CONTRIBUTING.md Refresh**: Completely rewritten to be brief and clearly state **Imran Shiundu** as the primary maintainer.
-- **README.md Rebirth**: Replaced legacy OpenClaw-style documentation with a high-impact, feature-focused Agent Aurthur landing page.
+- **README.md Rebirth**: Replaced legacy OpenClaw-style documentation with a high-impact, feature-focused Ravenox landing page.
 - **Lineage Preservation**: Maintained explicit credit to **OpenClaw** to acknowledge the foundational codebase.
 
+### 9. Ravenox Rebirth
+- **Final Rebrand**: Transitioned from Agent Aurthur to **Ravenox** following the core "Space-MD" evolution.
+- **Visual Identity**: Integrated the high-tech Blue Raven logo and updated the repo headers.
+- **WhatsApp Skill parity**: Documented the full categorical menu system and setting commands (e.g., `.mode`, `.chatbot`, `.anticall`) from the original Ravenox spec.
+- **Entry Point Update**: `ravenox.mjs` established as the primary boot-loader.
+
 ## 🚀 Deployment
-- **Repository**: Code pushed to `https://github.com/imranshiundu/Agent-Aurther.git`.
-- **Verification**: Verified intent resolution for local commands and `ARTHUR_LIGHT_MODE` precedence.
+- **Repository**: Prepared for migration to `https://github.com/imranshiundu/Ravenox.git`.
+- **Status**: Ghost Mode + Titan Tools + Ravenox Menu fully integrated.
 
 ---
-*Documented by Agent Aurthur System Agent (Verified by Lead Architect)*
+*Documented by Ravenox System Agent (Verified by Lead Architect)*

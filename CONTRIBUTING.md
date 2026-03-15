@@ -1,4 +1,4 @@
-# Contributing to Agent Aurthur
+# Contributing to Ravenox
 
 This project is primarily maintained and directed by **Imran Shiundu**.
 
@@ -16,4 +16,4 @@ This project is primarily maintained and directed by **Imran Shiundu**.
 For any questions or feedback, contact the Lead Architect via GitHub.
 
 ---
-*Agent Aurthur: Evolving personal intelligence.*
+*Ravenox: Evolving personal intelligence.*
