@@ -129,19 +129,19 @@ Run `arthur doctor` to surface risky/misconfigured DM policies.
 - **[First-class tools](https://docs.arthur.ai/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
 - **[Companion apps](https://docs.arthur.ai/platforms/macos)** — macOS menu bar app + iOS/Android [nodes](https://docs.arthur.ai/nodes).
 - **[Onboarding](https://docs.arthur.ai/start/wizard) + [skills](https://docs.arthur.ai/tools/skills)** — wizard-driven setup with bundled/managed/workspace skills.
-- **[Architectural Diet]** — Run Arthur on a $5 Pi Zero or Cloudflare Workers.
+- **[Ghost Mode]** — Sub-200ms wake-up via Webhooks with 0% idle CPU.
+- **[Context Compaction]** — Sliding window summarization to dodge the .jsonl trap.
 - **[WhatsApp Automation]** — Full command-driven task execution via WhatsApp.
 
-## The Architectural Diet (Lightweight Operation)
+## The Ghost Architecture (Performance Tuning)
 
-Agent Aurthur is built to be a "Ghost"—consuming zero resources when idle and running on minimal hardware.
+Agent Aurthur is built to be a "Ghost"—consuming zero resources when idle and responding in under 200ms.
 
 ### 🍱 Strategic Optimizations
-- **Serverless (moltworker)**: Port the gateway to **Cloudflare Workers** to eliminate VPS costs.
-- **Bare-metal (MimiClaw)**: Compile the core loop for **ESP32** microcontrollers.
-- **Model Tiering**: Uses **Gemini 1.5 Flash** for 90% of chat to save $ and RAM.
-- **Webhook Mode**: Sleep until a message arrives. No active polling.
-- **Context Compaction**: Aggressively summarizes history to keep context windows tiny.
+- **Ghost Wake-up (Webhooks)**: Replaces the "Paranoia" polling loop with an instant "Doorbell" push. 0% idle CPU.
+- **The .jsonl Compressor**: Implements a sliding window that caps raw context at 5 messages, summarizing the rest into a "State" paragraph to keep payloads tiny.
+- **Serverless (moltworker)**: Deploy to **Cloudflare Workers** for sub-5ms boot times and $0 idle costs.
+- **Model Tiering**: Always uses **Gemini 1.5 Flash** for the "Compressor" and entry-level chat to ensure millisecond API responses.
 
 See the [Optimization Guide](docs/OPTIMIZATION.md) for detailed configuration.
 

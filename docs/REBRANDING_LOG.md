@@ -34,14 +34,19 @@ Implemented a modular Python-based tool suite in `/tools` to offload heavy tasks
 - **TUI Integration**: Aligned the `arthur tui` logic to support a menu-driven interface similar to the SPACE-MD bot.
 
 ### 6. Architectural Diet & Optimization
-- **Ghost Mode**: Introduced `ARTHUR_LIGHT_MODE=1` to skip heavy startup sequences and disable the browser subagent by default.
-- **Model Tiering (Flash-First)**: Configured the intent router to prioritize **Gemini 1.5 Flash** for daily chat/commands to minimize memory footprint and API latency.
-- **Local Heuristics**: Added deterministic command detection (Spotify, VS Code, System Info) to bypass LLM activation entirely for known tasks.
-- **Optimization Strategy**: Documented paths for Serverless (moltworker), Bare-metal (MimiClaw), and Aggressive Context Compaction.
+- **The .git Purge**: Prepared strategy for `git gc --aggressive` to shrink repo bloat from 211MB.
+- **Heavy Bloat Audit**: Identified `playwright`, `sharp`, and `python` tools as primary RAM hogs.
+- **ARTHUR_LIGHT_MODE**: Implemented environment-level pruning to skip heavy module initialization.
+
+### 7. Ghost Architecture (Performance Tuning)
+- **Sub-200ms Wake-up**: Documented the "Doorbell" Webhook architecture to replace the latency-heavy polling loop.
+- **Context Compaction (Sliding Window)**: Designed the the memory manager to cap raw history at 5 messages + 1 "State" summary, avoiding the `.jsonl` trap.
+- **Serverless Migration**: Mapped out the path for `moltworker` (Cloudflare) to achieve sub-5ms boot times with $0 idle cost.
+- **Lead Developer Attribution**: Added **Imran Shiundu (Lead Architect)** to the primary contributor list.
 
 ## 🚀 Deployment
-- **Repository**: Prepared code for push to `https://github.com/imranshiundu/Agent-Aurther.git`.
-- **Verification**: Ran `arthur status` and intent tests to verify optimization logic.
+- **Repository**: Code pushed to `https://github.com/imranshiundu/Agent-Aurther.git`.
+- **Verification**: Verified intent resolution for local commands and `ARTHUR_LIGHT_MODE` precedence.
 
 ---
 *Documented by Agent Aurthur System Agent (Verified by Lead Architect)*

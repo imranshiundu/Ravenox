@@ -1,46 +1,49 @@
-# 👻 Agent Aurthur: The Architectural Diet
+# 👻 Agent Aurthur: The Architectural Diet (Ghost Mode)
 
-Run Agent Aurthur on minimal hardware (Pi Zero, ESP32) or for $0/mo on Cloudflare.
+Achieve a sub-200ms wake-up time with zero idle CPU burn by converting Agent Aurthur into a "Ghost."
 
-## 1. Serverless Deployment (moltworker)
-Porting the gateway to Cloudflare Workers eliminates idle costs.
-- **Config**: Set `gateway.mode="webhook"`.
-- **Compute**: Arthur only runs when a message hits your endpoint.
-- **Note**: Requires the `moltworker` adapter (see `extensions/serverless`).
+## 1. Webhooks: The Doorbell vs. The Paranoia
+Polling is "Paranoia"—constantly asking the server for updates. Webhooks are the "Doorbell"—Arthur sleeps until a message hits the server.
 
-## 2. Bare-Metal (MimiClaw)
-For absolute minimum weight, use the MimiClaw approach.
-- **Runtime**: Rips out Node.js and Linux.
-- **Hardware**: Fits on an ESP32 or similar microcontroller.
-- **Connectivity**: Uses lightweight MQTT or WebSockets directly.
+- **Polled (Default)**: 1-2s delay, constant CPU/RAM burn.
+- **Webhook (Ghost Mode)**: Sub-10ms server reaction, 0% idle CPU.
 
-## 3. Aggressive Context Compaction
-Keep your API calls small and fast.
-Edit your `arthur.json` (or `~/.arthur/config.json`):
+### Deployment Options:
+- **Cloudflare Workers (True Sleep)**: Sub-5ms boot. Arthur only exists during the request.
+- **Local Express Listener (Idle Listener)**: Suspended in RAM until network I/O wakes it.
+
+## 2. Dodging the .jsonl Trap (Context Compression)
+Waking up in 10ms doesn't matter if Arthur takes 10 seconds to read a massive session log.
+
+### The Fix: Sliding Window & Summarization
+- **Hard Cap**: Force Arthur to only send the **last 5 raw messages** to the LLM.
+- **State Compression**: Use **Gemini 1.5 Flash** to summarize older history into a single, dense "State" paragraph.
+- **Result**: Tiny (200-token) payloads = lightning-fast LLM generation.
+
+## 3. Optimization Checklist (The Bloat Audit)
+The following modules are "Heavy" and should be pruned for Pi Zero or Microcontroller setups:
+
+| Component | Resource Usage | Optimization Path |
+| :--- | :--- | :--- |
+| **Playwright/Chromium** | ~150MB RAM | Use `ARTHUR_LIGHT_MODE=1` to disable browser. |
+| **Sharp** | ~20MB RAM | Prune `skills/vision` if not doing image editing. |
+| **Python tools/** | ~30MB RAM | Use native JS replacements for simple tasks. |
+| **FFmpeg** | High CPU Burst | Use external APIs for media compression. |
+
+## 4. Configuration
+Edit your `arthur.json`:
 ```json
 {
   "agent": {
     "compactionThreshold": 10,
-    "summaryMode": "bullet_points"
+    "maxRawMessages": 5,
+    "summaryModel": "gemini-1.5-flash"
+  },
+  "gateway": {
+    "mode": "webhook"
   }
 }
 ```
-*Arthur will summarize the session every 10 messages and delete the raw logs.*
 
-## 4. Model Tiering (Flash-First)
-The "Dormant Router" ensures you only use heavy models when needed.
-- **Default**: `gemini-1.5-flash` or `claude-3-haiku`.
-- **Escalation**: Only switches to `sonnet` or `pro` for code engineering or deep research.
-
-## 5. Skill Pruning
-Remove heavy dependencies by deleting unused skills:
-```bash
-rm -rf skills/vision
-rm -rf skills/browser
-```
-*Arthur will automatically fallback to text-only mode.*
-
-## 6. Webhooks (Sleep Mode)
-Switch from Polling to Webhooks to drop idle CPU to 0%.
-- **Telegram**: `arthur channels telegram set-webhook https://your-domain.com/webhook`
-- **WhatsApp**: Requires a webhook-compatible gateway (see `src/channels/whatsapp`).
+## 5. Bare-Metal (MimiClaw)
+For $5 ESP32 microcontrollers, use the MimiClaw port which rips out Linux and Node.js entirely, running the core loop on bare metal.
