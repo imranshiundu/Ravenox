@@ -69,19 +69,41 @@ Ravenox is engineered for the "Architectural Diet"—running on everything from 
 
 ---
 
-## 📦 Quick Start
-
-### 1. Installation
-```bash
-# Clone the Ravenox distribution
-git clone https://github.com/imranshiundu/Ravenox.git
-
-# Install the high-performance dependencies
-pnpm install
-
-# Initialize the onboarding wizard
-ravenox onboard
+## 🏗️ System Architecture
+```mermaid
+graph TD
+    User([User]) -- "WhatsApp/Signal/Slack" --> Gateway[Ravenox Gateway]
+    Gateway -- "Intent Analysis" --> Router{Intent Router}
+    Router -- "Passive Command" --> Shell[Local Shell/Python Tools]
+    Router -- "Complex Task" --> Titan[Titan Suite - autonomous]
+    Titan -- "Long-term Memory" --> Mem0[(Mem0 Graph)]
+    Titan -- "Vision" --> Screen[Desktop Control]
+    Gateway -- "Doorbell trigger" --> Ghost[Ghost Wake-up <200ms]
+    Ghost -- "Suspends" --> P[0% Idle CPU]
 ```
+
+## 📦 Sovereign Installation
+
+The fastest way to get Ravenox running on your machine (Linux, macOS, or WSL):
+
+### ⚡ The One-Line Setup
+Run this command to automatically install dependencies, build the core, and launch the onboarding wizard:
+```bash
+curl -sSL https://raw.githubusercontent.com/imranshiundu/Ravenox/main/scripts/install.sh | bash
+```
+
+### 🛠️ Manual Installation
+If you prefer to perform the steps manually:
+```bash
+# 1. Clone the repository
+git clone https://github.com/imranshiundu/Ravenox.git && cd Ravenox
+
+# 2. Run the dedicated installer script
+./scripts/install.sh
+```
+
+> [!TIP]
+> **Ghost Mode Activation**: After installation, run `export RAVENOX_LIGHT_MODE=1` to minimize resource consumption on low-end hardware like the Raspberry Pi Zero.
 
 ### 2. Environment (Ghost Mode)
 To activate the absolute most lightweight mode, set the following in your `.env`:

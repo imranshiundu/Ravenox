@@ -7,7 +7,7 @@ const isLightMode = process.env.RAVENOX_LIGHT_MODE === "1" || process.env.RAVENO
 if (isLightMode) {
   process.env.OPENCLAW_DISABLE_BROWSER = "1";
   process.env.OPENCLAW_SKIP_CHANNELS_BOOT = "1";
-  console.log("👻 Agent Aurthur is running in LIGHT MODE (Diet)");
+  console.log("👻 Ravenox is running in LIGHT MODE (Diet)");
 }
 
 // https://nodejs.org/api/module.html#module-compile-cache
