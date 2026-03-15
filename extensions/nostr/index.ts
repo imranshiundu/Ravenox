@@ -1,5 +1,5 @@
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { nostrPlugin } from "./src/channel.js";
 import type { NostrProfile } from "./src/config-schema.js";
 import { createNostrProfileHttpHandler } from "./src/nostr-profile-http.js";

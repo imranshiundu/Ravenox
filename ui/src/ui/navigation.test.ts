@@ -121,7 +121,7 @@ describe("pathForTab", () => {
 
   it("prepends base path", () => {
     expect(pathForTab("chat", "/ui")).toBe("/ui/chat");
-    expect(pathForTab("sessions", "/apps.ravenox")).toBe("/apps.ravenox/sessions");
+    expect(pathForTab("sessions", "/apps.ravenox")).toBe("/apps"@ravenox/sessions");
   });
 });
 
@@ -138,7 +138,7 @@ describe("tabFromPath", () => {
 
   it("handles base paths", () => {
     expect(tabFromPath("/ui/chat", "/ui")).toBe("chat");
-    expect(tabFromPath("/apps.ravenox/sessions", "/apps.ravenox")).toBe("sessions");
+    expect(tabFromPath("/apps"@ravenox/sessions", "/apps.ravenox")).toBe("sessions");
   });
 
   it("returns null for unknown path", () => {
@@ -163,7 +163,7 @@ describe("inferBasePathFromPathname", () => {
 
   it("infers base path from nested paths", () => {
     expect(inferBasePathFromPathname("/ui/chat")).toBe("/ui");
-    expect(inferBasePathFromPathname("/apps.ravenox/sessions")).toBe("/apps.ravenox");
+    expect(inferBasePathFromPathname("/apps"@ravenox/sessions")).toBe("/apps.ravenox");
   });
 
   it("handles index.html suffix", () => {

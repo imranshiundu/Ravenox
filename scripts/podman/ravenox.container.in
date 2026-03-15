@@ -10,7 +10,7 @@ Image.ravenox:local
 ContainerName.ravenox
 UserNS=keep-id
 Volume={{RAVENOX_HOME}}/.ravenox:/home/node/.ravenox
-EnvironmentFile={{RAVENOX_HOME}}/.ravenox/.env
+EnvironmentFile={{RAVENOX_HOME}}/"@ravenox/.env
 Environment=HOME=/home/node
 Environment=TERM=xterm-256color
 PublishPort=18789:18789

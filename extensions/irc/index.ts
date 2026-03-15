@@ -1,5 +1,5 @@
-import type { ChannelPlugin, RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { ChannelPlugin, RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { ircPlugin } from "./src/channel.js";
 import { setIrcRuntime } from "./src/runtime.js";
 

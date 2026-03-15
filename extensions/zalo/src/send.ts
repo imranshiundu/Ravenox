@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import { resolveZaloAccount } from "./accounts.js";
 import type { ZaloFetch } from "./api.js";
 import { sendMessage, sendPhoto } from "./api.js";

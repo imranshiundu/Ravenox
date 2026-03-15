@@ -1,4 +1,4 @@
-import type { ChannelGroupContext } from .ravenox/plugin-sdk";
+import type { ChannelGroupContext } from "@ravenox/plugin-sdk";
 import { resolveMattermostAccount } from "./mattermost/accounts.js";
 
 export function resolveMattermostGroupRequireMention(

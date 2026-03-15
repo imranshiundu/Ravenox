@@ -1,5 +1,5 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
-import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from .ravenox/plugin-sdk/account-id";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
+import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from "@ravenox/plugin-sdk/account-id";
 import type { MattermostAccountConfig, MattermostChatMode } from "../types.js";
 import { normalizeMattermostBaseUrl } from "./client.js";
 

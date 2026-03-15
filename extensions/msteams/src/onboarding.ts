@@ -5,14 +5,14 @@ import type {
   DmPolicy,
   WizardPrompter,
   MSTeamsTeamConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   addWildcardAllowFrom,
   DEFAULT_ACCOUNT_ID,
   formatDocsLink,
   mergeAllowFromEntries,
   promptChannelAccessConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   parseMSTeamsTeamEntry,
   resolveMSTeamsChannelAllowlist,

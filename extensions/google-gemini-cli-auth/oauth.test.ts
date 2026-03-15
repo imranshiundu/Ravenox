@@ -1,7 +1,7 @@
 import { join, parse } from "node:path";
 import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
 
-vi.mock(.ravenox/plugin-sdk", () => ({
+vi.mock("@ravenox/plugin-sdk", () => ({
   isWSL2Sync: () => false,
 }));
 

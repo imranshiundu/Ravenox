@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/googlechat",
+  "name": "@ravenox/googlechat",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox Google Chat channel plugin",
@@ -8,12 +8,12 @@
     "google-auth-library": "^10.5.0"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
   "peerDependencies": {
-    .ravenox": ">=2026.1.26"
+    "@ravenox/plugin-sdk": ">=2026.1.26"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -32,7 +32,7 @@
       "order": 55
     },
     "install": {
-      "npmSpec": ".ravenox/googlechat",
+      "npmSpec": "@ravenox/googlechat",
       "localPath": "extensions/googlechat",
       "defaultChoice": "npm"
     }

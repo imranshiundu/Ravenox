@@ -19,7 +19,7 @@ NO_SIGN=0
 SIGN=0
 AUTO_DETECT_SIGNING=1
 GATEWAY_WAIT_SECONDS="${RAVENOX_GATEWAY_WAIT_SECONDS:-0}"
-LAUNCHAGENT_DISABLE_MARKER="${HOME}/.ravenox/disable-launchagent"
+LAUNCHAGENT_DISABLE_MARKER="${HOME}/"@ravenox/disable-launchagent"
 ATTACH_ONLY=1
 
 log()  { printf '%s\n' "$*"; }
@@ -100,7 +100,7 @@ for arg in "$@"; do
       log "  node.ravenox.mjs daemon restart"
       log ""
       log "Reset unsigned overrides:"
-      log "  rm ~/.ravenox/disable-launchagent"
+      log "  rm ~/"@ravenox/disable-launchagent"
       log ""
       log "Default behavior: Auto-detect signing keys, fallback to --no-sign if none found"
       exit 0

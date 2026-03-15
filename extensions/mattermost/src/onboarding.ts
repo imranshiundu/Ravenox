@@ -1,5 +1,5 @@
-import type { ChannelOnboardingAdapter, RavenoxConfig, WizardPrompter } from .ravenox/plugin-sdk";
-import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from .ravenox/plugin-sdk/account-id";
+import type { ChannelOnboardingAdapter, RavenoxConfig, WizardPrompter } from "@ravenox/plugin-sdk";
+import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from "@ravenox/plugin-sdk/account-id";
 import {
   listMattermostAccountIds,
   resolveDefaultMattermostAccountId,

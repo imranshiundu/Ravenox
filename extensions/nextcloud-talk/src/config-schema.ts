@@ -6,7 +6,7 @@ import {
   MarkdownConfigSchema,
   ToolPolicySchema,
   requireOpenAllowFrom,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { z } from "zod";
 
 export const NextcloudTalkRoomSchema = z

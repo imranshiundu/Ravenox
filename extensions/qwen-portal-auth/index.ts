@@ -2,7 +2,7 @@ import {
   emptyPluginConfigSchema,
   type RavenoxPluginApi,
   type ProviderAuthContext,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { loginQwenPortalOAuth } from "./oauth.js";
 
 const PROVIDER_ID = "qwen-portal";

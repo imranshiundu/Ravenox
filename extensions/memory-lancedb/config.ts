@@ -140,7 +140,7 @@ export const memoryConfigSchema = {
     },
     dbPath: {
       label: "Database Path",
-      placeholder: "~/.ravenox/memory/lancedb",
+      placeholder: "~/"@ravenox/memory/lancedb",
       advanced: true,
     },
     autoCapture: {

@@ -1,4 +1,4 @@
-import type { RavenoxConfig, PluginRuntime } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, PluginRuntime } from "@ravenox/plugin-sdk";
 import { describe, expect, it, vi } from "vitest";
 import { linePlugin } from "./channel.js";
 import { setLineRuntime } from "./runtime.js";

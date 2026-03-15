@@ -9,7 +9,7 @@ import {
   type LineConfig,
   type LineChannelData,
   type ResolvedLineAccount,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { getLineRuntime } from "./runtime.js";
 
 // LINE channel metadata

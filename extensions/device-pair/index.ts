@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import os from "node:os";
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { approveDevicePairing, listDevicePairing } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { approveDevicePairing, listDevicePairing } from "@ravenox/plugin-sdk";
 import qrcode from "qrcode-terminal";
 
 function renderQrAscii(data: string): Promise<string> {

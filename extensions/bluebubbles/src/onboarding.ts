@@ -4,7 +4,7 @@ import type {
   RavenoxConfig,
   DmPolicy,
   WizardPrompter,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   DEFAULT_ACCOUNT_ID,
   addWildcardAllowFrom,
@@ -12,7 +12,7 @@ import {
   mergeAllowFromEntries,
   normalizeAccountId,
   promptAccountId,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listBlueBubblesAccountIds,
   resolveBlueBubblesAccount,

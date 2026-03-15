@@ -33,22 +33,22 @@ describe("control UI routing", () => {
   });
 
   it("infers nested base paths", async () => {
-    const app = mountApp("/apps.ravenox/cron");
+    const app = mountApp("/apps"@ravenox/cron");
     await app.updateComplete;
 
     expect(app.basePath).toBe("/apps.ravenox");
     expect(app.tab).toBe("cron");
-    expect(window.location.pathname).toBe("/apps.ravenox/cron");
+    expect(window.location.pathname).toBe("/apps"@ravenox/cron");
   });
 
   it("honors explicit base path overrides", async () => {
     window.__RAVENOX_CONTROL_UI_BASE_PATH__ = ".ravenox";
-    const app = mountApp(".ravenox/sessions");
+    const app = mountApp(""@ravenox/sessions");
     await app.updateComplete;
 
     expect(app.basePath).toBe(".ravenox");
     expect(app.tab).toBe("sessions");
-    expect(window.location.pathname).toBe(".ravenox/sessions");
+    expect(window.location.pathname).toBe(""@ravenox/sessions");
   });
 
   it("updates the URL when clicking nav items", async () => {

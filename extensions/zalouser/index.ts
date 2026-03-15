@@ -1,5 +1,5 @@
-import type { AnyAgentTool, RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { AnyAgentTool, RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { zalouserDock, zalouserPlugin } from "./src/channel.js";
 import { setZalouserRuntime } from "./src/runtime.js";
 import { ZalouserToolSchema, executeZalouserTool } from "./src/tool.js";

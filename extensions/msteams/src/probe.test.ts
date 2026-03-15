@@ -1,4 +1,4 @@
-import type { MSTeamsConfig } from .ravenox/plugin-sdk";
+import type { MSTeamsConfig } from "@ravenox/plugin-sdk";
 import { describe, expect, it, vi } from "vitest";
 
 const hostMockState = vi.hoisted(() => ({

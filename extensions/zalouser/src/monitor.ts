@@ -1,11 +1,11 @@
 import type { ChildProcess } from "node:child_process";
-import type { RavenoxConfig, MarkdownTableMode, RuntimeEnv } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, MarkdownTableMode, RuntimeEnv } from "@ravenox/plugin-sdk";
 import {
   createReplyPrefixOptions,
   mergeAllowlist,
   resolveSenderCommandAuthorization,
   summarizeMapping,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { getZalouserRuntime } from "./runtime.js";
 import { sendMessageZalouser } from "./send.js";
 import type { ResolvedZalouserAccount, ZcaFriend, ZcaGroup, ZcaMessage } from "./types.js";

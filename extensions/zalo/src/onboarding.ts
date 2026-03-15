@@ -3,14 +3,14 @@ import type {
   ChannelOnboardingDmPolicy,
   RavenoxConfig,
   WizardPrompter,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   addWildcardAllowFrom,
   DEFAULT_ACCOUNT_ID,
   mergeAllowFromEntries,
   normalizeAccountId,
   promptAccountId,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { listZaloAccountIds, resolveDefaultZaloAccountId, resolveZaloAccount } from "./accounts.js";
 
 const channel = "zalo" as const;

@@ -1,12 +1,12 @@
 {
-  "name": ".ravenox/bluebubbles",
+  "name": "@ravenox/bluebubbles",
   "version": "2026.2.18",
   "description": "Ravenox BlueBubbles channel plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -28,7 +28,7 @@
       "order": 75
     },
     "install": {
-      "npmSpec": ".ravenox/bluebubbles",
+      "npmSpec": "@ravenox/bluebubbles",
       "localPath": "extensions/bluebubbles",
       "defaultChoice": "npm"
     }

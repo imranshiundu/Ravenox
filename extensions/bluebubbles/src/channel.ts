@@ -1,4 +1,4 @@
-import type { ChannelAccountSnapshot, ChannelPlugin, RavenoxConfig } from .ravenox/plugin-sdk";
+import type { ChannelAccountSnapshot, ChannelPlugin, RavenoxConfig } from "@ravenox/plugin-sdk";
 import {
   applyAccountNameToChannelSection,
   buildChannelConfigSchema,
@@ -12,7 +12,7 @@ import {
   resolveBlueBubblesGroupRequireMention,
   resolveBlueBubblesGroupToolPolicy,
   setAccountEnabledInConfigSection,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listBlueBubblesAccountIds,
   type ResolvedBlueBubblesAccount,

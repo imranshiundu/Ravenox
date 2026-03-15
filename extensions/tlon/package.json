@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/tlon",
+  "name": "@ravenox/tlon",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox Tlon/Urbit channel plugin",
@@ -8,9 +8,9 @@
     "@urbit/aura": "^3.0.0"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -25,7 +25,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": ".ravenox/tlon",
+      "npmSpec": "@ravenox/tlon",
       "localPath": "extensions/tlon",
       "defaultChoice": "npm"
     }

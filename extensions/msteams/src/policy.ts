@@ -7,7 +7,7 @@ import type {
   MSTeamsConfig,
   MSTeamsReplyStyle,
   MSTeamsTeamConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   buildChannelKeyCandidates,
   normalizeChannelSlug,
@@ -15,7 +15,7 @@ import {
   resolveToolsBySender,
   resolveChannelEntryMatchWithFallback,
   resolveNestedAllowlistDecision,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 export type MSTeamsResolvedRouteConfig = {
   teamConfig?: MSTeamsTeamConfig;

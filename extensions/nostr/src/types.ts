@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import type { NostrProfile } from "./config-schema.js";
 import { getPublicKeyFromPrivate } from "./nostr-bus.js";
 import { DEFAULT_RELAYS } from "./nostr-bus.js";

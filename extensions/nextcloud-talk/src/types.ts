@@ -3,7 +3,7 @@ import type {
   DmConfig,
   DmPolicy,
   GroupPolicy,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 export type { DmPolicy, GroupPolicy };
 

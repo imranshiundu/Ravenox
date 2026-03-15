@@ -6,7 +6,7 @@ import {
   isWSL2Sync,
   type RavenoxPluginApi,
   type ProviderAuthContext,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 // OAuth constants - secrets are retrieved from environment at runtime for security.
 const CLIENT_ID = process.env.RAVENOX_GOOGLE_CLIENT_ID || "";

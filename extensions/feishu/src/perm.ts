@@ -1,5 +1,5 @@
 import type * as Lark from "@larksuiteoapi/node-sdk";
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
 import { listEnabledFeishuAccounts } from "./accounts.js";
 import { createFeishuClient } from "./client.js";
 import { FeishuPermSchema, type FeishuPermParams } from "./perm-schema.js";

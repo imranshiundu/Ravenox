@@ -3,7 +3,7 @@ import {
   formatLocationText,
   toLocationContext,
   type NormalizedLocation,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { EventType } from "./types.js";
 
 export type MatrixLocationPayload = {

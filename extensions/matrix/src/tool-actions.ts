@@ -5,7 +5,7 @@ import {
   readNumberParam,
   readReactionParams,
   readStringParam,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   deleteMatrixMessage,
   editMatrixMessage,

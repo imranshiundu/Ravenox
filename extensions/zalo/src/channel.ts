@@ -3,7 +3,7 @@ import type {
   ChannelDock,
   ChannelPlugin,
   RavenoxConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   applyAccountNameToChannelSection,
   buildChannelConfigSchema,
@@ -17,7 +17,7 @@ import {
   PAIRING_APPROVED_MESSAGE,
   resolveChannelAccountConfigBasePath,
   setAccountEnabledInConfigSection,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listZaloAccountIds,
   resolveDefaultZaloAccountId,

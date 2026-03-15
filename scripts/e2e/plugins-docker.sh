@@ -23,9 +23,9 @@ echo "Running plugins Docker E2E..."
 
 	  home_dir=$(mktemp -d "/tmp.ravenox-plugins-e2e.XXXXXX")
 	  export HOME="$home_dir"
-  mkdir -p "$HOME/.ravenox/extensions/demo-plugin"
+  mkdir -p "$HOME/"@ravenox/extensions/demo-plugin"
 
-  cat > "$HOME/.ravenox/extensions/demo-plugin/index.js" <<'"'"'JS'"'"'
+  cat > "$HOME/"@ravenox/extensions/demo-plugin/index.js" <<'"'"'JS'"'"'
 module.exports = {
   id: "demo-plugin",
   name: "Demo Plugin",
@@ -38,7 +38,7 @@ module.exports = {
   },
 };
 JS
-  cat > "$HOME/.ravenox/extensions/demo-plugin.ravenox.plugin.json" <<'"'"'JSON'"'"'
+  cat > "$HOME/"@ravenox/extensions/demo-plugin.ravenox.plugin.json" <<'"'"'JSON'"'"'
 {
   "id": "demo-plugin",
   "configSchema": {
@@ -84,9 +84,9 @@ NODE
   mkdir -p "$pack_dir/package"
   cat > "$pack_dir/package/package.json" <<'"'"'JSON'"'"'
 {
-  "name": ".ravenox/demo-plugin-tgz",
+  "name": ""@ravenox/demo-plugin-tgz",
   "version": "0.0.1",
-  .ravenox": { "extensions": ["./index.js"] }
+  "ravenox": { "extensions": ["./index.js"] }
 }
 JSON
   cat > "$pack_dir/package/index.js" <<'"'"'JS'"'"'
@@ -131,9 +131,9 @@ NODE
   dir_plugin="$(mktemp -d "/tmp.ravenox-plugin-dir.XXXXXX")"
   cat > "$dir_plugin/package.json" <<'"'"'JSON'"'"'
 {
-  "name": ".ravenox/demo-plugin-dir",
+  "name": ""@ravenox/demo-plugin-dir",
   "version": "0.0.1",
-  .ravenox": { "extensions": ["./index.js"] }
+  "ravenox": { "extensions": ["./index.js"] }
 }
 JSON
   cat > "$dir_plugin/index.js" <<'"'"'JS'"'"'
@@ -178,9 +178,9 @@ NODE
   mkdir -p "$file_pack_dir/package"
   cat > "$file_pack_dir/package/package.json" <<'"'"'JSON'"'"'
 {
-  "name": ".ravenox/demo-plugin-file",
+  "name": ""@ravenox/demo-plugin-file",
   "version": "0.0.1",
-  .ravenox": { "extensions": ["./index.js"] }
+  "ravenox": { "extensions": ["./index.js"] }
 }
 JSON
   cat > "$file_pack_dir/package/index.js" <<'"'"'JS'"'"'

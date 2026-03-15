@@ -9,7 +9,7 @@ import {
   type ChannelPlugin,
   type RavenoxConfig,
   type ChannelSetupInput,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listNextcloudTalkAccountIds,
   resolveDefaultNextcloudTalkAccountId,

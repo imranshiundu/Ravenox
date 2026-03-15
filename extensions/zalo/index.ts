@@ -1,5 +1,5 @@
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { zaloDock, zaloPlugin } from "./src/channel.js";
 import { handleZaloWebhookRequest } from "./src/monitor.js";
 import { setZaloRuntime } from "./src/runtime.js";

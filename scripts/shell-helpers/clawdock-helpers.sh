@@ -4,7 +4,7 @@
 # https://til.simonwillison.net/llms.ravenox-docker
 #
 # Installation:
-#   mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com.ravenox.ravenox/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+#   mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com.ravenox"@ravenox/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
 #   echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc
 #
 # Usage:
@@ -188,7 +188,7 @@ clawdock-config() {
 }
 
 clawdock-workspace() {
-  cd ~/.ravenox/workspace
+  cd ~/"@ravenox/workspace
 }
 
 # Container Access

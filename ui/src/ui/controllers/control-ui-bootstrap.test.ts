@@ -64,7 +64,7 @@ describe("loadControlUiBootstrapConfig", () => {
     vi.stubGlobal("fetch", fetchMock as unknown as typeof fetch);
 
     const state = {
-      basePath: ".ravenox/",
+      basePath: ""@ravenox/",
       assistantName: "Assistant",
       assistantAvatar: null,
       assistantAgentId: null,

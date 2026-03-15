@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
-import { stripMarkdown } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
+import { stripMarkdown } from "@ravenox/plugin-sdk";
 import { resolveBlueBubblesAccount } from "./accounts.js";
 import { getCachedBlueBubblesPrivateApiStatus } from "./probe.js";
 import { extractBlueBubblesMessageId, resolveBlueBubblesSendTarget } from "./send-helpers.js";

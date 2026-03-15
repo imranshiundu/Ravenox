@@ -1,5 +1,5 @@
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { bluebubblesPlugin } from "./src/channel.js";
 import { handleBlueBubblesWebhookRequest } from "./src/monitor.js";
 import { setBlueBubblesRuntime } from "./src/runtime.js";

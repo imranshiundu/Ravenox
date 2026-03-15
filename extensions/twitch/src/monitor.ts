@@ -5,8 +5,8 @@
  * resolves agent routes, and handles replies.
  */
 
-import type { ReplyPayload, RavenoxConfig } from .ravenox/plugin-sdk";
-import { createReplyPrefixOptions } from .ravenox/plugin-sdk";
+import type { ReplyPayload, RavenoxConfig } from "@ravenox/plugin-sdk";
+import { createReplyPrefixOptions } from "@ravenox/plugin-sdk";
 import { checkTwitchAccessControl } from "./access-control.js";
 import { getOrCreateClientManager } from "./client-manager-registry.js";
 import { getTwitchRuntime } from "./runtime.js";

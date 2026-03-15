@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/zalouser",
+  "name": "@ravenox/zalouser",
   "version": "2026.2.18",
   "description": "Ravenox Zalo Personal Account plugin via zca-cli",
   "type": "module",
@@ -7,9 +7,9 @@
     "@sinclair/typebox": "0.34.48"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -27,7 +27,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": ".ravenox/zalouser",
+      "npmSpec": "@ravenox/zalouser",
       "localPath": "extensions/zalouser",
       "defaultChoice": "npm"
     }

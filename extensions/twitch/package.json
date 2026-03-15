@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/twitch",
+  "name": "@ravenox/twitch",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox Twitch channel plugin",
@@ -11,9 +11,9 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

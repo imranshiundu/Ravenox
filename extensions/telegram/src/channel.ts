@@ -28,7 +28,7 @@ import {
   type RavenoxConfig,
   type ResolvedTelegramAccount,
   type TelegramProbe,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { getTelegramRuntime } from "./runtime.js";
 
 const meta = getChatChannelMeta("telegram");

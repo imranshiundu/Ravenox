@@ -1,16 +1,16 @@
 {
-  "name": ".ravenox/memory-core",
+  "name": "@ravenox/memory-core",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox core memory search plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
   "peerDependencies": {
-    .ravenox": ">=2026.1.26"
+    "@ravenox/plugin-sdk": ">=2026.1.26"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

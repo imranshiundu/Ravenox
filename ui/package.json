@@ -1,5 +1,5 @@
 {
-  "name": .ravenox-control-ui",
+  "name": "ravenox-control-ui",
   "private": true,
   "type": "module",
   "scripts": {

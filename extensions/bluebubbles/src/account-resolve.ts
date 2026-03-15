@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import { resolveBlueBubblesAccount } from "./accounts.js";
 
 export type BlueBubblesAccountResolveOpts = {

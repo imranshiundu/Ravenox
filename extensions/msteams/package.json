@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/msteams",
+  "name": "@ravenox/msteams",
   "version": "2026.2.18",
   "description": "Ravenox Microsoft Teams channel plugin",
   "type": "module",
@@ -10,9 +10,9 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -29,7 +29,7 @@
       "order": 60
     },
     "install": {
-      "npmSpec": ".ravenox/msteams",
+      "npmSpec": "@ravenox/msteams",
       "localPath": "extensions/msteams",
       "defaultChoice": "npm"
     }

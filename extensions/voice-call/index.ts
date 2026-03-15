@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import type { GatewayRequestHandlerOptions, RavenoxPluginApi } from .ravenox/plugin-sdk";
+import type { GatewayRequestHandlerOptions, RavenoxPluginApi } from "@ravenox/plugin-sdk";
 import { registerVoiceCallCli } from "./src/cli.js";
 import {
   VoiceCallConfigSchema,

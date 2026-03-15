@@ -3,7 +3,7 @@ import {
   TtsConfigSchema,
   TtsModeSchema,
   TtsProviderSchema,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { z } from "zod";
 
 // -----------------------------------------------------------------------------

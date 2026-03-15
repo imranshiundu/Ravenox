@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from .ravenox/plugin-sdk";
+import type { BaseProbeResult } from "@ravenox/plugin-sdk";
 import { getMe, ZaloApiError, type ZaloBotInfo, type ZaloFetch } from "./api.js";
 
 export type ZaloProbeResult = BaseProbeResult<string> & {

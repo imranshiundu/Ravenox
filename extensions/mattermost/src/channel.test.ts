@@ -1,5 +1,5 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
-import { createReplyPrefixOptions } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
+import { createReplyPrefixOptions } from "@ravenox/plugin-sdk";
 import { beforeEach, describe, expect, it } from "vitest";
 import { mattermostPlugin } from "./channel.js";
 import { resetMattermostReactionBotUserCacheForTests } from "./mattermost/reactions.js";

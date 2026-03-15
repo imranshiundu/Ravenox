@@ -1,11 +1,11 @@
 import { timingSafeEqual } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import {
   registerWebhookTarget,
   rejectNonPostWebhookRequest,
   resolveWebhookTargets,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   normalizeWebhookMessage,
   normalizeWebhookReaction,

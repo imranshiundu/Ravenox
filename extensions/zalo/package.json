@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/zalo",
+  "name": "@ravenox/zalo",
   "version": "2026.2.18",
   "description": "Ravenox Zalo channel plugin",
   "type": "module",
@@ -7,9 +7,9 @@
     "undici": "7.22.0"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -27,7 +27,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": ".ravenox/zalo",
+      "npmSpec": "@ravenox/zalo",
       "localPath": "extensions/zalo",
       "defaultChoice": "npm"
     }

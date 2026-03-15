@@ -1,4 +1,4 @@
-import type { RavenoxConfig, DmPolicy } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, DmPolicy } from "@ravenox/plugin-sdk";
 import {
   addWildcardAllowFrom,
   formatDocsLink,
@@ -10,7 +10,7 @@ import {
   DEFAULT_ACCOUNT_ID,
   normalizeAccountId,
   migrateBaseNameToDefaultAccount,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listGoogleChatAccountIds,
   resolveDefaultGoogleChatAccountId,

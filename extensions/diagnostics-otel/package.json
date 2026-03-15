@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/diagnostics-otel",
+  "name": "@ravenox/diagnostics-otel",
   "version": "2026.2.18",
   "description": "Ravenox diagnostics OpenTelemetry exporter",
   "type": "module",
@@ -17,9 +17,9 @@
     "@opentelemetry/semantic-conventions": "^1.39.0"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

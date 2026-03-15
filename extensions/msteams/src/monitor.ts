@@ -5,7 +5,7 @@ import {
   summarizeMapping,
   type RavenoxConfig,
   type RuntimeEnv,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { createMSTeamsConversationStoreFs } from "./conversation-store-fs.js";
 import type { MSTeamsConversationStore } from "./conversation-store.js";
 import { formatUnknownError } from "./errors.js";

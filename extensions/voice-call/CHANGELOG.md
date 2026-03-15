@@ -145,7 +145,7 @@
 
 ### Highlights
 
-- First public release of the .ravenox/voice-call plugin.
+- First public release of the "@ravenox/voice-call plugin.
 
 ### Features
 

@@ -3,7 +3,7 @@ import {
   type RavenoxPluginApi,
   type ProviderAuthContext,
   type ProviderAuthResult,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { loginMiniMaxPortalOAuth, type MiniMaxRegion } from "./oauth.js";
 
 const PROVIDER_ID = "minimax-portal";

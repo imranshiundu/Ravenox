@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/voice-call",
+  "name": "@ravenox/voice-call",
   "version": "2026.2.18",
   "description": "Ravenox voice-call plugin",
   "type": "module",
@@ -9,9 +9,9 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

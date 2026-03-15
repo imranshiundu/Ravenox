@@ -94,4 +94,4 @@ It is intended to ship as a **bundled** Ravenox extension (like `lobster`) and
 be enabled via `plugins.entries` + tool allowlists.
 
 It is **not** currently designed to be copied into
-`~/.ravenox/extensions` as a standalone plugin directory.
+`~/"@ravenox/extensions` as a standalone plugin directory.

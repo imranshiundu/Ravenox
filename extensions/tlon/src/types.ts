@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 
 export type TlonResolvedAccount = {
   accountId: string;

@@ -5,7 +5,7 @@
  * They support dependency injection via the `deps` parameter for testability.
  */
 
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import { getClientManager as getRegistryClientManager } from "./client-manager-registry.js";
 import { DEFAULT_ACCOUNT_ID, getAccountConfig } from "./config.js";
 import { resolveTwitchToken } from "./token.js";

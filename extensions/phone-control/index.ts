@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { RavenoxPluginApi, RavenoxPluginService } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi, RavenoxPluginService } from "@ravenox/plugin-sdk";
 
 type ArmGroup = "camera" | "screen" | "writes" | "all";
 

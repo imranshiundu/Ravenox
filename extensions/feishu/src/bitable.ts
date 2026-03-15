@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
 import { createFeishuClient } from "./client.js";
 import type { FeishuConfig } from "./types.js";
 

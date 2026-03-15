@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import {
   createReplyPrefixOptions,
   readJsonBodyWithLimit,
@@ -9,7 +9,7 @@ import {
   resolveWebhookTargets,
   requestBodyErrorToText,
   resolveMentionGatingWithBypass,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { type ResolvedGoogleChatAccount } from "./accounts.js";
 import {
   downloadGoogleChatMedia,

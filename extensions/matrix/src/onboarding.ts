@@ -1,4 +1,4 @@
-import type { DmPolicy } from .ravenox/plugin-sdk";
+import type { DmPolicy } from "@ravenox/plugin-sdk";
 import {
   addWildcardAllowFrom,
   formatDocsLink,
@@ -7,7 +7,7 @@ import {
   type ChannelOnboardingAdapter,
   type ChannelOnboardingDmPolicy,
   type WizardPrompter,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { listMatrixDirectoryGroupsLive } from "./directory-live.js";
 import { resolveMatrixAccount } from "./matrix/accounts.js";
 import { ensureMatrixSdkInstalled, isMatrixSdkAvailable } from "./matrix/deps.js";

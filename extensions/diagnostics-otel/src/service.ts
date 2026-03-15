@@ -9,8 +9,8 @@ import { PeriodicExportingMetricReader } from "@opentelemetry/sdk-metrics";
 import { NodeSDK } from "@opentelemetry/sdk-node";
 import { ParentBasedSampler, TraceIdRatioBasedSampler } from "@opentelemetry/sdk-trace-base";
 import { ATTR_SERVICE_NAME } from "@opentelemetry/semantic-conventions";
-import type { DiagnosticEventPayload, RavenoxPluginService } from .ravenox/plugin-sdk";
-import { onDiagnosticEvent, registerLogTransport } from .ravenox/plugin-sdk";
+import type { DiagnosticEventPayload, RavenoxPluginService } from "@ravenox/plugin-sdk";
+import { onDiagnosticEvent, registerLogTransport } from "@ravenox/plugin-sdk";
 
 const DEFAULT_SERVICE_NAME = .ravenox";
 

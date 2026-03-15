@@ -1,4 +1,4 @@
-import type { LineChannelData, RavenoxPluginApi, ReplyPayload } from .ravenox/plugin-sdk";
+import type { LineChannelData, RavenoxPluginApi, ReplyPayload } from "@ravenox/plugin-sdk";
 import {
   createActionCard,
   createImageCard,
@@ -7,7 +7,7 @@ import {
   createReceiptCard,
   type CardAction,
   type ListItem,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 const CARD_USAGE = `Usage: /card <type> "title" "body" [options]
 

@@ -1,5 +1,5 @@
-import type { LookupFn, SsrFPolicy } from .ravenox/plugin-sdk";
-import { fetchWithSsrFGuard } from .ravenox/plugin-sdk";
+import type { LookupFn, SsrFPolicy } from "@ravenox/plugin-sdk";
+import { fetchWithSsrFGuard } from "@ravenox/plugin-sdk";
 import { validateUrbitBaseUrl } from "./base-url.js";
 import { UrbitUrlError } from "./errors.js";
 

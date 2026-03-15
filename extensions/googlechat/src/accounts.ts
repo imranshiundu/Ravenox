@@ -1,5 +1,5 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
-import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from .ravenox/plugin-sdk/account-id";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
+import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from "@ravenox/plugin-sdk/account-id";
 import type { GoogleChatAccountConfig } from "./types.config.js";
 
 export type GoogleChatCredentialSource = "file" | "inline" | "env" | "none";

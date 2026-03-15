@@ -9,7 +9,7 @@ import {
   type ChannelOnboardingDmPolicy,
   type RavenoxConfig,
   type WizardPrompter,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listNextcloudTalkAccountIds,
   resolveDefaultNextcloudTalkAccountId,

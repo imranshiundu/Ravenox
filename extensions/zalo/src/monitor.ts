@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import type { RavenoxConfig, MarkdownTableMode } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, MarkdownTableMode } from "@ravenox/plugin-sdk";
 import {
   createReplyPrefixOptions,
   readJsonBodyWithLimit,
@@ -10,7 +10,7 @@ import {
   resolveWebhookPath,
   resolveWebhookTargets,
   requestBodyErrorToText,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import type { ResolvedZaloAccount } from "./accounts.js";
 import {
   ZaloApiError,

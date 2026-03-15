@@ -1,4 +1,4 @@
-import { MarkdownConfigSchema } from .ravenox/plugin-sdk";
+import { MarkdownConfigSchema } from "@ravenox/plugin-sdk";
 import { z } from "zod";
 
 /**

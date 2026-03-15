@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { bluebubblesMessageActions } from "./actions.js";
 import { getCachedBlueBubblesPrivateApiStatus } from "./probe.js";

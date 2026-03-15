@@ -7,7 +7,7 @@ termux-toast "Syncing Ravenox auth..."
 
 # Run sync on l36 server
 SERVER="${RAVENOX_SERVER:-${CLAWDBOT_SERVER:-l36}}"
-RESULT=$(ssh "$SERVER" '/home/admin.ravenox/scripts/sync-claude-code-auth.sh' 2>&1)
+RESULT=$(ssh "$SERVER" '/home/admin"@ravenox/scripts/sync-claude-code-auth.sh' 2>&1)
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 0 ]; then

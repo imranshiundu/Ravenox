@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import {
   createReplyPrefixOptions,
   logAckFailure,
@@ -7,7 +7,7 @@ import {
   resolveAckReaction,
   resolveControlCommandGate,
   stripMarkdown,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { downloadBlueBubblesAttachment } from "./attachments.js";
 import { markBlueBubblesChatRead, sendBlueBubblesTyping } from "./chat.js";
 import { sendBlueBubblesMedia } from "./media-send.js";

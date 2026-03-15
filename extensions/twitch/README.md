@@ -1,4 +1,4 @@
-# .ravenox/twitch
+# "@ravenox/twitch
 
 Twitch channel plugin for Ravenox.
 
@@ -11,7 +11,7 @@ ravenox plugins install ./extensions/twitch
 ## Install (npm)
 
 ```bash
-ravenox plugins install .ravenox/twitch
+ravenox plugins install "@ravenox/twitch
 ```
 
 Onboarding: select Twitch and confirm the install prompt to fetch the plugin automatically.

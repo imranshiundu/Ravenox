@@ -1,4 +1,4 @@
-# .ravenox/nostr
+# "@ravenox/nostr
 
 Nostr DM channel plugin for Ravenox using NIP-04 encrypted direct messages.
 
@@ -13,7 +13,7 @@ This extension adds Nostr as a messaging channel to Ravenox. It enables your bot
 ## Installation
 
 ```bash
-ravenox plugins install .ravenox/nostr
+ravenox plugins install "@ravenox/nostr
 ```
 
 ## Quick Setup

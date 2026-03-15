@@ -1,4 +1,4 @@
-# .ravenox/voice-call
+# "@ravenox/voice-call
 
 Official Voice Call plugin for **Ravenox**.
 
@@ -17,7 +17,7 @@ Plugin system: `https://docs.ravenox.ai/plugin`
 ### Option A: install via Ravenox (recommended)
 
 ```bash
-ravenox plugins install .ravenox/voice-call
+ravenox plugins install "@ravenox/voice-call
 ```
 
 Restart the Gateway afterwards.
@@ -25,9 +25,9 @@ Restart the Gateway afterwards.
 ### Option B: copy into your global extensions folder (dev)
 
 ```bash
-mkdir -p ~/.ravenox/extensions
-cp -R extensions/voice-call ~/.ravenox/extensions/voice-call
-cd ~/.ravenox/extensions/voice-call && pnpm install
+mkdir -p ~/"@ravenox/extensions
+cp -R extensions/voice-call ~/"@ravenox/extensions/voice-call
+cd ~/"@ravenox/extensions/voice-call && pnpm install
 ```
 
 ## Config

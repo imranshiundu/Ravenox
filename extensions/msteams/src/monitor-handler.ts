@@ -1,4 +1,4 @@
-import type { RavenoxConfig, RuntimeEnv } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, RuntimeEnv } from "@ravenox/plugin-sdk";
 import type { MSTeamsConversationStore } from "./conversation-store.js";
 import { buildFileInfoCard, parseFileConsentInvoke, uploadToConsentUrl } from "./file-consent.js";
 import type { MSTeamsAdapter } from "./messenger.js";

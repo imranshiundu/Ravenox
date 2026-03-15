@@ -9,7 +9,7 @@ import {
   type ChannelMessageActionAdapter,
   type ChannelMessageActionName,
   type ChannelToolSend,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { resolveBlueBubblesAccount } from "./accounts.js";
 import { sendBlueBubblesAttachment } from "./attachments.js";
 import {

@@ -1,4 +1,4 @@
-import type { ChannelAccountSnapshot, ChannelStatusIssue } from .ravenox/plugin-sdk";
+import type { ChannelAccountSnapshot, ChannelStatusIssue } from "@ravenox/plugin-sdk";
 
 type ZaloAccountStatus = {
   accountId?: unknown;

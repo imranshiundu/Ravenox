@@ -1,13 +1,13 @@
 {
-  "name": ".ravenox/llm-task",
+  "name": "@ravenox/llm-task",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox JSON-only LLM task plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

@@ -1,13 +1,13 @@
 {
-  "name": ".ravenox/line",
+  "name": "@ravenox/line",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox LINE channel plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -22,7 +22,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": ".ravenox/line",
+      "npmSpec": "@ravenox/line",
       "localPath": "extensions/line",
       "defaultChoice": "npm"
     }

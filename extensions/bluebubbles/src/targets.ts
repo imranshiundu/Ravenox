@@ -4,7 +4,7 @@ import {
   parseChatTargetPrefixesOrThrow,
   resolveServicePrefixedAllowTarget,
   resolveServicePrefixedTarget,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 export type BlueBubblesService = "imessage" | "sms" | "auto";
 

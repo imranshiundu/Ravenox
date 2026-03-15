@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMAGE_NAME="${RAVENOX_IMAGE:-${CLAWDBOT_IMAGE:.ravenox:local}}"
 CONFIG_DIR="${RAVENOX_CONFIG_DIR:-${CLAWDBOT_CONFIG_DIR:-$HOME/.ravenox}}"
-WORKSPACE_DIR="${RAVENOX_WORKSPACE_DIR:-${CLAWDBOT_WORKSPACE_DIR:-$HOME/.ravenox/workspace}}"
+WORKSPACE_DIR="${RAVENOX_WORKSPACE_DIR:-${CLAWDBOT_WORKSPACE_DIR:-$HOME/"@ravenox/workspace}}"
 PROFILE_FILE="${RAVENOX_PROFILE_FILE:-${CLAWDBOT_PROFILE_FILE:-$HOME/.profile}}"
 
 PROFILE_MOUNT=()
@@ -26,7 +26,7 @@ docker run --rm -t \
   -e RAVENOX_LIVE_GATEWAY_PROVIDERS="${RAVENOX_LIVE_GATEWAY_PROVIDERS:-${CLAWDBOT_LIVE_GATEWAY_PROVIDERS:-}}" \
   -e RAVENOX_LIVE_GATEWAY_MODEL_TIMEOUT_MS="${RAVENOX_LIVE_GATEWAY_MODEL_TIMEOUT_MS:-${CLAWDBOT_LIVE_GATEWAY_MODEL_TIMEOUT_MS:-}}" \
   -v "$CONFIG_DIR":/home/node/.ravenox \
-  -v "$WORKSPACE_DIR":/home/node/.ravenox/workspace \
+  -v "$WORKSPACE_DIR":/home/node/"@ravenox/workspace \
   "${PROFILE_MOUNT[@]}" \
   "$IMAGE_NAME" \
   -lc "set -euo pipefail; [ -f \"$HOME/.profile\" ] && source \"$HOME/.profile\" || true; cd /app && pnpm test:live"

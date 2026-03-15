@@ -1,5 +1,5 @@
 {
-  "name": ".ravenox/memory-lancedb",
+  "name": "@ravenox/memory-lancedb",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox LanceDB-backed long-term memory plugin with auto-recall/capture",
@@ -10,9 +10,9 @@
     "openai": "^6.22.0"
   },
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

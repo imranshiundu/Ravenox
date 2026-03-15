@@ -1,4 +1,4 @@
-import type { RavenoxConfig, RavenoxPluginApi } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, RavenoxPluginApi } from "@ravenox/plugin-sdk";
 
 type ThreadOwnershipConfig = {
   forwarderUrl?: string;

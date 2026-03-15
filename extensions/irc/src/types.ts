@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from .ravenox/plugin-sdk";
+import type { BaseProbeResult } from "@ravenox/plugin-sdk";
 import type {
   BlockStreamingCoalesceConfig,
   DmConfig,
@@ -8,7 +8,7 @@ import type {
   GroupToolPolicyConfig,
   MarkdownConfig,
   RavenoxConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 
 export type IrcChannelConfig = {
   requireMention?: boolean;

@@ -1,4 +1,4 @@
-import type { PluginRuntime } from .ravenox/plugin-sdk";
+import type { PluginRuntime } from "@ravenox/plugin-sdk";
 
 let runtime: PluginRuntime | null = null;
 

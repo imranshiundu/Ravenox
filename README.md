@@ -6,46 +6,61 @@
 ### *The Sovereign Intelligence System*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![Version](https://img.shields.io/badge/Version-1.0.5-cyan.svg)]()
-[![Platform](https://img.shields.io/badge/Platform-Node.js%20%7C%20Linux%20%7C%20Mac%20%7C%20Docker-blue.svg)]()
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 
-**Ravenox** is a high-performance, high-autonomy personal AI assistant distribution. Designed for developers and power users, it prioritizes **sovereignty, speed, and extreme resource efficiency**. By merging standard bot capabilities with heavy-duty LLM reasoning, Ravenox acts as a "Ghost" in your shell—ready to wake up in milliseconds and execute complex tasks across any platform.
-
----
-
-> [!IMPORTANT]
-> **Lineage & Acknowledgement**: Ravenox is a performance-tuned evolution of the Ravenox project. We extend our gratitude to the original Ravenox contributors for the foundational gateway and modular architecture.
+**Ravenox** is a high-performance, high-autonomy personal AI distribution. It transforms your hardware into a sovereign agent, capable of managing messaging (WhatsApp, Telegram, etc.), research, and desktop automation with **zero-latency**.
 
 ---
 
-## 🛠️ System Requirements (Specs)
+## 🛠️ Detailed Hardware Specifications (Usage Requirements)
 
-Ravenox is designed to scale from micro-hardware to powerful servers.
+Ravenox is highly optimized. It doesn't "eat" RAM; it sips it. However, the requirements change based on how many features you enable.
 
-| Tier | Hardware Example | RAM | OS | Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| **Micro (Ghost)** | Raspberry Pi Zero / ESP32 | **64MB - 128MB** | Linux (Alpine/Lite) | Messaging, Automation, Basic AI |
-| **Standard** | VPS / Old Laptop / Mac Mini | **512MB - 2GB** | Linux / macOS / WSL | Web Research, Multi-channel, Plugins |
-| **Titan (High-Autonomy)** | Desktop PC / Cloud Instance | **4GB+** | Any (Docker Recommended) | Computer Vision, Mem0 Graph, Autonomous Tasks |
+| Spec | **Micro (Ghost Mode)** | **Standard (Daily Driver)** | **Titan (High-Autonomy)** |
+| :--- | :--- | :--- | :--- |
+| **CPU Cores** | 1 Core (e.g., Pi Zero) | 2 Cores (Modern Laptop) | 4+ Cores (Workstation) |
+| **RAM (Target)** | **~85MB - 128MB** | **512MB - 2GB** | **4GB - 8GB+** |
+| **Storage** | 200MB (Base OS + App) | 1GB (History + Logs) | 5GB+ (Mem0 Graph + Media) |
+| **Network** | 256kbps+ | 5Mbps+ | 20Mbps+ (for Vision/Media) |
+| **Ideal Hardware** | Raspberry Pi Zero, ESP32 | VPS, Mac Mini, WSL2 | Desktop PC, Docker Cluster |
 
 ---
 
-## 📡 Connection Guide
+## ⚡ Power User Setup: "Ready-to-Work"
 
-Ravenox supports 15+ messaging providers. Here is how you connect the most popular ones:
+The installation is designed to be **Zero-Config**. Once installed, everything—including your Messaging providers and AI settings—is managed through the **Universal Dashboard**.
 
-### 🟢 WhatsApp (Raven Evolution)
-Ravenox maintains **100% feature parity with Space-MD**. All commands, menus, and settings are preserved and optimized.
-1.  Run `ravenox channels login`.
-2.  A **QR Code** will appear in your terminal.
-3.  Open WhatsApp on your phone → **Linked Devices** → **Link a Device** → Scan the QR.
-4.  *Ravenox is now active as your digital shadow.*
+### 1. One-Line "Software" Install
+This script clones Ravenox, installs dependencies, builds the sovereign core, and links the `ravenox` command globally. It literally turns your machine into a Ravenox host in seconds.
+```bash
+curl -sSL https://raw.githubusercontent.com/imranshiundu/Ravenox/main/scripts/install.sh | bash
+```
 
-### 🔵 Telegram
-1.  Message [@BotFather](https://t.me/botfather) to create a bot and get your **API Token**.
-2.  Run `ravenox channels add --channel telegram --token <YOUR_TOKEN>`.
-3.  Message your bot to start the session.
+### 2. The Universal Dashboard
+After installation, start the gateway and open the dashboard in your browser:
+- **Command**: `ravenox gateway run`
+- **Dashboard**: `http://localhost:18789`
+- *Everything from WhatsApp linking to AI model selection happens here.*
+
+### 3. Automatic Updates
+Ravenox stays fresh. To update your system to the latest version of the "Sovereign Distribution":
+```bash
+# Simply run the build sync command
+ravenox update
+```
+*(This pulls latest code, rebuilds the Ghost architecture, and restarts the gateway automatically.)*
+
+---
+
+## 📡 Messaging Connection Guide
+
+| Platform | Difficulty | Method |
+| :--- | :--- | :--- |
+| **WhatsApp** | 🟢 Easy | QR Code Scan via Dashboard or `ravenox channels login` |
+| **Telegram** | 🟢 Easy | Bot Token from [@BotFather](https://t.me/botfather) |
+| **Signal** | 🟡 Medium | Link existing primary device |
+| **Discord** | 🟢 Easy | Bot Token from Developer Portal |
 
 ---
 
@@ -60,39 +75,6 @@ graph TD
     Titan -- "Vision" --> Screen[Desktop Control]
     Gateway -- "Doorbell trigger" --> Ghost[Ghost Wake-up <200ms]
     Ghost -- "Suspends" --> P[0% Idle CPU]
-```
-
----
-
-## 🟢 WhatsApp Specialized Command Surface
-Ravenox inherits the legendary **Space-MD** categorical menu, providing modular control over your digital environment.
-
-### 📂 Settings Control (Prefix: `.`)
-Uses deterministic logic—works 100% reliably even without AI tokens.
-
-| Command | Capability |
-| :--- | :--- |
-| `.mode` | Toggles between Public/Private/Dormant operation. |
-| `.alwaysonline` | Keeps your identity visible 24/7. |
-| `.anticall` | Automatically deflections intrusive calls. |
-| `.chatbot` | Activates/Deactivates the high-autonomy LLM responder. |
-| `.setbotname` | Renames your Ravenox instance locally. |
-
----
-
-## 📦 Sovereign Installation
-
-The fastest way to get Ravenox running on your machine (Linux, macOS, or WSL):
-
-### ⚡ The One-Line Setup
-```bash
-curl -sSL https://raw.githubusercontent.com/imranshiundu/Ravenox/main/scripts/install.sh | bash
-```
-
-### 🛠️ Manual Installation
-```bash
-git clone https://github.com/imranshiundu/Ravenox.git && cd Ravenox
-./scripts/install.sh
 ```
 
 ---

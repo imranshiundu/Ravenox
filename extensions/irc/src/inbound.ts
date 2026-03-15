@@ -4,7 +4,7 @@ import {
   resolveControlCommandGate,
   type RavenoxConfig,
   type RuntimeEnv,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import type { ResolvedIrcAccount } from "./accounts.js";
 import { normalizeIrcAllowlist, resolveIrcAllowlistMatch } from "./normalize.js";
 import {

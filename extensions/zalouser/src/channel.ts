@@ -6,7 +6,7 @@ import type {
   ChannelPlugin,
   RavenoxConfig,
   GroupToolPolicyConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   applyAccountNameToChannelSection,
   buildChannelConfigSchema,
@@ -19,7 +19,7 @@ import {
   normalizeAccountId,
   resolveChannelAccountConfigBasePath,
   setAccountEnabledInConfigSection,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listZalouserAccountIds,
   resolveDefaultZalouserAccountId,

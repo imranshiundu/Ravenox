@@ -1,4 +1,4 @@
-import type { RuntimeEnv, WizardPrompter } from .ravenox/plugin-sdk";
+import type { RuntimeEnv, WizardPrompter } from "@ravenox/plugin-sdk";
 import { describe, expect, it, vi } from "vitest";
 import { ircOnboardingAdapter } from "./onboarding.js";
 import type { CoreConfig } from "./types.js";

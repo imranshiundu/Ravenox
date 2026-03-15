@@ -1,4 +1,4 @@
-import { MarkdownConfigSchema, buildChannelConfigSchema } from .ravenox/plugin-sdk";
+import { MarkdownConfigSchema, buildChannelConfigSchema } from "@ravenox/plugin-sdk";
 import { z } from "zod";
 
 const allowFromEntry = z.union([z.string(), z.number()]);

@@ -1,4 +1,4 @@
-import type { DmPolicy, GroupPolicy } from .ravenox/plugin-sdk";
+import type { DmPolicy, GroupPolicy } from "@ravenox/plugin-sdk";
 export type { DmPolicy, GroupPolicy };
 
 export type ReplyToMode = "off" | "first" | "all";

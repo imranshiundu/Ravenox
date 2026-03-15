@@ -1,4 +1,4 @@
-import type { BlockStreamingCoalesceConfig, DmPolicy, GroupPolicy } from .ravenox/plugin-sdk";
+import type { BlockStreamingCoalesceConfig, DmPolicy, GroupPolicy } from "@ravenox/plugin-sdk";
 
 export type MattermostChatMode = "oncall" | "onmessage" | "onchar";
 

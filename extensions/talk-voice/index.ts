@@ -1,4 +1,4 @@
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
 
 type ElevenLabsVoice = {
   voice_id: string;

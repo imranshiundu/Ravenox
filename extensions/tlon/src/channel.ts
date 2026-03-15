@@ -4,12 +4,12 @@ import type {
   ChannelPlugin,
   ChannelSetupInput,
   RavenoxConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   applyAccountNameToChannelSection,
   DEFAULT_ACCOUNT_ID,
   normalizeAccountId,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { buildTlonAccountFields } from "./account-fields.js";
 import { tlonChannelConfigSchema } from "./config-schema.js";
 import { monitorTlonProvider } from "./monitor/index.js";

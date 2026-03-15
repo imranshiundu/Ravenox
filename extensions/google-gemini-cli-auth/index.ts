@@ -3,7 +3,7 @@ import {
   emptyPluginConfigSchema,
   type RavenoxPluginApi,
   type ProviderAuthContext,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { loginGeminiCliOAuth } from "./oauth.js";
 
 const PROVIDER_ID = "google-gemini-cli";

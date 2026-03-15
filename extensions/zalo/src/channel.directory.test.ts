@@ -1,4 +1,4 @@
-import type { RavenoxConfig, RuntimeEnv } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, RuntimeEnv } from "@ravenox/plugin-sdk";
 import { describe, expect, it } from "vitest";
 import { zaloPlugin } from "./channel.js";
 

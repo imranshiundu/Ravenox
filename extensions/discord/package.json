@@ -1,12 +1,12 @@
 {
-  "name": ".ravenox/discord",
+  "name": "@ravenox/discord",
   "version": "2026.2.18",
   "description": "Ravenox Discord channel plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

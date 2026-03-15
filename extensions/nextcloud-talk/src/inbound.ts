@@ -4,7 +4,7 @@ import {
   resolveControlCommandGate,
   type RavenoxConfig,
   type RuntimeEnv,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import type { ResolvedNextcloudTalkAccount } from "./accounts.js";
 import {
   normalizeNextcloudTalkAllowlist,

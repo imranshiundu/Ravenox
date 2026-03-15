@@ -1,5 +1,5 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
-export { createDedupeCache, rawDataToString } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
+export { createDedupeCache, rawDataToString } from "@ravenox/plugin-sdk";
 
 export type ResponsePrefixContext = {
   model?: string;

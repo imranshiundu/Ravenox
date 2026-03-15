@@ -4,7 +4,7 @@ import {
   GroupPolicySchema,
   MarkdownConfigSchema,
   requireOpenAllowFrom,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { z } from "zod";
 
 const MattermostAccountSchemaBase = z

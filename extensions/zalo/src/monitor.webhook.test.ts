@@ -1,6 +1,6 @@
 import { createServer, type RequestListener } from "node:http";
 import type { AddressInfo } from "node:net";
-import type { RavenoxConfig, PluginRuntime } from .ravenox/plugin-sdk";
+import type { RavenoxConfig, PluginRuntime } from "@ravenox/plugin-sdk";
 import { describe, expect, it, vi } from "vitest";
 import { handleZaloWebhookRequest, registerZaloWebhookTarget } from "./monitor.js";
 import type { ResolvedZaloAccount } from "./types.js";

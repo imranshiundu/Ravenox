@@ -1,13 +1,13 @@
 {
-  "name": ".ravenox/imessage",
+  "name": "@ravenox/imessage",
   "version": "2026.2.18",
   "private": true,
   "description": "Ravenox iMessage channel plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

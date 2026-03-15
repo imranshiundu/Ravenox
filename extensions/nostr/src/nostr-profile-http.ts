@@ -12,7 +12,7 @@ import {
   isBlockedHostnameOrIp,
   readJsonBodyWithLimit,
   requestBodyErrorToText,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { z } from "zod";
 import { publishNostrProfile, getNostrProfileState } from "./channel.js";
 import { NostrProfileSchema, type NostrProfile } from "./config-schema.js";

@@ -3,7 +3,7 @@ import type {
   ChannelOnboardingDmPolicy,
   RavenoxConfig,
   WizardPrompter,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   addWildcardAllowFrom,
   DEFAULT_ACCOUNT_ID,
@@ -11,7 +11,7 @@ import {
   normalizeAccountId,
   promptAccountId,
   promptChannelAccessConfig,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   listZalouserAccountIds,
   resolveDefaultZalouserAccountId,

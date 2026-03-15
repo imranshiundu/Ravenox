@@ -17,8 +17,8 @@ import {
   type ChannelPlugin,
   type ChannelStatusIssue,
   type RavenoxConfig,
-} from .ravenox/plugin-sdk";
-import { GoogleChatConfigSchema } from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
+import { GoogleChatConfigSchema } from "@ravenox/plugin-sdk";
 import {
   listGoogleChatAccountIds,
   resolveDefaultGoogleChatAccountId,

@@ -7,8 +7,8 @@
 #   ./scripts/run.ravenox-podman.sh launch setup      # Onboarding wizard
 #
 # As the.ravenox user (no repo needed):
-#   sudo -u.ravenox /home.ravenox/run.ravenox-podman.sh
-#   sudo -u.ravenox /home.ravenox/run.ravenox-podman.sh setup
+#   sudo -u.ravenox /home"@ravenox/run.ravenox-podman.sh
+#   sudo -u.ravenox /home"@ravenox/run.ravenox-podman.sh setup
 #
 # Legacy: "setup-host" delegates to ../setup-podman.sh
 
@@ -186,7 +186,7 @@ if [[ "$RUN_SETUP" == true ]]; then
     -e HOME=/home/node -e TERM=xterm-256color -e BROWSER=echo \
     -e RAVENOX_GATEWAY_TOKEN="$RAVENOX_GATEWAY_TOKEN" \
     -v "$CONFIG_DIR:/home/node/.ravenox:rw" \
-    -v "$WORKSPACE_DIR:/home/node/.ravenox/workspace:rw" \
+    -v "$WORKSPACE_DIR:/home/node/"@ravenox/workspace:rw" \
     "${ENV_FILE_ARGS[@]}" \
     "$RAVENOX_IMAGE" \
     node dist/index.js onboard "$@"
@@ -200,7 +200,7 @@ podman run --pull="$PODMAN_PULL" -d --replace \
   -e RAVENOX_GATEWAY_TOKEN="$RAVENOX_GATEWAY_TOKEN" \
   "${ENV_FILE_ARGS[@]}" \
   -v "$CONFIG_DIR:/home/node/.ravenox:rw" \
-  -v "$WORKSPACE_DIR:/home/node/.ravenox/workspace:rw" \
+  -v "$WORKSPACE_DIR:/home/node/"@ravenox/workspace:rw" \
   -p "${HOST_GATEWAY_PORT}:18789" \
   -p "${HOST_BRIDGE_PORT}:18790" \
   "$RAVENOX_IMAGE" \

@@ -1,4 +1,4 @@
-import type { RuntimeEnv } from .ravenox/plugin-sdk";
+import type { RuntimeEnv } from "@ravenox/plugin-sdk";
 import { extractMessageText } from "./utils.js";
 
 export type TlonHistoryEntry = {

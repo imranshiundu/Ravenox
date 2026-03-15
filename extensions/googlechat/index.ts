@@ -1,5 +1,5 @@
-import type { RavenoxPluginApi } from .ravenox/plugin-sdk";
-import { emptyPluginConfigSchema } from .ravenox/plugin-sdk";
+import type { RavenoxPluginApi } from "@ravenox/plugin-sdk";
+import { emptyPluginConfigSchema } from "@ravenox/plugin-sdk";
 import { googlechatDock, googlechatPlugin } from "./src/channel.js";
 import { handleGoogleChatWebhookRequest } from "./src/monitor.js";
 import { setGoogleChatRuntime } from "./src/runtime.js";

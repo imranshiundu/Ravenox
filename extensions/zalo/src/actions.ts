@@ -2,8 +2,8 @@ import type {
   ChannelMessageActionAdapter,
   ChannelMessageActionName,
   RavenoxConfig,
-} from .ravenox/plugin-sdk";
-import { jsonResult, readStringParam } from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
+import { jsonResult, readStringParam } from "@ravenox/plugin-sdk";
 import { listEnabledZaloAccounts } from "./accounts.js";
 import { sendMessageZalo } from "./send.js";
 

@@ -1,13 +1,13 @@
 {
-  "name": ".ravenox/open-prose",
+  "name": "@ravenox/open-prose",
   "version": "2026.2.18",
   "private": true,
   "description": "OpenProse VM skill pack plugin (slash command + telemetry).",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ]

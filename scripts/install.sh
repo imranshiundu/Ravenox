@@ -37,18 +37,42 @@ fi
 
 # Clone if not in repo
 if [ ! -f "package.json" ] || [ "$(grep -c "ravenox" package.json)" -eq 0 ]; then
-    echo -e "${CYAN}Cloning Ravenox repository...${NC}"
-    git clone https://github.com/imranshiundu/Ravenox.git ravenox
-    cd ravenox
+    echo -e "${CYAN}Cloning Ravenox repository into $HOME/.ravenox-app...${NC}"
+    git clone https://github.com/imranshiundu/Ravenox.git "$HOME/.ravenox-app"
+    cd "$HOME/.ravenox-app"
+else
+    echo -e "${CYAN}Already inside Ravenox directory.${NC}"
 fi
 
 echo -e "${CYAN}Installing high-performance dependencies...${NC}"
 pnpm install
 
-echo -e "${CYAN}Building the Ghost Architecture...${NC}"
+echo -e "${CYAN}Building the Sovereign Architecture...${NC}"
 pnpm build
 
-echo -e "${GREEN}Installation successful! Starting Onboarding Wizard...${NC}"
+# Link the binary globally if permissions allow, or provide a local link
+echo -e "${CYAN}Setting up global 'ravenox' command...${NC}"
+if [ -w "/usr/local/bin" ]; then
+    ln -sf "$(pwd)/ravenox.mjs" /usr/local/bin/ravenox
+    chmod +x /usr/local/bin/ravenox
+    echo -e "${GREEN}Global 'ravenox' command linked to /usr/local/bin/ravenox${NC}"
+else
+    echo -e "${CYAN}Note: Could not link globally (no sudo). Use './ravenox.mjs' to run.${NC}"
+fi
+
+echo -e "${GREEN}Installation successful!${NC}"
+echo -e "${BLUE}------------------------------------------------${NC}"
+echo -e "${CYAN}Starting the Ravenox Onboarding Wizard...${NC}"
+echo -e "${CYAN}This will help you setup your first Messaging Provider (WhatsApp/Telegram).${NC}"
 echo -e "${BLUE}------------------------------------------------${NC}"
 
 node ravenox.mjs onboard
+
+echo -e ""
+echo -e "${GREEN}Ravenox is now ready!${NC}"
+echo -e "${CYAN}To start the Background Gateway, run:${NC}"
+echo -e "${WHITE}  ravenox gateway run${NC}"
+echo -e ""
+echo -e "${CYAN}To open the Universal Dashboard, visit:${NC}"
+echo -e "${WHITE}  http://localhost:18789${NC}"
+echo -e "${BLUE}------------------------------------------------${NC}"

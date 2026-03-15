@@ -1,4 +1,4 @@
-import type { MSTeamsConfig } from .ravenox/plugin-sdk";
+import type { MSTeamsConfig } from "@ravenox/plugin-sdk";
 
 export type MSTeamsCredentials = {
   appId: string;

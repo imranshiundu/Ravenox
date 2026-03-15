@@ -1,6 +1,6 @@
 import { format } from "node:util";
-import type { RuntimeEnv, ReplyPayload, RavenoxConfig } from .ravenox/plugin-sdk";
-import { createReplyPrefixOptions } from .ravenox/plugin-sdk";
+import type { RuntimeEnv, ReplyPayload, RavenoxConfig } from "@ravenox/plugin-sdk";
+import { createReplyPrefixOptions } from "@ravenox/plugin-sdk";
 import { getTlonRuntime } from "../runtime.js";
 import { normalizeShip, parseChannelNest } from "../targets.js";
 import { resolveTlonAccount } from "../types.js";

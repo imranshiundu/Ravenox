@@ -299,9 +299,9 @@ TRASH
       --skip-health
 
     # Assert config + workspace scaffolding.
-    workspace_dir="$HOME/.ravenox/workspace"
+    workspace_dir="$HOME/"@ravenox/workspace"
     config_path="$HOME/.ravenox.ravenox.json"
-    sessions_dir="$HOME/.ravenox/agents/main/sessions"
+    sessions_dir="$HOME/"@ravenox/agents/main/sessions"
 
     assert_file "$config_path"
     assert_dir "$sessions_dir"

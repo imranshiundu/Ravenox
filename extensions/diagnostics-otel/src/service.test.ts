@@ -98,16 +98,16 @@ vi.mock("@opentelemetry/semantic-conventions", () => ({
   ATTR_SERVICE_NAME: "service.name",
 }));
 
-vi.mock(.ravenox/plugin-sdk", async () => {
-  const actual = await vi.importActual<typeof import(.ravenox/plugin-sdk")>(.ravenox/plugin-sdk");
+vi.mock("@ravenox/plugin-sdk", async () => {
+  const actual = await vi.importActual<typeof import("@ravenox/plugin-sdk")>("@ravenox/plugin-sdk");
   return {
     ...actual,
     registerLogTransport: registerLogTransportMock,
   };
 });
 
-import type { RavenoxPluginServiceContext } from .ravenox/plugin-sdk";
-import { emitDiagnosticEvent } from .ravenox/plugin-sdk";
+import type { RavenoxPluginServiceContext } from "@ravenox/plugin-sdk";
+import { emitDiagnosticEvent } from "@ravenox/plugin-sdk";
 import { createDiagnosticsOtelService } from "./service.js";
 
 function createLogger() {

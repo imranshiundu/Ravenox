@@ -1,12 +1,12 @@
 {
-  "name": ".ravenox/nextcloud-talk",
+  "name": "@ravenox/nextcloud-talk",
   "version": "2026.2.18",
   "description": "Ravenox Nextcloud Talk channel plugin",
   "type": "module",
   "devDependencies": {
-    .ravenox": "workspace:*"
+    "@ravenox/plugin-sdk": "workspace:*"
   },
-  .ravenox": {
+  "ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -25,7 +25,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": ".ravenox/nextcloud-talk",
+      "npmSpec": "@ravenox/nextcloud-talk",
       "localPath": "extensions/nextcloud-talk",
       "defaultChoice": "npm"
     }

@@ -146,7 +146,7 @@ const includePattern = /codex|claude/i;
 const excludePatterns = [
   .ravenox-gateway/i,
   /signal-cli/i,
-  /node_modules\/\.bin\.ravenox/i,
+  /node_modules\/\.bin\"@ravenox/i,
   /recover-orphaned-processes\.sh/i,
 ];
 

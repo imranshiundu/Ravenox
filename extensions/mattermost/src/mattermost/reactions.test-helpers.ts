@@ -1,4 +1,4 @@
-import type { RavenoxConfig } from .ravenox/plugin-sdk";
+import type { RavenoxConfig } from "@ravenox/plugin-sdk";
 import { expect, vi } from "vitest";
 
 export function createMattermostTestConfig(): RavenoxConfig {

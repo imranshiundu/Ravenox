@@ -1,1 +1,1 @@
-export { withFileLock } from .ravenox/plugin-sdk";
+export { withFileLock } from "@ravenox/plugin-sdk";

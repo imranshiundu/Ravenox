@@ -4,7 +4,7 @@ import type {
   RavenoxConfig,
   ReplyPayload,
   RuntimeEnv,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import {
   buildAgentMediaPayload,
   createReplyPrefixOptions,
@@ -18,7 +18,7 @@ import {
   resolveControlCommandGate,
   resolveChannelMediaMaxBytes,
   type HistoryEntry,
-} from .ravenox/plugin-sdk";
+} from "@ravenox/plugin-sdk";
 import { getMattermostRuntime } from "../runtime.js";
 import { resolveMattermostAccount } from "./accounts.js";
 import {

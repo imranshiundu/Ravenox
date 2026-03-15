@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from .ravenox/plugin-sdk";
+import type { BaseProbeResult } from "@ravenox/plugin-sdk";
 import { buildBlueBubblesApiUrl, blueBubblesFetchWithTimeout } from "./types.js";
 
 export type BlueBubblesProbe = BaseProbeResult & {

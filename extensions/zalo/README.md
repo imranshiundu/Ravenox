@@ -1,4 +1,4 @@
-# .ravenox/zalo
+# "@ravenox/zalo
 
 Zalo channel plugin for Ravenox (Bot API).
 
@@ -11,7 +11,7 @@ ravenox plugins install ./extensions/zalo
 ## Install (npm)
 
 ```bash
-ravenox plugins install .ravenox/zalo
+ravenox plugins install "@ravenox/zalo
 ```
 
 Onboarding: select Zalo and confirm the install prompt to fetch the plugin automatically.

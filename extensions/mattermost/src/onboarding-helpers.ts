@@ -1,1 +1,1 @@
-export { promptAccountId } from .ravenox/plugin-sdk";
+export { promptAccountId } from "@ravenox/plugin-sdk";
