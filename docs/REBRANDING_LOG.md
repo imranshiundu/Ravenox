@@ -50,7 +50,7 @@ Implemented a modular Python-based tool suite in `/tools` to offload heavy tasks
 - **Lineage Preservation**: Maintained explicit credit to **OpenClaw** to acknowledge the foundational codebase.
 
 ### 9. Ravenox Rebirth
-- **Initial Transition**: Moved from Agent Aurthur to Ravenox.
+- **Initial Transition**: Moved from Ravenox to Ravenox.
 - **WhatsApp Logic**: Integrated categorical menus and prefix-based `.settings` control.
 
 ### 10. Senior Documentation & Visual Overhaul

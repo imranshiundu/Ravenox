@@ -26,9 +26,9 @@ How to see whether the linked channel is healthy from the menu bar app.
 
 ## How the probe works
 
-- App runs `openclaw health --json` via `ShellExecutor` every ~60s and on demand. The probe loads creds and reports status without sending messages.
+- App runs .ravenox health --json` via `ShellExecutor` every ~60s and on demand. The probe loads creds and reports status without sending messages.
 - Cache the last good snapshot and the last error separately to avoid flicker; show the timestamp of each.
 
 ## When in doubt
 
-- You can still use the CLI flow in [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) and tail `/tmp/openclaw/openclaw-*.log` for `web-heartbeat` / `web-reconnect`.
+- You can still use the CLI flow in [Gateway health](/gateway/health) (.ravenox status`, .ravenox status --deep`, .ravenox health --json`) and tail `/tmp.ravenox.ravenox-*.log` for `web-heartbeat` / `web-reconnect`.

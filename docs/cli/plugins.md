@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `openclaw plugins` (list, install, uninstall, enable/disable, doctor)"
+summary: "CLI reference for .ravenox plugins` (list, install, uninstall, enable/disable, doctor)"
 read_when:
   - You want to install or manage in-process Gateway plugins
   - You want to debug plugin load failures
 title: "plugins"
 ---
 
-# `openclaw plugins`
+# .ravenox plugins`
 
 Manage Gateway plugins/extensions (loaded in-process).
 
@@ -19,27 +19,27 @@ Related:
 ## Commands
 
 ```bash
-openclaw plugins list
-openclaw plugins info <id>
-openclaw plugins enable <id>
-openclaw plugins disable <id>
-openclaw plugins uninstall <id>
-openclaw plugins doctor
-openclaw plugins update <id>
-openclaw plugins update --all
+ravenox plugins list
+ravenox plugins info <id>
+ravenox plugins enable <id>
+ravenox plugins disable <id>
+ravenox plugins uninstall <id>
+ravenox plugins doctor
+ravenox plugins update <id>
+ravenox plugins update --all
 ```
 
-Bundled plugins ship with OpenClaw but start disabled. Use `plugins enable` to
+Bundled plugins ship with Ravenox but start disabled. Use `plugins enable` to
 activate them.
 
-All plugins must ship a `openclaw.plugin.json` file with an inline JSON Schema
+All plugins must ship a .ravenox.plugin.json` file with an inline JSON Schema
 (`configSchema`, even if empty). Missing/invalid manifests or schemas prevent
 the plugin from loading and fail config validation.
 
 ### Install
 
 ```bash
-openclaw plugins install <path-or-spec>
+ravenox plugins install <path-or-spec>
 ```
 
 Security note: treat plugin installs like running code. Prefer pinned versions.
@@ -52,15 +52,15 @@ Supported archives: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
 Use `--link` to avoid copying a local directory (adds to `plugins.load.paths`):
 
 ```bash
-openclaw plugins install -l ./my-plugin
+ravenox plugins install -l ./my-plugin
 ```
 
 ### Uninstall
 
 ```bash
-openclaw plugins uninstall <id>
-openclaw plugins uninstall <id> --dry-run
-openclaw plugins uninstall <id> --keep-files
+ravenox plugins uninstall <id>
+ravenox plugins uninstall <id> --dry-run
+ravenox plugins uninstall <id> --keep-files
 ```
 
 `uninstall` removes plugin records from `plugins.entries`, `plugins.installs`,
@@ -76,9 +76,9 @@ state dir extensions root (`$OPENCLAW_STATE_DIR/extensions/<id>`). Use
 ### Update
 
 ```bash
-openclaw plugins update <id>
-openclaw plugins update --all
-openclaw plugins update <id> --dry-run
+ravenox plugins update <id>
+ravenox plugins update --all
+ravenox plugins update <id> --dry-run
 ```
 
 Updates only apply to plugins installed from npm (tracked in `plugins.installs`).
