@@ -1,4 +1,5 @@
 # 🦞 Agent Aurthur — Personal AI Assistant
+> **Lineage & Foundation**: Agent Aurthur is a performance-tuned distribution of the [OpenClaw](https://github.com/openclaw/openclaw) core.
 
 <p align="center">
     <picture>
@@ -128,18 +129,21 @@ Run `arthur doctor` to surface risky/misconfigured DM policies.
 - **[First-class tools](https://docs.arthur.ai/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
 - **[Companion apps](https://docs.arthur.ai/platforms/macos)** — macOS menu bar app + iOS/Android [nodes](https://docs.arthur.ai/nodes).
 - **[Onboarding](https://docs.arthur.ai/start/wizard) + [skills](https://docs.arthur.ai/tools/skills)** — wizard-driven setup with bundled/managed/workspace skills.
-- **[Dormant Mode]** — Operates via local commands even when AI tokens are unavailable.
+- **[Architectural Diet]** — Run Arthur on a $5 Pi Zero or Cloudflare Workers.
 - **[WhatsApp Automation]** — Full command-driven task execution via WhatsApp.
 
-## Dormant Hybrid Architecture
+## The Architectural Diet (Lightweight Operation)
 
-Agent Aurthur is designed to be efficient. It operates in two main modes:
+Agent Aurthur is built to be a "Ghost"—consuming zero resources when idle and running on minimal hardware.
 
-1.  **Dormant Mode (No-API / Command-First)**: When AI tokens are unavailable or the task is simple, Arthur follows deterministic commands. You can control your machine (e.g., "open spotify", "screenshot", "system status") without burning LLM tokens.
-2.  **Titan Mode (High Autonomy)**: When a complex task is detected, Arthur "wakes up" high-level intelligence (Claude 3.5 Sonnet, Gemini 1.5 Pro) to perform advanced engineering and research.
+### 🍱 Strategic Optimizations
+- **Serverless (moltworker)**: Port the gateway to **Cloudflare Workers** to eliminate VPS costs.
+- **Bare-metal (MimiClaw)**: Compile the core loop for **ESP32** microcontrollers.
+- **Model Tiering**: Uses **Gemini 1.5 Flash** for 90% of chat to save $ and RAM.
+- **Webhook Mode**: Sleep until a message arrives. No active polling.
+- **Context Compaction**: Aggressively summarizes history to keep context windows tiny.
 
-### ✨ WhatsApp Intelligence
-Connected to WhatsApp, Agent Aurthur acts as a powerful remote assistant. It listens for commands, performs tasks, and reports back—even in environments where constant AI streaming isn't feasible.
+See the [Optimization Guide](docs/OPTIMIZATION.md) for detailed configuration.
 
 [![Star History Chart](https://api.star-history.com/svg?repos=arthur/arthur&type=date&legend=top-left)](https://www.star-history.com/#arthur/arthur&type=date&legend=top-left)
 
