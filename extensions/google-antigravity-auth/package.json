@@ -1,13 +1,13 @@
 {
-  "name": "@openclaw/google-antigravity-auth",
+  "name": ".ravenox/google-antigravity-auth",
   "version": "2026.2.18",
   "private": true,
-  "description": "OpenClaw Google Antigravity OAuth provider plugin",
+  "description": "Ravenox Google Antigravity OAuth provider plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    .ravenox": "workspace:*"
   },
-  "openclaw": {
+  .ravenox": {
     "extensions": [
       "./index.ts"
     ]

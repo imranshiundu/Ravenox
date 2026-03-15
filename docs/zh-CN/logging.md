@@ -211,7 +211,7 @@ ravenox channels logs --channel whatsapp
 环境变量覆盖（一次性）：
 
 ```
-OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
+RAVENOX_DIAGNOSTICS=telegram.http,telegram.payload
 ```
 
 注意：

@@ -51,7 +51,7 @@ For tool call behavior, prompt for a `read` or `exec` action so you can see tool
 
 ## Clean Slate Reset
 
-State lives under the Ravenox state directory. Default is `~/.ravenox`. If `OPENCLAW_STATE_DIR` is set, use that directory instead.
+State lives under the Ravenox state directory. Default is `~/.ravenox`. If `RAVENOX_STATE_DIR` is set, use that directory instead.
 
 To reset everything:
 

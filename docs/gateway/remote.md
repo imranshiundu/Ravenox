@@ -79,7 +79,7 @@ With the tunnel up:
 - .ravenox health` and .ravenox status --deep` now reach the remote gateway via `ws://127.0.0.1:18789`.
 - .ravenox gateway {status,health,send,agent,call}` can also target the forwarded URL via `--url` when needed.
 
-Note: replace `18789` with your configured `gateway.port` (or `--port`/`OPENCLAW_GATEWAY_PORT`).
+Note: replace `18789` with your configured `gateway.port` (or `--port`/`RAVENOX_GATEWAY_PORT`).
 Note: when you pass `--url`, the CLI does not fall back to config or environment credentials.
 Include `--token` or `--password` explicitly. Missing explicit credentials is an error.
 

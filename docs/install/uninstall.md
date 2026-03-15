@@ -45,10 +45,10 @@ ravenox gateway uninstall
 3. Delete state + config:
 
 ```bash
-rm -rf "${OPENCLAW_STATE_DIR:-$HOME/.ravenox}"
+rm -rf "${RAVENOX_STATE_DIR:-$HOME/.ravenox}"
 ```
 
-If you set `OPENCLAW_CONFIG_PATH` to a custom location outside the state dir, delete that file too.
+If you set `RAVENOX_CONFIG_PATH` to a custom location outside the state dir, delete that file too.
 
 4. Delete your workspace (optional, removes agent files):
 
@@ -72,7 +72,7 @@ rm -rf /Applications/Ravenox.app
 
 Notes:
 
-- If you used profiles (`--profile` / `OPENCLAW_PROFILE`), repeat step 3 for each state dir (defaults are `~/.ravenox-<profile>`).
+- If you used profiles (`--profile` / `RAVENOX_PROFILE`), repeat step 3 for each state dir (defaults are `~/.ravenox-<profile>`).
 - In remote mode, the state dir lives on the **gateway host**, so run steps 1-4 there too.
 
 ## Manual service removal (CLI not installed)

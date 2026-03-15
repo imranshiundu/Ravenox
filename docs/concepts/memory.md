@@ -158,7 +158,7 @@ out to QMD for retrieval. Key points:
 
     ```bash
     # Pick the same state dir Ravenox uses
-    STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.ravenox}"
+    STATE_DIR="${RAVENOX_STATE_DIR:-$HOME/.ravenox}"
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"

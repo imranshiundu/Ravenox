@@ -1,0 +1,26 @@
+# Ravenox gateway — Podman Quadlet (rootless)
+# Installed by setup-podman.sh into.ravenox's ~/.config/containers/systemd/
+# {{RAVENOX_HOME}} is replaced at install time.
+
+[Unit]
+Description=Ravenox gateway (rootless Podman)
+
+[Container]
+Image.ravenox:local
+ContainerName.ravenox
+UserNS=keep-id
+Volume={{RAVENOX_HOME}}/.ravenox:/home/node/.ravenox
+EnvironmentFile={{RAVENOX_HOME}}/.ravenox/.env
+Environment=HOME=/home/node
+Environment=TERM=xterm-256color
+PublishPort=18789:18789
+PublishPort=18790:18790
+Pull=never
+Exec=node dist/index.js gateway --bind lan --port 18789
+
+[Service]
+TimeoutStartSec=300
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

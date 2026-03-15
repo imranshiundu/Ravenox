@@ -1,9 +1,9 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { RavenoxConfig } from "../config/config.js";
 
 export function applyOnboardingLocalWorkspaceConfig(
-  baseConfig: OpenClawConfig,
+  baseConfig: RavenoxConfig,
   workspaceDir: string,
-): OpenClawConfig {
+): RavenoxConfig {
   return {
     ...baseConfig,
     agents: {

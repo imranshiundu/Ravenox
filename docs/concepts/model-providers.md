@@ -21,7 +21,7 @@ For model selection rules, see [/concepts/models](/concepts/models).
 
 - Supports generic provider rotation for selected providers.
 - Configure multiple keys via:
-  - `OPENCLAW_LIVE_<PROVIDER>_KEY` (single live override, highest priority)
+  - `RAVENOX_LIVE_<PROVIDER>_KEY` (single live override, highest priority)
   - `<PROVIDER>_API_KEYS` (comma or semicolon list)
   - `<PROVIDER>_API_KEY` (primary key)
   - `<PROVIDER>_API_KEY_*` (numbered list, e.g. `<PROVIDER>_API_KEY_1`)
@@ -40,7 +40,7 @@ Ravenox ships with the pi‑ai catalog. These providers require **no**
 
 - Provider: `openai`
 - Auth: `OPENAI_API_KEY`
-- Optional rotation: `OPENAI_API_KEYS`, `OPENAI_API_KEY_1`, `OPENAI_API_KEY_2`, plus `OPENCLAW_LIVE_OPENAI_KEY` (single override)
+- Optional rotation: `OPENAI_API_KEYS`, `OPENAI_API_KEY_1`, `OPENAI_API_KEY_2`, plus `RAVENOX_LIVE_OPENAI_KEY` (single override)
 - Example model: `openai/gpt-5.1-codex`
 - CLI: .ravenox onboard --auth-choice openai-api-key`
 
@@ -54,7 +54,7 @@ Ravenox ships with the pi‑ai catalog. These providers require **no**
 
 - Provider: `anthropic`
 - Auth: `ANTHROPIC_API_KEY` or `claude setup-token`
-- Optional rotation: `ANTHROPIC_API_KEYS`, `ANTHROPIC_API_KEY_1`, `ANTHROPIC_API_KEY_2`, plus `OPENCLAW_LIVE_ANTHROPIC_KEY` (single override)
+- Optional rotation: `ANTHROPIC_API_KEYS`, `ANTHROPIC_API_KEY_1`, `ANTHROPIC_API_KEY_2`, plus `RAVENOX_LIVE_ANTHROPIC_KEY` (single override)
 - Example model: `anthropic/claude-opus-4-6`
 - CLI: .ravenox onboard --auth-choice token` (paste setup-token) or .ravenox models auth paste-token --provider anthropic`
 
@@ -94,7 +94,7 @@ Ravenox ships with the pi‑ai catalog. These providers require **no**
 
 - Provider: `google`
 - Auth: `GEMINI_API_KEY`
-- Optional rotation: `GEMINI_API_KEYS`, `GEMINI_API_KEY_1`, `GEMINI_API_KEY_2`, `GOOGLE_API_KEY` fallback, and `OPENCLAW_LIVE_GEMINI_KEY` (single override)
+- Optional rotation: `GEMINI_API_KEYS`, `GEMINI_API_KEY_1`, `GEMINI_API_KEY_2`, `GOOGLE_API_KEY` fallback, and `RAVENOX_LIVE_GEMINI_KEY` (single override)
 - Example model: `google/gemini-3-pro-preview`
 - CLI: .ravenox onboard --auth-choice gemini-api-key`
 

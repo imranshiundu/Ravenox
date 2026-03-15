@@ -126,13 +126,13 @@ chown -R 1000:1000 /root/.ravenox
 Create `.env` in the repository root.
 
 ```bash
-OPENCLAW_IMAGE.ravenox:latest
-OPENCLAW_GATEWAY_TOKEN=change-me-now
-OPENCLAW_GATEWAY_BIND=lan
-OPENCLAW_GATEWAY_PORT=18789
+RAVENOX_IMAGE.ravenox:latest
+RAVENOX_GATEWAY_TOKEN=change-me-now
+RAVENOX_GATEWAY_BIND=lan
+RAVENOX_GATEWAY_PORT=18789
 
-OPENCLAW_CONFIG_DIR=/root/.ravenox
-OPENCLAW_WORKSPACE_DIR=/root/.ravenox/workspace
+RAVENOX_CONFIG_DIR=/root/.ravenox
+RAVENOX_WORKSPACE_DIR=/root/.ravenox/workspace
 
 GOG_KEYRING_PASSWORD=change-me-now
 XDG_CONFIG_HOME=/home/node/.ravenox
@@ -155,7 +155,7 @@ Create or update `docker-compose.yml`.
 ```yaml
 services:
  .ravenox-gateway:
-    image: ${OPENCLAW_IMAGE}
+    image: ${RAVENOX_IMAGE}
     build: .
     restart: unless-stopped
     env_file:
@@ -164,28 +164,28 @@ services:
       - HOME=/home/node
       - NODE_ENV=production
       - TERM=xterm-256color
-      - OPENCLAW_GATEWAY_BIND=${OPENCLAW_GATEWAY_BIND}
-      - OPENCLAW_GATEWAY_PORT=${OPENCLAW_GATEWAY_PORT}
-      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+      - RAVENOX_GATEWAY_BIND=${RAVENOX_GATEWAY_BIND}
+      - RAVENOX_GATEWAY_PORT=${RAVENOX_GATEWAY_PORT}
+      - RAVENOX_GATEWAY_TOKEN=${RAVENOX_GATEWAY_TOKEN}
       - GOG_KEYRING_PASSWORD=${GOG_KEYRING_PASSWORD}
       - XDG_CONFIG_HOME=${XDG_CONFIG_HOME}
       - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
-      - ${OPENCLAW_CONFIG_DIR}:/home/node/.ravenox
-      - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.ravenox/workspace
+      - ${RAVENOX_CONFIG_DIR}:/home/node/.ravenox
+      - ${RAVENOX_WORKSPACE_DIR}:/home/node/.ravenox/workspace
     ports:
       # Recommended: keep the Gateway loopback-only on the VPS; access via SSH tunnel.
       # To expose it publicly, remove the `127.0.0.1:` prefix and firewall accordingly.
-      - "127.0.0.1:${OPENCLAW_GATEWAY_PORT}:18789"
+      - "127.0.0.1:${RAVENOX_GATEWAY_PORT}:18789"
     command:
       [
         "node",
         "dist/index.js",
         "gateway",
         "--bind",
-        "${OPENCLAW_GATEWAY_BIND}",
+        "${RAVENOX_GATEWAY_BIND}",
         "--port",
-        "${OPENCLAW_GATEWAY_PORT}",
+        "${RAVENOX_GATEWAY_PORT}",
         "--allow-unconfigured",
       ]
 ```

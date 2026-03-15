@@ -85,7 +85,7 @@ ravenox nodes rename --node <id|name|ip> --name "Living Room iPad"
 - `~/.ravenox/nodes/paired.json`
 - `~/.ravenox/nodes/pending.json`
 
-如果你覆盖了 `OPENCLAW_STATE_DIR`，`nodes/` 文件夹会随之移动。
+如果你覆盖了 `RAVENOX_STATE_DIR`，`nodes/` 文件夹会随之移动。
 
 安全注意事项：
 

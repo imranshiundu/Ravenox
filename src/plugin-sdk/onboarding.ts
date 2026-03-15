@@ -1,13 +1,13 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { RavenoxConfig } from "../config/config.js";
 import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from "../routing/session-key.js";
 import type { WizardPrompter } from "../wizard/prompts.js";
 
 export type PromptAccountIdParams = {
-  cfg: OpenClawConfig;
+  cfg: RavenoxConfig;
   prompter: WizardPrompter;
   label: string;
   currentId?: string;
-  listAccountIds: (cfg: OpenClawConfig) => string[];
+  listAccountIds: (cfg: RavenoxConfig) => string[];
   defaultAccountId: string;
 };
 

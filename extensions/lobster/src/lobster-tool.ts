@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { Type } from "@sinclair/typebox";
-import type { OpenClawPluginApi } from "../../../src/plugins/types.js";
+import type { RavenoxPluginApi } from "../../../src/plugins/types.js";
 import { resolveWindowsLobsterSpawn } from "./windows-spawn.js";
 
 type LobsterEnvelope =
@@ -228,7 +228,7 @@ function parseEnvelope(stdout: string): LobsterEnvelope {
   throw new Error("lobster returned invalid JSON envelope");
 }
 
-export function createLobsterTool(api: OpenClawPluginApi) {
+export function createLobsterTool(api: RavenoxPluginApi) {
   return {
     name: "lobster",
     label: "Lobster Workflow",

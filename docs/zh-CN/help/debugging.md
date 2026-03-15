@@ -62,7 +62,7 @@ tsx watch src/entry.ts gateway --force
 
 ```bash
 pnpm gateway:dev
-OPENCLAW_PROFILE=dev.ravenox tui
+RAVENOX_PROFILE=dev.ravenox tui
 ```
 
 如果你还没有全局安装，请通过 `pnpm.ravenox ...` 运行 CLI。
@@ -70,10 +70,10 @@ OPENCLAW_PROFILE=dev.ravenox tui
 这会执行：
 
 1. **配置文件隔离**（全局 `--dev`）
-   - `OPENCLAW_PROFILE=dev`
-   - `OPENCLAW_STATE_DIR=~/.ravenox-dev`
-   - `OPENCLAW_CONFIG_PATH=~/.ravenox-dev.ravenox.json`
-   - `OPENCLAW_GATEWAY_PORT=19001`（浏览器/画布相应移动）
+   - `RAVENOX_PROFILE=dev`
+   - `RAVENOX_STATE_DIR=~/.ravenox-dev`
+   - `RAVENOX_CONFIG_PATH=~/.ravenox-dev.ravenox.json`
+   - `RAVENOX_GATEWAY_PORT=19001`（浏览器/画布相应移动）
 
 2. **Dev 引导**（`gateway --dev`）
    - 如果缺失则写入最小配置（`gateway.mode=local`，绑定 loopback）。
@@ -82,7 +82,7 @@ OPENCLAW_PROFILE=dev.ravenox tui
    - 如果缺失则填充工作区文件：
      `AGENTS.md`、`SOUL.md`、`TOOLS.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md`。
    - 默认身份：**C3‑PO**（礼仪机器人）。
-   - 在 dev 模式下跳过渠道提供商（`OPENCLAW_SKIP_CHANNELS=1`）。
+   - 在 dev 模式下跳过渠道提供商（`RAVENOX_SKIP_CHANNELS=1`）。
 
 重置流程（全新开始）：
 
@@ -94,7 +94,7 @@ pnpm gateway:dev:reset
 如果你需要明确拼写，请使用环境变量形式：
 
 ```bash
-OPENCLAW_PROFILE=dev.ravenox gateway --dev --reset
+RAVENOX_PROFILE=dev.ravenox gateway --dev --reset
 ```
 
 `--reset` 清除配置、凭证、会话和 dev 工作区（使用 `trash`，而非 `rm`），然后重新创建默认的 dev 设置。
@@ -125,8 +125,8 @@ pnpm gateway:watch --force --raw-stream --raw-stream-path ~/.ravenox/logs/raw-st
 等效环境变量：
 
 ```bash
-OPENCLAW_RAW_STREAM=1
-OPENCLAW_RAW_STREAM_PATH=~/.ravenox/logs/raw-stream.jsonl
+RAVENOX_RAW_STREAM=1
+RAVENOX_RAW_STREAM_PATH=~/.ravenox/logs/raw-stream.jsonl
 ```
 
 默认文件：

@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/bluebubbles",
+  "name": ".ravenox/bluebubbles",
   "version": "2026.2.18",
-  "description": "OpenClaw BlueBubbles channel plugin",
+  "description": "Ravenox BlueBubbles channel plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    .ravenox": "workspace:*"
   },
-  "openclaw": {
+  .ravenox": {
     "extensions": [
       "./index.ts"
     ],
@@ -28,7 +28,7 @@
       "order": 75
     },
     "install": {
-      "npmSpec": "@openclaw/bluebubbles",
+      "npmSpec": ".ravenox/bluebubbles",
       "localPath": "extensions/bluebubbles",
       "defaultChoice": "npm"
     }

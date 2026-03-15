@@ -543,11 +543,11 @@ export function registerMemoryCli(program: Command) {
       "after",
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
-          ["openclaw memory status", "Show index and provider status."],
-          ["openclaw memory index --force", "Force a full reindex."],
-          ['openclaw memory search --query "deployment notes"', "Search indexed memory entries."],
-          ["openclaw memory status --json", "Output machine-readable JSON."],
-        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/memory", "docs.openclaw.ai/cli/memory")}\n`,
+          [.ravenox memory status", "Show index and provider status."],
+          [.ravenox memory index --force", "Force a full reindex."],
+          [.ravenox memory search --query "deployment notes"', "Search indexed memory entries."],
+          [.ravenox memory status --json", "Output machine-readable JSON."],
+        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/memory", "docs.ravenox.ai/cli/memory")}\n`,
     );
 
   memory

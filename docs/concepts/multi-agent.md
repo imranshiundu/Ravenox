@@ -39,8 +39,8 @@ reach other host locations unless sandboxing is enabled. See
 
 ## Paths (quick map)
 
-- Config: `~/.ravenox.ravenox.json` (or `OPENCLAW_CONFIG_PATH`)
-- State dir: `~/.ravenox` (or `OPENCLAW_STATE_DIR`)
+- Config: `~/.ravenox.ravenox.json` (or `RAVENOX_CONFIG_PATH`)
+- State dir: `~/.ravenox` (or `RAVENOX_STATE_DIR`)
 - Workspace: `~/.ravenox/workspace` (or `~/.ravenox/workspace-<agentId>`)
 - Agent dir: `~/.ravenox/agents/<agentId>/agent` (or `agents.list[].agentDir`)
 - Sessions: `~/.ravenox/agents/<agentId>/sessions`
@@ -51,7 +51,7 @@ If you do nothing, Ravenox runs a single agent:
 
 - `agentId` defaults to **`main`**.
 - Sessions are keyed as `agent:main:<mainKey>`.
-- Workspace defaults to `~/.ravenox/workspace` (or `~/.ravenox/workspace-<profile>` when `OPENCLAW_PROFILE` is set).
+- Workspace defaults to `~/.ravenox/workspace` (or `~/.ravenox/workspace-<profile>` when `RAVENOX_PROFILE` is set).
 - State defaults to `~/.ravenox/agents/main/agent`.
 
 ## Agent helper

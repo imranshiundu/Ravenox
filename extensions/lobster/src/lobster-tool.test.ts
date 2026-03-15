@@ -4,7 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import type { OpenClawPluginApi, OpenClawPluginToolContext } from "../../../src/plugins/types.js";
+import type { RavenoxPluginApi, RavenoxPluginToolContext } from "../../../src/plugins/types.js";
 
 const spawnState = vi.hoisted(() => ({
   queue: [] as Array<{ stdout: string; stderr?: string; exitCode?: number }>,
@@ -17,7 +17,7 @@ vi.mock("node:child_process", () => ({
 
 let createLobsterTool: typeof import("./lobster-tool.js").createLobsterTool;
 
-function fakeApi(overrides: Partial<OpenClawPluginApi> = {}): OpenClawPluginApi {
+function fakeApi(overrides: Partial<RavenoxPluginApi> = {}): RavenoxPluginApi {
   return {
     id: "lobster",
     name: "lobster",
@@ -43,7 +43,7 @@ function fakeApi(overrides: Partial<OpenClawPluginApi> = {}): OpenClawPluginApi 
   };
 }
 
-function fakeCtx(overrides: Partial<OpenClawPluginToolContext> = {}): OpenClawPluginToolContext {
+function fakeCtx(overrides: Partial<RavenoxPluginToolContext> = {}): RavenoxPluginToolContext {
   return {
     config: {},
     workspaceDir: "/tmp",
@@ -77,7 +77,7 @@ describe("lobster plugin tool", () => {
   beforeAll(async () => {
     ({ createLobsterTool } = await import("./lobster-tool.js"));
 
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "openclaw-lobster-plugin-"));
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), .ravenox-lobster-plugin-"));
     lobsterBinPath = path.join(tempDir, process.platform === "win32" ? "lobster.cmd" : "lobster");
     lobsterExePath = path.join(tempDir, "lobster.exe");
     await fs.writeFile(lobsterBinPath, "", { encoding: "utf8", mode: 0o755 });
@@ -454,7 +454,7 @@ describe("lobster plugin tool", () => {
 
   it("can be gated off in sandboxed contexts", async () => {
     const api = fakeApi();
-    const factoryTool = (ctx: OpenClawPluginToolContext) => {
+    const factoryTool = (ctx: RavenoxPluginToolContext) => {
       if (ctx.sandboxed) {
         return null;
       }

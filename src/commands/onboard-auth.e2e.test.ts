@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { OAuthCredentials } from "@mariozechner/pi-ai";
 import { afterEach, describe, expect, it } from "vitest";
-import type { OpenClawConfig } from "../config/config.js";
+import type { RavenoxConfig } from "../config/config.js";
 import {
   applyAuthProfileConfig,
   applyLitellmProviderConfig,
@@ -42,7 +42,7 @@ function createLegacyProviderConfig(params: {
   modelName?: string;
   baseUrl?: string;
   apiKey?: string;
-}): OpenClawConfig {
+}): RavenoxConfig {
   return {
     models: {
       providers: {
@@ -64,7 +64,7 @@ function createLegacyProviderConfig(params: {
         },
       },
     },
-  } as OpenClawConfig;
+  } as RavenoxConfig;
 }
 
 const EXPECTED_FALLBACKS = ["anthropic/claude-opus-4-5"] as const;
@@ -105,18 +105,18 @@ function expectAliasPreserved(
 
 describe("writeOAuthCredentials", () => {
   const lifecycle = createAuthTestLifecycle([
-    "OPENCLAW_STATE_DIR",
-    "OPENCLAW_AGENT_DIR",
+    "RAVENOX_STATE_DIR",
+    "RAVENOX_AGENT_DIR",
     "PI_CODING_AGENT_DIR",
-    "OPENCLAW_OAUTH_DIR",
+    "RAVENOX_OAUTH_DIR",
   ]);
 
   afterEach(async () => {
     await lifecycle.cleanup();
   });
 
-  it("writes auth-profiles.json under OPENCLAW_AGENT_DIR when set", async () => {
-    const env = await setupAuthTestEnv("openclaw-oauth-");
+  it("writes auth-profiles.json under RAVENOX_AGENT_DIR when set", async () => {
+    const env = await setupAuthTestEnv(.ravenox-oauth-");
     lifecycle.setStateDir(env.stateDir);
 
     const creds = {
@@ -144,8 +144,8 @@ describe("writeOAuthCredentials", () => {
 
 describe("setMinimaxApiKey", () => {
   const lifecycle = createAuthTestLifecycle([
-    "OPENCLAW_STATE_DIR",
-    "OPENCLAW_AGENT_DIR",
+    "RAVENOX_STATE_DIR",
+    "RAVENOX_AGENT_DIR",
     "PI_CODING_AGENT_DIR",
   ]);
 
@@ -153,8 +153,8 @@ describe("setMinimaxApiKey", () => {
     await lifecycle.cleanup();
   });
 
-  it("writes to OPENCLAW_AGENT_DIR when set", async () => {
-    const env = await setupAuthTestEnv("openclaw-minimax-", { agentSubdir: "custom-agent" });
+  it("writes to RAVENOX_AGENT_DIR when set", async () => {
+    const env = await setupAuthTestEnv(.ravenox-minimax-", { agentSubdir: "custom-agent" });
     lifecycle.setStateDir(env.stateDir);
 
     await setMinimaxApiKey("sk-minimax-test");

@@ -294,7 +294,7 @@ Optional allowlist (disable specific overrides while keeping tags enabled):
 ## Per-user preferences
 
 Slash commands write local overrides to `prefsPath` (default:
-`~/.ravenox/settings/tts.json`, override with `OPENCLAW_TTS_PREFS` or
+`~/.ravenox/settings/tts.json`, override with `RAVENOX_TTS_PREFS` or
 `messages.tts.prefsPath`).
 
 Stored fields:

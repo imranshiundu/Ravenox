@@ -204,7 +204,7 @@ Credential and profile paths:
 
 <Note>
 Headless and server tip: complete OAuth on a machine with a browser, then copy
-`~/.ravenox/credentials/oauth.json` (or `$OPENCLAW_STATE_DIR/credentials/oauth.json`)
+`~/.ravenox/credentials/oauth.json` (or `$RAVENOX_STATE_DIR/credentials/oauth.json`)
 to the gateway host.
 </Note>
 

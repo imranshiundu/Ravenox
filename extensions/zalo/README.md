@@ -1,17 +1,17 @@
-# @openclaw/zalo
+# .ravenox/zalo
 
-Zalo channel plugin for OpenClaw (Bot API).
+Zalo channel plugin for Ravenox (Bot API).
 
 ## Install (local checkout)
 
 ```bash
-openclaw plugins install ./extensions/zalo
+ravenox plugins install ./extensions/zalo
 ```
 
 ## Install (npm)
 
 ```bash
-openclaw plugins install @openclaw/zalo
+ravenox plugins install .ravenox/zalo
 ```
 
 Onboarding: select Zalo and confirm the install prompt to fetch the plugin automatically.

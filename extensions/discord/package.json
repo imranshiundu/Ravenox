@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/discord",
+  "name": ".ravenox/discord",
   "version": "2026.2.18",
-  "description": "OpenClaw Discord channel plugin",
+  "description": "Ravenox Discord channel plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    .ravenox": "workspace:*"
   },
-  "openclaw": {
+  .ravenox": {
     "extensions": [
       "./index.ts"
     ]

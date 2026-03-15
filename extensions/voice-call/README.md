@@ -1,6 +1,6 @@
-# @openclaw/voice-call
+# .ravenox/voice-call
 
-Official Voice Call plugin for **OpenClaw**.
+Official Voice Call plugin for **Ravenox**.
 
 Providers:
 
@@ -9,15 +9,15 @@ Providers:
 - **Plivo** (Voice API + XML transfer + GetInput speech)
 - **Mock** (dev/no network)
 
-Docs: `https://docs.openclaw.ai/plugins/voice-call`
-Plugin system: `https://docs.openclaw.ai/plugin`
+Docs: `https://docs.ravenox.ai/plugins/voice-call`
+Plugin system: `https://docs.ravenox.ai/plugin`
 
 ## Install (local dev)
 
-### Option A: install via OpenClaw (recommended)
+### Option A: install via Ravenox (recommended)
 
 ```bash
-openclaw plugins install @openclaw/voice-call
+ravenox plugins install .ravenox/voice-call
 ```
 
 Restart the Gateway afterwards.
@@ -25,9 +25,9 @@ Restart the Gateway afterwards.
 ### Option B: copy into your global extensions folder (dev)
 
 ```bash
-mkdir -p ~/.openclaw/extensions
-cp -R extensions/voice-call ~/.openclaw/extensions/voice-call
-cd ~/.openclaw/extensions/voice-call && pnpm install
+mkdir -p ~/.ravenox/extensions
+cp -R extensions/voice-call ~/.ravenox/extensions/voice-call
+cd ~/.ravenox/extensions/voice-call && pnpm install
 ```
 
 ## Config
@@ -132,13 +132,13 @@ Notes:
 ## CLI
 
 ```bash
-openclaw voicecall call --to "+15555550123" --message "Hello from OpenClaw"
-openclaw voicecall continue --call-id <id> --message "Any questions?"
-openclaw voicecall speak --call-id <id> --message "One moment"
-openclaw voicecall end --call-id <id>
-openclaw voicecall status --call-id <id>
-openclaw voicecall tail
-openclaw voicecall expose --mode funnel
+ravenox voicecall call --to "+15555550123" --message "Hello from Ravenox"
+ravenox voicecall continue --call-id <id> --message "Any questions?"
+ravenox voicecall speak --call-id <id> --message "One moment"
+ravenox voicecall end --call-id <id>
+ravenox voicecall status --call-id <id>
+ravenox voicecall tail
+ravenox voicecall expose --mode funnel
 ```
 
 ## Tool

@@ -77,11 +77,11 @@ Security notes:
 
 Disable/override:
 
-- `OPENCLAW_DISABLE_BONJOUR=1` disables advertising.
+- `RAVENOX_DISABLE_BONJOUR=1` disables advertising.
 - `gateway.bind` in `~/.ravenox.ravenox.json` controls the Gateway bind mode.
-- `OPENCLAW_SSH_PORT` overrides the SSH port advertised in TXT (defaults to 22).
-- `OPENCLAW_TAILNET_DNS` publishes a `tailnetDns` hint (MagicDNS).
-- `OPENCLAW_CLI_PATH` overrides the advertised CLI path.
+- `RAVENOX_SSH_PORT` overrides the SSH port advertised in TXT (defaults to 22).
+- `RAVENOX_TAILNET_DNS` publishes a `tailnetDns` hint (MagicDNS).
+- `RAVENOX_CLI_PATH` overrides the advertised CLI path.
 
 ### 2) Tailnet (cross-network)
 

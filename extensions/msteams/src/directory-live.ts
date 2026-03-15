@@ -1,4 +1,4 @@
-import type { ChannelDirectoryEntry } from "openclaw/plugin-sdk";
+import type { ChannelDirectoryEntry } from .ravenox/plugin-sdk";
 import {
   escapeOData,
   fetchGraphJson,

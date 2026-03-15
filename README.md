@@ -15,57 +15,37 @@
 ---
 
 > [!IMPORTANT]
-> **Lineage & Acknowledgement**: Ravenox is a performance-tuned evolution of the [OpenClaw](https://github.com/ravenox/ravenox) project. We extend our gratitude to the original OpenClaw contributors for the foundational gateway and modular architecture that makes this system possible.
+> **Lineage & Acknowledgement**: Ravenox is a performance-tuned evolution of the Ravenox project. We extend our gratitude to the original Ravenox contributors for the foundational gateway and modular architecture.
 
 ---
 
-## 🌟 Core Philosophy: Ghost in the Machine
-Ravenox is built on two primary architectural pillars:
+## 🛠️ System Requirements (Specs)
 
-### 👻 1. The Ghost Architecture (Efficiency)
-Standard bots burn CPU cycles constant polling Messaging servers. Ravenox uses a **Webhook-First "Doorbell" Architecture** that allows the system to remain dormant (0% idle CPU) and wake up in **under 200ms** when a message hits the gateway. 
+Ravenox is designed to scale from micro-hardware to powerful servers.
 
-### 🦾 2. The Titan Hybrid Suite (Autonomy)
-When high-level reasoning is required, Ravenox activates the **Titan Suite**—a collection of high-autonomy tools that bridge the gap between AI and OS:
-- **Mem0 Core**: Long-term memory graph that remembers user preferences across months.
-- **Tavily Intelligence**: AI-optimized web research that bypasses the bloat of traditional browsing.
-- **PyAutoGUI Vision**: Native screen control allowing the AI to "see" and "interact" with non-API software.
+| Tier | Hardware Example | RAM | OS | Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **Micro (Ghost)** | Raspberry Pi Zero / ESP32 | **64MB - 128MB** | Linux (Alpine/Lite) | Messaging, Automation, Basic AI |
+| **Standard** | VPS / Old Laptop / Mac Mini | **512MB - 2GB** | Linux / macOS / WSL | Web Research, Multi-channel, Plugins |
+| **Titan (High-Autonomy)** | Desktop PC / Cloud Instance | **4GB+** | Any (Docker Recommended) | Computer Vision, Mem0 Graph, Autonomous Tasks |
 
 ---
 
-## 🟢 WhatsApp Native Automation
-Ravenox offers a specialized command surface for WhatsApp, enabling full remote control without the need for a web-browser interface.
+## 📡 Connection Guide
 
-### 📜 Command Categories
-- **AI MENU**: Access advanced LLM reasoning and task planning.
-- **AUDIO/VIDEO MENU**: Automated download and conversion pipelines.
-- **TOOLS MENU**: System utilities, network probes, and remote shell control.
-- **OWNER/SETTINGS MENU**: Sophisticated permission and behavior management.
+Ravenox supports 15+ messaging providers. Here is how you connect the most popular ones:
 
-### 📂 Settings Control (Prefix: `.`)
-Ravenox follows a deterministic command pattern to ensure 100% reliability even without an active LLM API:
+### 🟢 WhatsApp (Raven Evolution)
+Ravenox maintains **100% feature parity with Space-MD**. All commands, menus, and settings are preserved and optimized.
+1.  Run `ravenox channels login`.
+2.  A **QR Code** will appear in your terminal.
+3.  Open WhatsApp on your phone → **Linked Devices** → **Link a Device** → Scan the QR.
+4.  *Ravenox is now active as your digital shadow.*
 
-| Command | Capability |
-| :--- | :--- |
-| `.mode` | Toggles between Public/Private/Dormant operation. |
-| `.alwaysonline` | Keeps the Ravenox identity visible 24/7. |
-| `.anticall` | Automatically manages and deflects intrusive calls. |
-| `.chatbot` | Activates/Deactivates the high-autonomy LLM responder. |
-| `.setprefix` | Dynamically update the command trigger on the fly. |
-
----
-
-## 🌩️ Optimization & Spec Comparison
-
-Ravenox is engineered for the "Architectural Diet"—running on everything from a $5 Raspberry Pi Zero to a top-tier server cluster.
-
-| Specification | OpenClaw (Vanilla) | **Ravenox (Ghost)** |
-| :--- | :--- | :--- |
-| **Idle CPU** | 2-5% (Polling) | **0% (Webhook)** |
-| **Boot Latency** | 2s - 15s | **< 200ms** |
-| **Context Load** | Full JSONL Load | **Sliding Window + Summary** |
-| **Memory Persistence**| Session Only | **Mem0 Graph (Permanent)** |
-| **Hardware** | PC / Server | **Microcontrollers / ESP32** |
+### 🔵 Telegram
+1.  Message [@BotFather](https://t.me/botfather) to create a bot and get your **API Token**.
+2.  Run `ravenox channels add --channel telegram --token <YOUR_TOKEN>`.
+3.  Message your bot to start the session.
 
 ---
 
@@ -82,42 +62,43 @@ graph TD
     Ghost -- "Suspends" --> P[0% Idle CPU]
 ```
 
+---
+
+## 🟢 WhatsApp Specialized Command Surface
+Ravenox inherits the legendary **Space-MD** categorical menu, providing modular control over your digital environment.
+
+### 📂 Settings Control (Prefix: `.`)
+Uses deterministic logic—works 100% reliably even without AI tokens.
+
+| Command | Capability |
+| :--- | :--- |
+| `.mode` | Toggles between Public/Private/Dormant operation. |
+| `.alwaysonline` | Keeps your identity visible 24/7. |
+| `.anticall` | Automatically deflections intrusive calls. |
+| `.chatbot` | Activates/Deactivates the high-autonomy LLM responder. |
+| `.setbotname` | Renames your Ravenox instance locally. |
+
+---
+
 ## 📦 Sovereign Installation
 
 The fastest way to get Ravenox running on your machine (Linux, macOS, or WSL):
 
 ### ⚡ The One-Line Setup
-Run this command to automatically install dependencies, build the core, and launch the onboarding wizard:
 ```bash
 curl -sSL https://raw.githubusercontent.com/imranshiundu/Ravenox/main/scripts/install.sh | bash
 ```
 
 ### 🛠️ Manual Installation
-If you prefer to perform the steps manually:
 ```bash
-# 1. Clone the repository
 git clone https://github.com/imranshiundu/Ravenox.git && cd Ravenox
-
-# 2. Run the dedicated installer script
 ./scripts/install.sh
-```
-
-> [!TIP]
-> **Ghost Mode Activation**: After installation, run `export RAVENOX_LIGHT_MODE=1` to minimize resource consumption on low-end hardware like the Raspberry Pi Zero.
-
-### 2. Environment (Ghost Mode)
-To activate the absolute most lightweight mode, set the following in your `.env`:
-```bash
-RAVENOX_LIGHT_MODE=1
-RAVENOX_WEBHOOK_URL="https://your-domain.com/webhook"
 ```
 
 ---
 
 ## 👥 Maintenance & Governance
 Ravenox is directed and maintained by **Imran Shiundu (Lead Architect)**. 
-
-We welcome contributions that align with the "Ghost Architecture" principles. For more information, please see the [CONTRIBUTING.md](CONTRIBUTING.md) guide.
 
 ---
 <p align="center">

@@ -56,7 +56,7 @@ For a high-level overview, see [Onboarding Wizard](/start/wizard).
     - More detail: [/concepts/oauth](/concepts/oauth)
     <Note>
     Headless/server tip: complete OAuth on a machine with a browser, then copy
-    `~/.ravenox/credentials/oauth.json` (or `$OPENCLAW_STATE_DIR/credentials/oauth.json`) to the
+    `~/.ravenox/credentials/oauth.json` (or `$RAVENOX_STATE_DIR/credentials/oauth.json`) to the
     gateway host.
     </Note>
   </Step>

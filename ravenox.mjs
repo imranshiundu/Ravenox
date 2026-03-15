@@ -5,8 +5,8 @@ import module from "node:module";
 const isLightMode = process.env.RAVENOX_LIGHT_MODE === "1" || process.env.RAVENOX_LIGHT_MODE === "true";
 
 if (isLightMode) {
-  process.env.OPENCLAW_DISABLE_BROWSER = "1";
-  process.env.OPENCLAW_SKIP_CHANNELS_BOOT = "1";
+  process.env.RAVENOX_DISABLE_BROWSER = "1";
+  process.env.RAVENOX_SKIP_CHANNELS_BOOT = "1";
   console.log("👻 Ravenox is running in LIGHT MODE (Diet)");
 }
 

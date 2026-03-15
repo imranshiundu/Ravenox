@@ -165,11 +165,11 @@ sequences (e.g. spaces become `\032`).
 
 ## Disabling / configuration
 
-- `OPENCLAW_DISABLE_BONJOUR=1` disables advertising (legacy: `OPENCLAW_DISABLE_BONJOUR`).
+- `RAVENOX_DISABLE_BONJOUR=1` disables advertising (legacy: `RAVENOX_DISABLE_BONJOUR`).
 - `gateway.bind` in `~/.ravenox.ravenox.json` controls the Gateway bind mode.
-- `OPENCLAW_SSH_PORT` overrides the SSH port advertised in TXT (legacy: `OPENCLAW_SSH_PORT`).
-- `OPENCLAW_TAILNET_DNS` publishes a MagicDNS hint in TXT (legacy: `OPENCLAW_TAILNET_DNS`).
-- `OPENCLAW_CLI_PATH` overrides the advertised CLI path (legacy: `OPENCLAW_CLI_PATH`).
+- `RAVENOX_SSH_PORT` overrides the SSH port advertised in TXT (legacy: `RAVENOX_SSH_PORT`).
+- `RAVENOX_TAILNET_DNS` publishes a MagicDNS hint in TXT (legacy: `RAVENOX_TAILNET_DNS`).
+- `RAVENOX_CLI_PATH` overrides the advertised CLI path (legacy: `RAVENOX_CLI_PATH`).
 
 ## Related docs
 

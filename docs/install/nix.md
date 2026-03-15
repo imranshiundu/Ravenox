@@ -45,13 +45,13 @@ Reference the nix.ravenox README for module options.
 
 ## Nix Mode Runtime Behavior
 
-When `OPENCLAW_NIX_MODE=1` is set (automatic with nix.ravenox):
+When `RAVENOX_NIX_MODE=1` is set (automatic with nix.ravenox):
 
 Ravenox supports a **Nix mode** that makes configuration deterministic and disables auto-install flows.
 Enable it by exporting:
 
 ```bash
-OPENCLAW_NIX_MODE=1
+RAVENOX_NIX_MODE=1
 ```
 
 On macOS, the GUI app does not automatically inherit shell env vars. You can
@@ -63,12 +63,12 @@ defaults write bot.molt.mac.ravenox.nixMode -bool true
 
 ### Config + state paths
 
-Ravenox reads JSON5 config from `OPENCLAW_CONFIG_PATH` and stores mutable data in `OPENCLAW_STATE_DIR`.
-When needed, you can also set `OPENCLAW_HOME` to control the base home directory used for internal path resolution.
+Ravenox reads JSON5 config from `RAVENOX_CONFIG_PATH` and stores mutable data in `RAVENOX_STATE_DIR`.
+When needed, you can also set `RAVENOX_HOME` to control the base home directory used for internal path resolution.
 
-- `OPENCLAW_HOME` (default precedence: `HOME` / `USERPROFILE` / `os.homedir()`)
-- `OPENCLAW_STATE_DIR` (default: `~/.ravenox`)
-- `OPENCLAW_CONFIG_PATH` (default: `$OPENCLAW_STATE_DIR.ravenox.json`)
+- `RAVENOX_HOME` (default precedence: `HOME` / `USERPROFILE` / `os.homedir()`)
+- `RAVENOX_STATE_DIR` (default: `~/.ravenox`)
+- `RAVENOX_CONFIG_PATH` (default: `$RAVENOX_STATE_DIR.ravenox.json`)
 
 When running under Nix, set these explicitly to Nix-managed locations so runtime state and config
 stay out of the immutable store.

@@ -26,7 +26,7 @@ x-i18n:
 ## 默认位置
 
 - 默认：`~/.ravenox/workspace`
-- 如果设置了 `OPENCLAW_PROFILE` 且不是 `"default"`，默认值变为
+- 如果设置了 `RAVENOX_PROFILE` 且不是 `"default"`，默认值变为
   `~/.ravenox/workspace-<profile>`。
 - 在 `~/.ravenox.ravenox.json` 中覆盖：
 

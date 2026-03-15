@@ -24,7 +24,7 @@ inside a sandbox workspace under `~/.ravenox/sandboxes`, not your host workspace
 ## Default location
 
 - Default: `~/.ravenox/workspace`
-- If `OPENCLAW_PROFILE` is set and not `"default"`, the default becomes
+- If `RAVENOX_PROFILE` is set and not `"default"`, the default becomes
   `~/.ravenox/workspace-<profile>`.
 - Override in `~/.ravenox.ravenox.json`:
 

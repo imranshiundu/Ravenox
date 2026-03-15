@@ -12,7 +12,7 @@ export async function resolveIntent(message: string): Promise<Intent> {
     const trimmed = message.trim().toLowerCase();
 
     // Zero-token regex routing (Dormant State)
-    if (trimmed.startsWith("/") || trimmed.startsWith("arthur ")) {
+    if (trimmed.startsWith("/") || trimmed.startsWith(.ravenox ")) {
         return "COMMAND";
     }
 
@@ -38,7 +38,7 @@ export async function resolveIntent(message: string): Promise<Intent> {
  * Routes the message to the appropriate model based on intent (The Diet: Flash First)
  */
 export function selectModelForIntent(intent: Intent): string {
-    const isLightMode = isTruthyEnvValue(process.env.ARTHUR_LIGHT_MODE);
+    const isLightMode = isTruthyEnvValue(process.env.RAVENOX_LIGHT_MODE);
     const defaultSmallModel = isLightMode ? "gemini-1.5-flash" : "gpt-4o-mini";
 
     switch (intent) {

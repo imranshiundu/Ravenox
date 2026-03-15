@@ -95,7 +95,7 @@ ravenox gateway
   gateway: {
     bind: "loopback",
     tailscale: { mode: "funnel" },
-    auth: { mode: "password" }, // 或 OPENCLAW_GATEWAY_PASSWORD
+    auth: { mode: "password" }, // 或 RAVENOX_GATEWAY_PASSWORD
   },
 }
 ```

@@ -85,7 +85,7 @@ Pairing state is stored under the Gateway state directory (default `~/.ravenox`)
 - `~/.ravenox/nodes/paired.json`
 - `~/.ravenox/nodes/pending.json`
 
-If you override `OPENCLAW_STATE_DIR`, the `nodes/` folder moves with it.
+If you override `RAVENOX_STATE_DIR`, the `nodes/` folder moves with it.
 
 Security notes:
 

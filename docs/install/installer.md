@@ -148,16 +148,16 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 
 | Variable                                    | Description                                   |
 | ------------------------------------------- | --------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git\|npm`          | Install method                                |
-| `OPENCLAW_VERSION=latest\|next\|<semver>`   | npm version or dist-tag                       |
-| `OPENCLAW_BETA=0\|1`                        | Use beta if available                         |
-| `OPENCLAW_GIT_DIR=<path>`                   | Checkout directory                            |
-| `OPENCLAW_GIT_UPDATE=0\|1`                  | Toggle git updates                            |
-| `OPENCLAW_NO_PROMPT=1`                      | Disable prompts                               |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                               |
-| `OPENCLAW_DRY_RUN=1`                        | Dry run mode                                  |
-| `OPENCLAW_VERBOSE=1`                        | Debug mode                                    |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                 |
+| `RAVENOX_INSTALL_METHOD=git\|npm`          | Install method                                |
+| `RAVENOX_VERSION=latest\|next\|<semver>`   | npm version or dist-tag                       |
+| `RAVENOX_BETA=0\|1`                        | Use beta if available                         |
+| `RAVENOX_GIT_DIR=<path>`                   | Checkout directory                            |
+| `RAVENOX_GIT_UPDATE=0\|1`                  | Toggle git updates                            |
+| `RAVENOX_NO_PROMPT=1`                      | Disable prompts                               |
+| `RAVENOX_NO_ONBOARD=1`                     | Skip onboarding                               |
+| `RAVENOX_DRY_RUN=1`                        | Dry run mode                                  |
+| `RAVENOX_VERBOSE=1`                        | Debug mode                                    |
+| `RAVENOX_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                 |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`) |
 
   </Accordion>
@@ -230,12 +230,12 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Variable                                    | Description                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------- |
-| `OPENCLAW_PREFIX=<path>`                    | Install prefix                                                                    |
-| `OPENCLAW_VERSION=<ver>`                    | Ravenox version or dist-tag                                                      |
-| `OPENCLAW_NODE_VERSION=<ver>`               | Node version                                                                      |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
-| `OPENCLAW_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                                                     |
-| `OPENCLAW_GIT_DIR=<path>`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
+| `RAVENOX_PREFIX=<path>`                    | Install prefix                                                                    |
+| `RAVENOX_VERSION=<ver>`                    | Ravenox version or dist-tag                                                      |
+| `RAVENOX_NODE_VERSION=<ver>`               | Node version                                                                      |
+| `RAVENOX_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
+| `RAVENOX_NPM_LOGLEVEL=error\|warn\|notice` | npm log level                                                                     |
+| `RAVENOX_GIT_DIR=<path>`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
 | `SHARP_IGNORE_GLOBAL_LIBVIPS=0\|1`          | Control sharp/libvips behavior (default: `1`)                                     |
 
   </Accordion>
@@ -314,11 +314,11 @@ Designed for environments where you want everything under a local prefix (defaul
 
 | Variable                           | Description        |
 | ---------------------------------- | ------------------ |
-| `OPENCLAW_INSTALL_METHOD=git\|npm` | Install method     |
-| `OPENCLAW_GIT_DIR=<path>`          | Checkout directory |
-| `OPENCLAW_NO_ONBOARD=1`            | Skip onboarding    |
-| `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |
-| `OPENCLAW_DRY_RUN=1`               | Dry run mode       |
+| `RAVENOX_INSTALL_METHOD=git\|npm` | Install method     |
+| `RAVENOX_GIT_DIR=<path>`          | Checkout directory |
+| `RAVENOX_NO_ONBOARD=1`            | Skip onboarding    |
+| `RAVENOX_GIT_UPDATE=0`            | Disable git pull   |
+| `RAVENOX_DRY_RUN=1`               | Dry run mode       |
 
   </Accordion>
 </AccordionGroup>
@@ -341,7 +341,7 @@ Use non-interactive flags/env vars for predictable runs.
   </Tab>
   <Tab title="install.sh (non-interactive git)">
     ```bash
-    OPENCLAW_INSTALL_METHOD=git OPENCLAW_NO_PROMPT=1 \
+    RAVENOX_INSTALL_METHOD=git RAVENOX_NO_PROMPT=1 \
       curl -fsSL --proto '=https' --tlsv1.2 https:/.ravenox.ai/install.sh | bash
     ```
   </Tab>
