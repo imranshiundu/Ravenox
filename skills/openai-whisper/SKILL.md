@@ -4,7 +4,7 @@ description: Local speech-to-text with the Whisper CLI (no API key).
 homepage: https://openai.com/research/whisper
 metadata:
   {
-    "openclaw":
+    "arthur":
       {
         "emoji": "🎙️",
         "requires": { "bins": ["whisper"] },
