@@ -1,9 +1,9 @@
-# 🦞 OpenClaw — Personal AI Assistant
+# 🦞 Agent Aurthur — Personal AI Assistant
 
 <p align="center">
     <picture>
-        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.png">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png" alt="OpenClaw" width="500">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/arthur/arthur/main/docs/assets/arthur-logo-text-dark.png">
+        <img src="https://raw.githubusercontent.com/arthur/arthur/main/docs/assets/arthur-logo-text.png" alt="Agent Aurthur" width="500">
     </picture>
 </p>
 
@@ -12,45 +12,45 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/openclaw/openclaw/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/openclaw/openclaw/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
+  <a href="https://github.com/arthur/arthur/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/arthur/arthur/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://github.com/arthur/arthur/releases"><img src="https://img.shields.io/github/v/release/arthur/arthur?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
   <a href="https://discord.gg/clawd"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2&style=for-the-badge" alt="Discord"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**OpenClaw** is a _personal AI assistant_ you run on your own devices.
+**Agent Aurthur** is a _personal AI assistant_ you run on your own devices.
 It answers you on the channels you already use (WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, Microsoft Teams, WebChat), plus extension channels like BlueBubbles, Matrix, Zalo, and Zalo Personal. It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
 
 If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
 
-[Website](https://openclaw.ai) · [Docs](https://docs.openclaw.ai) · [Vision](VISION.md) · [DeepWiki](https://deepwiki.com/openclaw/openclaw) · [Getting Started](https://docs.openclaw.ai/start/getting-started) · [Updating](https://docs.openclaw.ai/install/updating) · [Showcase](https://docs.openclaw.ai/start/showcase) · [FAQ](https://docs.openclaw.ai/start/faq) · [Wizard](https://docs.openclaw.ai/start/wizard) · [Nix](https://github.com/openclaw/nix-openclaw) · [Docker](https://docs.openclaw.ai/install/docker) · [Discord](https://discord.gg/clawd)
+[Website](https://arthur.ai) · [Docs](https://docs.arthur.ai) · [Vision](VISION.md) · [DeepWiki](https://deepwiki.com/arthur/arthur) · [Repo](https://github.com/imranshiundu/Agent-Aurther.git)
 
-Preferred setup: run the onboarding wizard (`openclaw onboard`) in your terminal.
+Preferred setup: run the onboarding wizard (`arthur onboard`) in your terminal.
 The wizard guides you step by step through setting up the gateway, workspace, channels, and skills. The CLI wizard is the recommended path and works on **macOS, Linux, and Windows (via WSL2; strongly recommended)**.
 Works with npm, pnpm, or bun.
-New install? Start here: [Getting started](https://docs.openclaw.ai/start/getting-started)
+New install? Start here: [Getting started](https://docs.arthur.ai/start/getting-started)
 
 **Subscriptions (OAuth):**
 
 - **[Anthropic](https://www.anthropic.com/)** (Claude Pro/Max)
 - **[OpenAI](https://openai.com/)** (ChatGPT/Codex)
 
-Model note: while any model is supported, I strongly recommend **Anthropic Pro/Max (100/200) + Opus 4.6** for long‑context strength and better prompt‑injection resistance. See [Onboarding](https://docs.openclaw.ai/start/onboarding).
+Model note: while any model is supported, I strongly recommend **Anthropic Pro/Max (100/200) + Opus 4.6** for long‑context strength and better prompt‑injection resistance. See [Onboarding](https://docs.arthur.ai/start/onboarding).
 
 ## Models (selection + auth)
 
-- Models config + CLI: [Models](https://docs.openclaw.ai/concepts/models)
-- Auth profile rotation (OAuth vs API keys) + fallbacks: [Model failover](https://docs.openclaw.ai/concepts/model-failover)
+- Models config + CLI: [Models](https://docs.arthur.ai/concepts/models)
+- Auth profile rotation (OAuth vs API keys) + fallbacks: [Model failover](https://docs.arthur.ai/concepts/model-failover)
 
 ## Install (recommended)
 
 Runtime: **Node ≥22**.
 
 ```bash
-npm install -g openclaw@latest
-# or: pnpm add -g openclaw@latest
+npm install -g arthur@latest
+# or: pnpm add -g arthur@latest
 
-openclaw onboard --install-daemon
+arthur onboard --install-daemon
 ```
 
 The wizard installs the Gateway daemon (launchd/systemd user service) so it stays running.
@@ -59,21 +59,21 @@ The wizard installs the Gateway daemon (launchd/systemd user service) so it stay
 
 Runtime: **Node ≥22**.
 
-Full beginner guide (auth, pairing, channels): [Getting started](https://docs.openclaw.ai/start/getting-started)
+Full beginner guide (auth, pairing, channels): [Getting started](https://docs.arthur.ai/start/getting-started)
 
 ```bash
-openclaw onboard --install-daemon
+arthur onboard --install-daemon
 
-openclaw gateway --port 18789 --verbose
+arthur gateway --port 18789 --verbose
 
 # Send a message
-openclaw message send --to +1234567890 --message "Hello from OpenClaw"
+arthur message send --to +1234567890 --message "Hello from Agent Aurthur"
 
 # Talk to the assistant (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/BlueBubbles/Microsoft Teams/Matrix/Zalo/Zalo Personal/WebChat)
-openclaw agent --message "Ship checklist" --thinking high
+arthur agent --message "Ship checklist" --thinking high
 ```
 
-Upgrading? [Updating guide](https://docs.openclaw.ai/install/updating) (and run `openclaw doctor`).
+Upgrading? [Updating guide](https://docs.arthur.ai/install/updating) (and run `arthur doctor`).
 
 ## Development channels
 
@@ -81,101 +81,111 @@ Upgrading? [Updating guide](https://docs.openclaw.ai/install/updating) (and run 
 - **beta**: prerelease tags (`vYYYY.M.D-beta.N`), npm dist-tag `beta` (macOS app may be missing).
 - **dev**: moving head of `main`, npm dist-tag `dev` (when published).
 
-Switch channels (git + npm): `openclaw update --channel stable|beta|dev`.
-Details: [Development channels](https://docs.openclaw.ai/install/development-channels).
+Switch channels (git + npm): `arthur update --channel stable|beta|dev`.
+Details: [Development channels](https://docs.arthur.ai/install/development-channels).
 
 ## From source (development)
 
 Prefer `pnpm` for builds from source. Bun is optional for running TypeScript directly.
 
 ```bash
-git clone https://github.com/openclaw/openclaw.git
-cd openclaw
+git clone https://github.com/arthur/arthur.git
+cd arthur
 
 pnpm install
 pnpm ui:build # auto-installs UI deps on first run
 pnpm build
 
-pnpm openclaw onboard --install-daemon
+pnpm arthur onboard --install-daemon
 
 # Dev loop (auto-reload on TS changes)
 pnpm gateway:watch
 ```
 
-Note: `pnpm openclaw ...` runs TypeScript directly (via `tsx`). `pnpm build` produces `dist/` for running via Node / the packaged `openclaw` binary.
+Note: `pnpm arthur ...` runs TypeScript directly (via `tsx`). `pnpm build` produces `dist/` for running via Node / the packaged `arthur` binary.
 
 ## Security defaults (DM access)
 
-OpenClaw connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
+Agent Aurthur connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
 
-Full security guide: [Security](https://docs.openclaw.ai/gateway/security)
+Full security guide: [Security](https://docs.arthur.ai/gateway/security)
 
 Default behavior on Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack:
 
 - **DM pairing** (`dmPolicy="pairing"` / `channels.discord.dmPolicy="pairing"` / `channels.slack.dmPolicy="pairing"`; legacy: `channels.discord.dm.policy`, `channels.slack.dm.policy`): unknown senders receive a short pairing code and the bot does not process their message.
-- Approve with: `openclaw pairing approve <channel> <code>` (then the sender is added to a local allowlist store).
+- Approve with: `arthur pairing approve <channel> <code>` (then the sender is added to a local allowlist store).
 - Public inbound DMs require an explicit opt-in: set `dmPolicy="open"` and include `"*"` in the channel allowlist (`allowFrom` / `channels.discord.allowFrom` / `channels.slack.allowFrom`; legacy: `channels.discord.dm.allowFrom`, `channels.slack.dm.allowFrom`).
 
-Run `openclaw doctor` to surface risky/misconfigured DM policies.
+Run `arthur doctor` to surface risky/misconfigured DM policies.
 
 ## Highlights
 
-- **[Local-first Gateway](https://docs.openclaw.ai/gateway)** — single control plane for sessions, channels, tools, and events.
-- **[Multi-channel inbox](https://docs.openclaw.ai/channels)** — WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, BlueBubbles (iMessage), iMessage (legacy), Microsoft Teams, Matrix, Zalo, Zalo Personal, WebChat, macOS, iOS/Android.
-- **[Multi-agent routing](https://docs.openclaw.ai/gateway/configuration)** — route inbound channels/accounts/peers to isolated agents (workspaces + per-agent sessions).
-- **[Voice Wake](https://docs.openclaw.ai/nodes/voicewake) + [Talk Mode](https://docs.openclaw.ai/nodes/talk)** — always-on speech for macOS/iOS/Android with ElevenLabs.
-- **[Live Canvas](https://docs.openclaw.ai/platforms/mac/canvas)** — agent-driven visual workspace with [A2UI](https://docs.openclaw.ai/platforms/mac/canvas#canvas-a2ui).
-- **[First-class tools](https://docs.openclaw.ai/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
-- **[Companion apps](https://docs.openclaw.ai/platforms/macos)** — macOS menu bar app + iOS/Android [nodes](https://docs.openclaw.ai/nodes).
-- **[Onboarding](https://docs.openclaw.ai/start/wizard) + [skills](https://docs.openclaw.ai/tools/skills)** — wizard-driven setup with bundled/managed/workspace skills.
+- **[Local-first Gateway](https://docs.arthur.ai/gateway)** — single control plane for sessions, channels, tools, and events.
+- **[Multi-channel inbox](https://docs.arthur.ai/channels)** — WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, BlueBubbles (iMessage), iMessage (legacy), Microsoft Teams, Matrix, Zalo, Zalo Personal, WebChat, macOS, iOS/Android.
+- **[Multi-agent routing](https://docs.arthur.ai/gateway/configuration)** — route inbound channels/accounts/peers to isolated agents (workspaces + per-agent sessions).
+- **[Voice Wake](https://docs.arthur.ai/nodes/voicewake) + [Talk Mode](https://docs.arthur.ai/nodes/talk)** — always-on speech for macOS/iOS/Android with ElevenLabs.
+- **[Live Canvas](https://docs.arthur.ai/platforms/mac/canvas)** — agent-driven visual workspace with [A2UI](https://docs.arthur.ai/platforms/mac/canvas#canvas-a2ui).
+- **[First-class tools](https://docs.arthur.ai/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
+- **[Companion apps](https://docs.arthur.ai/platforms/macos)** — macOS menu bar app + iOS/Android [nodes](https://docs.arthur.ai/nodes).
+- **[Onboarding](https://docs.arthur.ai/start/wizard) + [skills](https://docs.arthur.ai/tools/skills)** — wizard-driven setup with bundled/managed/workspace skills.
+- **[Dormant Mode]** — Operates via local commands even when AI tokens are unavailable.
+- **[WhatsApp Automation]** — Full command-driven task execution via WhatsApp.
 
-## Star History
+## Dormant Hybrid Architecture
 
-[![Star History Chart](https://api.star-history.com/svg?repos=openclaw/openclaw&type=date&legend=top-left)](https://www.star-history.com/#openclaw/openclaw&type=date&legend=top-left)
+Agent Aurthur is designed to be efficient. It operates in two main modes:
+
+1.  **Dormant Mode (No-API / Command-First)**: When AI tokens are unavailable or the task is simple, Arthur follows deterministic commands. You can control your machine (e.g., "open spotify", "screenshot", "system status") without burning LLM tokens.
+2.  **Titan Mode (High Autonomy)**: When a complex task is detected, Arthur "wakes up" high-level intelligence (Claude 3.5 Sonnet, Gemini 1.5 Pro) to perform advanced engineering and research.
+
+### ✨ WhatsApp Intelligence
+Connected to WhatsApp, Agent Aurthur acts as a powerful remote assistant. It listens for commands, performs tasks, and reports back—even in environments where constant AI streaming isn't feasible.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=arthur/arthur&type=date&legend=top-left)](https://www.star-history.com/#arthur/arthur&type=date&legend=top-left)
 
 ## Everything we built so far
 
 ### Core platform
 
-- [Gateway WS control plane](https://docs.openclaw.ai/gateway) with sessions, presence, config, cron, webhooks, [Control UI](https://docs.openclaw.ai/web), and [Canvas host](https://docs.openclaw.ai/platforms/mac/canvas#canvas-a2ui).
-- [CLI surface](https://docs.openclaw.ai/tools/agent-send): gateway, agent, send, [wizard](https://docs.openclaw.ai/start/wizard), and [doctor](https://docs.openclaw.ai/gateway/doctor).
-- [Pi agent runtime](https://docs.openclaw.ai/concepts/agent) in RPC mode with tool streaming and block streaming.
-- [Session model](https://docs.openclaw.ai/concepts/session): `main` for direct chats, group isolation, activation modes, queue modes, reply-back. Group rules: [Groups](https://docs.openclaw.ai/concepts/groups).
-- [Media pipeline](https://docs.openclaw.ai/nodes/images): images/audio/video, transcription hooks, size caps, temp file lifecycle. Audio details: [Audio](https://docs.openclaw.ai/nodes/audio).
+- [Gateway WS control plane](https://docs.arthur.ai/gateway) with sessions, presence, config, cron, webhooks, [Control UI](https://docs.arthur.ai/web), and [Canvas host](https://docs.arthur.ai/platforms/mac/canvas#canvas-a2ui).
+- [CLI surface](https://docs.arthur.ai/tools/agent-send): gateway, agent, send, [wizard](https://docs.arthur.ai/start/wizard), and [doctor](https://docs.arthur.ai/gateway/doctor).
+- [Pi agent runtime](https://docs.arthur.ai/concepts/agent) in RPC mode with tool streaming and block streaming.
+- [Session model](https://docs.arthur.ai/concepts/session): `main` for direct chats, group isolation, activation modes, queue modes, reply-back. Group rules: [Groups](https://docs.arthur.ai/concepts/groups).
+- [Media pipeline](https://docs.arthur.ai/nodes/images): images/audio/video, transcription hooks, size caps, temp file lifecycle. Audio details: [Audio](https://docs.arthur.ai/nodes/audio).
 
 ### Channels
 
-- [Channels](https://docs.openclaw.ai/channels): [WhatsApp](https://docs.openclaw.ai/channels/whatsapp) (Baileys), [Telegram](https://docs.openclaw.ai/channels/telegram) (grammY), [Slack](https://docs.openclaw.ai/channels/slack) (Bolt), [Discord](https://docs.openclaw.ai/channels/discord) (discord.js), [Google Chat](https://docs.openclaw.ai/channels/googlechat) (Chat API), [Signal](https://docs.openclaw.ai/channels/signal) (signal-cli), [BlueBubbles](https://docs.openclaw.ai/channels/bluebubbles) (iMessage, recommended), [iMessage](https://docs.openclaw.ai/channels/imessage) (legacy imsg), [Microsoft Teams](https://docs.openclaw.ai/channels/msteams) (extension), [Matrix](https://docs.openclaw.ai/channels/matrix) (extension), [Zalo](https://docs.openclaw.ai/channels/zalo) (extension), [Zalo Personal](https://docs.openclaw.ai/channels/zalouser) (extension), [WebChat](https://docs.openclaw.ai/web/webchat).
-- [Group routing](https://docs.openclaw.ai/concepts/group-messages): mention gating, reply tags, per-channel chunking and routing. Channel rules: [Channels](https://docs.openclaw.ai/channels).
+- [Channels](https://docs.arthur.ai/channels): [WhatsApp](https://docs.arthur.ai/channels/whatsapp) (Baileys), [Telegram](https://docs.arthur.ai/channels/telegram) (grammY), [Slack](https://docs.arthur.ai/channels/slack) (Bolt), [Discord](https://docs.arthur.ai/channels/discord) (discord.js), [Google Chat](https://docs.arthur.ai/channels/googlechat) (Chat API), [Signal](https://docs.arthur.ai/channels/signal) (signal-cli), [BlueBubbles](https://docs.arthur.ai/channels/bluebubbles) (iMessage, recommended), [iMessage](https://docs.arthur.ai/channels/imessage) (legacy imsg), [Microsoft Teams](https://docs.arthur.ai/channels/msteams) (extension), [Matrix](https://docs.arthur.ai/channels/matrix) (extension), [Zalo](https://docs.arthur.ai/channels/zalo) (extension), [Zalo Personal](https://docs.arthur.ai/channels/zalouser) (extension), [WebChat](https://docs.arthur.ai/web/webchat).
+- [Group routing](https://docs.arthur.ai/concepts/group-messages): mention gating, reply tags, per-channel chunking and routing. Channel rules: [Channels](https://docs.arthur.ai/channels).
 
 ### Apps + nodes
 
-- [macOS app](https://docs.openclaw.ai/platforms/macos): menu bar control plane, [Voice Wake](https://docs.openclaw.ai/nodes/voicewake)/PTT, [Talk Mode](https://docs.openclaw.ai/nodes/talk) overlay, [WebChat](https://docs.openclaw.ai/web/webchat), debug tools, [remote gateway](https://docs.openclaw.ai/gateway/remote) control.
-- [iOS node](https://docs.openclaw.ai/platforms/ios): [Canvas](https://docs.openclaw.ai/platforms/mac/canvas), [Voice Wake](https://docs.openclaw.ai/nodes/voicewake), [Talk Mode](https://docs.openclaw.ai/nodes/talk), camera, screen recording, Bonjour pairing.
-- [Android node](https://docs.openclaw.ai/platforms/android): [Canvas](https://docs.openclaw.ai/platforms/mac/canvas), [Talk Mode](https://docs.openclaw.ai/nodes/talk), camera, screen recording, optional SMS.
-- [macOS node mode](https://docs.openclaw.ai/nodes): system.run/notify + canvas/camera exposure.
+- [macOS app](https://docs.arthur.ai/platforms/macos): menu bar control plane, [Voice Wake](https://docs.arthur.ai/nodes/voicewake)/PTT, [Talk Mode](https://docs.arthur.ai/nodes/talk) overlay, [WebChat](https://docs.arthur.ai/web/webchat), debug tools, [remote gateway](https://docs.arthur.ai/gateway/remote) control.
+- [iOS node](https://docs.arthur.ai/platforms/ios): [Canvas](https://docs.arthur.ai/platforms/mac/canvas), [Voice Wake](https://docs.arthur.ai/nodes/voicewake), [Talk Mode](https://docs.arthur.ai/nodes/talk), camera, screen recording, Bonjour pairing.
+- [Android node](https://docs.arthur.ai/platforms/android): [Canvas](https://docs.arthur.ai/platforms/mac/canvas), [Talk Mode](https://docs.arthur.ai/nodes/talk), camera, screen recording, optional SMS.
+- [macOS node mode](https://docs.arthur.ai/nodes): system.run/notify + canvas/camera exposure.
 
 ### Tools + automation
 
-- [Browser control](https://docs.openclaw.ai/tools/browser): dedicated openclaw Chrome/Chromium, snapshots, actions, uploads, profiles.
-- [Canvas](https://docs.openclaw.ai/platforms/mac/canvas): [A2UI](https://docs.openclaw.ai/platforms/mac/canvas#canvas-a2ui) push/reset, eval, snapshot.
-- [Nodes](https://docs.openclaw.ai/nodes): camera snap/clip, screen record, [location.get](https://docs.openclaw.ai/nodes/location-command), notifications.
-- [Cron + wakeups](https://docs.openclaw.ai/automation/cron-jobs); [webhooks](https://docs.openclaw.ai/automation/webhook); [Gmail Pub/Sub](https://docs.openclaw.ai/automation/gmail-pubsub).
-- [Skills platform](https://docs.openclaw.ai/tools/skills): bundled, managed, and workspace skills with install gating + UI.
+- [Browser control](https://docs.arthur.ai/tools/browser): dedicated arthur Chrome/Chromium, snapshots, actions, uploads, profiles.
+- [Canvas](https://docs.arthur.ai/platforms/mac/canvas): [A2UI](https://docs.arthur.ai/platforms/mac/canvas#canvas-a2ui) push/reset, eval, snapshot.
+- [Nodes](https://docs.arthur.ai/nodes): camera snap/clip, screen record, [location.get](https://docs.arthur.ai/nodes/location-command), notifications.
+- [Cron + wakeups](https://docs.arthur.ai/automation/cron-jobs); [webhooks](https://docs.arthur.ai/automation/webhook); [Gmail Pub/Sub](https://docs.arthur.ai/automation/gmail-pubsub).
+- [Skills platform](https://docs.arthur.ai/tools/skills): bundled, managed, and workspace skills with install gating + UI.
 
 ### Runtime + safety
 
-- [Channel routing](https://docs.openclaw.ai/concepts/channel-routing), [retry policy](https://docs.openclaw.ai/concepts/retry), and [streaming/chunking](https://docs.openclaw.ai/concepts/streaming).
-- [Presence](https://docs.openclaw.ai/concepts/presence), [typing indicators](https://docs.openclaw.ai/concepts/typing-indicators), and [usage tracking](https://docs.openclaw.ai/concepts/usage-tracking).
-- [Models](https://docs.openclaw.ai/concepts/models), [model failover](https://docs.openclaw.ai/concepts/model-failover), and [session pruning](https://docs.openclaw.ai/concepts/session-pruning).
-- [Security](https://docs.openclaw.ai/gateway/security) and [troubleshooting](https://docs.openclaw.ai/channels/troubleshooting).
+- [Channel routing](https://docs.arthur.ai/concepts/channel-routing), [retry policy](https://docs.arthur.ai/concepts/retry), and [streaming/chunking](https://docs.arthur.ai/concepts/streaming).
+- [Presence](https://docs.arthur.ai/concepts/presence), [typing indicators](https://docs.arthur.ai/concepts/typing-indicators), and [usage tracking](https://docs.arthur.ai/concepts/usage-tracking).
+- [Models](https://docs.arthur.ai/concepts/models), [model failover](https://docs.arthur.ai/concepts/model-failover), and [session pruning](https://docs.arthur.ai/concepts/session-pruning).
+- [Security](https://docs.arthur.ai/gateway/security) and [troubleshooting](https://docs.arthur.ai/channels/troubleshooting).
 
 ### Ops + packaging
 
-- [Control UI](https://docs.openclaw.ai/web) + [WebChat](https://docs.openclaw.ai/web/webchat) served directly from the Gateway.
-- [Tailscale Serve/Funnel](https://docs.openclaw.ai/gateway/tailscale) or [SSH tunnels](https://docs.openclaw.ai/gateway/remote) with token/password auth.
-- [Nix mode](https://docs.openclaw.ai/install/nix) for declarative config; [Docker](https://docs.openclaw.ai/install/docker)-based installs.
-- [Doctor](https://docs.openclaw.ai/gateway/doctor) migrations, [logging](https://docs.openclaw.ai/logging).
+- [Control UI](https://docs.arthur.ai/web) + [WebChat](https://docs.arthur.ai/web/webchat) served directly from the Gateway.
+- [Tailscale Serve/Funnel](https://docs.arthur.ai/gateway/tailscale) or [SSH tunnels](https://docs.arthur.ai/gateway/remote) with token/password auth.
+- [Nix mode](https://docs.arthur.ai/install/nix) for declarative config; [Docker](https://docs.arthur.ai/install/docker)-based installs.
+- [Doctor](https://docs.arthur.ai/gateway/doctor) migrations, [logging](https://docs.arthur.ai/logging).
 
 ## How it works (short)
 
@@ -190,7 +200,7 @@ WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / BlueBu
 └──────────────┬────────────────┘
                │
                ├─ Pi agent (RPC)
-               ├─ CLI (openclaw …)
+               ├─ CLI (arthur …)
                ├─ WebChat UI
                ├─ macOS app
                └─ iOS / Android nodes
@@ -198,16 +208,16 @@ WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / BlueBu
 
 ## Key subsystems
 
-- **[Gateway WebSocket network](https://docs.openclaw.ai/concepts/architecture)** — single WS control plane for clients, tools, and events (plus ops: [Gateway runbook](https://docs.openclaw.ai/gateway)).
-- **[Tailscale exposure](https://docs.openclaw.ai/gateway/tailscale)** — Serve/Funnel for the Gateway dashboard + WS (remote access: [Remote](https://docs.openclaw.ai/gateway/remote)).
-- **[Browser control](https://docs.openclaw.ai/tools/browser)** — openclaw‑managed Chrome/Chromium with CDP control.
-- **[Canvas + A2UI](https://docs.openclaw.ai/platforms/mac/canvas)** — agent‑driven visual workspace (A2UI host: [Canvas/A2UI](https://docs.openclaw.ai/platforms/mac/canvas#canvas-a2ui)).
-- **[Voice Wake](https://docs.openclaw.ai/nodes/voicewake) + [Talk Mode](https://docs.openclaw.ai/nodes/talk)** — always‑on speech and continuous conversation.
-- **[Nodes](https://docs.openclaw.ai/nodes)** — Canvas, camera snap/clip, screen record, `location.get`, notifications, plus macOS‑only `system.run`/`system.notify`.
+- **[Gateway WebSocket network](https://docs.arthur.ai/concepts/architecture)** — single WS control plane for clients, tools, and events (plus ops: [Gateway runbook](https://docs.arthur.ai/gateway)).
+- **[Tailscale exposure](https://docs.arthur.ai/gateway/tailscale)** — Serve/Funnel for the Gateway dashboard + WS (remote access: [Remote](https://docs.arthur.ai/gateway/remote)).
+- **[Browser control](https://docs.arthur.ai/tools/browser)** — arthur‑managed Chrome/Chromium with CDP control.
+- **[Canvas + A2UI](https://docs.arthur.ai/platforms/mac/canvas)** — agent‑driven visual workspace (A2UI host: [Canvas/A2UI](https://docs.arthur.ai/platforms/mac/canvas#canvas-a2ui)).
+- **[Voice Wake](https://docs.arthur.ai/nodes/voicewake) + [Talk Mode](https://docs.arthur.ai/nodes/talk)** — always‑on speech and continuous conversation.
+- **[Nodes](https://docs.arthur.ai/nodes)** — Canvas, camera snap/clip, screen record, `location.get`, notifications, plus macOS‑only `system.run`/`system.notify`.
 
 ## Tailscale access (Gateway dashboard)
 
-OpenClaw can auto-configure Tailscale **Serve** (tailnet-only) or **Funnel** (public) while the Gateway stays bound to loopback. Configure `gateway.tailscale.mode`:
+Agent Aurthur can auto-configure Tailscale **Serve** (tailnet-only) or **Funnel** (public) while the Gateway stays bound to loopback. Configure `gateway.tailscale.mode`:
 
 - `off`: no Tailscale automation (default).
 - `serve`: tailnet-only HTTPS via `tailscale serve` (uses Tailscale identity headers by default).
@@ -215,12 +225,12 @@ OpenClaw can auto-configure Tailscale **Serve** (tailnet-only) or **Funnel** (pu
 
 Notes:
 
-- `gateway.bind` must stay `loopback` when Serve/Funnel is enabled (OpenClaw enforces this).
+- `gateway.bind` must stay `loopback` when Serve/Funnel is enabled (Agent Aurthur enforces this).
 - Serve can be forced to require a password by setting `gateway.auth.mode: "password"` or `gateway.auth.allowTailscale: false`.
 - Funnel refuses to start unless `gateway.auth.mode: "password"` is set.
 - Optional: `gateway.tailscale.resetOnExit` to undo Serve/Funnel on shutdown.
 
-Details: [Tailscale guide](https://docs.openclaw.ai/gateway/tailscale) · [Web surfaces](https://docs.openclaw.ai/web)
+Details: [Tailscale guide](https://docs.arthur.ai/gateway/tailscale) · [Web surfaces](https://docs.arthur.ai/web)
 
 ## Remote Gateway (Linux is great)
 
@@ -230,7 +240,7 @@ It’s perfectly fine to run the Gateway on a small Linux instance. Clients (mac
 - **Device nodes** run device‑local actions (`system.run`, camera, screen recording, notifications) via `node.invoke`.
   In short: exec runs where the Gateway lives; device actions run where the device lives.
 
-Details: [Remote access](https://docs.openclaw.ai/gateway/remote) · [Nodes](https://docs.openclaw.ai/nodes) · [Security](https://docs.openclaw.ai/gateway/security)
+Details: [Remote access](https://docs.arthur.ai/gateway/remote) · [Nodes](https://docs.arthur.ai/nodes) · [Security](https://docs.arthur.ai/gateway/security)
 
 ## macOS permissions via the Gateway protocol
 
@@ -245,7 +255,7 @@ Elevated bash (host permissions) is separate from macOS TCC:
 - Use `/elevated on|off` to toggle per‑session elevated access when enabled + allowlisted.
 - Gateway persists the per‑session toggle via `sessions.patch` (WS method) alongside `thinkingLevel`, `verboseLevel`, `model`, `sendPolicy`, and `groupActivation`.
 
-Details: [Nodes](https://docs.openclaw.ai/nodes) · [macOS app](https://docs.openclaw.ai/platforms/macos) · [Gateway protocol](https://docs.openclaw.ai/concepts/architecture)
+Details: [Nodes](https://docs.arthur.ai/nodes) · [macOS app](https://docs.arthur.ai/platforms/macos) · [Gateway protocol](https://docs.arthur.ai/concepts/architecture)
 
 ## Agent to Agent (sessions\_\* tools)
 
@@ -254,7 +264,7 @@ Details: [Nodes](https://docs.openclaw.ai/nodes) · [macOS app](https://docs.ope
 - `sessions_history` — fetch transcript logs for a session.
 - `sessions_send` — message another session; optional reply‑back ping‑pong + announce step (`REPLY_SKIP`, `ANNOUNCE_SKIP`).
 
-Details: [Session tools](https://docs.openclaw.ai/concepts/session-tool)
+Details: [Session tools](https://docs.arthur.ai/concepts/session-tool)
 
 ## Skills registry (ClawHub)
 
@@ -281,7 +291,7 @@ The Gateway alone delivers a great experience. All apps are optional and add ext
 
 If you plan to build/run companion apps, follow the platform runbooks below.
 
-### macOS (OpenClaw.app) (optional)
+### macOS (Agent Aurthur.app) (optional)
 
 - Menu bar control for the Gateway and health.
 - Voice Wake + push-to-talk overlay.
@@ -294,25 +304,25 @@ Note: signed builds required for macOS permissions to stick across rebuilds (see
 
 - Pairs as a node via the Bridge.
 - Voice trigger forwarding + Canvas surface.
-- Controlled via `openclaw nodes …`.
+- Controlled via `arthur nodes …`.
 
-Runbook: [iOS connect](https://docs.openclaw.ai/platforms/ios).
+Runbook: [iOS connect](https://docs.arthur.ai/platforms/ios).
 
 ### Android node (optional)
 
 - Pairs via the same Bridge + pairing flow as iOS.
 - Exposes Canvas, Camera, and Screen capture commands.
-- Runbook: [Android connect](https://docs.openclaw.ai/platforms/android).
+- Runbook: [Android connect](https://docs.arthur.ai/platforms/android).
 
 ## Agent workspace + skills
 
-- Workspace root: `~/.openclaw/workspace` (configurable via `agents.defaults.workspace`).
+- Workspace root: `~/.arthur/workspace` (configurable via `agents.defaults.workspace`).
 - Injected prompt files: `AGENTS.md`, `SOUL.md`, `TOOLS.md`.
-- Skills: `~/.openclaw/workspace/skills/<skill>/SKILL.md`.
+- Skills: `~/.arthur/workspace/skills/<skill>/SKILL.md`.
 
 ## Configuration
 
-Minimal `~/.openclaw/openclaw.json` (model + defaults):
+Minimal `~/.arthur/arthur.json` (model + defaults):
 
 ```json5
 {
@@ -322,7 +332,7 @@ Minimal `~/.openclaw/openclaw.json` (model + defaults):
 }
 ```
 
-[Full configuration reference (all keys + examples).](https://docs.openclaw.ai/gateway/configuration)
+[Full configuration reference (all keys + examples).](https://docs.arthur.ai/gateway/configuration)
 
 ## Security model (important)
 
@@ -330,15 +340,15 @@ Minimal `~/.openclaw/openclaw.json` (model + defaults):
 - **Group/channel safety:** set `agents.defaults.sandbox.mode: "non-main"` to run **non‑main sessions** (groups/channels) inside per‑session Docker sandboxes; bash then runs in Docker for those sessions.
 - **Sandbox defaults:** allowlist `bash`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`; denylist `browser`, `canvas`, `nodes`, `cron`, `discord`, `gateway`.
 
-Details: [Security guide](https://docs.openclaw.ai/gateway/security) · [Docker + sandboxing](https://docs.openclaw.ai/install/docker) · [Sandbox config](https://docs.openclaw.ai/gateway/configuration)
+Details: [Security guide](https://docs.arthur.ai/gateway/security) · [Docker + sandboxing](https://docs.arthur.ai/install/docker) · [Sandbox config](https://docs.arthur.ai/gateway/configuration)
 
-### [WhatsApp](https://docs.openclaw.ai/channels/whatsapp)
+### [WhatsApp](https://docs.arthur.ai/channels/whatsapp)
 
-- Link the device: `pnpm openclaw channels login` (stores creds in `~/.openclaw/credentials`).
+- Link the device: `pnpm arthur channels login` (stores creds in `~/.arthur/credentials`).
 - Allowlist who can talk to the assistant via `channels.whatsapp.allowFrom`.
 - If `channels.whatsapp.groups` is set, it becomes a group allowlist; include `"*"` to allow all.
 
-### [Telegram](https://docs.openclaw.ai/channels/telegram)
+### [Telegram](https://docs.arthur.ai/channels/telegram)
 
 - Set `TELEGRAM_BOT_TOKEN` or `channels.telegram.botToken` (env wins).
 - Optional: set `channels.telegram.groups` (with `channels.telegram.groups."*".requireMention`); when set, it is a group allowlist (include `"*"` to allow all). Also `channels.telegram.allowFrom` or `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` as needed.
@@ -353,11 +363,11 @@ Details: [Security guide](https://docs.openclaw.ai/gateway/security) · [Docker 
 }
 ```
 
-### [Slack](https://docs.openclaw.ai/channels/slack)
+### [Slack](https://docs.arthur.ai/channels/slack)
 
 - Set `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN` (or `channels.slack.botToken` + `channels.slack.appToken`).
 
-### [Discord](https://docs.openclaw.ai/channels/discord)
+### [Discord](https://docs.arthur.ai/channels/discord)
 
 - Set `DISCORD_BOT_TOKEN` or `channels.discord.token` (env wins).
 - Optional: set `commands.native`, `commands.text`, or `commands.useAccessGroups`, plus `channels.discord.allowFrom`, `channels.discord.guilds`, or `channels.discord.mediaMaxMb` as needed.
@@ -372,27 +382,27 @@ Details: [Security guide](https://docs.openclaw.ai/gateway/security) · [Docker 
 }
 ```
 
-### [Signal](https://docs.openclaw.ai/channels/signal)
+### [Signal](https://docs.arthur.ai/channels/signal)
 
 - Requires `signal-cli` and a `channels.signal` config section.
 
-### [BlueBubbles (iMessage)](https://docs.openclaw.ai/channels/bluebubbles)
+### [BlueBubbles (iMessage)](https://docs.arthur.ai/channels/bluebubbles)
 
 - **Recommended** iMessage integration.
 - Configure `channels.bluebubbles.serverUrl` + `channels.bluebubbles.password` and a webhook (`channels.bluebubbles.webhookPath`).
 - The BlueBubbles server runs on macOS; the Gateway can run on macOS or elsewhere.
 
-### [iMessage (legacy)](https://docs.openclaw.ai/channels/imessage)
+### [iMessage (legacy)](https://docs.arthur.ai/channels/imessage)
 
 - Legacy macOS-only integration via `imsg` (Messages must be signed in).
 - If `channels.imessage.groups` is set, it becomes a group allowlist; include `"*"` to allow all.
 
-### [Microsoft Teams](https://docs.openclaw.ai/channels/msteams)
+### [Microsoft Teams](https://docs.arthur.ai/channels/msteams)
 
 - Configure a Teams app + Bot Framework, then add a `msteams` config section.
 - Allowlist who can talk via `msteams.allowFrom`; group access via `msteams.groupAllowFrom` or `msteams.groupPolicy: "open"`.
 
-### [WebChat](https://docs.openclaw.ai/web/webchat)
+### [WebChat](https://docs.arthur.ai/web/webchat)
 
 - Uses the Gateway WebSocket; no separate WebChat port/config.
 
@@ -411,79 +421,79 @@ Browser control (optional):
 
 Use these when you’re past the onboarding flow and want the deeper reference.
 
-- [Start with the docs index for navigation and “what’s where.”](https://docs.openclaw.ai)
-- [Read the architecture overview for the gateway + protocol model.](https://docs.openclaw.ai/concepts/architecture)
-- [Use the full configuration reference when you need every key and example.](https://docs.openclaw.ai/gateway/configuration)
-- [Run the Gateway by the book with the operational runbook.](https://docs.openclaw.ai/gateway)
-- [Learn how the Control UI/Web surfaces work and how to expose them safely.](https://docs.openclaw.ai/web)
-- [Understand remote access over SSH tunnels or tailnets.](https://docs.openclaw.ai/gateway/remote)
-- [Follow the onboarding wizard flow for a guided setup.](https://docs.openclaw.ai/start/wizard)
-- [Wire external triggers via the webhook surface.](https://docs.openclaw.ai/automation/webhook)
-- [Set up Gmail Pub/Sub triggers.](https://docs.openclaw.ai/automation/gmail-pubsub)
-- [Learn the macOS menu bar companion details.](https://docs.openclaw.ai/platforms/mac/menu-bar)
-- [Platform guides: Windows (WSL2)](https://docs.openclaw.ai/platforms/windows), [Linux](https://docs.openclaw.ai/platforms/linux), [macOS](https://docs.openclaw.ai/platforms/macos), [iOS](https://docs.openclaw.ai/platforms/ios), [Android](https://docs.openclaw.ai/platforms/android)
-- [Debug common failures with the troubleshooting guide.](https://docs.openclaw.ai/channels/troubleshooting)
-- [Review security guidance before exposing anything.](https://docs.openclaw.ai/gateway/security)
+- [Start with the docs index for navigation and “what’s where.”](https://docs.arthur.ai)
+- [Read the architecture overview for the gateway + protocol model.](https://docs.arthur.ai/concepts/architecture)
+- [Use the full configuration reference when you need every key and example.](https://docs.arthur.ai/gateway/configuration)
+- [Run the Gateway by the book with the operational runbook.](https://docs.arthur.ai/gateway)
+- [Learn how the Control UI/Web surfaces work and how to expose them safely.](https://docs.arthur.ai/web)
+- [Understand remote access over SSH tunnels or tailnets.](https://docs.arthur.ai/gateway/remote)
+- [Follow the onboarding wizard flow for a guided setup.](https://docs.arthur.ai/start/wizard)
+- [Wire external triggers via the webhook surface.](https://docs.arthur.ai/automation/webhook)
+- [Set up Gmail Pub/Sub triggers.](https://docs.arthur.ai/automation/gmail-pubsub)
+- [Learn the macOS menu bar companion details.](https://docs.arthur.ai/platforms/mac/menu-bar)
+- [Platform guides: Windows (WSL2)](https://docs.arthur.ai/platforms/windows), [Linux](https://docs.arthur.ai/platforms/linux), [macOS](https://docs.arthur.ai/platforms/macos), [iOS](https://docs.arthur.ai/platforms/ios), [Android](https://docs.arthur.ai/platforms/android)
+- [Debug common failures with the troubleshooting guide.](https://docs.arthur.ai/channels/troubleshooting)
+- [Review security guidance before exposing anything.](https://docs.arthur.ai/gateway/security)
 
 ## Advanced docs (discovery + control)
 
-- [Discovery + transports](https://docs.openclaw.ai/gateway/discovery)
-- [Bonjour/mDNS](https://docs.openclaw.ai/gateway/bonjour)
-- [Gateway pairing](https://docs.openclaw.ai/gateway/pairing)
-- [Remote gateway README](https://docs.openclaw.ai/gateway/remote-gateway-readme)
-- [Control UI](https://docs.openclaw.ai/web/control-ui)
-- [Dashboard](https://docs.openclaw.ai/web/dashboard)
+- [Discovery + transports](https://docs.arthur.ai/gateway/discovery)
+- [Bonjour/mDNS](https://docs.arthur.ai/gateway/bonjour)
+- [Gateway pairing](https://docs.arthur.ai/gateway/pairing)
+- [Remote gateway README](https://docs.arthur.ai/gateway/remote-gateway-readme)
+- [Control UI](https://docs.arthur.ai/web/control-ui)
+- [Dashboard](https://docs.arthur.ai/web/dashboard)
 
 ## Operations & troubleshooting
 
-- [Health checks](https://docs.openclaw.ai/gateway/health)
-- [Gateway lock](https://docs.openclaw.ai/gateway/gateway-lock)
-- [Background process](https://docs.openclaw.ai/gateway/background-process)
-- [Browser troubleshooting (Linux)](https://docs.openclaw.ai/tools/browser-linux-troubleshooting)
-- [Logging](https://docs.openclaw.ai/logging)
+- [Health checks](https://docs.arthur.ai/gateway/health)
+- [Gateway lock](https://docs.arthur.ai/gateway/gateway-lock)
+- [Background process](https://docs.arthur.ai/gateway/background-process)
+- [Browser troubleshooting (Linux)](https://docs.arthur.ai/tools/browser-linux-troubleshooting)
+- [Logging](https://docs.arthur.ai/logging)
 
 ## Deep dives
 
-- [Agent loop](https://docs.openclaw.ai/concepts/agent-loop)
-- [Presence](https://docs.openclaw.ai/concepts/presence)
-- [TypeBox schemas](https://docs.openclaw.ai/concepts/typebox)
-- [RPC adapters](https://docs.openclaw.ai/reference/rpc)
-- [Queue](https://docs.openclaw.ai/concepts/queue)
+- [Agent loop](https://docs.arthur.ai/concepts/agent-loop)
+- [Presence](https://docs.arthur.ai/concepts/presence)
+- [TypeBox schemas](https://docs.arthur.ai/concepts/typebox)
+- [RPC adapters](https://docs.arthur.ai/reference/rpc)
+- [Queue](https://docs.arthur.ai/concepts/queue)
 
 ## Workspace & skills
 
-- [Skills config](https://docs.openclaw.ai/tools/skills-config)
-- [Default AGENTS](https://docs.openclaw.ai/reference/AGENTS.default)
-- [Templates: AGENTS](https://docs.openclaw.ai/reference/templates/AGENTS)
-- [Templates: BOOTSTRAP](https://docs.openclaw.ai/reference/templates/BOOTSTRAP)
-- [Templates: IDENTITY](https://docs.openclaw.ai/reference/templates/IDENTITY)
-- [Templates: SOUL](https://docs.openclaw.ai/reference/templates/SOUL)
-- [Templates: TOOLS](https://docs.openclaw.ai/reference/templates/TOOLS)
-- [Templates: USER](https://docs.openclaw.ai/reference/templates/USER)
+- [Skills config](https://docs.arthur.ai/tools/skills-config)
+- [Default AGENTS](https://docs.arthur.ai/reference/AGENTS.default)
+- [Templates: AGENTS](https://docs.arthur.ai/reference/templates/AGENTS)
+- [Templates: BOOTSTRAP](https://docs.arthur.ai/reference/templates/BOOTSTRAP)
+- [Templates: IDENTITY](https://docs.arthur.ai/reference/templates/IDENTITY)
+- [Templates: SOUL](https://docs.arthur.ai/reference/templates/SOUL)
+- [Templates: TOOLS](https://docs.arthur.ai/reference/templates/TOOLS)
+- [Templates: USER](https://docs.arthur.ai/reference/templates/USER)
 
 ## Platform internals
 
-- [macOS dev setup](https://docs.openclaw.ai/platforms/mac/dev-setup)
-- [macOS menu bar](https://docs.openclaw.ai/platforms/mac/menu-bar)
-- [macOS voice wake](https://docs.openclaw.ai/platforms/mac/voicewake)
-- [iOS node](https://docs.openclaw.ai/platforms/ios)
-- [Android node](https://docs.openclaw.ai/platforms/android)
-- [Windows (WSL2)](https://docs.openclaw.ai/platforms/windows)
-- [Linux app](https://docs.openclaw.ai/platforms/linux)
+- [macOS dev setup](https://docs.arthur.ai/platforms/mac/dev-setup)
+- [macOS menu bar](https://docs.arthur.ai/platforms/mac/menu-bar)
+- [macOS voice wake](https://docs.arthur.ai/platforms/mac/voicewake)
+- [iOS node](https://docs.arthur.ai/platforms/ios)
+- [Android node](https://docs.arthur.ai/platforms/android)
+- [Windows (WSL2)](https://docs.arthur.ai/platforms/windows)
+- [Linux app](https://docs.arthur.ai/platforms/linux)
 
 ## Email hooks (Gmail)
 
-- [docs.openclaw.ai/gmail-pubsub](https://docs.openclaw.ai/automation/gmail-pubsub)
+- [docs.arthur.ai/gmail-pubsub](https://docs.arthur.ai/automation/gmail-pubsub)
 
 ## Molty
 
-OpenClaw was built for **Molty**, a space lobster AI assistant. 🦞
-by Peter Steinberger and the community.
+Agent Aurthur was built for **Molty**, a space lobster AI assistant. 🦞
+Built upon the **OpenClaw** framework by Peter Steinberger and the community.
 
-- [openclaw.ai](https://openclaw.ai)
+- [arthur.ai](https://arthur.ai)
 - [soul.md](https://soul.md)
 - [steipete.me](https://steipete.me)
-- [@openclaw](https://x.com/openclaw)
+- [@arthur](https://x.com/arthur)
 
 ## Community
 
@@ -539,7 +549,7 @@ Thanks to all clawtributors:
   <a href="https://github.com/martinpucik"><img src="https://avatars.githubusercontent.com/u/5503097?v=4&s=48" width="48" height="48" alt="martinpucik" title="martinpucik"/></a> <a href="https://github.com/search?q=Matt%20mini"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Matt mini" title="Matt mini"/></a> <a href="https://github.com/mertcicekci0"><img src="https://avatars.githubusercontent.com/u/179321902?v=4&s=48" width="48" height="48" alt="mertcicekci0" title="mertcicekci0"/></a> <a href="https://github.com/search?q=Miles"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Miles" title="Miles"/></a> <a href="https://github.com/search?q=minghinmatthewlam"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="minghinmatthewlam" title="minghinmatthewlam"/></a> <a href="https://github.com/mrdbstn"><img src="https://avatars.githubusercontent.com/u/58957632?v=4&s=48" width="48" height="48" alt="mrdbstn" title="mrdbstn"/></a> <a href="https://github.com/MSch"><img src="https://avatars.githubusercontent.com/u/7475?v=4&s=48" width="48" height="48" alt="MSch" title="MSch"/></a> <a href="https://github.com/search?q=mudrii"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="mudrii" title="mudrii"/></a> <a href="https://github.com/search?q=Mustafa%20Tag%20Eldeen"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Mustafa Tag Eldeen" title="Mustafa Tag Eldeen"/></a> <a href="https://github.com/search?q=myfunc"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="myfunc" title="myfunc"/></a>
   <a href="https://github.com/mylukin"><img src="https://avatars.githubusercontent.com/u/1021019?v=4&s=48" width="48" height="48" alt="mylukin" title="mylukin"/></a> <a href="https://github.com/nathanbosse"><img src="https://avatars.githubusercontent.com/u/4040669?v=4&s=48" width="48" height="48" alt="nathanbosse" title="nathanbosse"/></a> <a href="https://github.com/ndraiman"><img src="https://avatars.githubusercontent.com/u/12609607?v=4&s=48" width="48" height="48" alt="ndraiman" title="ndraiman"/></a> <a href="https://github.com/nexty5870"><img src="https://avatars.githubusercontent.com/u/3869659?v=4&s=48" width="48" height="48" alt="nexty5870" title="nexty5870"/></a> <a href="https://github.com/Noctivoro"><img src="https://avatars.githubusercontent.com/u/183974570?v=4&s=48" width="48" height="48" alt="Noctivoro" title="Noctivoro"/></a> <a href="https://github.com/Omar-Khaleel"><img src="https://avatars.githubusercontent.com/u/240748662?v=4&s=48" width="48" height="48" alt="Omar-Khaleel" title="Omar-Khaleel"/></a> <a href="https://github.com/ozgur-polat"><img src="https://avatars.githubusercontent.com/u/26483942?v=4&s=48" width="48" height="48" alt="ozgur-polat" title="ozgur-polat"/></a> <a href="https://github.com/search?q=pasogott"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="pasogott" title="pasogott"/></a> <a href="https://github.com/search?q=plum-dawg"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="plum-dawg" title="plum-dawg"/></a> <a href="https://github.com/search?q=pookNast"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="pookNast" title="pookNast"/></a>
   <a href="https://github.com/ppamment"><img src="https://avatars.githubusercontent.com/u/2122919?v=4&s=48" width="48" height="48" alt="ppamment" title="ppamment"/></a> <a href="https://github.com/prathamdby"><img src="https://avatars.githubusercontent.com/u/134331217?v=4&s=48" width="48" height="48" alt="prathamdby" title="prathamdby"/></a> <a href="https://github.com/ptn1411"><img src="https://avatars.githubusercontent.com/u/57529765?v=4&s=48" width="48" height="48" alt="ptn1411" title="ptn1411"/></a> <a href="https://github.com/search?q=rafaelreis-r"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="rafaelreis-r" title="rafaelreis-r"/></a> <a href="https://github.com/rafelbev"><img src="https://avatars.githubusercontent.com/u/467120?v=4&s=48" width="48" height="48" alt="rafelbev" title="rafelbev"/></a> <a href="https://github.com/reeltimeapps"><img src="https://avatars.githubusercontent.com/u/637338?v=4&s=48" width="48" height="48" alt="reeltimeapps" title="reeltimeapps"/></a> <a href="https://github.com/RLTCmpe"><img src="https://avatars.githubusercontent.com/u/10762242?v=4&s=48" width="48" height="48" alt="RLTCmpe" title="RLTCmpe"/></a> <a href="https://github.com/search?q=robhparker"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="robhparker" title="robhparker"/></a> <a href="https://github.com/rohansachinpatil"><img src="https://avatars.githubusercontent.com/u/172933149?v=4&s=48" width="48" height="48" alt="rohansachinpatil" title="rohansachinpatil"/></a> <a href="https://github.com/search?q=Rony%20Kelner"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Rony Kelner" title="Rony Kelner"/></a>
-  <a href="https://github.com/ryancnelson"><img src="https://avatars.githubusercontent.com/u/347171?v=4&s=48" width="48" height="48" alt="ryancnelson" title="ryancnelson"/></a> <a href="https://github.com/search?q=Samrat%20Jha"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Samrat Jha" title="Samrat Jha"/></a> <a href="https://github.com/search?q=seans-openclawbot"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="seans-openclawbot" title="seans-openclawbot"/></a> <a href="https://github.com/senoldogann"><img src="https://avatars.githubusercontent.com/u/45736551?v=4&s=48" width="48" height="48" alt="senoldogann" title="senoldogann"/></a> <a href="https://github.com/Seredeep"><img src="https://avatars.githubusercontent.com/u/22802816?v=4&s=48" width="48" height="48" alt="Seredeep" title="Seredeep"/></a> <a href="https://github.com/sergical"><img src="https://avatars.githubusercontent.com/u/3760543?v=4&s=48" width="48" height="48" alt="sergical" title="sergical"/></a> <a href="https://github.com/search?q=shatner"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="shatner" title="shatner"/></a> <a href="https://github.com/shiv19"><img src="https://avatars.githubusercontent.com/u/9407019?v=4&s=48" width="48" height="48" alt="shiv19" title="shiv19"/></a> <a href="https://github.com/shiyuanhai"><img src="https://avatars.githubusercontent.com/u/1187370?v=4&s=48" width="48" height="48" alt="shiyuanhai" title="shiyuanhai"/></a> <a href="https://github.com/Shrinija17"><img src="https://avatars.githubusercontent.com/u/199155426?v=4&s=48" width="48" height="48" alt="Shrinija17" title="Shrinija17"/></a>
+  <a href="https://github.com/ryancnelson"><img src="https://avatars.githubusercontent.com/u/347171?v=4&s=48" width="48" height="48" alt="ryancnelson" title="ryancnelson"/></a> <a href="https://github.com/search?q=Samrat%20Jha"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Samrat Jha" title="Samrat Jha"/></a> <a href="https://github.com/search?q=seans-arthurbot"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="seans-arthurbot" title="seans-arthurbot"/></a> <a href="https://github.com/senoldogann"><img src="https://avatars.githubusercontent.com/u/45736551?v=4&s=48" width="48" height="48" alt="senoldogann" title="senoldogann"/></a> <a href="https://github.com/Seredeep"><img src="https://avatars.githubusercontent.com/u/22802816?v=4&s=48" width="48" height="48" alt="Seredeep" title="Seredeep"/></a> <a href="https://github.com/sergical"><img src="https://avatars.githubusercontent.com/u/3760543?v=4&s=48" width="48" height="48" alt="sergical" title="sergical"/></a> <a href="https://github.com/search?q=shatner"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="shatner" title="shatner"/></a> <a href="https://github.com/shiv19"><img src="https://avatars.githubusercontent.com/u/9407019?v=4&s=48" width="48" height="48" alt="shiv19" title="shiv19"/></a> <a href="https://github.com/shiyuanhai"><img src="https://avatars.githubusercontent.com/u/1187370?v=4&s=48" width="48" height="48" alt="shiyuanhai" title="shiyuanhai"/></a> <a href="https://github.com/Shrinija17"><img src="https://avatars.githubusercontent.com/u/199155426?v=4&s=48" width="48" height="48" alt="Shrinija17" title="Shrinija17"/></a>
   <a href="https://github.com/siraht"><img src="https://avatars.githubusercontent.com/u/73152895?v=4&s=48" width="48" height="48" alt="siraht" title="siraht"/></a> <a href="https://github.com/snopoke"><img src="https://avatars.githubusercontent.com/u/249606?v=4&s=48" width="48" height="48" alt="snopoke" title="snopoke"/></a> <a href="https://github.com/search?q=spiceoogway"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="spiceoogway" title="spiceoogway"/></a> <a href="https://github.com/stephenchen2025"><img src="https://avatars.githubusercontent.com/u/218387130?v=4&s=48" width="48" height="48" alt="stephenchen2025" title="stephenchen2025"/></a> <a href="https://github.com/search?q=succ985"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="succ985" title="succ985"/></a> <a href="https://github.com/Suvink"><img src="https://avatars.githubusercontent.com/u/10671497?v=4&s=48" width="48" height="48" alt="Suvink" title="Suvink"/></a> <a href="https://github.com/search?q=techboss"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="techboss" title="techboss"/></a> <a href="https://github.com/testingabc321"><img src="https://avatars.githubusercontent.com/u/8577388?v=4&s=48" width="48" height="48" alt="testingabc321" title="testingabc321"/></a> <a href="https://github.com/search?q=tewatia"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="tewatia" title="tewatia"/></a> <a href="https://github.com/search?q=The%20Admiral"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="The Admiral" title="The Admiral"/></a>
   <a href="https://github.com/search?q=therealZpoint-bot"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="therealZpoint-bot" title="therealZpoint-bot"/></a> <a href="https://github.com/thesash"><img src="https://avatars.githubusercontent.com/u/1166151?v=4&s=48" width="48" height="48" alt="thesash" title="thesash"/></a> <a href="https://github.com/search?q=uos-status"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="uos-status" title="uos-status"/></a> <a href="https://github.com/vcastellm"><img src="https://avatars.githubusercontent.com/u/47026?v=4&s=48" width="48" height="48" alt="vcastellm" title="vcastellm"/></a> <a href="https://github.com/search?q=Vibe%20Kanban"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Vibe Kanban" title="Vibe Kanban"/></a> <a href="https://github.com/vincentkoc"><img src="https://avatars.githubusercontent.com/u/25068?v=4&s=48" width="48" height="48" alt="vincentkoc" title="vincentkoc"/></a> <a href="https://github.com/search?q=void"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="void" title="void"/></a> <a href="https://github.com/search?q=Vultr-Clawd%20Admin"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Vultr-Clawd Admin" title="Vultr-Clawd Admin"/></a> <a href="https://github.com/search?q=Wimmie"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Wimmie" title="Wimmie"/></a> <a href="https://github.com/search?q=wolfred"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="wolfred" title="wolfred"/></a>
   <a href="https://github.com/wstock"><img src="https://avatars.githubusercontent.com/u/1394687?v=4&s=48" width="48" height="48" alt="wstock" title="wstock"/></a> <a href="https://github.com/wytheme"><img src="https://avatars.githubusercontent.com/u/5009358?v=4&s=48" width="48" height="48" alt="wytheme" title="wytheme"/></a> <a href="https://github.com/YangHuang2280"><img src="https://avatars.githubusercontent.com/u/201681634?v=4&s=48" width="48" height="48" alt="YangHuang2280" title="YangHuang2280"/></a> <a href="https://github.com/yazinsai"><img src="https://avatars.githubusercontent.com/u/1846034?v=4&s=48" width="48" height="48" alt="yazinsai" title="yazinsai"/></a> <a href="https://github.com/yevhen"><img src="https://avatars.githubusercontent.com/u/107726?v=4&s=48" width="48" height="48" alt="yevhen" title="yevhen"/></a> <a href="https://github.com/YiWang24"><img src="https://avatars.githubusercontent.com/u/176262341?v=4&s=48" width="48" height="48" alt="YiWang24" title="YiWang24"/></a> <a href="https://github.com/search?q=ymat19"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="ymat19" title="ymat19"/></a> <a href="https://github.com/search?q=Zach%20Knickerbocker"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="Zach Knickerbocker" title="Zach Knickerbocker"/></a> <a href="https://github.com/zackerthescar"><img src="https://avatars.githubusercontent.com/u/38077284?v=4&s=48" width="48" height="48" alt="zackerthescar" title="zackerthescar"/></a> <a href="https://github.com/search?q=zhixian"><img src="assets/avatar-placeholder.svg" width="48" height="48" alt="zhixian" title="zhixian"/></a>
