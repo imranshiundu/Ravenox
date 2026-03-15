@@ -44,6 +44,11 @@ Implemented a modular Python-based tool suite in `/tools` to offload heavy tasks
 - **Serverless Migration**: Mapped out the path for `moltworker` (Cloudflare) to achieve sub-5ms boot times with $0 idle cost.
 - **Lead Developer Attribution**: Added **Imran Shiundu (Lead Architect)** to the primary contributor list.
 
+### 8. Documentation Overhaul
+- **CONTRIBUTING.md Refresh**: Completely rewritten to be brief and clearly state **Imran Shiundu** as the primary maintainer.
+- **README.md Rebirth**: Replaced legacy OpenClaw-style documentation with a high-impact, feature-focused Agent Aurthur landing page.
+- **Lineage Preservation**: Maintained explicit credit to **OpenClaw** to acknowledge the foundational codebase.
+
 ## 🚀 Deployment
 - **Repository**: Code pushed to `https://github.com/imranshiundu/Agent-Aurther.git`.
 - **Verification**: Verified intent resolution for local commands and `ARTHUR_LIGHT_MODE` precedence.
